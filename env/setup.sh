@@ -8,7 +8,7 @@ wp rewrite structure '/%postname%/'
 wp rewrite flush --hard
 
 wp option update blogname "The WordPress Showcase"
-wp option update blogdescription "The Best WordPress Sites in the Wordl"
+wp option update blogdescription "The Best WordPress Sites in the World"
 
 wp import "${root}/env/showcase-posts.xml" --authors=create
 wp import "${root}/env/showcase-pages.xml" --authors=create
