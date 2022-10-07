@@ -12,6 +12,3 @@ wp option update blogdescription "The Best WordPress Sites in the Wordl"
 
 wp import "${root}/env/showcase-posts.xml" --authors=create
 wp import "${root}/env/showcase-pages.xml" --authors=create
-
-wp option update show_on_front 'page'
-wp option update page_on_front 1708
