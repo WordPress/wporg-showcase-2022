@@ -39,18 +39,18 @@ function render() {
 	global $post;
 	$width = 400;
 
-	$screenshot = site_screenshot_src( $width, false );
+	$screenshot = site_screenshot_src( $width );
 	$srcset = $screenshot;
 
 	if ( '' != $width ) {
-		$screenshot = add_query_arg( 'w', $width, $screenshot);
-		$srcset = add_query_arg( 'w', $width*2 , $screenshot);
+		$screenshot = add_query_arg( 'w', $width, $screenshot );
+		$srcset = add_query_arg( 'w', $width * 2, $screenshot );
 	}
 
 	// mshot images have a 4/3 ratio
-	$height = (int)( $width * (3/4) );
+	$height = (int) ( $width * ( 3 / 4 ) );
 
-	return  "<img src='{$screenshot}' srcset='$srcset 2x' width='{$width}' height='{$height}' alt='". the_title_attribute(array('echo'=>false)) . "' />";
+	return "<img src='{$screenshot}' srcset='$srcset 2x' width='{$width}' height='{$height}' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' />";
 }
 
 function get_site_domain( $rem_trail_slash = false ) {
@@ -59,19 +59,20 @@ function get_site_domain( $rem_trail_slash = false ) {
 	$domain = get_post_meta( $post->ID, 'domain', true );
 
 	//remove trailing slash
-	if ( $rem_trail_slash && ( strrpos( $domain, '/' ) == ( strlen( $domain ) - 1 ) ) )
+	if ( $rem_trail_slash && ( strrpos( $domain, '/' ) == ( strlen( $domain ) - 1 ) ) ) {
 		$domain = substr( $domain, 0, strlen( $domain ) - 1 );
+	}
 
 	$domain = preg_replace( '#^https?://#i', '', $domain );
 
 	return $domain;
 }
 
-function site_screenshot_src( $width = '', $echo = true ) {
+function site_screenshot_src( $width = '' ) {
 	global $post;
 
-	$screenshot = get_post_meta($post->ID, 'screenshot', true);
-	
+	$screenshot = get_post_meta( $post->ID, 'screenshot', true );
+
 	if ( empty( $screenshot ) ) {
 		$screenshot = 'https://wordpress.com/mshots/v1/http%3A%2F%2F' . get_site_domain( true, false );
 	} elseif ( function_exists( 'jetpack_photon_url' ) ) {
@@ -79,17 +80,11 @@ function site_screenshot_src( $width = '', $echo = true ) {
 	}
 
 	if ( $width ) {
-		$screenshot = add_query_arg( 'w', $width, $screenshot);
+		$screenshot = add_query_arg( 'w', $width, $screenshot );
 	}
 
 	$screenshot = apply_filters( 'wporg_showcase_screenshot_src', $screenshot, $post, $width );
 
 	// force screenshot URLs to be https
-	$screenshot = str_replace( 'http://', 'https://', $screenshot );
-
-	if ( $echo ) {
-		echo $screenshot;
-	} else {
-		return $screenshot;
-	}
+	return str_replace( 'http://', 'https://', $screenshot );
 }
