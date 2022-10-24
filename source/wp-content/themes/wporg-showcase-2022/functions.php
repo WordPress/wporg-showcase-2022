@@ -2,6 +2,9 @@
 
 namespace WordPressdotorg\Theme\Showcase_2022;
 
+// Block files
+require_once( __DIR__ . '/src/site-screenshot/index.php' );
+
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 
 /**
@@ -72,4 +75,3 @@ function jetpack_fallback_image( $media, $post_id, $args ) {
 		);
 	}
 }
-

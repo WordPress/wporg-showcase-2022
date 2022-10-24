@@ -1,0 +1,18 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wporg/site-screenshot",
+	"version": "0.1.0",
+	"title": "Site Screenshot",
+	"category": "design",
+	"icon": "",
+	"description": "Display a screenshot of the site.",
+	"textdomain": "wporg",
+	"attributes": {},
+	"supports": {
+		"align": true,
+		"html": false,
+		"multiple": false
+	},
+	"editorScript": "file:./index.js"
+}
