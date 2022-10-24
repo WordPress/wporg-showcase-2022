@@ -9,6 +9,7 @@ import { image } from '@wordpress/icons';
  * Internal dependencies
  */
 import metadata from './block.json';
+import './style.scss';
 
 function Edit() {
 	return <Placeholder icon={ image } label="Site Screenshot" />;

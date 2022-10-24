@@ -50,7 +50,7 @@ function render() {
 	// mshot images have a 4/3 ratio
 	$height = (int) ( $width * ( 3 / 4 ) );
 
-	return "<img src='{$screenshot}' srcset='$srcset 2x' width='{$width}' height='{$height}' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' />";
+	return "<img src='{$screenshot}' srcset='$srcset 2x' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' class='wp-block-wporg-site-screenshot' />";
 }
 
 /**
