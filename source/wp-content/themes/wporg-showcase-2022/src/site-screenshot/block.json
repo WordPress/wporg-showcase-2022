@@ -11,8 +11,7 @@
 	"attributes": {},
 	"supports": {
 		"align": true,
-		"html": false,
-		"multiple": false
+		"html": false
 	},
 	"editorScript": "file:./index.js"
 }

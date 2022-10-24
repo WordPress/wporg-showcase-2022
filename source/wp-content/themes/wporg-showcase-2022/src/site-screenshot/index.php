@@ -53,6 +53,12 @@ function render() {
 	return "<img src='{$screenshot}' srcset='$srcset 2x' width='{$width}' height='{$height}' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' />";
 }
 
+/**
+ * Retrieve the domain from post meta.
+ *
+ * @param boolean $rem_trail_slash
+ * @return string URL
+ */
 function get_site_domain( $rem_trail_slash = false ) {
 	global $post;
 
@@ -68,13 +74,19 @@ function get_site_domain( $rem_trail_slash = false ) {
 	return $domain;
 }
 
+/**
+ * Returns url of site screenshot image.
+ *
+ * @param string $width Desired width of screenshot.
+ * @return string
+ */
 function site_screenshot_src( $width = '' ) {
 	global $post;
 
 	$screenshot = get_post_meta( $post->ID, 'screenshot', true );
 
 	if ( empty( $screenshot ) ) {
-		$screenshot = 'https://wordpress.com/mshots/v1/http%3A%2F%2F' . get_site_domain( true, false );
+		$screenshot = 'https://wordpress.com/mshots/v1/http%3A%2F%2F' . get_site_domain();
 	} elseif ( function_exists( 'jetpack_photon_url' ) ) {
 		$screenshot = jetpack_photon_url( $screenshot );
 	}
