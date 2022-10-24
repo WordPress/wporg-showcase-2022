@@ -1,31 +1,32 @@
 <!-- wp:template-part {"slug":"header"} /-->
 
 <!-- wp:group {"tagName":"main","style":{"spacing":{"blockGap":"0px"}},"className":"entry-content","layout":{"type":"constrained"}} -->
-<main class="wp-block-group entry-content"><!-- wp:search {"label":"Search","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true} /-->
-<!-- /wp:group -->
+<main class="wp-block-group entry-content">
+	<!-- wp:search {"label":"Search","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true} /-->
 
-<!-- wp:query {"queryId":16,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":{"category":[4]}}} -->
-<div class="wp-block-query"><!-- wp:post-template -->
-<!-- wp:post-title {"isLink":true} /-->
-<!-- wp:post-excerpt /-->
-<!-- wp:post-terms {"term":"post_tag"} /-->
-<!-- /wp:post-template -->
+	<!-- wp:query {"queryId":16,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template -->
+		<!-- wp:post-title {"isLink":true} /-->
+		<!-- wp:post-excerpt /-->
+		<!-- wp:post-terms {"term":"post_tag"} /-->
+		<!-- /wp:post-template -->
 
-<!-- wp:query-pagination -->
-<!-- wp:query-pagination-previous /-->
+		<!-- wp:query-pagination -->
+		<!-- wp:query-pagination-previous /-->
 
-<!-- wp:query-pagination-numbers /-->
+		<!-- wp:query-pagination-numbers /-->
 
-<!-- wp:query-pagination-next /-->
-<!-- /wp:query-pagination -->
+		<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
 
-<!-- wp:query-no-results -->
-<!-- wp:paragraph {"placeholder":"Add text or blocks that will display when a query returns no results."} -->
-<p></p>
-<!-- /wp:paragraph -->
-<!-- /wp:query-no-results --></div>
-<!-- /wp:query -->
-
+		<!-- wp:query-no-results -->
+		<!-- wp:paragraph {"placeholder":"Add text or blocks that will display when a query returns no results."} -->
+		<p>No results.</p>
+		<!-- /wp:paragraph -->
+		<!-- /wp:query-no-results -->
+	</div>
+	<!-- /wp:query -->
 </main>
 <!-- /wp:group -->
 <!-- wp:wporg/global-footer {"style":"white-on-blue"} /-->
