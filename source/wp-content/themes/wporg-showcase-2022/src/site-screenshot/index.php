@@ -37,7 +37,7 @@ function init() {
  */
 function render() {
 	global $post;
-	$width = 400;
+	$width = 865;
 
 	$screenshot = site_screenshot_src( $width );
 	$srcset = $screenshot;
@@ -46,9 +46,6 @@ function render() {
 		$screenshot = add_query_arg( 'w', $width, $screenshot );
 		$srcset = add_query_arg( 'w', $width * 2, $screenshot );
 	}
-
-	// mshot images have a 4/3 ratio
-	$height = (int) ( $width * ( 3 / 4 ) );
 
 	return "<img src='{$screenshot}' srcset='$srcset 2x' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' class='wp-block-wporg-site-screenshot' />";
 }
