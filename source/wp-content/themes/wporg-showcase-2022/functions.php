@@ -51,7 +51,7 @@ function site_screenshot_src( $post, $width = '' ) {
 }
 
 /**
- * Provide mShot images to JetPack relates posts.
+ * Provide mShot images to JetPack related posts.
  */
 function jetpack_fallback_image( $media, $post_id, $args ) {
 	if ( $media ) {
