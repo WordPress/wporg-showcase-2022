@@ -5,7 +5,9 @@ namespace WordPressdotorg\Theme\Showcase_2022;
 // Block files
 require_once( __DIR__ . '/src/site-screenshot/index.php' );
 
+// Filters and Actions
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
+add_filter( 'jetpack_relatedposts_filter_headline', '\jetpack_related_posts_title' );
 
 /**
  * Retrieve the domain from post meta.
@@ -74,4 +76,16 @@ function jetpack_fallback_image( $media, $post_id, $args ) {
 			),
 		);
 	}
+}
+/**
+ * Change JetPack related posts title.
+ *
+ * @param string $headline
+ * @return string
+ */
+function jetpack_related_posts_title( $headline ) {
+	return sprintf(
+		'<h3>%s</h3>',
+		esc_html( __( 'Related sites', 'wporg' ) )
+	);
 }
