@@ -15,3 +15,7 @@ wp post delete 1 --force
 
 wp import "${root}/env/showcase-posts.xml" --authors=create
 wp import "${root}/env/showcase-pages.xml" --authors=create
+
+# Create the subnav menu
+wp menu create subnav-menu
+wp menu item add-post subnav-menu 91 --title="Submit a site"
