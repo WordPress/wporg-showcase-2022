@@ -7,7 +7,7 @@ add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_imag
 /**
  * Retrieve the domain from post meta.
  *
- * @param WP_Post
+ * @param WP_Post $post
  * @param boolean $rem_trail_slash
  * @return string
  */
