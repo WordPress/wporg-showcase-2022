@@ -7,7 +7,8 @@ require_once( __DIR__ . '/src/site-screenshot/index.php' );
 
 // Filters and Actions
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
-add_filter( 'jetpack_relatedposts_filter_headline', '\jetpack_related_posts_title' );
+add_action( 'wp', __NAMESPACE__ . '\jetpackme_remove_rp', 20 );
+add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpackchange_image_size' );
 
 /**
  * Retrieve the domain from post meta.
@@ -77,15 +78,24 @@ function jetpack_fallback_image( $media, $post_id, $args ) {
 		);
 	}
 }
+
 /**
- * Change JetPack related posts title.
- *
- * @param string $headline
- * @return string
+ * Filter JetPack Related Posts from content so we can control it via a block.
  */
-function jetpack_related_posts_title( $headline ) {
-	return sprintf(
-		'<h3>%s</h3>',
-		esc_html( __( 'Related sites', 'wporg' ) )
-	);
+function jetpackme_remove_rp() {
+	if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+		$jprp = \Jetpack_RelatedPosts::init();
+		$callback = array( $jprp, 'filter_add_target_to_dom' );
+
+		remove_filter( 'the_content', $callback, 40 );
+	}
+}
+
+/**
+ * Change JetPack Related Posts image size.
+ */
+function jetpackchange_image_size( $thumbnail_size ) {
+	$thumbnail_size['width'] = '100%';
+	$thumbnail_size['height'] = 'auto';
+	return $thumbnail_size;
 }
