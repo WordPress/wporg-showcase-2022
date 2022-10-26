@@ -2,7 +2,7 @@
 /**
  * Title: Subnav
  * Slug: wporg-showcase-2022/subnav-bar
- * Inserter: no
+ * Categories: wporg
  */
 ?>
 
