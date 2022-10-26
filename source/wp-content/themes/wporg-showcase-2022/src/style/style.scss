@@ -1,0 +1,43 @@
+/*
+ * Note: only add styles here in cases where you can't achieve the style with
+ * templates or theme.json settings.
+ */
+
+/*
+ * Block styles.
+ */
+
+/*
+ * core/search.
+ */
+
+.is-style-secondary-search-control {
+	display: flex;
+	align-items: center;
+}
+
+.is-style-secondary-search-control > label {
+	flex: 0;
+	font-size: var(--wp--preset--font-size--extra-small) !important;
+	padding-right: var(--wp--preset--spacing--10) !important;
+}
+
+.is-style-secondary-search-control input[type="search"] {
+	border: none !important;
+	font-size: var(--wp--preset--font-size--extra-small) !important;
+	padding: 0 var(--wp--preset--spacing--10) !important;
+}
+
+.is-style-secondary-search-control .wp-block-search__inside-wrapper {
+	border: 1px solid var(--wp--preset--color--charcoal-1) !important;
+	border-radius: 2px !important;
+}
+
+.is-style-secondary-search-control button[type="submit"] {
+	background-color: transparent !important;
+	padding: calc(var(--wp--preset--spacing--10) / 2) !important;
+}
+
+.is-style-secondary-search-control button[type="submit"] svg {
+	fill: var(--wp--preset--color--charcoal-1) !important;
+}
