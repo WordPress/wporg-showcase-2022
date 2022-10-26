@@ -2,7 +2,6 @@
 /**
  * Title: Related Posts
  * Slug: wporg-showcase-2022/related-posts
- * Inserter: no
  */
 ?>
 <!-- wp:group {"layout":{"type":"constrained"}} -->
