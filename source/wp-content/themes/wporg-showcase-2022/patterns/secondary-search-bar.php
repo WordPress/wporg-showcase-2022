@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Subnav
+ * Title: Secondary Search Bar
  * Slug: wporg-showcase-2022/secondary-search-bar
  * Categories: wporg
  */
