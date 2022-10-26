@@ -15,7 +15,6 @@ const STYLE_HANDLE = 'wporg-showcase-block-styles';
  * Actions and filters.
  */
 add_action( 'init', __NAMESPACE__ . '\setup_block_styles' );
-// add_filter( 'should_load_separate_core_block_assets', '__return_false' );
 
 /**
  * Add our custom block styles & class names.
