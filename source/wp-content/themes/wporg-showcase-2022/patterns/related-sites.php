@@ -3,6 +3,7 @@
  * Title: Related Posts
  * Slug: wporg-showcase-2022/related-posts
  */
+
 ?>
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group">
