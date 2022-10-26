@@ -7,4 +7,4 @@
 
 ?>
 
-<!-- wp:search {"label":"Search","showLabel":true,"placeholder":"<?php esc_attr_e( 'Search sites...', 'wporg' ); ?>","width":100,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"className":"is-style-secondary-search-control"} /-->
+<!-- wp:search {"label":"<?php esc_attr_e( 'Search', 'wporg' ); ?>","showLabel":true,"placeholder":"<?php esc_attr_e( 'Search sites...', 'wporg' ); ?>","width":100,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"className":"is-style-secondary-search-control"} /-->
