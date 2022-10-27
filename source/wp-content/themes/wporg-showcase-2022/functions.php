@@ -7,7 +7,6 @@ require_once( __DIR__ . '/src/site-screenshot/index.php' );
 
 // Filters and Actions
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
-add_action( 'wp', __NAMESPACE__ . '\jetpackme_remove_rp', 20 );
 add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpackchange_image_size' );
 
 /**
@@ -76,18 +75,6 @@ function jetpack_fallback_image( $media, $post_id, $args ) {
 				'href'  => $permalink,
 			),
 		);
-	}
-}
-
-/**
- * Filter JetPack Related Posts from content so we can control it via a block.
- */
-function jetpackme_remove_rp() {
-	if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
-		$jprp = \Jetpack_RelatedPosts::init();
-		$callback = array( $jprp, 'filter_add_target_to_dom' );
-
-		remove_filter( 'the_content', $callback, 40 );
 	}
 }
 
