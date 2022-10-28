@@ -4,10 +4,30 @@ namespace WordPressdotorg\Theme\Showcase_2022;
 
 // Block files
 require_once( __DIR__ . '/src/site-screenshot/index.php' );
+require_once __DIR__ . '/inc/block-styles.php';
 
 // Filters and Actions
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpackchange_image_size' );
+
+
+/**
+ * Enqueue scripts and styles.
+ */
+function enqueue_assets() {
+	// The parent style is registered as `wporg-parent-2021-style`, and will be loaded unless
+	// explicitly unregistered. We can load any child-theme overrides by declaring the parent
+	// stylesheet as a dependency.
+	wp_enqueue_style(
+		'wporg-showcase-2022-style',
+		get_stylesheet_directory_uri() . '/build/style/style-index.css',
+		array( 'wporg-parent-2021-style' ),
+		filemtime( __DIR__ . '/build/style/style-index.css' )
+	);
+	wp_style_add_data( 'wporg-showcase-2022-style', 'rtl', 'replace' );
+
+}
 
 /**
  * Retrieve the domain from post meta.
