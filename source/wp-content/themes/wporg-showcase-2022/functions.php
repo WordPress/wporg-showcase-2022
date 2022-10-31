@@ -10,7 +10,7 @@ require_once __DIR__ . '/inc/block-styles.php';
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpackchange_image_size' );
-
+add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpackme_related_posts_headline' );
 
 /**
  * Enqueue scripts and styles.
@@ -105,4 +105,19 @@ function jetpackchange_image_size( $thumbnail_size ) {
 	$thumbnail_size['width'] = '100%';
 	$thumbnail_size['height'] = 'auto';
 	return $thumbnail_size;
+}
+
+/**
+ * Update the Related Posts title.
+ *
+ * @param string $headline
+ * @return string
+ */
+function jetpackme_related_posts_headline( $headline ) {
+	$headline = sprintf(
+		'<h3>%s</h3>',
+		esc_html( __( 'Related sites', 'wporg' ) )
+	);
+
+	return $headline;
 }
