@@ -31,7 +31,7 @@ add_shortcode(
 			return '';
 		}
 
-		// This is an oversimplified version and won't work if websites have subdomains
+		// This won't work for subdomains but we'll want to show subdomains if they exists.
 		return str_replace( 'www.', '', parse_url( $values[0], PHP_URL_HOST ) );
 	}
 );
