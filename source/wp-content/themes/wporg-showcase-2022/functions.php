@@ -58,7 +58,7 @@ function get_site_domain( $post, $rem_trail_slash = false ) {
  * @param string  $width Desired width of screenshot.
  * @return string
  */
-function site_screenshot_src( $post, $width = '' ) {
+function site_screenshot_src( $post ) {
 	$screenshot = get_post_meta( $post->ID, 'screenshot', true );
 
 	if ( empty( $screenshot ) ) {
@@ -67,11 +67,7 @@ function site_screenshot_src( $post, $width = '' ) {
 		$screenshot = jetpack_photon_url( $screenshot );
 	}
 
-	if ( $width ) {
-		$screenshot = add_query_arg( 'w', $width, $screenshot );
-	}
-
-	$screenshot = apply_filters( 'wporg_showcase_screenshot_src', $screenshot, $post, $width );
+	$screenshot = apply_filters( 'wporg_showcase_screenshot_src', $screenshot, $post );
 
 	// force screenshot URLs to be https
 	return str_replace( 'http://', 'https://', $screenshot );

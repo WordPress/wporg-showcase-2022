@@ -136,22 +136,6 @@ button[type="submit"] {
 	}
 }
 
-/*
- * SiteScreenshot - Single Page
- */
-
-@media (min-width: 992px) {
-	.wporg-single-site-screenshot {
-		position: relative;
-		height: 600px;
-		overflow: hidden;
-	}
-
-	.wporg-single-site-screenshot img {
-		position: absolute;
-	}
-}
-
 @media (max-width: 1199px) {
 
 	/* Once we start touching content, add in some side padding. */
