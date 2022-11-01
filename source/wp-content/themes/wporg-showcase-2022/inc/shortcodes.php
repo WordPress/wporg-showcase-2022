@@ -2,7 +2,7 @@
 namespace WordPressdotorg\Theme\Showcase_2022;
 
 /**
- * Shortcode to display the number of WordPress plugins.
+ * Shortcode to display the associated 'domain' custom field.
  */
 add_shortcode(
 	'domain',
@@ -19,7 +19,7 @@ add_shortcode(
 );
 
 /**
- * Shortcode to display the number of WordPress plugins.
+ * Shortcode to display a pretty version of the associated 'domain' custom field.
  */
 add_shortcode(
 	'pretty_domain',
