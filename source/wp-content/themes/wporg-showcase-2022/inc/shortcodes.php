@@ -1,7 +1,6 @@
 <?php
 namespace WordPressdotorg\Theme\Showcase_2022;
 
-
 /**
  * Shortcode to display the number of WordPress plugins.
  */
@@ -11,7 +10,7 @@ add_shortcode(
 
 		$values = get_post_custom_values( 'domain', get_the_ID() );
 
-		if( empty( $values ) ) {
+		if ( empty( $values ) ) {
 			return '';
 		}
 
@@ -28,11 +27,12 @@ add_shortcode(
 
 		$values = get_post_custom_values( 'domain', get_the_ID() );
 
-		if( empty( $values ) ) {
+		if ( empty( $values ) ) {
 			return '';
 		}
 
-		// This is an oversimplified version and won't work if websites have subdomains		
-		return str_replace( 'www.', '',  parse_url( $values[0], PHP_URL_HOST ) ); ;
+		// This is an oversimplified version and won't work if websites have subdomains
+		return str_replace( 'www.', '', parse_url( $values[0], PHP_URL_HOST ) );
+		;
 	}
 );
