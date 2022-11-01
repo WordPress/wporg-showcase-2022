@@ -4,6 +4,7 @@
  * Slug: wporg-showcase-2022/subnav-bar
  * Categories: wporg
  */
+
 ?>
 
 <!-- wp:group {"align":"full","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}},"spacing":{"padding":{"top":"16px","right":"var:preset|spacing|20","bottom":"0","left":"var:preset|spacing|20"},"margin":{"bottom":"16px"}}},"backgroundColor":"white","textColor":"white","className":"is-style-brush-stroke","layout":{"type":"constrained"}} -->
