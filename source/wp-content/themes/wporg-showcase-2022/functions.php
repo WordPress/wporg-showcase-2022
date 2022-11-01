@@ -4,6 +4,7 @@ namespace WordPressdotorg\Theme\Showcase_2022;
 
 // Block files
 require_once( __DIR__ . '/src/site-screenshot/index.php' );
+require_once( __DIR__ . '/src/custom-field/index.php' );
 require_once __DIR__ . '/inc/block-styles.php';
 
 // Filters and Actions

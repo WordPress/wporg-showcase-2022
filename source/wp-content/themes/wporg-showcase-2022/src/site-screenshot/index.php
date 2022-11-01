@@ -35,15 +35,11 @@ function init() {
  */
 function render() {
 	global $post;
-	$width = 865;
+	$width = 1280;
 
 	$screenshot = site_screenshot_src( $post, $width );
-	$srcset = $screenshot;
-
-	if ( '' != $width ) {
-		$screenshot = add_query_arg( 'w', $width, $screenshot );
-		$srcset = add_query_arg( 'w', $width * 2, $screenshot );
-	}
+	$srcset = add_query_arg( 'w', $width * 2, $screenshot );
+	$srcset = add_query_arg( 'scale', 2, $srcset );
 
 	return "<img src='{$screenshot}' srcset='$srcset 2x' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' class='wp-block-wporg-site-screenshot' />";
 }
