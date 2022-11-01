@@ -9,9 +9,9 @@ require_once __DIR__ . '/inc/shortcodes.php';
 
 // Filters and Actions
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
-add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
-add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpackchange_image_size' );
-add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpackme_related_posts_headline' );
+// add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
+// add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpackchange_image_size' );
+// add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpackme_related_posts_headline' );
 
 /**
  * Enqueue scripts and styles.
