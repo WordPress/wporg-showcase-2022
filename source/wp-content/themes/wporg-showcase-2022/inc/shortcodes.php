@@ -33,6 +33,5 @@ add_shortcode(
 
 		// This is an oversimplified version and won't work if websites have subdomains
 		return str_replace( 'www.', '', parse_url( $values[0], PHP_URL_HOST ) );
-		;
 	}
 );
