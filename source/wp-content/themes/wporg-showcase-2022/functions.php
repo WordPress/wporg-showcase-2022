@@ -12,6 +12,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpackchange_image_size' );
 add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpackme_related_posts_headline' );
+add_action( 'wp', __NAMESPACE__ . '\jetpackme_remove_rp', 20 );
 
 /**
  * Enqueue scripts and styles.
@@ -121,4 +122,18 @@ function jetpackme_related_posts_headline( $headline ) {
 	);
 
 	return $headline;
+}
+
+/**
+ * Remove the auto-adding of Related Posts. We'll use the shortcode.
+ *
+ * @return void
+ */
+function jetpackme_remove_rp() {
+	if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+		$jprp = \Jetpack_RelatedPosts::init();
+		$callback = array( $jprp, 'filter_add_target_to_dom' );
+
+		remove_filter( 'the_content', $callback, 40 );
+	}
 }
