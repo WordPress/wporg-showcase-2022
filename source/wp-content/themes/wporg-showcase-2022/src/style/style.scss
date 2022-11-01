@@ -7,6 +7,15 @@
  * Block styles.
  */
 
+ /*
+ * core/pull.
+ */
+
+.wp-block-quote {
+	margin-left: 0;
+	border-width: 0 0 0 1px;
+}
+
 /*
  * core/search.
  */
@@ -124,5 +133,22 @@ button[type="submit"] {
 		display: block;
 		margin-bottom: var(--wp--preset--spacing--10);
 		color: var(--wp--preset--color--charcoal-1);
+	}
+}
+
+
+/*
+ * SiteScreenshot - Single Page
+ */
+
+ @media (min-width: 992px) {
+	.wporg-single-site-screenshot {
+		position: relative;
+		height: 600px;
+		overflow: hidden;
+	 }
+
+	.wporg-single-site-screenshot img {
+		position: absolute;
 	}
 }
