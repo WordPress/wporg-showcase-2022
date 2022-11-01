@@ -12,6 +12,6 @@
 <p class="has-charcoal-1-color has-text-color has-normal-font-size" style="font-style:normal;font-weight:700">Showcase</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:navigation {"ref":7268,"textColor":"charcoal-1","backgroundColor":"white","className":"is-style-dropdown-on-mobile","style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} /--></div>
+<!-- wp:navigation {"ref":7299,"textColor":"blueberry-1","backgroundColor":"white","className":"is-style-dropdown-on-mobile","style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
