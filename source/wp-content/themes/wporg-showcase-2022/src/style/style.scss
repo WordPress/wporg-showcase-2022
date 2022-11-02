@@ -84,54 +84,29 @@ button[type="submit"] {
  * Related Posts Styles
  */
 
-.jp-relatedposts {
-	h3 {
-		margin-bottom: var(--wp--preset--spacing--20);
-	}
-
-	.jp-relatedposts-items-visual {
-		margin-right: 0 !important;
-	}
-
-	.jp-relatedposts-post {
-		padding-right: 0 !important;
-		margin-right: 0 !important;
-		opacity: 1 !important; /* Applied by JetPack */
-		text-align: center;
-	}
-
-	@media (min-width: 320px) and (max-width: 640px) {
-		.jp-relatedposts-post:nth-child(odd) {
-			padding-right: var(--wp--preset--spacing--10) !important;
-		}
-
-		.jp-relatedposts-post:nth-child(even) {
-			padding-left: var(--wp--preset--spacing--10) !important;
-		}
-	}
+.wp-block-jetpack-related-posts {
 
 	@media (min-width: 641px) {
-		.jp-relatedposts-post:first-child {
-			padding-right: var(--wp--preset--spacing--20) !important;
-		}
+		margin-left: -10px;
+		margin-right: -10px;
 
-		.jp-relatedposts-post:nth-child(2) {
-			padding-left: var(--wp--preset--spacing--10) !important;
-			padding-right: var(--wp--preset--spacing--10) !important;
-		}
+		/*
+		* Remove after Jetpack PR is merged.
+		* See: https://github.com/Automattic/jetpack/pull/27228
+		*/
 
-		.jp-relatedposts-post:last-child {
-			padding-left: var(--wp--preset--spacing--20) !important;
+		.jp-related-posts-i2__row[data-post-count="3"] .jp-related-posts-i2__post {
+			max-width: calc(33.333333% - 20px);
 		}
 	}
 
-	.jp-relatedposts-post-img {
+	.jp-related-posts-i2__post-img-link img {
+		width: 100%;
 		border: 1px solid var(--wp--preset--color--light-grey-1);
 	}
 
-	.jp-relatedposts-post-a {
+	.jp-related-posts-i2__post-link a {
 		display: block;
-		margin-bottom: var(--wp--preset--spacing--10);
 		color: var(--wp--preset--color--charcoal-1);
 	}
 }
