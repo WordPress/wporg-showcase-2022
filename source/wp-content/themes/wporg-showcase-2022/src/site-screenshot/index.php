@@ -44,6 +44,5 @@ function render() {
 	$srcset = add_query_arg( 'vpw', $width * 2, $screenshot );
 	$srcset = add_query_arg( 'vph', $height * 2, $srcset );
 
-
 	return "<img src='{$screenshot}' srcset='$srcset 2x' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' class='wp-block-wporg-site-screenshot' />";
 }
