@@ -1,7 +1,15 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
-	"settings": {},
+	"settings": {
+		"custom": {
+			"alignment": {
+				"alignedMaxWidth": "50%",
+				"//edge-spacing": "The min and max values represent the mobile and desktop spacing; the calc() value is for tablets.",
+				"edge-spacing": "clamp( 24px, calc( 100vw / 18 ), 80px )"
+			}
+		}
+	},
 	"styles": {
 		"blocks": {
 			"core/quote": {

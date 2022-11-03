@@ -28,4 +28,13 @@ function setup_block_styles() {
 			'style_handle' => STYLE_HANDLE,
 		)
 	);
+
+	register_block_style(
+		'core/group',
+		array(
+			'name'         => 'edge-spacing',
+			'label'        => __( 'Edge Spacing', 'wporg' ),
+			'style_handle' => STYLE_HANDLE,
+		)
+	);
 }
