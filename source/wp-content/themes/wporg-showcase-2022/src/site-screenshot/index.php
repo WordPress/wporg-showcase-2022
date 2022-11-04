@@ -31,10 +31,19 @@ function init() {
 /**
  * Render the block content.
  *
+ * @param array    $attributes Block attributes.
+ * @param string   $content    Block default content.
+ * @param WP_Block $block      Block instance.
+ *
  * @return string Returns the block markup.
  */
-function render() {
-	global $post;
+function render( $attributes, $content, $block ) {
+	if ( ! isset( $block->context['postId'] ) ) {
+		return '';
+	}
+
+	$post_ID = $block->context['postId'];
+	$post = get_post( $post_ID );
 	$width = 1320;
 	$height = 670;
 
@@ -44,5 +53,12 @@ function render() {
 	$srcset = add_query_arg( 'vpw', $width * 2, $screenshot );
 	$srcset = add_query_arg( 'vph', $height * 2, $srcset );
 
-	return "<img src='{$screenshot}' srcset='$srcset 2x' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' class='wp-block-wporg-site-screenshot' />";
+	$img_content = "<img src='{$screenshot}' srcset='$srcset 2x' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' />";
+
+	$wrapper_attributes = get_block_wrapper_attributes();
+	return sprintf(
+		'<div %s>%s</div>',
+		$wrapper_attributes,
+		$img_content
+	);
 }
