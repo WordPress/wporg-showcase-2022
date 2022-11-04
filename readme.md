@@ -41,12 +41,11 @@ This is as-yet incomplete, a starting point.
 
     ```json
     {
-	    "themes": [
-		    "./source/wp-content/themes/wporg",
-		    "./source/wp-content/themes/wporg-main",
-		    "./source/wp-content/themes/wporg-main-2022",
-		    "../wporg-parent-2021/source/wp-content/themes/wporg-parent-2021"
-	    ]
+    	"themes": [
+    		"./source/wp-content/themes/wporg-showcase",
+    		"./source/wp-content/themes/wporg-showcase-2022",
+    		"../wporg-parent-2021/source/wp-content/themes/wporg-parent-2021"
+    	]
     }
     ```
 
