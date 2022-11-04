@@ -3,7 +3,7 @@
 	"apiVersion": 2,
 	"name": "wporg/archive-results-context",
 	"version": "0.1.0",
-	"title": "Archive Context Bar",
+	"title": "Archive Results Context",
 	"category": "design",
 	"icon": "",
 	"description": "Displays context information for archive or search results.",
