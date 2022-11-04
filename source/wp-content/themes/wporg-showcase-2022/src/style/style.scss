@@ -148,3 +148,21 @@ button[type="submit"] {
 		margin-right: var(--wp--preset--spacing--60) !important;
 	}
 }
+
+@media (max-width: 600px) {
+	.wporg-results-bar-container {
+		flex-direction: column;
+	}
+
+	.wporg-results-bar-container > * {
+		width: 100%;
+	}
+
+	.wporg-results-bar-container > *:first-child {
+		order: 2;
+	}
+
+	.wporg-results-bar-container > *:last-child {
+		order: 1;
+	}
+}
