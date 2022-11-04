@@ -1,17 +1,16 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "wporg/results-context-bar",
+	"name": "wporg/archive-results-context",
 	"version": "0.1.0",
-	"title": "Results Context Bar",
+	"title": "Archive Context Bar",
 	"category": "design",
 	"icon": "",
-	"description": "Display a results context information.",
+	"description": "Displays context information for archive or search results.",
 	"textdomain": "wporg",
 	"attributes": {},
 	"supports": {
-		"align": true,
-		"html": false
+		"align": true
 	},
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css"

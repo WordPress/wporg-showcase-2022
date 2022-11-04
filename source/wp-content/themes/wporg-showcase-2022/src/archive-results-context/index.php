@@ -1,12 +1,12 @@
 <?php
 /**
- * Block Name: Results Context Bar
- * Description: Display a results context information.
+ * Block Name: Archive Results Context
+ * Description: Displays context information for archive or search results.
  *
  * @package wporg
  */
 
-namespace WordPressdotorg\Theme\Showcase_2022\Results_Context_Bar;
+namespace WordPressdotorg\Theme\Showcase_2022\Archive_Results_Context;
 
 add_action( 'init', __NAMESPACE__ . '\init' );
 
@@ -18,21 +18,23 @@ add_action( 'init', __NAMESPACE__ . '\init' );
 function render() {
 	global $wp_query;
 
-	if( is_search() ) {
+	if ( is_search() ) {
 		return sprintf(
+			/* translators: %1$s number of results; %2$s keyword. */
 			_n(
 				'<p>We found <b>%1$s</b> result for <b>%2$s</b></p>',
 				'<p>We found <b>%1$s</b> results for <b>%2$s</b></p>',
 				$wp_query->found_posts,
 				'wporg'
 			),
-		   number_format_i18n( $wp_query->found_posts ),
-		   esc_html( $wp_query->query['s'] )
-	   );
+			number_format_i18n( $wp_query->found_posts ),
+			esc_html( $wp_query->query['s'] )
+		);
 	}
 
-	if( is_tag() ) {
+	if ( is_tag() ) {
 		return sprintf(
+			/* translators: %1$s number of results; %2$s tag/category. */
 			_n(
 				'<p>There is <b>%1$s</b> site tagged with <b>%2$s</b></p>',
 				'<p>There are <b>%1$s</b> sites tagged with <b>%2$s</b></p>',
@@ -41,18 +43,19 @@ function render() {
 			),
 			number_format_i18n( $wp_query->found_posts ),
 			esc_html( get_queried_object()->name )
-	   );
+		);
 	}
 
 	return sprintf(
-			_n(
-				'<p>There is <b>%1$s</b> site in the archive</p>',
-				'<p>There are <b>%1$s</b> sites in the archive</p>',
-				$wp_query->found_posts,
-				'wporg'
-			),
-			number_format_i18n( $wp_query->found_posts )
-	   );
+		/* translators: %1$s number of results */
+		_n(
+			'<p>There is <b>%1$s</b> site in the archive</p>',
+			'<p>There are <b>%1$s</b> sites in the archive</p>',
+			$wp_query->found_posts,
+			'wporg'
+		),
+		number_format_i18n( $wp_query->found_posts )
+	);
 }
 
 /**
@@ -64,7 +67,7 @@ function render() {
  */
 function init() {
 	register_block_type(
-		dirname( dirname( __DIR__ ) ) . '/build/results-context-bar',
+		dirname( dirname( __DIR__ ) ) . '/build/archive-results-context',
 		array(
 			'render_callback' => __NAMESPACE__ . '\render',
 		)
