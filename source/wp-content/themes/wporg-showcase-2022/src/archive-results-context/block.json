@@ -10,7 +10,14 @@
 	"textdomain": "wporg",
 	"attributes": {},
 	"supports": {
-		"align": true
+		"align": true,
+		"color": true,
+		"html": false,
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"blockGap": false
+		}
 	},
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css"
