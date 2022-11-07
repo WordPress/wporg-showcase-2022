@@ -1,7 +1,6 @@
 /**
  * WordPress dependencies
  */
-import { Disabled } from '@wordpress/components';
 import { registerBlockType } from '@wordpress/blocks';
 import ServerSideRender from '@wordpress/server-side-render';
 import { useBlockProps } from '@wordpress/block-editor';
@@ -14,9 +13,7 @@ import metadata from './block.json';
 function Edit( { attributes, name } ) {
 	return (
 		<div { ...useBlockProps() }>
-			<Disabled>
-				<ServerSideRender block={ name } attributes={ attributes } />
-			</Disabled>
+			<ServerSideRender block={ name } attributes={ attributes } />
 		</div>
 	);
 }
