@@ -115,7 +115,15 @@ button[type="submit"] {
 @media (max-width: 760px) {
 	// Add space to the left & right of blocks as long as they're not pulled out
 	// of the content by left, right, wide, or full alignment.
-	body .is-layout-constrained > *:not(.alignleft):not(.alignright):not(.alignfull):not(.alignwide) {
+	body .is-layout-constrained > *:not(.alignleft):not(.alignright):not(.alignfull) {
+		margin-left: var(--wp--preset--spacing--60) !important;
+		margin-right: var(--wp--preset--spacing--60) !important;
+	}
+}
+
+// 1290 = (--wp--style--global--content-size, 1160px) + (2 * --wp--preset--spacing--60, which at ~1160 is 70px).
+@media (max-width: 1290px) {
+	body .is-layout-constrained > .alignwide {
 		margin-left: var(--wp--preset--spacing--60) !important;
 		margin-right: var(--wp--preset--spacing--60) !important;
 	}
