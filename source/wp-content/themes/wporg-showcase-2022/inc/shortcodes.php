@@ -35,3 +35,26 @@ add_shortcode(
 		return str_replace( 'www.', '', parse_url( $values[0], PHP_URL_HOST ) );
 	}
 );
+
+/**
+ * Shortcode to get site archive list.
+ */
+add_shortcode(
+	'site_terms_list',
+	function() {
+		$tags = get_the_terms( get_the_ID() , 'post_tag' );
+		$category = get_the_terms( get_the_ID() , 'category' );
+		$terms = array_merge( $tags, $category );
+		$links  = array();
+
+		foreach ($terms as $value) {
+			$links[] = "<a href='". get_term_link( $value->term_id, $value->taxonomy ) ."'>". $value->name ."</a>";
+		}
+
+		if ( empty( $tags ) ) {
+			return '';
+		}
+
+		return join( ', ', $links );
+	}
+);
