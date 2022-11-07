@@ -121,8 +121,9 @@ button[type="submit"] {
 	}
 }
 
-// 1290 = (--wp--style--global--content-size, 1160px) + (2 * --wp--preset--spacing--60, which at ~1160 is 70px).
-@media (max-width: 1290px) {
+// It doesn't have to be super accurate,
+// but it has to be larger than --wp--style--global--wide-size + ( padding * 2 );
+@media (max-width: 1306px) {
 	body .is-layout-constrained > .alignwide {
 		margin-left: var(--wp--preset--spacing--60) !important;
 		margin-right: var(--wp--preset--spacing--60) !important;
