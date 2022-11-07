@@ -11,8 +11,14 @@
 	"attributes": {},
 	"supports": {
 		"align": true,
-		"html": false
+		"html": false,
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": true,
+			"blockGap": false
+		}
 	},
+	"usesContext": [ "postId" ],
 	"editorScript": "file:./index.js",
 	"style": "file:./style-index.css"
 }
