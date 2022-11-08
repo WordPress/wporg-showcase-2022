@@ -29,18 +29,16 @@
 <!-- wp:post-title {"isLink":true,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"normal","fontFamily":"inter"} /-->
 <!-- /wp:post-template -->
 
-<!-- wp:query-pagination -->
-<!-- wp:query-pagination-previous /-->
-
-<!-- wp:query-pagination-numbers /-->
-
-<!-- wp:query-pagination-next /-->
-<!-- /wp:query-pagination -->
-
 <!-- wp:query-no-results -->
 <!-- wp:paragraph {"placeholder":"Add text or blocks that will display when a query returns no results."} -->
 <p><?php esc_attr_e( 'No results.', 'wporg' ); ?></p>
 <!-- /wp:paragraph -->
 <!-- /wp:query-no-results --></div>
-<!-- /wp:query --></div>
+<!-- /wp:query -->
+
+<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} -->
+<p style="margin-top:var(--wp--preset--spacing--60)"><a href="/archives" data-type="URL" data-id="/archives"><?php esc_attr_e( 'Browse the archive', 'wporg' ); ?></a></p>
+<!-- /wp:paragraph -->
+
+</div>
 <!-- /wp:group -->
