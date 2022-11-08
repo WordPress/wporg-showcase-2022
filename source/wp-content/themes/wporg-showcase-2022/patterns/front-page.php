@@ -7,8 +7,38 @@
 
 ?>
 
-<!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
-<div class="wp-block-group alignwide"><!-- wp:columns {"align":"wide"} -->
+<!-- wp:query {"queryId":6,"query":{"perPage":"1","pages":"1","offset":"0","postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"only","inherit":false},"align":"full"} -->
+<div class="wp-block-query alignfull"><!-- wp:post-template -->
+<!-- wp:group {"backgroundColor":"charcoal-2","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-charcoal-2-background-color has-background"><!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90"},"margin":{"top":"var:preset|spacing|30"}}}} -->
+<div class="wp-block-columns alignwide" style="margin-top:var(--wp--preset--spacing--30);padding-top:var(--wp--preset--spacing--90)"><!-- wp:column {"width":"66.66%","layout":{"type":"constrained"}} -->
+<div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading {"level":1,"className":"screen-reader-text"} -->
+<h1 class="screen-reader-text">Showcase</h1>
+<!-- /wp:heading --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"bottom","width":"33.33%","layout":{"type":"constrained","justifyContent":"right"}} -->
+<div class="wp-block-column is-vertically-aligned-bottom" style="flex-basis:33.33%"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"right"}} -->
+<div class="wp-block-group"><!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"0"}},"textColor":"white","className":"is-style-serif"} -->
+<p class="has-text-align-left is-style-serif has-white-color has-text-color" style="line-height:0">Featuring:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:post-title {"textAlign":"left","isLink":true,"style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}},"typography":{"fontStyle":"italic","fontWeight":"400"}},"textColor":"white","fontSize":"extra-large","fontFamily":"eb-garamond"} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:var(--wp--preset--spacing--40)"><!-- wp:wporg/site-screenshot {"align":"wide"} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- /wp:post-template --></div>
+<!-- /wp:query -->
+
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
+<div div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80)"><!-- wp:columns {"align":"wide"} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"70%"} -->
 <div class="wp-block-column" style="flex-basis:70%"><!-- wp:heading {"fontSize":"huge","fontFamily":"inter"} -->
 <h2 class="has-inter-font-family has-huge-font-size"><?php esc_attr_e( 'Featured sites', 'wporg' ); ?></h2>
