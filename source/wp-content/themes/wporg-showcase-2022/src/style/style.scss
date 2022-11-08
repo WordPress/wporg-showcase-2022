@@ -81,6 +81,25 @@ button[type="submit"] {
 }
 
 /*
+ * core/post-template.
+ */
+
+/**
+ * Manually modify Post Template grid gap.
+ * See: https://github.com/WordPress/gutenberg/issues/44899
+ **/
+
+.wp-block-post-template.is-flex-container {
+	gap: var(--wp--preset--spacing--30);
+}
+
+@media (min-width: 600px) {
+	.wp-block-post-template.is-flex-container.is-flex-container.columns-2 > li {
+		width: calc((100% / 2) - var(--wp--preset--spacing--30) + ( var(--wp--preset--spacing--30) / 2));
+	}
+}
+
+/*
  * Related Posts Styles
  */
 
