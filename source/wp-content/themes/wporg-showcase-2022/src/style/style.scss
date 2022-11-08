@@ -90,12 +90,12 @@ button[type="submit"] {
  **/
 
 .wp-block-post-template.is-flex-container {
-	gap: var(--wp--preset--spacing--30);
+	gap: var(--wp--preset--spacing--50);
 }
 
 @media (min-width: 600px) {
 	.wp-block-post-template.is-flex-container.is-flex-container.columns-2 > li {
-		width: calc((100% / 2) - var(--wp--preset--spacing--30) + ( var(--wp--preset--spacing--30) / 2));
+		width: calc((100% / 2) - var(--wp--preset--spacing--50) + ( var(--wp--preset--spacing--50) / 2));
 	}
 }
 
