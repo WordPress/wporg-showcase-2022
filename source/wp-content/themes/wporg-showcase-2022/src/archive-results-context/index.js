@@ -12,9 +12,7 @@ import metadata from './block.json';
 
 function Edit( { attributes, name } ) {
 	return (
-		<div { ...useBlockProps() }>
-			<ServerSideRender block={ name } attributes={ attributes } />
-		</div>
+		<ServerSideRender block={ name } attributes={ attributes } />
 	);
 }
 
