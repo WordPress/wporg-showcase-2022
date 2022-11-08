@@ -9,8 +9,8 @@
 
 <!-- wp:query {"queryId":6,"query":{"perPage":"1","pages":"1","offset":"0","postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"only","inherit":false},"align":"full"} -->
 <div class="wp-block-query alignfull"><!-- wp:post-template -->
-<!-- wp:group {"backgroundColor":"charcoal-2","layout":{"type":"constrained"}} -->
-<div class="wp-block-group has-charcoal-2-background-color has-background"><!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90"},"margin":{"top":"var:preset|spacing|30"}}}} -->
+<!-- wp:group {"backgroundColor":"charcoal-2","className":"wporg-homepage-hero","layout":{"type":"constrained"}} -->
+<div class="wp-block-group wporg-homepage-hero has-charcoal-2-background-color has-background"><!-- wp:columns {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|90"},"margin":{"top":"var:preset|spacing|30"}}}} -->
 <div class="wp-block-columns alignwide" style="margin-top:var(--wp--preset--spacing--30);padding-top:var(--wp--preset--spacing--90)"><!-- wp:column {"width":"66.66%","layout":{"type":"constrained"}} -->
 <div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading {"level":1,"className":"screen-reader-text"} -->
 <h1 class="screen-reader-text">Showcase</h1>
@@ -19,7 +19,7 @@
 
 <!-- wp:column {"verticalAlignment":"bottom","width":"33.33%","layout":{"type":"constrained","justifyContent":"right"}} -->
 <div class="wp-block-column is-vertically-aligned-bottom" style="flex-basis:33.33%"><!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"right"}} -->
-<div class="wp-block-group"><!-- wp:group {"layout":{"type":"constrained"}} -->
+<div class="wp-block-group"><!-- wp:group -->
 <div class="wp-block-group"><!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"0"}},"textColor":"white","className":"is-style-serif"} -->
 <p class="has-text-align-left is-style-serif has-white-color has-text-color" style="line-height:0">Featuring:</p>
 <!-- /wp:paragraph -->
