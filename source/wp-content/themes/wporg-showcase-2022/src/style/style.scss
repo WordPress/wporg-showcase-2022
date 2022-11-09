@@ -148,20 +148,3 @@ button[type="submit"] {
 		margin-right: var(--wp--preset--spacing--60) !important;
 	}
 }
-
-.wporg-homepage-hero {
-	position: relative;
-}
-
-.wporg-homepage-hero::after {
-	position: absolute;
-	content: '';
-	width: calc( 100% - var(--wp--preset--spacing--60) );
-	max-width: 800px;
-	height: 100%;
-	top: var(--wp--preset--spacing--30);
-	left: 0;
-	background-image: url(../../images/showcase.svg);
-	background-repeat: no-repeat;
-	background-size: contain;
-}

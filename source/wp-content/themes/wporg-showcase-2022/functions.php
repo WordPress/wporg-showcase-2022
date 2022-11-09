@@ -17,6 +17,7 @@ add_action( 'wp', __NAMESPACE__ . '\jetpackme_remove_rp', 20 );
 add_filter( 'excerpt_length', __NAMESPACE__ . '\modify_excerpt_length', 999 );
 add_filter( 'excerpt_more', __NAMESPACE__ . '\modify_excerpt_more' );
 add_filter( 'query_loop_block_query_vars', __NAMESPACE__ . '\modify_query_loop_block_query_vars', 10, 2 );
+add_filter( 'upload_mimes', __NAMESPACE__ . '\wporg_add_svg_to_upload_mimes' );
 
 /**
  * Enqueue scripts and styles.
@@ -160,7 +161,7 @@ function modify_excerpt_more() {
  *
  * See: https://github.com/WordPress/gutenberg/issues/41184
  *
- * @return void
+ * @return WP_Query
  */
 function modify_query_loop_block_query_vars( $query, $block ) {
 	if ( isset( $block->context['query']['sticky'] ) && 'only' === $block->context['query']['sticky'] ) {
@@ -171,4 +172,21 @@ function modify_query_loop_block_query_vars( $query, $block ) {
 
 	return $query;
 >>>>>>> 425eda8 (Allow for sticky posts.)
+}
+
+/**
+ * Add SVGs to the list of allowed mime types.
+ *
+ * @param array $upload_mimes The existing allowed mime types.
+ *
+ * @return array The enhanced allowed mime types.
+ */
+function wporg_add_svg_to_upload_mimes( $upload_mimes ) {
+	if ( current_user_can( 'manage_options' ) ) {
+		$file_types = array();
+		$file_types['svg'] = 'image/svg+xml';
+		return array_merge( $file_types, $upload_mimes );
+	}
+
+	return $upload_mimes;
 }
