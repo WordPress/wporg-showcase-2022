@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wporg/archive-results-context",
+	"version": "0.1.0",
+	"title": "Archive Results Context",
+	"category": "design",
+	"icon": "",
+	"description": "Displays context information for archive or search results.",
+	"textdomain": "wporg",
+	"attributes": {},
+	"supports": {
+		"align": true,
+		"color": true,
+		"html": false,
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"blockGap": false
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
