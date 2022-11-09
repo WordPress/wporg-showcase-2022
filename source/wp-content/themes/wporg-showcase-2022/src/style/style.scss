@@ -149,7 +149,7 @@ button[type="submit"] {
 	}
 }
 
-.wporg-hero-details { 
+.wporg-hero-details {
 	padding-top: var(--wp--preset--spacing--10);
 
 	> * {
@@ -158,12 +158,12 @@ button[type="submit"] {
 }
 
 @media (min-width: 782px) {
-	.wporg-hero-details { 
+	.wporg-hero-details {
 		padding-top: 0;
 		margin-top: -64px !important;
 
 		> * {
 			text-align: left;
 		}
-	}	
+	}
 }
