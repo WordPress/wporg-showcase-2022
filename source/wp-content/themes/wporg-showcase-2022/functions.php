@@ -141,6 +141,7 @@ function jetpackme_remove_rp() {
 
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
  * Update the excerpt length.
  *
  * @return string
@@ -158,6 +159,9 @@ function modify_excerpt_more() {
 	return '...';
 =======
  * Modify query vars for mast head query.
+=======
+ * Modify query vars for sticky post query.
+>>>>>>> 72d04a7 (Update the copy of doc.)
  *
  * See: https://github.com/WordPress/gutenberg/issues/41184
  *
