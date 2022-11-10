@@ -42,13 +42,13 @@ add_shortcode(
 add_shortcode(
 	'site_terms_list',
 	function() {
-		$tags = get_the_terms( get_the_ID() , 'post_tag' );
-		$category = get_the_terms( get_the_ID() , 'category' );
+		$tags = get_the_terms( get_the_ID(), 'post_tag' );
+		$category = get_the_terms( get_the_ID(), 'category' );
 		$terms = array_merge( $tags, $category );
 		$links  = array();
 
-		foreach ($terms as $value) {
-			$links[] = "<a href='". get_term_link( $value->term_id, $value->taxonomy ) ."'>". $value->name ."</a>";
+		foreach ( $terms as $value ) {
+			$links[] = "<a href='" . get_term_link( $value->term_id, $value->taxonomy ) . "'>" . $value->name . '</a>';
 		}
 
 		if ( empty( $tags ) ) {

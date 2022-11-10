@@ -24,48 +24,53 @@ function render( $attributes, $content, $block ) {
 		return '';
 	}
 
-	$listItems = array();
+	$list_items = array();
 
-	$metaFields = array(
+	$meta_fields = array(
 		array(
-			"label"=> "Author",
-			"key" => "author"
+			'label' => __( 'Author', 'wporg' ),
+			'key' => 'author',
 		),
 		array(
-			"label"=> "Date Created",
-			"key" => "author"
+			'label' => __( 'Country', 'wporg' ),
+			'key' => 'country',
 		),
 		array(
-			"label"=> "Country",
-			"key" => "country"
+			'label' => __( 'Theme', 'wporg' ),
+			'key' => 'theme',
 		),
 		array(
-			"label"=> "Theme",
-			"key" => "theme"
-		)
+			'label' => __( 'Launched at', 'wporg' ),
+			'key' => 'date_launched',
+		),
 	);
 
-	foreach ( $metaFields as $field ) {
+	foreach ( $meta_fields as $field ) {
 		$value = get_custom_field( $field['key'], $block->context['postId'] );
 
-		if( !empty( $value ) ) {
+		if ( ! empty( $value ) ) {
 			$label = $field['label'];
-			$listItems[] = "<div><dt>$label</dt><dd>$value</dd></div>";
+			$list_items[] = "<dt>$label</dt><dd>$value</dd>";
 		}
 	}
 
 	$terms = get_associated_terms( $block->context['postId'] );
-	
-	if( ! empty( $terms )) {
-		$listItems[] = "<div><dt>$label</dt><dd>$terms</dd></div>";
+
+	if ( ! empty( $terms ) ) {
+		$archive_label = __( 'Archived In', 'wporg' );
+		$list_items[] = "<dt>$archive_label</dt><dd>$terms</dd>";
 	}
 
+	$half = ceil( count( $list_items ) / 2 );
+	$left = array_slice( $list_items, 0, $half );
+	$right = array_slice( $list_items, $half );
 
 	$wrapper_attributes = get_block_wrapper_attributes();
 	return sprintf(
-		'<div %s><dl>%s</dl></div>',
+		'<div %s><dl><div>%s</div><div>%s</div></dl></div>',
 		$wrapper_attributes,
-		join('', $listItems)
+		join( '', $left ),
+		join( '', $right )
 	);
 }
 
@@ -75,8 +80,8 @@ function render( $attributes, $content, $block ) {
  * @param string $key Name of meta field.
  * @return string
  */
-function get_custom_field( $key, $postId ) {
-	$values = get_post_custom_values( $key , $postId );
+function get_custom_field( $key, $post_id ) {
+	$values = get_post_custom_values( $key, $post_id );
 
 	if ( empty( $values ) ) {
 		return '';
@@ -85,18 +90,32 @@ function get_custom_field( $key, $postId ) {
 	return $values[0];
 }
 
+/**
+ * Get's tags and categories associated with site.
+ *
+ * @param integer $post_id
+ * @return string
+ */
+function get_associated_terms( $post_id ) {
+	$terms = array();
+	$tags = get_the_terms( $post_id, 'post_tag' );
+	$categories = get_the_terms( $post_id, 'category' );
 
-function get_associated_terms( $postId ) {
-	$tags = get_the_terms( $postId , 'post_tag' );
-	$category = get_the_terms( $postId , 'category' );
-	$terms = array_merge( $tags, $category );
-	$links  = array();
-
-	foreach ($terms as $value) {
-		$links[] = "<a href='". get_term_link( $value->term_id, $value->taxonomy ) ."'>". $value->name ."</a>";
+	if ( ! empty( $tags ) ) {
+		$terms = array_merge( $terms, $tags );
 	}
 
-	if ( empty( $tags ) ) {
+	if ( ! empty( $categories ) ) {
+		$terms = array_merge( $terms, $categories );
+	}
+
+	$links  = array();
+
+	foreach ( $terms as $value ) {
+		$links[] = "<a href='" . get_term_link( $value->term_id, $value->taxonomy ) . "'>" . $value->name . '</a>';
+	}
+
+	if ( empty( $terms ) ) {
 		return '';
 	}
 
@@ -118,5 +137,3 @@ function init() {
 		)
 	);
 }
-
-
