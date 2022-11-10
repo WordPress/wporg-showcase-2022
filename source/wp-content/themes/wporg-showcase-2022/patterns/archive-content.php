@@ -1,3 +1,12 @@
+<?php
+/**
+ * Title: Archive Content
+ * Slug: wporg-showcase-2022/archive-content
+ * Inserter: no
+ */
+
+?>
+
 <!-- wp:group {"tagName":"main","style":{"spacing":{"blockGap":"0px"}},"className":"entry-content","layout":{"type":"constrained"}} -->
 <main class="wp-block-group entry-content"><!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
 	<div class="wp-block-group alignwide"><!-- wp:pattern {"slug":"wporg-showcase-2022/results-bar"} /-->
@@ -30,6 +39,4 @@
 	<!-- /wp:query-no-results --></div>
 	<!-- /wp:query --></div>
 	<!-- /wp:group --></main>
-	<!-- /wp:group -->
-
-
+<!-- /wp:group -->
