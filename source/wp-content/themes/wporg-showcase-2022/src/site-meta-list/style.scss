@@ -1,13 +1,13 @@
 
 @media (min-width: 641px) {
-	.wp-block-wporg-site-meta dl {
+	.wp-block-wporg-site-meta-list dl {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		margin: 0;
 	}
 }
 
-.wp-block-wporg-site-meta dl > div {
+.wp-block-wporg-site-meta-list dl > div {
 	display: grid;
 	grid-template-columns: 0.6fr 1fr;
 
@@ -25,4 +25,3 @@
 		}
 	}
 }
-

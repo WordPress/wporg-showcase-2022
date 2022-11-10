@@ -6,7 +6,7 @@
  * @package wporg
  */
 
-namespace WordPressdotorg\Theme\Showcase_2022\Site_Meta;
+namespace WordPressdotorg\Theme\Showcase_2022\Site_Meta_List;
 
 add_action( 'init', __NAMESPACE__ . '\init' );
 
@@ -132,7 +132,7 @@ function get_associated_terms( $post_id ) {
  */
 function init() {
 	register_block_type(
-		dirname( dirname( __DIR__ ) ) . '/build/site-meta',
+		dirname( dirname( __DIR__ ) ) . '/build/site-meta-list',
 		array(
 			'render_callback' => __NAMESPACE__ . '\render',
 		)
