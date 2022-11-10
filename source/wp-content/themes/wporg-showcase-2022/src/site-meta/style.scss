@@ -19,10 +19,10 @@
 		flex: 1;
 		word-break: break-word;
 		margin: 0 0 var(--wp--preset--spacing--10);
-	}
 
-	&:last-child {
-		margin-bottom: 0;
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
 
