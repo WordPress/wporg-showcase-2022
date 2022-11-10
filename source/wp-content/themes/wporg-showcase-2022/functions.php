@@ -14,6 +14,8 @@ add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_imag
 add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpackchange_image_size' );
 add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpackme_related_posts_headline' );
 add_action( 'wp', __NAMESPACE__ . '\jetpackme_remove_rp', 20 );
+add_filter( 'excerpt_length', __NAMESPACE__ . '\modify_excerpt_length', 999 );
+add_filter( 'excerpt_more', __NAMESPACE__ . '\modify_excerpt_more' );
 
 /**
  * Enqueue scripts and styles.
@@ -133,4 +135,22 @@ function jetpackme_remove_rp() {
 
 		remove_filter( 'the_content', $callback, 40 );
 	}
+}
+
+/**
+ * Update the excerpt length.
+ *
+ * @return string
+ */
+function modify_excerpt_length() {
+	return 22;
+}
+
+/**
+ * Modify the excerpt more display.
+ *
+ * @return string
+ */
+function modify_excerpt_more() {
+	return '...';
 }
