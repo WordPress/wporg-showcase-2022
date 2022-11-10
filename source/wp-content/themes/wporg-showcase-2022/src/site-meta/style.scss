@@ -1,0 +1,23 @@
+.wp-block-wporg-site-meta {
+	> dl {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
+		> div {
+			display: grid;
+			grid-template-columns: min-content 1fr;
+
+			dt {
+				width: 80px;
+			}
+
+			dd {
+				word-break: break-word;
+			}
+		}
+	}
+
+	 
+}
