@@ -61,6 +61,7 @@ function render( $attributes, $content, $block ) {
 		$list_items[] = "<dt>$archive_label</dt><dd>$terms</dd>";
 	}
 
+	// Separate items into 2 different containers
 	$half = ceil( count( $list_items ) / 2 );
 	$left = array_slice( $list_items, 0, $half );
 	$right = array_slice( $list_items, $half );
