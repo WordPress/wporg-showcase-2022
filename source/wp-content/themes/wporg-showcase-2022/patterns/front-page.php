@@ -18,7 +18,7 @@
 
 <!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30)"><!-- wp:image {"align":"full","id":7564,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image alignfull size-full"><img src="http://localhost:8888/wp-content/uploads/2022/11/showcase.svg" alt="" class="wp-image-7564"/></figure>
+<figure class="wp-block-image alignfull size-full"><img src="https://s.w.org/images/showcase/showcase.svg" alt="" class="wp-image-7564"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column --></div>
