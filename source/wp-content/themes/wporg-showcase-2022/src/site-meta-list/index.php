@@ -1,7 +1,7 @@
 <?php
 /**
- * Block Name: Site Screenshot
- * Description: Display a screenshot of the site.
+ * Block Name: Site Meta List
+ * Description: Display a site meta data as a list.
  *
  * @package wporg
  */
