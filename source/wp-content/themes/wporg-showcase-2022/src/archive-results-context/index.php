@@ -32,10 +32,22 @@ function render() {
 		);
 	} elseif ( is_tag() ) {
 		$content = sprintf(
-			/* translators: %1$s number of results; %2$s tag/category. */
+			/* translators: %1$s number of results; %2$s tag. */
 			_n(
 				'<p>There is <b>%1$s</b> site tagged with <b>%2$s</b></p>',
 				'<p>There are <b>%1$s</b> sites tagged with <b>%2$s</b></p>',
+				$wp_query->found_posts,
+				'wporg'
+			),
+			number_format_i18n( $wp_query->found_posts ),
+			esc_html( get_queried_object()->name )
+		);
+	} elseif ( is_category() ) {
+		$content = sprintf(
+			/* translators: %1$s number of results; %2$s category. */
+			_n(
+				'<p>There is <b>%1$s</b> site categorized as <b>%2$s</b></p>',
+				'<p>There are <b>%1$s</b> sites categorized as <b>%2$s</b></p>',
 				$wp_query->found_posts,
 				'wporg'
 			),
