@@ -49,16 +49,14 @@ function render( $attributes, $content, $block ) {
 		$value = get_custom_field( $field['key'], $block->context['postId'] );
 
 		if ( ! empty( $value ) ) {
-			$label = $field['label'];
-			$list_items[] = "<dt>$label</dt><dd>$value</dd>";
+			$list_items[] = '<dt>' . $field['label'] . '</dt><dd>' . esc_html( $value ) . '</dd>';
 		}
 	}
 
 	$terms = get_associated_terms( $block->context['postId'] );
 
 	if ( ! empty( $terms ) ) {
-		$archive_label = __( 'Archived In', 'wporg' );
-		$list_items[] = "<dt>$archive_label</dt><dd>$terms</dd>";
+		$list_items[] = '<dt>' . __( 'Archived In', 'wporg' ) . "</dt><dd>$terms</dd>";
 	}
 
 	// Separate items into 2 different containers
@@ -113,7 +111,7 @@ function get_associated_terms( $post_id ) {
 	$links  = array();
 
 	foreach ( $terms as $value ) {
-		$links[] = "<a href='" . get_term_link( $value->term_id, $value->taxonomy ) . "'>" . $value->name . '</a>';
+		$links[] = "<a href='" . get_term_link( $value->term_id, $value->taxonomy ) . "'>" . esc_html( $value->name ) . '</a>';
 	}
 
 	if ( empty( $terms ) ) {
