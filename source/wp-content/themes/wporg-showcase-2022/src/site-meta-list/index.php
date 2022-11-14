@@ -40,7 +40,7 @@ function render( $attributes, $content, $block ) {
 			'key' => 'theme',
 		),
 		array(
-			'label' => __( 'Launched at', 'wporg' ),
+			'label' => __( 'Launched on', 'wporg' ),
 			'key' => 'date_launched',
 		),
 	);
