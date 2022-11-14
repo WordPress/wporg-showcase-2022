@@ -13,7 +13,7 @@
 	margin: 0 0 var(--wp--preset--spacing--10);
 }
 
-.wp-block-wporg-site-meta-list dl > div:last-child dd {
+.wp-block-wporg-site-meta-list dl > div:last-child dd:last-child {
 	margin-bottom: 0;
 }
 
