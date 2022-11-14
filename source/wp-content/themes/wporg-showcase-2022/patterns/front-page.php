@@ -7,8 +7,44 @@
 
 ?>
 
-<!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
-<div class="wp-block-group alignwide"><!-- wp:columns {"align":"wide"} -->
+<!-- wp:query {"queryId":6,"query":{"perPage":"1","pages":"1","offset":"0","postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"only","inherit":false},"align":"full"} -->
+<div class="wp-block-query alignfull"><!-- wp:post-template {"align":"full"} -->
+<!-- wp:group {"backgroundColor":"charcoal-2","layout":{"type":"default"}} -->
+<div class="wp-block-group has-charcoal-2-background-color has-background"><!-- wp:columns {"align":"full","style":{"spacing":{"blockGap":{"top":"var:preset|spacing|40","left":"var:preset|spacing|40"},"padding":{"top":"0"}}}} -->
+<div class="wp-block-columns alignfull" style="padding-top:0"><!-- wp:column {"width":"60%","layout":{"type":"default"}} -->
+<div class="wp-block-column" style="flex-basis:60%"><!-- wp:heading {"level":1,"className":"screen-reader-text"} -->
+<h1 class="screen-reader-text"><?php esc_attr_e( 'Showcase:', 'wporg' ); ?></h1>
+<!-- /wp:heading -->
+
+<!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30)"><!-- wp:image {"align":"full","id":7564,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image alignfull size-full"><img src="https://s.w.org/images/showcase/showcase.svg" alt="" class="wp-image-7564"/></figure>
+<!-- /wp:image --></div>
+<!-- /wp:group --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide" style="padding-bottom:var(--wp--preset--spacing--40)"><!-- wp:group {"align":"wide","className":"wporg-hero-details","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignwide wporg-hero-details"><!-- wp:group {"align":"full","layout":{"type":"flex","orientation":"vertical","justifyContent":"right"}} -->
+<div class="wp-block-group alignfull"><!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"align":"left","style":{"typography":{"lineHeight":"0"}},"textColor":"white","className":"is-style-serif"} -->
+<p class="has-text-align-left is-style-serif has-white-color has-text-color" style="line-height:0"><?php esc_attr_e( 'Featuring:', 'wporg' ); ?></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:post-title {"textAlign":"left","isLink":true,"align":"full","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}},"typography":{"fontStyle":"italic","fontWeight":"400"}},"textColor":"white","fontSize":"extra-large","fontFamily":"eb-garamond"} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+
+<!-- wp:wporg/site-screenshot {"align":"wide"} /--></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- /wp:post-template --></div>
+<!-- /wp:query -->
+
+<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|80"}}},"layout":{"type":"default"}} -->
+<div div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--80)"><!-- wp:columns {"align":"wide"} -->
 <div class="wp-block-columns alignwide"><!-- wp:column {"width":"70%"} -->
 <div class="wp-block-column" style="flex-basis:70%"><!-- wp:heading {"fontSize":"huge","fontFamily":"inter"} -->
 <h2 class="has-inter-font-family has-huge-font-size"><?php esc_attr_e( 'Featured sites', 'wporg' ); ?></h2>
