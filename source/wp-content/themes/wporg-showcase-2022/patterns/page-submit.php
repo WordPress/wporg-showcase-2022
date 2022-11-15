@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Submit a WordPres Site
+ * Title: Submit a WordPress Site
  * Slug: wporg-showcase-2022/page-submit
  * Inserter: no
  */
