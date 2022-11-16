@@ -108,14 +108,14 @@ function get_associated_terms( $post_id ) {
 		$terms = array_merge( $terms, $categories );
 	}
 
+	if ( empty( $terms ) ) {
+		return '';
+	}
+
 	$links  = array();
 
 	foreach ( $terms as $value ) {
 		$links[] = "<a href='" . get_term_link( $value->term_id, $value->taxonomy ) . "'>" . esc_html( $value->name ) . '</a>';
-	}
-
-	if ( empty( $terms ) ) {
-		return '';
 	}
 
 	return join( ', ', $links );
