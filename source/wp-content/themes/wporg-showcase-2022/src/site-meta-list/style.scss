@@ -1,14 +1,13 @@
+.wp-block-wporg-site-meta-list dl {
+	margin: 0;
+}
+
 .wp-block-wporg-site-meta-list dl > div {
 	display: grid;
 	grid-template-columns: 0.6fr 1fr;
 }
 
-.wp-block-wporg-site-meta-list dt {
-	flex: 0.65;
-}
-
 .wp-block-wporg-site-meta-list dd {
-	flex: 1;
 	word-break: break-word;
 	margin: 0 0 var(--wp--preset--spacing--10);
 }
@@ -21,7 +20,6 @@
 	.wp-block-wporg-site-meta-list dl {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		margin: 0;
 	}
 
 	.wp-block-wporg-site-meta-list dd:last-child {
