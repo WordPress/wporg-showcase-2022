@@ -100,11 +100,11 @@ function get_associated_terms( $post_id ) {
 	$tags = get_the_terms( $post_id, 'post_tag' );
 	$categories = get_the_terms( $post_id, 'category' );
 
-	if ( ! empty( $tags ) ) {
+	if ( $tags ) {
 		$terms = array_merge( $terms, $tags );
 	}
 
-	if ( ! empty( $categories ) ) {
+	if ( $categories ) {
 		$terms = array_merge( $terms, $categories );
 	}
 
@@ -115,7 +115,11 @@ function get_associated_terms( $post_id ) {
 	$links  = array();
 
 	foreach ( $terms as $value ) {
-		$links[] = "<a href='" . get_term_link( $value->term_id, $value->taxonomy ) . "'>" . esc_html( $value->name ) . '</a>';
+		$link = get_term_link( $value->term_id, $value->taxonomy );
+		if ( is_wp_error( $link ) ) {
+			return $link;
+		}
+		$links[] = "<a href='" . esc_url( $link ) . "'>" . $value->name . '</a>';
 	}
 
 	return join( ', ', $links );
