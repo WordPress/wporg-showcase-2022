@@ -134,14 +134,14 @@ button[type="submit"] {
  * JetPack Contact Form Styles
  */
 
- .wp-block-jetpack-contact-form label {
-	font-weight: normal;
+.wp-block-jetpack-contact-form label {
+	font-weight: 400;
 }
 
-.wp-block-jetpack-contact-form input[type=email],
-.wp-block-jetpack-contact-form input[type=tel],
-.wp-block-jetpack-contact-form input[type=text],
-.wp-block-jetpack-contact-form input[type=url] {
+.wp-block-jetpack-contact-form input[type="email"],
+.wp-block-jetpack-contact-form input[type="tel"],
+.wp-block-jetpack-contact-form input[type="text"],
+.wp-block-jetpack-contact-form input[type="url"] {
 	padding: 4px 8px;
 	border: 1px solid var(--wp--preset--color--charcoal-4);
 }
