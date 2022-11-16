@@ -16,22 +16,22 @@
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:columns {"verticalAlignment":"center"} -->
 <div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center"} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"align":"center","id":7738,"width":330,"height":84,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://s.w.org/images/showcase/featured-black-on-white.png" alt="" class="wp-image-7738" width="330" height="84"/></figure>
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"align":"center","id":7738,"width":330,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://s.w.org/images/showcase/featured-black-on-white.png" alt="" class="wp-image-7738" width="330"/></figure>
 <!-- /wp:image -->
 
-<!-- wp:image {"align":"center","id":7740,"width":330,"height":86,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://s.w.org/images/showcase/featured-blueberry-on-white.png" alt="" class="wp-image-7740" width="330" height="86"/></figure>
+<!-- wp:image {"align":"center","id":7740,"width":330,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://s.w.org/images/showcase/featured-blueberry-on-white.png" alt="" class="wp-image-7740" width="330"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"verticalAlignment":"center"} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"align":"center","id":7739,"width":330,"height":86,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://s.w.org/images/showcase/featured-white-on-black.png" alt="" class="wp-image-7739" width="330" height="86"/></figure>
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"align":"center","id":7739,"width":330,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://s.w.org/images/showcase/featured-white-on-black.png" alt="" class="wp-image-7739" width="330"/></figure>
 <!-- /wp:image -->
 
-<!-- wp:image {"align":"center","id":7741,"width":330,"height":86,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://s.w.org/images/showcase/featured-white-on-blueberry.png" alt="" class="wp-image-7741" width="330" height="86"/></figure>
+<!-- wp:image {"align":"center","id":7741,"width":330,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://s.w.org/images/showcase/featured-white-on-blueberry.png" alt="" class="wp-image-7741" width="330"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
