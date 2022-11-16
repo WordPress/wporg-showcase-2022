@@ -130,6 +130,22 @@ button[type="submit"] {
 	}
 }
 
+/*
+ * JetPack Contact Form Styles
+ */
+
+ .wp-block-jetpack-contact-form label {
+	font-weight: normal;
+}
+
+.wp-block-jetpack-contact-form input[type=email],
+.wp-block-jetpack-contact-form input[type=tel],
+.wp-block-jetpack-contact-form input[type=text],
+.wp-block-jetpack-contact-form input[type=url] {
+	padding: 4px 8px;
+	border: 1px solid var(--wp--preset--color--charcoal-4);
+}
+
 // 760 = (--wp--style--global--content-size, 680px) + (2 * --wp--preset--spacing--60, which at ~700 is 40px).
 @media (max-width: 760px) {
 	// Add space to the left & right of blocks as long as they're not pulled out
