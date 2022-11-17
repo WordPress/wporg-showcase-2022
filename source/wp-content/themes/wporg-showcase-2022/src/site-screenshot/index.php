@@ -53,7 +53,7 @@ function render( $attributes, $content, $block ) {
 
 	$img_content = "<img src='{$screenshot}' srcset='$srcset 2x' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' />";
 
-	if ( isset( $attributes['isLink'] ) ) {
+	if ( isset( $attributes['isLink'] ) && true == $attributes['isLink'] ) {
 		$img_content .= '<span class="screen-reader-text">' . the_title_attribute( array( 'echo' => false ) ) . '</span>';
 		$img_content = '<a href="' . get_permalink( $post ) . '">' . $img_content . '</a>';
 	}
