@@ -61,13 +61,16 @@ function get_site_domain( $post, $rem_trail_slash = false ) {
  * @param WP_Post $post
  * @return string
  */
-function site_screenshot_src( $post ) {
+function site_screenshot_src( $post, $width = 1440, $height = 810 ) {
 	$screenshot = get_post_meta( $post->ID, 'screenshot', true );
 	$cache_key = '1.1'; // To break out of cached image.
 
 	if ( empty( $screenshot ) ) {
 		$screenshot = 'https://wordpress.com/mshots/v1/http%3A%2F%2F' . urlencode( get_site_domain( $post ) . '?v=' . $cache_key );
+		$screenshot = add_query_arg( 'vpw', $width, $screenshot );
+		$screenshot = add_query_arg( 'vph', $height, $screenshot );
 	} elseif ( function_exists( 'jetpack_photon_url' ) ) {
+		// Use JetPack cache for non mShot images
 		$screenshot = jetpack_photon_url( $screenshot );
 	}
 
@@ -86,8 +89,7 @@ function jetpack_fallback_image( $media, $post_id, $args ) {
 	} else {
 		$post = get_post( $post_id );
 		$permalink = get_permalink( $post_id );
-
-		$url = apply_filters( 'jetpack_photon_url', site_screenshot_src( $post ) );
+		$url = site_screenshot_src( $post );
 
 		return array(
 			array(

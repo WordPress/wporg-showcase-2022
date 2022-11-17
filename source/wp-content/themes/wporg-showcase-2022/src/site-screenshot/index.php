@@ -47,9 +47,7 @@ function render( $attributes, $content, $block ) {
 	$width = 1440;
 	$height = 810;
 
-	$screenshot = site_screenshot_src( $post );
-	$screenshot = add_query_arg( 'vpw', $width, $screenshot );
-	$screenshot = add_query_arg( 'vph', $height, $screenshot );
+	$screenshot = site_screenshot_src( $post, $width, $height );
 	$srcset = add_query_arg( 'vpw', $width * 2, $screenshot );
 	$srcset = add_query_arg( 'vph', $height * 2, $srcset );
 
