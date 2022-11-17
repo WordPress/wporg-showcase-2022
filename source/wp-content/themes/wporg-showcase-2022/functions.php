@@ -6,6 +6,7 @@ namespace WordPressdotorg\Theme\Showcase_2022;
 require_once __DIR__ . '/src/site-screenshot/index.php';
 require_once __DIR__ . '/src/archive-results-context/index.php';
 require_once __DIR__ . '/src/site-meta-list/index.php';
+require_once __DIR__ . '/src/site-breadcrumbs/index.php';
 require_once __DIR__ . '/inc/block-styles.php';
 require_once __DIR__ . '/inc/shortcodes.php';
 

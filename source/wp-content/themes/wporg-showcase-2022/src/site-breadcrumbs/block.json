@@ -1,0 +1,23 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wporg/site-breadcrumbs",
+	"version": "0.1.0",
+	"title": "Site Breadcrumbs",
+	"category": "design",
+	"icon": "",
+	"description": "Display breadcrumbs of the site.",
+	"textdomain": "wporg",
+	"attributes": {},
+	"supports": {
+		"align": true,
+		"html": false,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"usesContext": [ "postId" ],
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
