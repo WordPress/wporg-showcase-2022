@@ -2,9 +2,10 @@
  * WordPress dependencies
  */
 import { image } from '@wordpress/icons';
-import { Placeholder } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
+import { PanelBody, Placeholder, ToggleControl } from '@wordpress/components';
 import { registerBlockType } from '@wordpress/blocks';
-import { useBlockProps } from '@wordpress/block-editor';
+import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
@@ -12,9 +13,18 @@ import { useBlockProps } from '@wordpress/block-editor';
 import metadata from './block.json';
 import './style.scss';
 
-function Edit() {
+function Edit( { attributes: { isLink }, setAttributes } ) {
 	return (
 		<div { ...useBlockProps() }>
+			<InspectorControls>
+				<PanelBody title={ __( 'Settings', 'wporg' ) }>
+					<ToggleControl
+						label={ __( 'Make image link to Post', 'wporg' ) }
+						checked={ isLink }
+						onChange={ () => setAttributes( { isLink: ! isLink } ) }
+					/>
+				</PanelBody>
+			</InspectorControls>
 			<Placeholder icon={ image } label="Site Screenshot" />
 		</div>
 	);

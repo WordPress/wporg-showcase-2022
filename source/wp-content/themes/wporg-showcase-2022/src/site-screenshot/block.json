@@ -8,7 +8,12 @@
 	"icon": "",
 	"description": "Display a screenshot of the site.",
 	"textdomain": "wporg",
-	"attributes": {},
+	"attributes": {
+		"isLink": {
+			"type": "boolean",
+			"default": false
+		}
+	},
 	"supports": {
 		"align": true,
 		"html": false,
