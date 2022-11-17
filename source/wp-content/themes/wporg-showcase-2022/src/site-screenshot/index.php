@@ -53,6 +53,10 @@ function render( $attributes, $content, $block ) {
 
 	$img_content = "<img src='{$screenshot}' srcset='$srcset 2x' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' />";
 
+	if ( isset( $attributes['isLink'] ) && true == $attributes['isLink'] ) {
+		$img_content = '<a href="' . get_permalink( $post ) . '">' . $img_content . '</a>';
+	}
+
 	$wrapper_attributes = get_block_wrapper_attributes();
 	return sprintf(
 		'<div %s>%s</div>',

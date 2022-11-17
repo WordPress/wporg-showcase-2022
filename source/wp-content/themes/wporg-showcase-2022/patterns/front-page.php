@@ -37,7 +37,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:wporg/site-screenshot {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} /--></div>
+<!-- wp:wporg/site-screenshot {"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}},"isLink":true} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- /wp:post-template --></div>
@@ -59,7 +59,7 @@
 <!-- wp:query {"queryId":16,"query":{"perPage":20,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"taxQuery":{"category":[8]}},"displayLayout":{"type":"flex","columns":2}} -->
 <div class="wp-block-query"><!-- wp:post-template -->
 <!-- wp:group {"style":{"border":{"width":"1px"}},"borderColor":"light-grey-1","layout":{"type":"constrained"}} -->
-<div class="wp-block-group has-border-color has-light-grey-1-border-color" style="border-width:1px"><!-- wp:wporg/site-screenshot {"align":"full"} /--></div>
+<div class="wp-block-group has-border-color has-light-grey-1-border-color" style="border-width:1px"><!-- wp:wporg/site-screenshot {"align":"full","isLink":true} /--></div>
 <!-- /wp:group -->
 
 <!-- wp:post-title {"isLink":true,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"normal","fontFamily":"inter"} /-->
