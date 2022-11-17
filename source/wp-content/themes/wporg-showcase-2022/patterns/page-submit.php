@@ -46,7 +46,7 @@ _e( 'While only a relatively small number of submissions are eventually added to
 <h2 class="has-heading-3-font-size" style="margin-top:var(--wp--preset--spacing--40);margin-bottom:var(--wp--preset--spacing--20)"><?php esc_attr_e( 'Submission Form', 'wporg' ); ?></h2>
 <!-- /wp:heading -->
 
-<!-- wp:list {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"var:preset|spacing|20,"left":"0"},"padding":{"top":"0","right":"0","bottom":"0","left":"var:preset|spacing|20"}}}} -->
+<!-- wp:list {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"var:preset|spacing|20","left":"0"},"padding":{"top":"0","right":"0","bottom":"0","left":"var:preset|spacing|20"}}}} -->
 <ul style="margin-top:0;margin-right:0;margin-bottom:var(--wp--preset--spacing--20);margin-left:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:var(--wp--preset--spacing--20)"><!-- wp:list-item -->
 <li><?php esc_attr_e( 'All the fields are required.', 'wporg' ); ?></li>
 <!-- /wp:list-item -->
