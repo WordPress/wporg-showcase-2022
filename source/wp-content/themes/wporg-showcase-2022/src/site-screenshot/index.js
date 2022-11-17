@@ -25,7 +25,7 @@ function Edit( { attributes: { isLink }, setAttributes } ) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<Placeholder icon={ image } label="Site Screenshot" />
+			<Placeholder icon={ image } label={ __( 'Site Screenshot', 'wporg' ) } />
 		</div>
 	);
 }
