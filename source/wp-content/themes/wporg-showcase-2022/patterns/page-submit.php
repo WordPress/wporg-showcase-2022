@@ -46,8 +46,8 @@ _e( 'While only a relatively small number of submissions are eventually added to
 <h2 class="has-heading-3-font-size" style="margin-top:var(--wp--preset--spacing--40);margin-bottom:var(--wp--preset--spacing--20)"><?php esc_attr_e( 'Submission Form', 'wporg' ); ?></h2>
 <!-- /wp:heading -->
 
-<!-- wp:list {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"0","left":"0"},"padding":{"top":"0","right":"0","bottom":"0","left":"var:preset|spacing|20"}}}} -->
-<ul style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:var(--wp--preset--spacing--20)"><!-- wp:list-item -->
+<!-- wp:list {"style":{"spacing":{"margin":{"top":"0","right":"0","bottom":"var:preset|spacing|20,"left":"0"},"padding":{"top":"0","right":"0","bottom":"0","left":"var:preset|spacing|20"}}}} -->
+<ul style="margin-top:0;margin-right:0;margin-bottom:var(--wp--preset--spacing--20);margin-left:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:var(--wp--preset--spacing--20)"><!-- wp:list-item -->
 <li><?php esc_attr_e( 'All the fields are required.', 'wporg' ); ?></li>
 <!-- /wp:list-item -->
 
@@ -55,3 +55,27 @@ _e( 'While only a relatively small number of submissions are eventually added to
 <li><?php esc_attr_e( 'Please insert the site information &amp; descriptions in English, regardless of the sites language.', 'wporg' ); ?></li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
+
+<!-- wp:jetpack/contact-form {"subject":"<?php esc_attr_e( 'A new showcase site suggested.', 'wporg' ); ?>","to":"showcase.shouldbeblockedbyfilter@wordpress.org","customThankyou":"redirect","customThankyouRedirect":"https://wordpress.org/showcase/submit-a-wordpress-site/success"} -->
+<div class="wp-block-jetpack-contact-form"><!-- wp:jetpack/field-name {"label":"<?php esc_attr_e( 'Your Name', 'wporg' ); ?>","required":true} /-->
+
+<!-- wp:jetpack/field-email {"label":"<?php esc_attr_e( 'Your E-mail', 'wporg' ); ?>","required":true} /-->
+
+<!-- wp:jetpack/field-url {"label":"<?php esc_attr_e( 'Site URL', 'wporg' ); ?>","required":true} /-->
+
+<!-- wp:jetpack/field-text {"label":"<?php esc_attr_e( 'Country', 'wporg' ); ?>","required":true} /-->
+
+<!-- wp:jetpack/field-text {"label":"<?php esc_attr_e( 'Theme', 'wporg' ); ?>","required":true} /-->
+
+<!-- wp:jetpack/field-date {"label":"<?php esc_attr_e( 'Launched On', 'wporg' ); ?>","required":true} /-->
+
+<!-- wp:jetpack/field-text {"label":"<?php esc_attr_e( 'Author', 'wporg' ); ?>","required":true} /-->
+
+<!-- wp:jetpack/field-textarea {"label":"<?php esc_attr_e( 'Describe the site and, if applicable, the person or organization it represents.', 'wporg' ); ?>","required":true} /-->
+
+<!-- wp:jetpack/field-textarea {"label":"<?php esc_attr_e( 'What justifies this site being added to the WordPress Showcase? what makes it unique or interesting?', 'wporg' ); ?>","required":true} /-->
+
+<!-- wp:jetpack/field-checkbox {"label":"<?php esc_attr_e( 'Check this box if you own the site and agree to be contacted by email', 'wporg' ); ?>","required":true} /-->
+
+<!-- wp:jetpack/button {"element":"button","text":"<?php esc_attr_e( 'Submit site', 'wporg' ); ?>","lock":{"remove":true}} /--></div>
+<!-- /wp:jetpack/contact-form -->
