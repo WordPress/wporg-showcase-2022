@@ -63,7 +63,7 @@ function get_site_domain( $post, $rem_trail_slash = false ) {
  */
 function site_screenshot_src( $post ) {
 	$screenshot = get_post_meta( $post->ID, 'screenshot', true );
-	$cache_key = '1.0'; // To break out of cached image.
+	$cache_key = '1.1'; // To break out of cached image.
 
 	if ( empty( $screenshot ) ) {
 		$screenshot = 'https://wordpress.com/mshots/v1/http%3A%2F%2F' . urlencode( get_site_domain( $post ) . '?v=' . $cache_key );

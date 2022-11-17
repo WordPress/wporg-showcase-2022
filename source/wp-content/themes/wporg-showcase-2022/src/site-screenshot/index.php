@@ -44,8 +44,8 @@ function render( $attributes, $content, $block ) {
 
 	$post_ID = $block->context['postId'];
 	$post = get_post( $post_ID );
-	$width = 1320;
-	$height = 670;
+	$width = 1440;
+	$height = 810;
 
 	$screenshot = site_screenshot_src( $post );
 	$screenshot = add_query_arg( 'vpw', $width, $screenshot );
