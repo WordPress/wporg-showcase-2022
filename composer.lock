@@ -2206,15 +2206,15 @@
         },
         {
             "name": "wpackagist-plugin/gutenberg",
-            "version": "14.4.0",
+            "version": "14.5.4",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/gutenberg/",
-                "reference": "tags/14.4.0"
+                "reference": "tags/14.5.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/gutenberg.14.4.0.zip"
+                "url": "https://downloads.wordpress.org/plugin/gutenberg.14.5.4.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -2264,12 +2264,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/wporg-mu-plugins.git",
-                "reference": "b5fc8835e5e1c1bfa3dcbf1424845e6f23c80dea"
+                "reference": "19c08f58270123bd170112ae9e0d336cd5e9688e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/wporg-mu-plugins/zipball/b5fc8835e5e1c1bfa3dcbf1424845e6f23c80dea",
-                "reference": "b5fc8835e5e1c1bfa3dcbf1424845e6f23c80dea",
+                "url": "https://api.github.com/repos/WordPress/wporg-mu-plugins/zipball/19c08f58270123bd170112ae9e0d336cd5e9688e",
+                "reference": "19c08f58270123bd170112ae9e0d336cd5e9688e",
                 "shasum": ""
             },
             "require-dev": {
@@ -2307,7 +2307,7 @@
                 "source": "https://github.com/WordPress/wporg-mu-plugins/tree/build",
                 "issues": "https://github.com/WordPress/wporg-mu-plugins/issues"
             },
-            "time": "2022-11-04T15:29:26+00:00"
+            "time": "2022-11-18T17:31:17+00:00"
         },
         {
             "name": "wporg/wporg-parent-2021",
@@ -2315,12 +2315,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/wporg-parent-2021.git",
-                "reference": "60d0714aacf403ea3f9fe2b5d56667705f44d509"
+                "reference": "f997ec68246f8fc2bb80ff728039f474d8df5981"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/wporg-parent-2021/zipball/60d0714aacf403ea3f9fe2b5d56667705f44d509",
-                "reference": "60d0714aacf403ea3f9fe2b5d56667705f44d509",
+                "url": "https://api.github.com/repos/WordPress/wporg-parent-2021/zipball/f997ec68246f8fc2bb80ff728039f474d8df5981",
+                "reference": "f997ec68246f8fc2bb80ff728039f474d8df5981",
                 "shasum": ""
             },
             "type": "wordpress-theme",
@@ -2328,7 +2328,7 @@
                 "source": "https://github.com/WordPress/wporg-parent-2021/tree/build",
                 "issues": "https://github.com/WordPress/wporg-parent-2021/issues"
             },
-            "time": "2022-10-31T16:48:39+00:00"
+            "time": "2022-11-18T17:32:53+00:00"
         },
         {
             "name": "wporg/wporg-repo-tools",
@@ -2336,12 +2336,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/wporg-repo-tools.git",
-                "reference": "154b006a03d137a52d6fffd88fe3b3ef66b9c14b"
+                "reference": "926e9776aaab7bb8ce2fa2a7feaa6a9f2169fe69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/wporg-repo-tools/zipball/154b006a03d137a52d6fffd88fe3b3ef66b9c14b",
-                "reference": "154b006a03d137a52d6fffd88fe3b3ef66b9c14b",
+                "url": "https://api.github.com/repos/WordPress/wporg-repo-tools/zipball/926e9776aaab7bb8ce2fa2a7feaa6a9f2169fe69",
+                "reference": "926e9776aaab7bb8ce2fa2a7feaa6a9f2169fe69",
                 "shasum": ""
             },
             "default-branch": true,
@@ -2358,7 +2358,7 @@
                 "issues": "https://github.com/WordPress/wporg-repo-tools/issues",
                 "source": "https://github.com/WordPress/wporg-repo-tools/tree/trunk"
             },
-            "time": "2022-07-21T13:46:18+00:00"
+            "time": "2022-11-16T17:56:26+00:00"
         }
     ],
     "aliases": [],
