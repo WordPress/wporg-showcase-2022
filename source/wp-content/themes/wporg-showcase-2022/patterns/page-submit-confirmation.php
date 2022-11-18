@@ -1,6 +1,6 @@
 <?php
 /**
- * Title: Submit a WordPres Site
+ * Title: Confirmation after site submission
  * Slug: wporg-showcase-2022/page-submit-confirmation
  * Inserter: no
  */
