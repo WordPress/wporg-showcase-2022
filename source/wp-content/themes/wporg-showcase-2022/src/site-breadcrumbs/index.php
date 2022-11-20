@@ -55,8 +55,9 @@ function render( $attributes, $content, $block ) {
 
 	$wrapper_attributes = get_block_wrapper_attributes();
 	return sprintf(
-		'<div %s><div><a href="https://wordpress.org/showcase">%s</a><div>%s</div></div></div>',
+		'<div %s><div><a href="%s">%s</a><div>%s</div></div></div>',
 		$wrapper_attributes,
+		get_site_url(),
 		esc_html__( 'Showcase', 'wporg' ),
 		$title
 	);
