@@ -41,7 +41,7 @@ function render( $attributes, $content, $block ) {
 	}
 
 	global $pagename;
-	$title = ucfirst( strtolower( get_the_title() ) );
+	$title = get_the_title();
 
 	if ( 'archives' === $pagename ) {
 		$title = esc_html__( 'Archives', 'wporg' );
