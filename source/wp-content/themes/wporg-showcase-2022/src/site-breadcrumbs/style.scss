@@ -37,17 +37,10 @@
 			margin-top: 0;
 
 			&::before {
-				content: "";
-				height: 2px;
-				width: 2px;
-				background: var(--bar-text-color);
+				content: "/";
 				display: inline-block;
 				margin: 0 0.5rem;
-				border-radius: 2px;
-			}
-
-			span {
-				margin-left: 0.5ch;
+				font-weight: 400;
 			}
 		}
 	}
