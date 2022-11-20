@@ -41,25 +41,23 @@ function render( $attributes, $content, $block ) {
 	}
 
 	global $pagename;
-	$post_ID = $block->context['postId'];
-	$post = get_post( $post_ID );
+	$title = ucfirst( strtolower( get_the_title() ) );
 
-	$title = $post->post_title;
-	if ( $pagename ) {
-		$title = ucfirst( strtolower( $pagename ) );
+	if ( 'archives' === $pagename ) {
+		$title = esc_html__( 'Archives', 'wporg' );
 	} elseif ( is_search() ) {
-		$title = 'Results';
+		$title = esc_html__( 'Results', 'wporg' );
 	} elseif ( is_category() ) {
-		$title = 'Categories';
+		$title = esc_html__( 'Categories', 'wporg' );
 	} elseif ( is_tag() ) {
-		$title = 'Tags';
+		$title = esc_html__( 'Tags', 'wporg' );
 	}
 
 	$wrapper_attributes = get_block_wrapper_attributes();
 	return sprintf(
 		'<div %s><div><a href="https://wordpress.org/showcase">%s</a><div>%s</div></div></div>',
 		$wrapper_attributes,
-		esc_html( 'Showcase' ),
+		esc_html__( 'Showcase', 'wporg' ),
 		$title
 	);
 }
