@@ -183,6 +183,6 @@ function modify_query_loop_block_query_vars( $query, $block ) {
  * @return void
  */
 function remove_pages_from_search() {
-    global $wp_post_types;
-    $wp_post_types['page']->exclude_from_search = true;
+	global $wp_post_types;
+	$wp_post_types['page']->exclude_from_search = true;
 }
