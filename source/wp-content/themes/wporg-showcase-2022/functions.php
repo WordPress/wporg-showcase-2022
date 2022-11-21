@@ -17,7 +17,6 @@ add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetp
 add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpackme_related_posts_headline' );
 add_filter( 'excerpt_length', __NAMESPACE__ . '\modify_excerpt_length', 999 );
 add_filter( 'excerpt_more', __NAMESPACE__ . '\modify_excerpt_more' );
-add_filter( 'query_loop_block_query_vars', __NAMESPACE__ . '\modify_query_loop_block_query_vars', 10, 2 );
 
 /**
  * Enqueue scripts and styles.
@@ -157,21 +156,4 @@ function modify_excerpt_length() {
  */
 function modify_excerpt_more() {
 	return '...';
-}
-
-/**
- * Modify query vars for mast head query.
- *
- * See: https://github.com/WordPress/gutenberg/issues/41184
- *
- * @return string
- */
-function modify_query_loop_block_query_vars( $query, $block ) {
-	if ( isset( $block->context['query']['sticky'] ) && 'only' === $block->context['query']['sticky'] ) {
-		$sticky = get_option( 'sticky_posts' );
-		$query['ignore_sticky_posts'] = 1;
-		$query['post__in'] = $sticky;
-	}
-
-	return $query;
 }
