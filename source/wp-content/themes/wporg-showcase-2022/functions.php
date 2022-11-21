@@ -10,6 +10,7 @@ require_once __DIR__ . '/inc/block-styles.php';
 require_once __DIR__ . '/inc/shortcodes.php';
 
 // Filters and Actions
+add_action( 'init', __NAMESPACE__ . '\remove_pages_from_search' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 add_action( 'wp', __NAMESPACE__ . '\jetpackme_remove_rp', 20 );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
@@ -18,6 +19,7 @@ add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpackme_
 add_filter( 'excerpt_length', __NAMESPACE__ . '\modify_excerpt_length', 999 );
 add_filter( 'excerpt_more', __NAMESPACE__ . '\modify_excerpt_more' );
 add_filter( 'query_loop_block_query_vars', __NAMESPACE__ . '\modify_query_loop_block_query_vars', 10, 2 );
+
 
 /**
  * Enqueue scripts and styles.
@@ -174,4 +176,14 @@ function modify_query_loop_block_query_vars( $query, $block ) {
 	}
 
 	return $query;
+}
+
+/**
+ * We should only return pages from searches within this theme.
+ *
+ * @return void
+ */
+function remove_pages_from_search() {
+    global $wp_post_types;
+    $wp_post_types['page']->exclude_from_search = true;
 }
