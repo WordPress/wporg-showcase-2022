@@ -183,8 +183,10 @@ function modify_query_loop_block_query_vars( $query, $block ) {
  * @return WP_Query
  */
 function remove_pages_from_search( $query ) {
-	if ( is_search() ) {
-		$query->set( 'post_type', array( 'post' ) );
+	if ( ! is_admin() && $query->is_main_query() ) {
+		if ( $query->is_search() ) {
+			$query->set( 'post_type', array( 'post' ) );
+		}
 	}
 
 	return $query;
