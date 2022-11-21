@@ -10,7 +10,7 @@ require_once __DIR__ . '/inc/block-styles.php';
 require_once __DIR__ . '/inc/shortcodes.php';
 
 // Filters and Actions
-add_action( 'init', __NAMESPACE__ . '\remove_pages_from_search' );
+add_action( 'pre_get_posts', __NAMESPACE__ . '\remove_pages_from_search' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 add_action( 'wp', __NAMESPACE__ . '\jetpackme_remove_rp', 20 );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
@@ -182,7 +182,10 @@ function modify_query_loop_block_query_vars( $query, $block ) {
  *
  * @return void
  */
-function remove_pages_from_search() {
-	global $wp_post_types;
-	$wp_post_types['page']->exclude_from_search = true;
+function remove_pages_from_search( $query ) {
+	if ( is_search() ) {
+		$query->set( 'post_type', array( 'post' ) );
+	}
+
+	return $query;
 }
