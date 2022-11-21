@@ -16,7 +16,13 @@
 			"margin": true,
 			"padding": true
 		},
-		"color": true
+		"color": {
+			"text": true,
+			"background": true
+		},
+		"typography": {
+			"fontSize": true
+		}
 	},
 	"usesContext": [ "postId" ],
 	"editorScript": "file:./index.js",
