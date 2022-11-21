@@ -10,6 +10,7 @@ require_once __DIR__ . '/inc/block-styles.php';
 require_once __DIR__ . '/inc/shortcodes.php';
 
 // Filters and Actions
+add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_search_query' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 add_action( 'wp', __NAMESPACE__ . '\jetpackme_remove_rp', 20 );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
@@ -171,6 +172,26 @@ function modify_query_loop_block_query_vars( $query, $block ) {
 		$sticky = get_option( 'sticky_posts' );
 		$query['ignore_sticky_posts'] = 1;
 		$query['post__in'] = $sticky;
+	}
+
+	return $query;
+}
+
+/**
+ * Modifies the search & archive queries.
+ *
+ * @return WP_Query
+ */
+function modify_search_query( $query ) {
+	if ( ! is_admin() && $query->is_main_query() ) {
+		if ( $query->is_search() ) {
+			$query->set( 'post_type', array( 'post' ) );
+		}
+
+		if ( $query->is_home ) {
+			// Remove the sticky post so it doesn't show up twice in paginated results.
+			$query->set( 'ignore_sticky_posts', 1 );
+		}
 	}
 
 	return $query;
