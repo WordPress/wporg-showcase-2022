@@ -187,6 +187,11 @@ function remove_pages_from_search( $query ) {
 		if ( $query->is_search() ) {
 			$query->set( 'post_type', array( 'post' ) );
 		}
+
+		if ( $query->is_home ) {
+			// Remove the sticky post so it doesn't show up twice in paginated results.
+			$query->set( 'ignore_sticky_posts', 1 );
+		}
 	}
 
 	return $query;
