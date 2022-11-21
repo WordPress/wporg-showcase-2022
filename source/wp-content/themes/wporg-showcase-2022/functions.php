@@ -180,7 +180,7 @@ function modify_query_loop_block_query_vars( $query, $block ) {
 /**
  * We should only return pages from searches within this theme.
  *
- * @return void
+ * @return WP_Query
  */
 function remove_pages_from_search( $query ) {
 	if ( is_search() ) {
