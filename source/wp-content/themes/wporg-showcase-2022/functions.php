@@ -178,7 +178,7 @@ function modify_query_loop_block_query_vars( $query, $block ) {
 }
 
 /**
- * We should only return pages from searches within this theme.
+ * Modifies the search & archive queries.
  *
  * @return WP_Query
  */
