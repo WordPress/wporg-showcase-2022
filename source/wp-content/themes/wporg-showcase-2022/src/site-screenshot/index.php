@@ -44,14 +44,11 @@ function render( $attributes, $content, $block ) {
 
 	$post_ID = $block->context['postId'];
 	$post = get_post( $post_ID );
-	$width = 1440;
-	$height = 810;
 
-	$screenshot = site_screenshot_src( $post, $width, $height );
-	$srcset = add_query_arg( 'vpw', $width * 2, $screenshot );
-	$srcset = add_query_arg( 'vph', $height * 2, $srcset );
+	$screenshot = site_screenshot_src( $post );
+	$screenshot = add_query_arg( 'scale', 2, $screenshot );
 
-	$img_content = "<img src='{$screenshot}' srcset='$srcset 2x' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' />";
+	$img_content = "<img src='{$screenshot}' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' />";
 
 	if ( isset( $attributes['isLink'] ) && true == $attributes['isLink'] ) {
 		$img_content = '<a href="' . get_permalink( $post ) . '">' . $img_content . '</a>';
