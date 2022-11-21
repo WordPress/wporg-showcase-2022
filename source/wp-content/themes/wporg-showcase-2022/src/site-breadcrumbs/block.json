@@ -15,7 +15,8 @@
 		"spacing": {
 			"margin": true,
 			"padding": true
-		}
+		},
+		"color": true
 	},
 	"usesContext": [ "postId" ],
 	"editorScript": "file:./index.js",

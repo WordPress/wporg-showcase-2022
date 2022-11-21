@@ -6,10 +6,9 @@
 		display: flex;
 		align-items: center;
 		min-height: var(--local-header-height);
-		color: var(--bar-text-color);
 
 		a {
-			color: var(--bar-link-color);
+			color: inherit;
 
 			&:hover {
 				opacity: 0.7;
