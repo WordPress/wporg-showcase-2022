@@ -33,7 +33,7 @@
 <p>
 <?php
 // phpcs:disable WordPress.Security.EscapeOutput.UnsafePrintingFunction
-_e( 'While only a relatively small number of submissions are eventually added to the WordPress Showcase, a number of exceptional sites and blogs are added weekly. Only sites that are added to the Showcase will be notified via email. If your site is added to the Showcase, feel free to put <a href="http://wordpress.org/showcase/submit-a-wordpress-site/graphics/">one of these graphics</a> anywhere on the site that was added.', 'wporg' );
+_e( 'While only a relatively small number of submissions are eventually added to the WordPress Showcase, a number of exceptional sites and blogs are added weekly. Only sites that are added to the Showcase will be notified via email.', 'wporg' );
 ?>
 </p>
 <!-- /wp:paragraph -->
