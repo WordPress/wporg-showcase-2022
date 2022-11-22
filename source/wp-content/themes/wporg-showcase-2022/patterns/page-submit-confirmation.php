@@ -20,7 +20,7 @@
 printf(
 	/* translators: %s is the site URL. */
 	wp_kses_post( __( 'We appreciate your interest in the <a href="%s">WordPress Showcase</a>. If the site is added, you will be contacted via email.', 'wporg' ) ),
-	esc_url( get_site_url( '/' ) )
+	esc_url( home_url( '/' ) )
 ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
