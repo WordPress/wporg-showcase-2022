@@ -100,6 +100,17 @@ button[type="submit"] {
 }
 
 /*
+ * core/pagination.
+ *
+ * Remove padding-bottom from pagination since the component is conditional.
+ * See: https://github.com/WordPress/gutenberg/issues/44879
+ */
+
+.wp-block-query-pagination {
+	padding-bottom: 0;
+}
+
+/*
  * Related Posts Styles
  */
 

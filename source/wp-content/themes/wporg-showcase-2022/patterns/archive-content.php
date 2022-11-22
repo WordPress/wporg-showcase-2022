@@ -8,8 +8,8 @@
 ?>
 
 <!-- wp:group {"tagName":"main","style":{"spacing":{"blockGap":"0px"}},"className":"entry-content","layout":{"type":"constrained"}} -->
-<main class="wp-block-group entry-content"><!-- wp:group {"align":"wide","layout":{"type":"default"}} -->
-	<div class="wp-block-group alignwide"><!-- wp:pattern {"slug":"wporg-showcase-2022/results-bar"} /-->
+<main class="wp-block-group entry-content"><!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|70"}}},"layout":{"type":"default"}} -->
+	<div class="wp-block-group alignwide" style="padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:pattern {"slug":"wporg-showcase-2022/results-bar"} /-->
 	
 	<!-- wp:query {"queryId":0,"query":{"inherit":true,"perPage":10},"displayLayout":{"type":"flex","columns":2}} -->
 	<div class="wp-block-query"><!-- wp:post-template -->
