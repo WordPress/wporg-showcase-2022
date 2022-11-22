@@ -48,7 +48,7 @@ function render( $attributes, $content, $block ) {
 	$screenshot = site_screenshot_src( $post );
 	$screenshot = add_query_arg( 'scale', 2, $screenshot );
 
-	$img_content = "<img src='{$screenshot}' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' />";
+	$img_content = "<img src='{$screenshot}' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' loading='lazy' />";
 
 	if ( isset( $attributes['isLink'] ) && true == $attributes['isLink'] ) {
 		$img_content = '<a href="' . get_permalink( $post ) . '">' . $img_content . '</a>';
