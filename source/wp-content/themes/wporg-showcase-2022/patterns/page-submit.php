@@ -56,7 +56,7 @@ _e( 'While only a relatively small number of submissions are eventually added to
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
-<!-- wp:jetpack/contact-form {"subject":"<?php esc_attr_e( 'A new showcase site suggested.', 'wporg' ); ?>","to":"showcase.shouldbeblockedbyfilter@wordpress.org","customThankyou":"redirect","customThankyouRedirect":"https://wordpress.org/showcase/submit-a-wordpress-site/success"} -->
+<!-- wp:jetpack/contact-form {"subject":"<?php esc_attr_e( 'A new showcase site suggested.', 'wporg' ); ?>","to":"showcase.shouldbeblockedbyfilter@wordpress.org","customThankyou":"redirect","customThankyouRedirect":"https://wordpress.org/showcase/submit-a-wordpress-site/thanks"} -->
 <div class="wp-block-jetpack-contact-form"><!-- wp:jetpack/field-name {"label":"<?php esc_attr_e( 'Your Name', 'wporg' ); ?>","required":true} /-->
 
 <!-- wp:jetpack/field-email {"label":"<?php esc_attr_e( 'Your E-mail', 'wporg' ); ?>","required":true} /-->
