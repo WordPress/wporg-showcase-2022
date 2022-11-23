@@ -208,9 +208,24 @@ function modify_search_query( $query ) {
  * @return void
  */
 function redirect_urls() {
-	if ( str_contains( trim( $_SERVER['REQUEST_URI'] ), 'submit-a-wordpress-site' ) ) {
+	global $pagename;
+
+	if ( str_contains( strtolower( $pagename ), 'submit-a-wordpress-site' ) ) {
 		if ( ! is_user_logged_in() ) {
-			auth_redirect();
+			$template_slug = 'page-submit-auth';
+
+			// This is returned by locate_block_template if not block template is found
+			$fallback = locate_template( dirname( __FILE__ ) . "/templates/$template_slug.html" );
+
+			// This internally sets the $template_slug to be the active template.
+			$template = locate_block_template( $fallback, $template_slug, array() );
+
+			if ( ! empty( $template ) ) {
+				load_template( $template );
+				exit;
+			} else {
+				auth_redirect();
+			}
 		}
 	}
 }
