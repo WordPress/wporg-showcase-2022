@@ -40,10 +40,9 @@ function render( $attributes, $content, $block ) {
 		return '';
 	}
 
-	global $pagename;
 	$title = get_the_title();
 
-	if ( 'archives' === $pagename ) {
+	if ( is_home() ) {
 		$title = esc_html__( 'Archives', 'wporg' );
 	} elseif ( is_search() ) {
 		$title = esc_html__( 'Results', 'wporg' );
