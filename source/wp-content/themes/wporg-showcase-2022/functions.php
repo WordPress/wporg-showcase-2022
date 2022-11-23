@@ -210,7 +210,7 @@ function modify_search_query( $query ) {
 function redirect_urls() {
 	if ( str_contains( trim( $_SERVER['REQUEST_URI'] ), 'submit-a-wordpress-site' ) ) {
 		if ( ! is_user_logged_in() ) {
-			wp_safe_redirect( wp_login_url( get_permalink( get_the_ID() ) ) );
+			auth_redirect();
 		}
 	}
 }
