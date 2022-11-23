@@ -14,6 +14,7 @@ require_once __DIR__ . '/inc/shortcodes.php';
 add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_search_query' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 add_action( 'wp', __NAMESPACE__ . '\jetpackme_remove_rp', 20 );
+add_action( 'template_redirect', __NAMESPACE__ . '\redirect_urls' );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpackchange_image_size' );
 add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpackme_related_posts_headline' );
@@ -199,4 +200,17 @@ function modify_search_query( $query ) {
 	}
 
 	return $query;
+}
+
+/**
+ * Adds redirect rules for theme.
+ *
+ * @return void
+ */
+function redirect_urls() {
+	if ( str_contains( trim( $_SERVER['REQUEST_URI'] ), 'submit-a-wordpress-site' ) ) {
+		if ( ! is_user_logged_in() ) {
+			wp_safe_redirect( wp_login_url( get_permalink( get_the_ID() ) ) );
+		}
+	}
 }
