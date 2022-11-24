@@ -7,18 +7,19 @@
 
 ?>
 
-<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}}} -->
-<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)"><!-- wp:heading -->
-<h1><?php esc_html_e( 'Before you submit...', 'wporg' ); ?></h1>
+<!-- wp:group {"style":{"spacing":{"blockGap":"0px","padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}}}} -->
+<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:heading {"textAlign":"center","style":{"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|20"}}},"fontSize":"heading-3"} -->
+<h2 class="has-text-align-center has-heading-3-font-size" style="margin-top:var(--wp--preset--spacing--40);margin-bottom:var(--wp--preset--spacing--20)"><?php esc_attr_e( 'Before you submit...', 'wporg' ); ?></h2>
 <!-- /wp:heading -->
 
-<!-- wp:paragraph -->
-<p><?php esc_html_e( 'Thanks for your interest in submitting a site for the showcase! In order to do so, please login to your WordPress.org account.', 'wporg' ); ?></p>
-<!-- /wp:paragraph -->
-
-<!-- wp:buttons -->
-<div class="wp-block-buttons"><!-- wp:button -->
-<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="http://localhost:8888/wp-login.php?redirect_to=http%3A%2F%2Flocalhost%3A8888%2Fsubmit-a-wordpress-site "><?php esc_html_e( 'Login', 'wporg' ); ?></a></div>
-<!-- /wp:button --></div>
-<!-- /wp:buttons --></div>
-<!-- /wp:group -->
+<!-- wp:group {"layout":{"type":"constrained","contentSize":"480px"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center">
+<?php
+printf(
+	/* translators: %s is the login url. */
+	wp_kses_post( __( 'Thanks for your interest in submitting a site for the showcase! In order to do so, please <a href="%s">login to your WordPress.org account</a>.', 'wporg' ) ),
+	esc_url( wp_login_url( home_url() . $_SERVER['REQUEST_URI'] ) )
+); ?></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
