@@ -19,7 +19,7 @@
 printf(
 	/* translators: %s is the login url. */
 	wp_kses_post( __( 'Thanks for your interest in submitting a site for the showcase! In order to do so, please <a href="%s">login to your WordPress.org account</a>.', 'wporg' ) ),
-	esc_url( wp_login_url( home_url() . $_SERVER['REQUEST_URI'] ) )
+	esc_url( wp_login_url( home_url( '/' ) . 'submit-a-wordpress-site' ) )
 ); ?></p>
 <!-- /wp:paragraph --></div>
 <!-- /wp:group --></div>
