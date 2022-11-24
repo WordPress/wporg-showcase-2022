@@ -77,6 +77,7 @@
 <!-- /wp:paragraph --></div>
 <!-- /wp:group -->
 
+<<<<<<< HEAD
 <!-- wp:group {"align":"full","style":{"elements":{"link":{"color":{"text":"var:preset|color|white"}}},"spacing":{"padding":{"top":"80px","bottom":"80px"}}},"backgroundColor":"charcoal-2","textColor":"white","layout":{"inherit":true,"type":"constrained"}} -->
 <div class="wp-block-group alignfull has-white-color has-charcoal-2-background-color has-text-color has-background has-link-color" id="get-started" style="padding-top:80px;padding-bottom:80px;"><!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"60px"}}} -->
 <div class="wp-block-group alignwide"><!-- wp:heading {"align":"wide","style":{"typography":{"fontStyle":"normal","fontWeight":"300","letterSpacing":"-2px"}},"className":"is-style-with-arrow","fontSize":"heading-cta","fontFamily":"inter"} -->
@@ -97,3 +98,5 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
+=======
+>>>>>>> d03c024 (Update the page-submit callout on the front page.)
