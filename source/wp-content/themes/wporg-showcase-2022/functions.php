@@ -14,6 +14,7 @@ require_once __DIR__ . '/inc/shortcodes.php';
 add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_search_query' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 add_action( 'wp', __NAMESPACE__ . '\jetpackme_remove_rp', 20 );
+add_action( 'template_redirect', __NAMESPACE__ . '\redirect_urls' );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpackchange_image_size' );
 add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpackme_related_posts_headline' );
@@ -199,4 +200,32 @@ function modify_search_query( $query ) {
 	}
 
 	return $query;
+}
+
+/**
+ * Adds redirect rules for theme.
+ *
+ * @return void
+ */
+function redirect_urls() {
+	global $pagename;
+
+	if ( str_contains( strtolower( $pagename ), 'submit-a-wordpress-site' ) ) {
+		if ( ! is_user_logged_in() ) {
+			$template_slug = 'page-submit-auth';
+
+			// This is returned by locate_block_template if not block template is found
+			$fallback = locate_template( dirname( __FILE__ ) . "/templates/$template_slug.html" );
+
+			// This internally sets the $template_slug to be the active template.
+			$template = locate_block_template( $fallback, $template_slug, array() );
+
+			if ( ! empty( $template ) ) {
+				load_template( $template );
+				exit;
+			} else {
+				auth_redirect();
+			}
+		}
+	}
 }
