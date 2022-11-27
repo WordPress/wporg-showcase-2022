@@ -72,13 +72,13 @@ These must be run in the project's root folder, _not_ in theme/plugin subfolders
 * Build the theme's JavaScript
 
     ```bash
-    yarn workspace wporg-main-2022-theme build
+    yarn workspace wporg-showcase-2022-theme build
     ```
 
     or, automatically build on changes:
 
     ```bash
-    yarn workspace wporg-main-2022-theme start
+    yarn workspace wporg-showcase-2022-theme start
     ```
 
 
