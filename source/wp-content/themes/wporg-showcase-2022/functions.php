@@ -6,7 +6,6 @@ namespace WordPressdotorg\Theme\Showcase_2022;
 require_once __DIR__ . '/src/site-screenshot/index.php';
 require_once __DIR__ . '/src/archive-results-context/index.php';
 require_once __DIR__ . '/src/site-meta-list/index.php';
-require_once __DIR__ . '/src/site-breadcrumbs/index.php';
 require_once __DIR__ . '/inc/block-styles.php';
 require_once __DIR__ . '/inc/shortcodes.php';
 
@@ -22,6 +21,7 @@ add_filter( 'excerpt_length', __NAMESPACE__ . '\modify_excerpt_length', 999 );
 add_filter( 'excerpt_more', __NAMESPACE__ . '\modify_excerpt_more' );
 add_filter( 'query_loop_block_query_vars', __NAMESPACE__ . '\modify_query_loop_block_query_vars', 10, 2 );
 add_filter( 'wporg_noindex_request', __NAMESPACE__ . '\set_noindex' );
+add_filter( 'wporg_block_site_breadcrumbs', __NAMESPACE__ . '\set_site_breadcrumbs' );
 
 // Don't send an email on contact for submission
 add_filter( 'grunion_should_send_email', '__return_false' );
@@ -248,3 +248,13 @@ function set_noindex( $noindex ) {
 	return $noindex;
 }
 
+/**
+ * Update the label of the first breadcrumb item.
+ *
+ * @param array $breadcrumbs An array of breadcrumb links.
+ * @return array Updated breadcrumbs.
+ */
+function set_site_breadcrumbs( $breadcrumbs ) {
+	$breadcrumbs[0]['title'] = __( 'Showcase', 'wporg' );
+	return $breadcrumbs;
+}
