@@ -241,7 +241,7 @@ function redirect_urls() {
 function set_noindex( $noindex ) {
 	global $pagename;
 
-	if ( 'thanks' == $pagename ) {
+	if ( 'thanks' === $pagename ) {
 		return true;
 	}
 
