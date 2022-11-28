@@ -2206,15 +2206,15 @@
         },
         {
             "name": "wpackagist-plugin/gutenberg",
-            "version": "14.5.4",
+            "version": "14.6.1",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/gutenberg/",
-                "reference": "tags/14.5.4"
+                "reference": "tags/14.6.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/gutenberg.14.5.4.zip"
+                "url": "https://downloads.wordpress.org/plugin/gutenberg.14.6.1.zip"
             },
             "require": {
                 "composer/installers": "^1.0 || ^2.0"
@@ -2264,12 +2264,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/WordPress/wporg-mu-plugins.git",
-                "reference": "19c08f58270123bd170112ae9e0d336cd5e9688e"
+                "reference": "cd33d9c10196100b19c3ea7ff68a0419eaef2014"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/WordPress/wporg-mu-plugins/zipball/19c08f58270123bd170112ae9e0d336cd5e9688e",
-                "reference": "19c08f58270123bd170112ae9e0d336cd5e9688e",
+                "url": "https://api.github.com/repos/WordPress/wporg-mu-plugins/zipball/cd33d9c10196100b19c3ea7ff68a0419eaef2014",
+                "reference": "cd33d9c10196100b19c3ea7ff68a0419eaef2014",
                 "shasum": ""
             },
             "require-dev": {
@@ -2307,7 +2307,7 @@
                 "source": "https://github.com/WordPress/wporg-mu-plugins/tree/build",
                 "issues": "https://github.com/WordPress/wporg-mu-plugins/issues"
             },
-            "time": "2022-11-18T17:31:17+00:00"
+            "time": "2022-11-18T21:59:41+00:00"
         },
         {
             "name": "wporg/wporg-parent-2021",
@@ -2375,5 +2375,5 @@
     "platform-overrides": {
         "php": "7.4"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
