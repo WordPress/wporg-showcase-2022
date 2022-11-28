@@ -1,7 +1,6 @@
 .wp-block-wporg-site-breadcrumbs > div {
 	display: flex;
 	align-items: center;
-	min-height: var(--local-header-height);
 
 	a {
 		color: inherit;
@@ -14,7 +13,6 @@
 
 	> div {
 		font-family: var(--wp--preset--font-family--inter);
-		font-size: 1rem;
 		font-weight: 700;
 		line-height: inherit;
 
