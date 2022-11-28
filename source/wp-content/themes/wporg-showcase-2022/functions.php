@@ -21,6 +21,7 @@ add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpackme_
 add_filter( 'excerpt_length', __NAMESPACE__ . '\modify_excerpt_length', 999 );
 add_filter( 'excerpt_more', __NAMESPACE__ . '\modify_excerpt_more' );
 add_filter( 'query_loop_block_query_vars', __NAMESPACE__ . '\modify_query_loop_block_query_vars', 10, 2 );
+add_filter( 'wporg_noindex_request', __NAMESPACE__ . '\set_noindex' );
 
 // Don't send an email on contact for submission
 add_filter( 'grunion_should_send_email', '__return_false' );
@@ -229,3 +230,21 @@ function redirect_urls() {
 		}
 	}
 }
+
+/**
+ * Robots "noindex" rules for specific parts of the Learn site.
+ *
+ * @param bool $noindex
+ *
+ * @return bool
+ */
+function set_noindex( $noindex ) {
+	global $pagename;
+
+	if ( 'thanks' === $pagename ) {
+		return true;
+	}
+
+	return $noindex;
+}
+
