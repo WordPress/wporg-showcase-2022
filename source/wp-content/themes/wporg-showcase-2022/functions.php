@@ -231,7 +231,7 @@ function redirect_urls() {
 	}
 }
 
-/**
+/**	
  * Robots "noindex" rules for specific parts of the Learn site.
  *
  * @param bool $noindex
