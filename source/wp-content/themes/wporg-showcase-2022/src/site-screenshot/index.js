@@ -24,7 +24,7 @@ function Edit( { attributes: { isLink, useHiRes }, setAttributes } ) {
 						onChange={ () => setAttributes( { isLink: ! isLink } ) }
 					/>
 					<ToggleControl
-						label={ __( 'Use high resolution image.', 'wporg' ) }
+						label={ __( 'Use high resolution image', 'wporg' ) }
 						checked={ useHiRes }
 						onChange={ () => setAttributes( { useHiRes: ! useHiRes } ) }
 					/>
