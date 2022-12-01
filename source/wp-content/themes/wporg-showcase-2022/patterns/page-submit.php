@@ -75,7 +75,7 @@ _e( 'While only a relatively small number of submissions are eventually added to
 
 <!-- wp:jetpack/field-textarea {"label":"<?php esc_attr_e( 'What justifies this site being added to the WordPress Showcase? what makes it unique or interesting?', 'wporg' ); ?>","required":true} /-->
 
-<!-- wp:jetpack/field-checkbox {"label":"<?php esc_attr_e( 'Check this box if you own the site and agree to be contacted by email', 'wporg' ); ?>","required":true} /-->
+<!-- wp:jetpack/field-checkbox {"label":"<?php esc_attr_e( 'Check this box if you own the site and agree to be contacted by email', 'wporg' ); ?>"} /-->
 
 <!-- wp:jetpack/button {"element":"button","text":"<?php esc_attr_e( 'Submit site', 'wporg' ); ?>","lock":{"remove":true}} /--></div>
 <!-- /wp:jetpack/contact-form -->
