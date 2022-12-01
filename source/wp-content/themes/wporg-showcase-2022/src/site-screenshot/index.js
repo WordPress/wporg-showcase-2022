@@ -13,7 +13,7 @@ import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import metadata from './block.json';
 import './style.scss';
 
-function Edit( { attributes: { isLink }, setAttributes } ) {
+function Edit( { attributes: { isLink, useHiRes }, setAttributes } ) {
 	return (
 		<div { ...useBlockProps() }>
 			<InspectorControls>
@@ -22,6 +22,11 @@ function Edit( { attributes: { isLink }, setAttributes } ) {
 						label={ __( 'Make image link to Post', 'wporg' ) }
 						checked={ isLink }
 						onChange={ () => setAttributes( { isLink: ! isLink } ) }
+					/>
+					<ToggleControl
+						label={ __( 'Use high resolution image.', 'wporg' ) }
+						checked={ useHiRes }
+						onChange={ () => setAttributes( { useHiRes: ! useHiRes } ) }
 					/>
 				</PanelBody>
 			</InspectorControls>

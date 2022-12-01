@@ -14,8 +14,6 @@
 <div class="wp-block-columns alignfull" style="padding-top:0"><!-- wp:column {"width":"60%","layout":{"type":"default"}} -->
 <div class="wp-block-column" style="flex-basis:60%"><!-- wp:heading {"level":1,"className":"screen-reader-text"} -->
 <h1 class="screen-reader-text"><?php esc_attr_e( 'Showcase:', 'wporg' ); ?></h1>
-<!-- /wp:heading -->
-
 <!-- wp:group {"style":{"spacing":{"padding":{"right":"var:preset|spacing|30"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group" style="padding-right:var(--wp--preset--spacing--30)"><!-- wp:image {"align":"full","id":7564,"sizeSlug":"full","linkDestination":"none"} -->
 <figure class="wp-block-image alignfull size-full"><img src="https://s.w.org/images/showcase/showcase.svg" alt="" class="wp-image-7564"/></figure>
@@ -37,7 +35,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:wporg/site-screenshot {"isLink":true,"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} /--></div>
+<!-- wp:wporg/site-screenshot {"isLink":true,"useHiRes":true,"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- /wp:post-template --></div>
