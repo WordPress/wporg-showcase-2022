@@ -51,8 +51,6 @@ function render( $attributes, $content, $block ) {
 		$screenshot = add_query_arg( 'scale', 2, $screenshot );
 	}
 
-	$screenshot = add_query_arg( 'scale', 0.5, $screenshot );
-
 	$img_content = "<img src='{$screenshot}' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' loading='lazy' />";
 
 	if ( isset( $attributes['isLink'] ) && true == $attributes['isLink'] ) {
