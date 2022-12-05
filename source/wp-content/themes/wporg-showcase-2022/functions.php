@@ -323,7 +323,7 @@ function document_title_separator( $title ) {
  */
 function add_social_meta_tags() {
 	$default_image = get_stylesheet_directory_uri() . '/images/social-image.png';
-	$default_excerpt = __( 'Add a beautifully designed, ready to go layout to any WordPress site with a simple copy/paste.', 'wporg' );
+	$default_excerpt = __( 'Discover inspiration in some of the most beautiful, best designed WordPress websites.', 'wporg' );
 	$site_title    = function_exists( '\WordPressdotorg\site_brand' ) ? \WordPressdotorg\site_brand() : 'WordPress.org';
 	$og_fields = [
 		'og:title'       => wp_get_document_title(),
