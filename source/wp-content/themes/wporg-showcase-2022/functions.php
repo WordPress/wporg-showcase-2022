@@ -322,41 +322,30 @@ function document_title_separator( $title ) {
  * Add meta tags for richer social media integrations.
  */
 function add_social_meta_tags() {
-	$og_fields     = [];
 	$default_image = get_stylesheet_directory_uri() . '/images/social-image.png';
+	$default_excerpt = __( 'Add a beautifully designed, ready to go layout to any WordPress site with a simple copy/paste.', 'wporg' );
 	$site_title    = function_exists( '\WordPressdotorg\site_brand' ) ? \WordPressdotorg\site_brand() : 'WordPress.org';
+	$og_fields = [
+		'og:title'       => wp_get_document_title(),
+		'og:description' => $default_excerpt,
+		'og:site_name'   => $site_title,
+		'og:type'        => 'website',
+		'og:url'         => home_url(),
+		'og:image'       => esc_url( $default_image ),
+	];
 
-	if ( is_front_page() || is_home() ) {
-		$og_fields = [
-			'og:title'       => wp_get_document_title(),
-			'og:description' => __( 'Add a beautifully designed, ready to go layout to any WordPress site with a simple copy/paste.', 'wporg' ),
-			'og:site_name'   => $site_title,
-			'og:type'        => 'website',
-			'og:url'         => home_url(),
-			'og:image'       => esc_url( $default_image ),
-		];
-	} else if ( is_tag() ) {
-		$og_fields = [
-			'og:title'       => wp_get_document_title(),
-			'og:description' => __( 'Add a beautifully designed, ready to go layout to any WordPress site with a simple copy/paste.', 'wporg' ),
-			'og:site_name'   => $site_title,
-			'og:type'        => 'website',
-			'og:url'         => esc_url( get_term_link( get_queried_object_id() ) ),
-			'og:image'       => esc_url( $default_image ),
-		];
-	} else if ( is_single() ) {
-		$og_fields = [
-			'og:title'       => wp_get_document_title(),
-			'og:description' => strip_tags( get_the_excerpt() ),
-			'og:site_name'   => $site_title,
-			'og:type'        => 'website',
-			'og:url'         => esc_url( get_permalink() ),
-			'og:image'       => esc_url( $default_image ),
-		];
-		printf( '<meta name="twitter:card" content="summary_large_image">' . "\n" );
-		printf( '<meta name="twitter:site" content="@WordPress">' . "\n" );
-		printf( '<meta name="twitter:image" content="%s" />' . "\n", esc_url( $default_image ) );
+	if ( is_tag() ) {
+		$og_fields['og:url'] = esc_url( get_term_link( get_queried_object_id() ) );
+	} elseif ( is_single() ) {
+		$og_fields['og:description'] = strip_tags( get_the_excerpt() );
+		$og_fields['og:url']         = esc_url( get_permalink() );
+	} elseif ( is_search() ) {
+		$og_fields['og:url'] = esc_url( get_permalink() );
 	}
+
+	printf( '<meta name="twitter:card" content="summary_large_image">' . "\n" );
+	printf( '<meta name="twitter:site" content="@WordPress">' . "\n" );
+	printf( '<meta name="twitter:image" content="%s" />' . "\n", esc_url( $default_image ) );
 
 	foreach ( $og_fields as $property => $content ) {
 		printf(
