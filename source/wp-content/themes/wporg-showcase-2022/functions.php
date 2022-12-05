@@ -282,7 +282,7 @@ function document_title( $parts ) {
 	} else {
 		if ( is_single() ) {
 			// translators: %s: Name of the site
-			$parts['title'] = sprintf( __( '%s - WordPress Showcase', 'wporg' ), esc_attr( $parts['title'] ) );
+			$parts['title'] = sprintf( __( '%s - WordPress Showcase', 'wporg' ), $parts['title'] );
 		} elseif ( is_tag() ) {
 			// translators: %s: The name of the tag
 			$parts['title'] = sprintf( __( 'Sites tagged as "%s"', 'wporg' ), strtolower( $parts['title'] ) );
