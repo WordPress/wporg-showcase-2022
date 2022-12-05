@@ -7,6 +7,15 @@
 
 ?>
 
+<!-- wp:columns {"align":"wide"} -->
+<div class="wp-block-columns alignwide"><!-- wp:column {"width":"33.3%"} -->
+<div class="wp-block-column" style="flex-basis:33.3%"><!-- wp:heading {"level":1,"style":{"spacing":{"padding":{"right":"var:preset|spacing|60"}}},"fontSize":"heading-2"} -->
+<h1 class="has-heading-2-font-size" style="padding-right:var(--wp--preset--spacing--60)"><?php esc_attr_e( 'Submit a site', 'wporg' ); ?></h1>
+<!-- /wp:heading --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"width":"66.66%"} -->
+<div class="wp-block-column" style="flex-basis:66.66%">
 <!-- wp:paragraph -->
 <p><?php esc_attr_e( 'Thank you for your interest in the WordPress Showcase. The Showcase aims to show the world what can be done with WordPress and help demonstrate that WordPress has tremendous capabilities as a publishing platform. Submitting a site for review is quick and easy to do.', 'wporg' ); ?></p>
 <!-- /wp:paragraph -->
@@ -78,4 +87,6 @@ _e( 'While only a relatively small number of submissions are eventually added to
 <!-- wp:jetpack/field-checkbox {"label":"<?php esc_attr_e( 'Check this box if you own the site and agree to be contacted by email', 'wporg' ); ?>"} /-->
 
 <!-- wp:jetpack/button {"element":"button","text":"<?php esc_attr_e( 'Submit site', 'wporg' ); ?>","lock":{"remove":true}} /--></div>
-<!-- /wp:jetpack/contact-form -->
+<!-- /wp:jetpack/contact-form --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
