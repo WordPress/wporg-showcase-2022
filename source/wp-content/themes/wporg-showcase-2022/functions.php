@@ -281,7 +281,7 @@ function document_title( $parts ) {
 		$parts['tagline'] = __( 'WordPress.org', 'wporg' );
 	} else {
 		if ( is_single() ) {
-			$parts['title'] = sprintf( esc_attr__( '%s Showcase', 'wporg-showcase' ), esc_attr( $parts['title'] ) );
+			$parts['title'] = sprintf( esc_attr__( '%s - WordPress Showcase', 'wporg-showcase' ), esc_attr( $parts['title'] ) );
 		} elseif ( is_tag() ) {
 			$parts['title'] = sprintf( __( 'Sites tagged as "%s"', 'wporg' ), strtolower( $parts['title'] ) );
 		} elseif ( is_category() ) {
