@@ -37,7 +37,7 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:wporg/site-screenshot {"isLink":true,"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} /--></div>
+<!-- wp:wporg/site-screenshot {"isLink":true,"useHiRes":true,"align":"wide","style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} /--></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 <!-- /wp:post-template --></div>

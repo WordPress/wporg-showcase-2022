@@ -12,6 +12,10 @@
 		"isLink": {
 			"type": "boolean",
 			"default": false
+		},
+		"useHiRes": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {

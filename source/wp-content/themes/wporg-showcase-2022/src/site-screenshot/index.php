@@ -46,9 +46,12 @@ function render( $attributes, $content, $block ) {
 	$post = get_post( $post_ID );
 
 	$screenshot = site_screenshot_src( $post );
-	$screenshot = add_query_arg( 'scale', 2, $screenshot );
 
-	$img_content = "<img src='{$screenshot}' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' loading='lazy' />";
+	if ( isset( $attributes['useHiRes'] ) && true === $attributes['useHiRes'] ) {
+		$screenshot = add_query_arg( 'scale', 2, $screenshot );
+	}
+
+	$img_content = "<img src='" . esc_url( $screenshot ) . "' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' loading='lazy' />";
 
 	if ( isset( $attributes['isLink'] ) && true == $attributes['isLink'] ) {
 		$img_content = '<a href="' . get_permalink( $post ) . '">' . $img_content . '</a>';
