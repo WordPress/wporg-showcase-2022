@@ -277,11 +277,11 @@ function document_title( $title ) {
 	global $wp_query;
 
 	if ( is_front_page() ) {
-		$title['title']   = __( 'WordPress Showcase', 'wporg' );
+		$title['title']   = $title['tagline'];
 		$title['tagline'] = __( 'WordPress.org', 'wporg' );
 	} else {
 		if ( is_single() ) {
-			$title['title'] .= ' - ' . __( 'WordPress Showcase', 'wporg' );
+			$title['title'] = sprintf( esc_attr__( '%s Showcase', 'wporg-showcase' ), esc_attr( $title['title'] ) );
 		} elseif ( is_tag() ) {
 			$title['title'] = sprintf( __( 'Sites tagged as "%s"', 'wporg' ), strtolower( $title['title'] ) );
 		} elseif ( is_category() ) {
