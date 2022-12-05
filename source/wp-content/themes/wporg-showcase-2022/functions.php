@@ -266,42 +266,42 @@ function set_site_breadcrumbs( $breadcrumbs ) {
  * @param array $title {
  *     The document title parts.
  *
- *     @type string $title   Title of the viewed page.
+ *     @type string $parts   Title of the viewed page.
  *     @type string $page    Optional. Page number if paginated.
  *     @type string $tagline Optional. Site description when on home page.
  *     @type string $site    Optional. Site title when not on home page.
  * }
  * @return array Filtered title parts.
  */
-function document_title( $title ) {
+function document_title( $parts ) {
 	global $wp_query;
 
 	if ( is_front_page() ) {
-		$title['title']   = $title['tagline'];
-		$title['tagline'] = __( 'WordPress.org', 'wporg' );
+		$parts['title']   = $parts['tagline'];
+		$parts['tagline'] = __( 'WordPress.org', 'wporg' );
 	} else {
 		if ( is_single() ) {
-			$title['title'] = sprintf( esc_attr__( '%s Showcase', 'wporg-showcase' ), esc_attr( $title['title'] ) );
+			$parts['title'] = sprintf( esc_attr__( '%s Showcase', 'wporg-showcase' ), esc_attr( $parts['title'] ) );
 		} elseif ( is_tag() ) {
-			$title['title'] = sprintf( __( 'Sites tagged as "%s"', 'wporg' ), strtolower( $title['title'] ) );
+			$parts['title'] = sprintf( __( 'Sites tagged as "%s"', 'wporg' ), strtolower( $parts['title'] ) );
 		} elseif ( is_category() ) {
-			$title['title'] = sprintf( __( 'Sites categorized as "%s"', 'wporg' ), strtolower( $title['title'] ) );
+			$parts['title'] = sprintf( __( 'Sites categorized as "%s"', 'wporg' ), strtolower( $parts['title'] ) );
 		}
 
 		// If results are paged and the max number of pages is known.
 		if ( is_paged() && $wp_query->max_num_pages ) {
 			// translators: 1: current page number, 2: total number of pages
-			$title['page'] = sprintf(
+			$parts['page'] = sprintf(
 				__( 'Page %1$s of %2$s', 'wporg' ),
 				get_query_var( 'paged' ),
 				$wp_query->max_num_pages
 			);
 		}
 
-		$title['site'] = __( 'WordPress.org', 'wporg' );
+		$parts['site'] = __( 'WordPress.org', 'wporg' );
 	}
 
-	return $title;
+	return $parts;
 }
 
 /**
