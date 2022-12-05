@@ -259,7 +259,6 @@ function set_site_breadcrumbs( $breadcrumbs ) {
 	return $breadcrumbs;
 }
 
-
 /**
  * Append an optimized site name.
  *
