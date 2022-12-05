@@ -263,10 +263,10 @@ function set_site_breadcrumbs( $breadcrumbs ) {
 /**
  * Append an optimized site name.
  *
- * @param array $title {
+ * @param array $parts {
  *     The document title parts.
  *
- *     @type string $parts   Title of the viewed page.
+ *     @type string $title   Title of the viewed page.
  *     @type string $page    Optional. Page number if paginated.
  *     @type string $tagline Optional. Site description when on home page.
  *     @type string $site    Optional. Site title when not on home page.
@@ -281,17 +281,20 @@ function document_title( $parts ) {
 		$parts['tagline'] = __( 'WordPress.org', 'wporg' );
 	} else {
 		if ( is_single() ) {
-			$parts['title'] = sprintf( esc_attr__( '%s - WordPress Showcase', 'wporg-showcase' ), esc_attr( $parts['title'] ) );
+			// translators: %s: Name of the site
+			$parts['title'] = sprintf( __( '%s - WordPress Showcase', 'wporg' ), esc_attr( $parts['title'] ) );
 		} elseif ( is_tag() ) {
+			// translators: %s: The name of the tag
 			$parts['title'] = sprintf( __( 'Sites tagged as "%s"', 'wporg' ), strtolower( $parts['title'] ) );
 		} elseif ( is_category() ) {
+			// translators: %s: The name of the tag
 			$parts['title'] = sprintf( __( 'Sites categorized as "%s"', 'wporg' ), strtolower( $parts['title'] ) );
 		}
 
 		// If results are paged and the max number of pages is known.
 		if ( is_paged() && $wp_query->max_num_pages ) {
-			// translators: 1: current page number, 2: total number of pages
 			$parts['page'] = sprintf(
+				// translators: 1: current page number, 2: total number of pages
 				__( 'Page %1$s of %2$s', 'wporg' ),
 				get_query_var( 'paged' ),
 				$wp_query->max_num_pages
