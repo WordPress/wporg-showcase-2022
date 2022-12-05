@@ -16,6 +16,7 @@ add_action( 'template_redirect', __NAMESPACE__ . '\redirect_urls' );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpackchange_image_size' );
 add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpackme_related_posts_headline' );
+add_filter( 'document_title_parts', __NAMESPACE__ . '\document_title' );
 add_filter( 'excerpt_length', __NAMESPACE__ . '\modify_excerpt_length', 999 );
 add_filter( 'excerpt_more', __NAMESPACE__ . '\modify_excerpt_more' );
 add_filter( 'query_loop_block_query_vars', __NAMESPACE__ . '\modify_query_loop_block_query_vars', 10, 2 );
@@ -256,4 +257,49 @@ function set_noindex( $noindex ) {
 function set_site_breadcrumbs( $breadcrumbs ) {
 	$breadcrumbs[0]['title'] = __( 'Showcase', 'wporg' );
 	return $breadcrumbs;
+}
+
+
+/**
+ * Append an optimized site name.
+ *
+ * @param array $title {
+ *     The document title parts.
+ *
+ *     @type string $title   Title of the viewed page.
+ *     @type string $page    Optional. Page number if paginated.
+ *     @type string $tagline Optional. Site description when on home page.
+ *     @type string $site    Optional. Site title when not on home page.
+ * }
+ * @return array Filtered title parts.
+ */
+function document_title( $title ) {
+	global $wp_query;
+
+	if ( is_front_page() ) {
+		$title['title']   = __( 'WordPress Showcase', 'wporg' );
+		$title['tagline'] = __( 'WordPress.org', 'wporg' );
+	} else {
+		if ( is_single() ) {
+			$title['title'] .= ' - ' . __( 'WordPress Showcase', 'wporg' );
+		} elseif ( is_tag() ) {
+			$title['title'] = sprintf( __( 'Sites tagged as "%s"', 'wporg' ), strtolower( $title['title'] ) );
+		} elseif ( is_category() ) {
+			$title['title'] = sprintf( __( 'Sites categorized as "%s"', 'wporg' ), strtolower( $title['title'] ) );
+		}
+
+		// If results are paged and the max number of pages is known.
+		if ( is_paged() && $wp_query->max_num_pages ) {
+			// translators: 1: current page number, 2: total number of pages
+			$title['page'] = sprintf(
+				__( 'Page %1$s of %2$s', 'wporg' ),
+				get_query_var( 'paged' ),
+				$wp_query->max_num_pages
+			);
+		}
+
+		$title['site'] = __( 'WordPress.org', 'wporg' );
+	}
+
+	return $title;
 }
