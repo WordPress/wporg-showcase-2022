@@ -334,13 +334,11 @@ function add_social_meta_tags() {
 		'og:image'       => esc_url( $default_image ),
 	];
 
-	if ( is_tag() ) {
+	if ( is_tag() || is_category() ) {
 		$og_fields['og:url'] = esc_url( get_term_link( get_queried_object_id() ) );
 	} elseif ( is_single() ) {
 		$og_fields['og:description'] = strip_tags( get_the_excerpt() );
 		$og_fields['og:url']         = esc_url( get_permalink() );
-	} elseif ( is_search() ) {
-		$og_fields['og:url'] = esc_url( get_permalink() );
 	}
 
 	printf( '<meta name="twitter:card" content="summary_large_image">' . "\n" );
