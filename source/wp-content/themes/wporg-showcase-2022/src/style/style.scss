@@ -80,6 +80,15 @@
 }
 
 /*
+ * This hides the title if there are no related posts.
+ * Remove after: https://github.com/WordPress/wporg-showcase-2022/issues/68
+ */
+
+#wporg-related-posts h3:only-child {
+	display: none;
+}
+
+/*
  * JetPack Contact Form Styles
  */
 
