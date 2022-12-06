@@ -18,7 +18,7 @@
 	<div class="wp-block-group has-border-color has-light-grey-1-border-color" style="border-width:1px;border-radius:2px"><!-- wp:wporg/site-screenshot {"isLink":true} /--></div>
 	<!-- /wp:group -->
 	
-	<!-- wp:post-title {"isLink":true,"fontSize":"normal","fontFamily":"inter"} /-->
+	<!-- wp:post-title {"isLink":true,"fontSize":"large","fontFamily":"inter"} /-->
 	
 	<!-- wp:post-excerpt /-->
 
