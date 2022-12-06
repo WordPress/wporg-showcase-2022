@@ -33,7 +33,7 @@ function render( $attributes ) {
 				esc_html( $wp_query->query['s'] )
 			)
 			: sprintf(
-				"We couldn't find sites that match your search term: <b>%s</b>",
+				__("We couldn't find sites that match your search term: <b>%s</b>", 'wporg' ),
 				esc_html( $wp_query->query['s'] )
 			);
 	} elseif ( is_tag() ) {
