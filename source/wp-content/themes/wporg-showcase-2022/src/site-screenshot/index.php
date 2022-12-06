@@ -56,7 +56,7 @@ function render( $attributes, $content, $block ) {
 		$loading = 'lazy';
 	}
 
-	$img_content = "<img src='" . esc_url( $screenshot ) . "' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' loading='" . esc_html( $loading ) . "' />";
+	$img_content = "<img src='" . esc_url( $screenshot ) . "' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' loading='" . esc_attr( $loading ) . "' />";
 
 	if ( isset( $attributes['isLink'] ) && true == $attributes['isLink'] ) {
 		$img_content = '<a href="' . get_permalink( $post ) . '">' . $img_content . '</a>';
