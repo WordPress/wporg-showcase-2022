@@ -343,7 +343,7 @@ function add_social_meta_tags() {
 
 	printf( '<meta name="twitter:card" content="summary_large_image">' . "\n" );
 	printf( '<meta name="twitter:site" content="@WordPress">' . "\n" );
-	printf( '<meta name="twitter:image" content="%s" />' . "\n", $og_fields['og:image'] );
+	printf( '<meta name="twitter:image" content="%s" />' . "\n", esc_url( $og_fields['og:image'] ) );
 
 	foreach ( $og_fields as $property => $content ) {
 		printf(
