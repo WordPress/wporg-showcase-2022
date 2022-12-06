@@ -323,11 +323,10 @@ function document_title_separator( $title ) {
  */
 function add_social_meta_tags() {
 	$default_image = get_stylesheet_directory_uri() . '/images/social-image.png';
-	$default_excerpt = __( 'Discover inspiration in some of the most beautiful, best designed WordPress websites.', 'wporg' );
 	$site_title    = function_exists( '\WordPressdotorg\site_brand' ) ? \WordPressdotorg\site_brand() : 'WordPress.org';
 	$og_fields = [
 		'og:title'       => wp_get_document_title(),
-		'og:description' => $default_excerpt,
+		'og:description' => __( 'Discover inspiration in some of the most beautiful, best designed WordPress websites.', 'wporg' ),
 		'og:site_name'   => $site_title,
 		'og:type'        => 'website',
 		'og:url'         => home_url(),
