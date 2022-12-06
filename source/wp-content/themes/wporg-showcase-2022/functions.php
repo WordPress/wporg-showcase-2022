@@ -339,11 +339,12 @@ function add_social_meta_tags() {
 	} elseif ( is_single() ) {
 		$og_fields['og:description'] = strip_tags( get_the_excerpt() );
 		$og_fields['og:url']         = esc_url( get_permalink() );
+		$og_fields['og:image']       = esc_url( site_screenshot_src( get_post() ) );
 	}
 
 	printf( '<meta name="twitter:card" content="summary_large_image">' . "\n" );
 	printf( '<meta name="twitter:site" content="@WordPress">' . "\n" );
-	printf( '<meta name="twitter:image" content="%s" />' . "\n", esc_url( $default_image ) );
+	printf( '<meta name="twitter:image" content="%s" />' . "\n", $og_fields['og:image'] );
 
 	foreach ( $og_fields as $property => $content ) {
 		printf(
