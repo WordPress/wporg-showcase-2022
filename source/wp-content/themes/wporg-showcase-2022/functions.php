@@ -329,7 +329,7 @@ function add_social_meta_tags() {
 		'og:description' => __( 'Discover inspiration in some of the most beautiful, best designed WordPress websites.', 'wporg' ),
 		'og:site_name'   => $site_title,
 		'og:type'        => 'website',
-		'og:url'         => home_url(),
+		'og:url'         => home_url( '/' ),
 		'og:image'       => esc_url( $default_image ),
 	];
 
