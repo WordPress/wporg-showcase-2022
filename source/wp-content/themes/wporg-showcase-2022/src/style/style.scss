@@ -84,7 +84,10 @@
  * Remove after: https://github.com/WordPress/wporg-showcase-2022/issues/68
  */
 
-#wporg-related-posts h3:only-child {
+#wporg-related-posts h2:only-child,
+#wporg-related-posts h3:only-child,
+#wporg-related-posts h4:only-child,
+#wporg-related-posts h5:only-child {
 	display: none;
 }
 
