@@ -8,7 +8,12 @@
 	"icon": "",
 	"description": "Displays context information for archive or search results.",
 	"textdomain": "wporg",
-	"attributes": {},
+	"attributes": {
+		"tagName": {
+			"type": "string",
+			"default": "p"
+		}
+	},
 	"supports": {
 		"align": true,
 		"color": true,
@@ -17,6 +22,21 @@
 			"margin": true,
 			"padding": true,
 			"blockGap": false
+		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": true,
+			"__experimentalFontFamily": true,
+			"__experimentalFontStyle": true,
+			"__experimentalFontWeight": true,
+			"__experimentalLetterSpacing": true,
+			"__experimentalTextTransform": true,
+			"__experimentalTextDecoration": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true,
+				"fontAppearance": true,
+				"textTransform": true
+			}
 		}
 	},
 	"editorScript": "file:./index.js",
