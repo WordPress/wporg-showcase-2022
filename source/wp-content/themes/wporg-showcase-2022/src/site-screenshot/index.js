@@ -13,7 +13,7 @@ import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import metadata from './block.json';
 import './style.scss';
 
-function Edit( { attributes: { isLink, useHiRes }, setAttributes } ) {
+function Edit( { attributes: { isLink, useHiRes, lazyLoad }, setAttributes } ) {
 	return (
 		<div { ...useBlockProps() }>
 			<InspectorControls>
@@ -27,6 +27,11 @@ function Edit( { attributes: { isLink, useHiRes }, setAttributes } ) {
 						label={ __( 'Use high resolution image', 'wporg' ) }
 						checked={ useHiRes }
 						onChange={ () => setAttributes( { useHiRes: ! useHiRes } ) }
+					/>
+					<ToggleControl
+						label={ __( 'Lazy load image', 'wporg' ) }
+						checked={ lazyLoad }
+						onChange={ () => setAttributes( { lazyLoad: ! lazyLoad } ) }
 					/>
 				</PanelBody>
 			</InspectorControls>
