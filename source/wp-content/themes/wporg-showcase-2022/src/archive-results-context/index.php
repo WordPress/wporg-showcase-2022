@@ -59,7 +59,7 @@ function render( $attributes ) {
 			/* translators: %1$s number of results */
 			_n(
 				'There is <b>%1$s</b> site in the archive',
-				'<p>There are <b>%1$s</b> sites in the archive',
+				'There are <b>%1$s</b> sites in the archive',
 				$wp_query->found_posts,
 				'wporg'
 			),
