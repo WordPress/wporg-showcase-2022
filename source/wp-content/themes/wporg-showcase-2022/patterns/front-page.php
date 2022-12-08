@@ -46,8 +46,8 @@
 <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|40"}}},"layout":{"type":"default"}} -->
 <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--40)"><!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|50"}}}} -->
 <div class="wp-block-columns are-vertically-aligned-center" style="padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50)"><!-- wp:column {"verticalAlignment":"center","width":""} -->
-<div class="wp-block-column is-vertically-aligned-center"><!-- wp:heading {"fontSize":"huge","fontFamily":"inter"} -->
-<h2 class="has-inter-font-family has-huge-font-size"><?php esc_attr_e( 'Featured sites', 'wporg' ); ?></h2>
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:heading {"fontSize":"extra-large","fontFamily":"inter"} -->
+<h2 class="has-inter-font-family has-extra-large-font-size"><?php esc_attr_e( 'Featured sites', 'wporg' ); ?></h2>
 <!-- /wp:heading --></div>
 <!-- /wp:column -->
 
