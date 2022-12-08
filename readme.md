@@ -81,13 +81,6 @@ These must be run in the project's root folder, _not_ in theme/plugin subfolders
     yarn workspace wporg-showcase-2022-theme start
     ```
 
-
-* Refresh local WordPress content with a current copy from the staging site.
-
-    ```bash
-    yarn setup:refresh
-    ```
-
 * Reset WordPress to a clean install, and reconfigure. This will nuke all local WordPress content!
 
     ```bash
