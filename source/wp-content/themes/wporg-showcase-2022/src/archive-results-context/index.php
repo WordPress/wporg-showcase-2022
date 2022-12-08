@@ -15,15 +15,15 @@ add_action( 'init', __NAMESPACE__ . '\init' );
  *
  * @return string Returns the block markup.
  */
-function render() {
+function render( $attributes ) {
 	global $wp_query;
 
 	if ( is_search() ) {
 		$content = sprintf(
 			/* translators: %1$s number of results; %2$s keyword. */
 			_n(
-				'<p>We found <b>%1$s</b> result for <b>%2$s</b></p>',
-				'<p>We found <b>%1$s</b> results for <b>%2$s</b></p>',
+				'We found <b>%1$s</b> result for <b>%2$s</b>',
+				'We found <b>%1$s</b> results for <b>%2$s</b>',
 				$wp_query->found_posts,
 				'wporg'
 			),
@@ -34,8 +34,8 @@ function render() {
 		$content = sprintf(
 			/* translators: %1$s number of results; %2$s tag. */
 			_n(
-				'<p>There is <b>%1$s</b> site tagged with <b>%2$s</b></p>',
-				'<p>There are <b>%1$s</b> sites tagged with <b>%2$s</b></p>',
+				'There is <b>%1$s</b> site tagged with <b>%2$s</b>',
+				'There are <b>%1$s</b> sites tagged with <b>%2$s</b>',
 				$wp_query->found_posts,
 				'wporg'
 			),
@@ -46,8 +46,8 @@ function render() {
 		$content = sprintf(
 			/* translators: %1$s number of results; %2$s category. */
 			_n(
-				'<p>There is <b>%1$s</b> site categorized as <b>%2$s</b></p>',
-				'<p>There are <b>%1$s</b> sites categorized as <b>%2$s</b></p>',
+				'There is <b>%1$s</b> site categorized as <b>%2$s</b>',
+				'There are <b>%1$s</b> sites categorized as <b>%2$s</b>',
 				$wp_query->found_posts,
 				'wporg'
 			),
@@ -58,8 +58,8 @@ function render() {
 		$content = sprintf(
 			/* translators: %1$s number of results */
 			_n(
-				'<p>There is <b>%1$s</b> site in the archive</p>',
-				'<p>There are <b>%1$s</b> sites in the archive</p>',
+				'There is <b>%1$s</b> site in the archive',
+				'There are <b>%1$s</b> sites in the archive',
 				$wp_query->found_posts,
 				'wporg'
 			),
@@ -70,7 +70,8 @@ function render() {
 	$wrapper_attributes = get_block_wrapper_attributes();
 
 	return sprintf(
-		'<div %s>%s</div>',
+		'<%1$s %2$s>%3$s</%1$s>',
+		esc_attr( $attributes['tagName'] ),
 		$wrapper_attributes,
 		$content
 	);
