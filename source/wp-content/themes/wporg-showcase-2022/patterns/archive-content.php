@@ -16,7 +16,7 @@
 
 	<!-- wp:query-no-results -->
 	<!-- wp:heading {"textAlign":"center","level":1,"fontSize":"heading-2"} -->
-	<h1 class="has-text-align-center has-heading-2-font-size">No results found</h1>
+	<h1 class="has-text-align-center has-heading-2-font-size"><?php esc_attr_e( 'No results found', 'wporg' ); ?></h1>
 	<!-- /wp:heading -->
 	<!-- /wp:query-no-results --></div>
 
@@ -42,7 +42,12 @@
 
 	<!-- wp:query-no-results -->
 	<!-- wp:paragraph {"align":"center"} -->
-	<p class="has-text-align-center">View <a href="/archives" data-type="URL" data-id="/archives">all sites</a> or try a different search.</p>
+	<p class="has-text-align-center">
+		<?php printf( /* translators: %s is url of the post archives. */
+			wp_kses_post( __( 'View <a href="%s">all sites</a> or try a different search. ', 'wporg' ) ),
+			esc_url( home_url( '/' ) . 'archives' )
+		); ?>
+	</p>
 	<!-- /wp:paragraph -->
 	<!-- /wp:query-no-results --></div>
 	<!-- /wp:query --></div>
