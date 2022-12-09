@@ -35,13 +35,3 @@ add_shortcode(
 		return str_replace( 'www.', '', parse_url( $values[0], PHP_URL_HOST ) );
 	}
 );
-
-/**
- * Returns the number of published posts.
- */
-add_shortcode(
-	'sites_in_archive_count',
-	function() {
-		return wp_count_posts()->publish;
-	}
-);
