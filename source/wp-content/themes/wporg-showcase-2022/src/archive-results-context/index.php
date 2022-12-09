@@ -19,24 +19,17 @@ function render( $attributes ) {
 	global $wp_query;
 
 	if ( is_search() ) {
-		$posts_count = number_format_i18n( $wp_query->found_posts );
-		$content     = $posts_count > 0
-			? sprintf(
-				/* translators: %1$s number of results; %2$s keyword. */
-				_n(
-					'We found <b>%1$s</b> result for <b>%2$s</b>',
-					'We found <b>%1$s</b> results for <b>%2$s</b>',
-					$wp_query->found_posts,
-					'wporg'
-				),
-				number_format_i18n( $posts_count ),
-				esc_html( $wp_query->query['s'] )
-			)
-			: sprintf(
-				/* translators: %s keyword */
-				__( "We couldn't find sites that match your search term: <b>%s</b>", 'wporg' ),
-				esc_html( $wp_query->query['s'] )
-			);
+		$content = sprintf(
+			/* translators: %1$s number of results; %2$s keyword. */
+			_n(
+				'We found <b>%1$s</b> result for <b>%2$s</b>',
+				'We found <b>%1$s</b> results for <b>%2$s</b>',
+				$wp_query->found_posts,
+				'wporg'
+			),
+			number_format_i18n( $wp_query->found_posts ),
+			esc_html( $wp_query->query['s'] )
+		);
 	} elseif ( is_tag() ) {
 		$content = sprintf(
 			/* translators: %1$s number of results; %2$s tag. */
