@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: mShot Generator
- * Slug: wporg-showcase-2022/mshot-generator
+ * Title: Screenshot Auditor
+ * Slug: wporg-showcase-2022/screenshot-auditor
  * Inserter: no
  */
 
@@ -15,7 +15,7 @@
 	<!-- wp:post-title {"level":1} /-->
 
 	<!-- wp:paragraph -->
-	<p><?php esc_html_e( 'Loading this page will generate mShots for all the sites below.', 'wporg' ); ?></p>
+	<p><?php esc_html_e( 'This page displays the current screenshots for each site. These could be a manual upload (displayed with blue border) or a generated mShot.', 'wporg' ); ?></p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:paragraph -->
