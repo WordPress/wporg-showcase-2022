@@ -74,7 +74,21 @@
 
 <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:button {"backgroundColor":"white","textColor":"blueberry-1","className":"is-style-outline","fontSize":"normal"} -->
-<div class="wp-block-button has-custom-font-size is-style-outline has-normal-font-size"><a class="wp-block-button__link has-blueberry-1-color has-white-background-color has-text-color has-background wp-element-button" href="https://wordpress.org/showcase/archives"><?php esc_attr_e( 'Browse the archive', 'wporg' ); ?></a></div>
+<div class="wp-block-button has-custom-font-size is-style-outline has-normal-font-size">
+	<a class="wp-block-button__link has-blueberry-1-color has-white-background-color has-text-color has-background wp-element-button" href="https://wordpress.org/showcase/archives">
+		<?php printf(
+			esc_attr(
+				/* translators: %d number of sites */
+				_n(
+					'Browse %d site in the archive',
+					'Browse %d sites in the archive',
+					wp_count_posts()->publish,
+					'wporg'
+				)
+			),
+			esc_attr( number_format_i18n( wp_count_posts()->publish ) )
+		); ?></a>
+</div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
