@@ -37,7 +37,7 @@ add_shortcode(
 );
 
 /**
- * Returns the number of published sites in archive.
+ * Returns the number of published posts.
  */
 add_shortcode(
 	'sites_in_archive_count',
