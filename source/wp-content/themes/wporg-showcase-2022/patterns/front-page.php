@@ -74,7 +74,7 @@
 
 <!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}}} -->
 <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60)"><!-- wp:button {"backgroundColor":"white","textColor":"blueberry-1","className":"is-style-outline","fontSize":"normal"} -->
-<div class="wp-block-button has-custom-font-size is-style-outline has-normal-font-size"><a class="wp-block-button__link has-blueberry-1-color has-white-background-color has-text-color has-background wp-element-button" href="https://wordpress.org/showcase/archives"><?php esc_attr_e( 'Browse the archive', 'wporg' ); ?></a></div>
+<div class="wp-block-button has-custom-font-size is-style-outline has-normal-font-size"><a class="wp-block-button__link has-blueberry-1-color has-white-background-color has-text-color has-background wp-element-button" href="https://wordpress.org/showcase/archives"><?php esc_attr_e( 'Browse [sites_in_archive_count] sites in the archive', 'wporg' ); ?></a></div>
 <!-- /wp:button --></div>
 <!-- /wp:buttons --></div>
 <!-- /wp:group -->
