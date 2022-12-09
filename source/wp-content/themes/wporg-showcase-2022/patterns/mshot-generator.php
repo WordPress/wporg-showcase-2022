@@ -15,11 +15,18 @@
 	<!-- wp:post-title {"level":1} /-->
 
 	<!-- wp:paragraph -->
-	<p>Loading this page will generate mShots for all the sites below.</p>
+	<p><?php esc_html_e( 'Loading this page will generate mShots for all the sites below.', 'wporg' ); ?></p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:paragraph -->
-	<p>If you see issues with the one of the generated mShots (for example cookie notices or modals), click 'Edit site' and upload a manual screenshot following <a href="https://github.com/WordPress/wporg-showcase-2022/wiki/Creating-a-Showcase-site-screenshot" target="_blank" rel="noreferrer noopener">these instructions</a>.</p>
+	<p>
+		<?php
+		printf(
+			/* translators: %s is the url for the screenshot manual upload instructions. */
+			wp_kses_post( __( 'If you see issues with the one of the generated mShots (for example cookie notices or modals), click \'Edit site\' and upload a manual screenshot following <a href="%s" target="_blank" rel="noreferrer noopener">these instructions</a>.', 'wporg' ) ),
+			esc_url( 'https://github.com/WordPress/wporg-showcase-2022/wiki/Creating-a-Showcase-site-screenshot' )
+		); ?>
+	</p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:query {"queryId":1,"query":{"perPage":"100","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"full"} -->

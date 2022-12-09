@@ -24,18 +24,13 @@ function render( $attributes, $content, $block ) {
 		return '';
 	}
 
-	$post_ID = $block->context['postId'];
-	$post    = get_post( $post_ID );
+	$post = get_post( $block->context['postId'] );
 
-	$edit_link = get_edit_post_link( $post );
-	$text      = __( 'Edit site', 'wporg' );
-
-	$wrapper_attributes = get_block_wrapper_attributes();
 	return sprintf(
-		'<a %s href="%s" target="_blank">%s</a>',
-		$wrapper_attributes,
-		$edit_link,
-		$text
+		'<a %s href="%s" target="_blank" rel="noreferrer noopener">%s</a>',
+		get_block_wrapper_attributes(),
+		esc_url( get_edit_post_link( $post ) ),
+		esc_html__( 'Edit site', 'wporg' )
 	);
 }
 
