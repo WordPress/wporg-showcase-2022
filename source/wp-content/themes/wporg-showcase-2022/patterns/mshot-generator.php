@@ -23,7 +23,7 @@
 		<?php
 		printf(
 			/* translators: %s is the url for the screenshot manual upload instructions. */
-			wp_kses_post( __( 'If you see issues with the one of the generated mShots (for example cookie notices or modals), click \'Edit site\' and upload a manual screenshot following <a href="%s" target="_blank" rel="noreferrer noopener">these instructions</a>.', 'wporg' ) ),
+			wp_kses_post( __( 'If you see issues with one of the generated mShots (for example cookie notices or modals), click \'Edit site\' and upload a manual screenshot following <a href="%s" target="_blank" rel="noreferrer noopener">these instructions</a>.', 'wporg' ) ),
 			esc_url( 'https://github.com/WordPress/wporg-showcase-2022/wiki/Creating-a-Showcase-site-screenshot' )
 		); ?>
 	</p>
