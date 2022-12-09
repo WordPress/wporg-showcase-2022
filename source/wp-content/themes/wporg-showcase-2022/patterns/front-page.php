@@ -77,14 +77,16 @@
 <div class="wp-block-button has-custom-font-size is-style-outline has-normal-font-size">
 	<a class="wp-block-button__link has-blueberry-1-color has-white-background-color has-text-color has-background wp-element-button" href="https://wordpress.org/showcase/archives">
 		<?php printf(
-			/* translators: %d number of sites */
-			_n(
-				'Browse %d site in the archive',
-				'Browse %d sites in the archive',
-				wp_count_posts()->publish,
-				'wporg'
+			esc_attr(
+				/* translators: %d number of sites */
+				_n(
+					'Browse %d site in the archive',
+					'Browse %d sites in the archive',
+					wp_count_posts()->publish,
+					'wporg'
+				)
 			),
-			number_format_i18n( wp_count_posts()->publish )
+			esc_attr( number_format_i18n( wp_count_posts()->publish ) )
 		); ?></a>
 </div>
 <!-- /wp:button --></div>
