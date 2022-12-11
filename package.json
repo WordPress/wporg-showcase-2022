@@ -20,9 +20,7 @@
 		"backstop:test": "npm exec backstop test",
 		"lighthouse": "lighthouse-ci http://localhost:8888/ --accessibility=100 --best-practices=100 --seo=100",
 		"lighthouse:desktop": "lighthouse http://localhost:8888/ --view --preset=desktop --output-path=lighthouse.html",
-		"lighthouse:mobile": "lighthouse http://localhost:8888/ --view --screenEmulation.mobile --output-path=lighthouse.html",
-		"lint:theme": "composer run lint source/wp-content/themes/wporg-showcase-2022 && yarn workspace wporg-showcase-2022-theme lint:js && yarn workspace wporg-showcase-2022-theme lint:css",
-		"watch:theme": "yarn workspace wporg-showcase-2022-theme start"
+		"lighthouse:mobile": "lighthouse http://localhost:8888/ --view --screenEmulation.mobile --output-path=lighthouse.html"
 	},
 	"workspaces": [
 		"source/wp-content/themes/wporg-showcase-2022"
