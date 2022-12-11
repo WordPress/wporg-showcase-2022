@@ -12,15 +12,7 @@
 	<div class="wp-block-group alignwide" style="padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:pattern {"slug":"wporg-showcase-2022/results-bar"} /-->
 
 	<!-- wp:query {"queryId":0,"query":{"inherit":true,"perPage":10},"displayLayout":{"type":"flex","columns":2}} -->
-	<div class="wp-block-query">
-
-	<!-- wp:query-no-results -->
-	<!-- wp:heading {"textAlign":"center","level":1,"fontSize":"heading-2"} -->
-	<h1 class="has-text-align-center has-heading-2-font-size"><?php esc_attr_e( 'No results found', 'wporg' ); ?></h1>
-	<!-- /wp:heading -->
-	<!-- /wp:query-no-results --></div>
-
-	<!-- wp:post-template -->
+	<div class="wp-block-query"><!-- wp:post-template -->
 
 	<!-- wp:group {"style":{"border":{"width":"1px","radius":"2px"}},"borderColor":"light-grey-1"} -->
 	<div class="wp-block-group has-border-color has-light-grey-1-border-color" style="border-width:1px;border-radius:2px"><!-- wp:wporg/site-screenshot {"isLink":true,"lazyLoad":true} /--></div>
@@ -41,6 +33,9 @@
 	<!-- /wp:query-pagination -->
 
 	<!-- wp:query-no-results -->
+	<!-- wp:heading {"textAlign":"center","level":1,"fontSize":"heading-2"} -->
+	<h1 class="has-text-align-center has-heading-2-font-size"><?php esc_attr_e( 'No results found', 'wporg' ); ?></h1>
+	<!-- /wp:heading -->
 	<!-- wp:paragraph {"align":"center"} -->
 	<p class="has-text-align-center">
 		<?php printf( /* translators: %s is url of the post archives. */
