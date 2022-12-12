@@ -81,9 +81,9 @@
 
 // Add hover states to related post items that match site-screenshot
 .jp-related-posts-i2__post:hover .jp-related-posts-i2__post-link a {
+	color: var(--wp--custom--link--color--text);
 	text-decoration: underline;
 	text-decoration-thickness: 1px;
-	color: var(--wp--custom--link--color--text);
 }
 
 .jp-related-posts-i2__post:hover .jp-related-posts-i2__post-img-link a img {
