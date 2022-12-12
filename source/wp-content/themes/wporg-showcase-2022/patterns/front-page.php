@@ -28,7 +28,7 @@
 <!-- wp:column {"verticalAlignment":"bottom","width":"40%","className":"wporg-hero-details","layout":{"type":"default"}} -->
 <div class="wp-block-column is-vertically-aligned-bottom wporg-hero-details" style="flex-basis:40%"><!-- wp:group {"align":"full","layout":{"type":"flex","orientation":"vertical","justifyContent":"right"}} -->
 <div class="wp-block-group alignfull"><!-- wp:group {"layout":{"type":"default"}} -->
-<div class="wp-block-group"><!-- wp:heading {"textAlign":"left","textColor":"white","className":"is-style-serif","fontSize":"extra-large"} -->
+<div class="wp-block-group"><!-- wp:heading {"textColor":"white","className":"is-style-serif","fontSize":"extra-large"} -->
 <h2 class="is-style-serif has-white-color has-text-color has-extra-large-font-size"><?php esc_attr_e( 'Featuring:', 'wporg' ); ?></h2>
 <!-- /wp:heading -->
 
