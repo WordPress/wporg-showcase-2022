@@ -20,7 +20,7 @@
 
 <!-- wp:group {"layout":{"type":"constrained"}} -->
 <div class="wp-block-group"><!-- wp:image {"align":"full","id":7564,"sizeSlug":"full","linkDestination":"none"} -->
-<figure class="wp-block-image alignfull size-full"><img src="https://s.w.org/wp-content/themes/wporg-showcase-2022/images/showcase.svg?v=20221121" alt="<?php esc_attr_e( 'WordPress showcase', 'wporg' ); ?>"/></figure>
+<figure class="wp-block-image alignfull size-full"><img src="https://s.w.org/wp-content/themes/wporg-showcase-2022/images/showcase.svg?v=20221212" alt="<?php esc_attr_e( 'WordPress showcase', 'wporg' ); ?>"/></figure>
 <!-- /wp:image --></div>
 <!-- /wp:group --></div>
 <!-- /wp:column -->
