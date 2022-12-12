@@ -35,6 +35,10 @@
 
 <!-- wp:list-item -->
 <li><?php esc_attr_e( 'Representing a notable organization, government entity, or corporation as an official blog or web site.', 'wporg' ); ?></li>
+<!-- /wp:list-item -->
+
+<!-- wp:list-item -->
+<li><?php esc_attr_e( 'Uses modern WordPress.', 'wporg' ); ?></li>
 <!-- /wp:list-item --></ul>
 <!-- /wp:list -->
 
