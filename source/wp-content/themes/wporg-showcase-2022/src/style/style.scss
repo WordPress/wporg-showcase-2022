@@ -136,3 +136,15 @@
 		text-align: left;
 	}
 }
+
+.page-template-page-screenshot-auditor {
+	.wp-block-wporg-site-screenshot {
+		img {
+			border: 2px solid var(--wp--preset--color--blueberry-1);
+
+			&[src*="mshots"] {
+				border: none;
+			}
+		}
+	}
+}
