@@ -1,0 +1,22 @@
+
+.wp-block-wporg-site-post-template-wrap {
+	&:hover,
+	&:focus {
+		outline: none;
+
+		img {
+			border: 1px solid var(--wp--custom--link--color--text);
+		}
+
+		h3 {
+			color: var(--wp--custom--link--color--text);
+			text-decoration: underline;
+			text-decoration-thickness: 1px;
+		}
+	}
+
+	img {
+		border: 1px solid var(--wp--preset--color--light-grey-1);
+		border-radius: 2px;
+	}
+}
