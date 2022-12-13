@@ -1,7 +1,7 @@
 <?php
 /**
- * Block Name: Link Wrap
- * Description: Wraps children in an anchor tag.
+ * Block Name: Site Post Template Wrap
+ * Description: Wraps post template contents in anchor tag.
  *
  * @package wporg
  */
