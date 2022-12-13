@@ -12,7 +12,6 @@
 		"align": true,
 		"color": {
 			"background": true,
-			"link": true,
 			"text": true
 		},
 		"html": false,
