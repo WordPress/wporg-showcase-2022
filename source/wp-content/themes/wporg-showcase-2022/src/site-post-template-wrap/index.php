@@ -35,7 +35,6 @@ function render( $attributes, $content, $block ) {
 	);
 }
 
-
 /**
  * Registers the block using the metadata loaded from the `block.json` file.
  * Behind the scenes, it registers also all assets so they can be enqueued
