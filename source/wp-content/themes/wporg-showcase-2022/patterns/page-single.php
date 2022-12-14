@@ -12,7 +12,7 @@
 <!-- wp:post-content {"align":"full","layout":{"type":"constrained"}} /-->
 
 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20"}}},"className":"external-link"} -->
-<p class="external-link" style="margin-top:var(--wp--preset--spacing--20)"><a href="[domain]">[pretty_domain]</a></p>
+<p class="external-link" style="margin-top:var(--wp--preset--spacing--20)"><a href="[domain]" target="_blank" rel="noopener noreferrer">[pretty_domain]</a></p>
 <!-- /wp:paragraph -->
 
 
@@ -30,5 +30,3 @@
 
 <!-- wp:jetpack/related-posts {"displayDate":false,"displayThumbnails":true} /--></div>
 <!-- /wp:group -->
-
-	
