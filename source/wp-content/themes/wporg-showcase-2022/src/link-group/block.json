@@ -6,7 +6,7 @@
 	"title": "Link Group",
 	"category": "design",
 	"icon": "",
-	"description": "Groups children component in anchor tag.",
+	"description": "Groups children components in anchor tag.",
 	"textdomain": "wporg",
 	"supports": {
 		"align": true,

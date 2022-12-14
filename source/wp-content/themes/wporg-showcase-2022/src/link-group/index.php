@@ -1,7 +1,7 @@
 <?php
 /**
  * Block Name: Link Group
- * Description: Groups children component in anchor tag.
+ * Description: Groups children components in anchor tag.
  *
  * @package wporg
  */
