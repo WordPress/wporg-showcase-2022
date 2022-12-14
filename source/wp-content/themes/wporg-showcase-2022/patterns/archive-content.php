@@ -14,11 +14,11 @@
 	<!-- wp:query {"queryId":0,"query":{"inherit":true,"perPage":10},"displayLayout":{"type":"flex","columns":2}} -->
 	<div class="wp-block-query"><!-- wp:post-template -->
 
-	<!-- wp:group {"style":{"border":{"width":"1px","radius":"2px"}},"borderColor":"light-grey-1"} -->
-	<div class="wp-block-group has-border-color has-light-grey-1-border-color" style="border-width:1px;border-radius:2px"><!-- wp:wporg/site-screenshot {"isLink":true,"lazyLoad":true} /--></div>
-	<!-- /wp:group -->
+	<!-- wp:wporg/link-group {"textColor":"charcoal-1"} -->
+	<div class="wp-block-wporg-link-group has-charcoal-1-color has-text-color"><!-- wp:wporg/site-screenshot {"lazyLoad":true} /-->
 
-	<!-- wp:post-title {"isLink":true,"fontSize":"large","fontFamily":"inter"} /-->
+	<!-- wp:post-title {"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"large","fontFamily":"inter"} /--></div>
+	<!-- /wp:wporg/link-group -->
 
 	<!-- wp:post-excerpt /-->
 

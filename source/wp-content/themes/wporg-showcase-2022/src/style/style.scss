@@ -79,6 +79,17 @@
 	}
 }
 
+// Add hover states to related post items that match site-screenshot
+.jp-related-posts-i2__post:hover .jp-related-posts-i2__post-link a {
+	color: var(--wp--custom--link--color--text);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+}
+
+.jp-related-posts-i2__post:hover .jp-related-posts-i2__post-img-link a img {
+	border: 1px solid var(--wp--custom--link--color--text);
+}
+
 /*
  * This hides the title if there are no related posts.
  * Remove after: https://github.com/WordPress/wporg-showcase-2022/issues/68

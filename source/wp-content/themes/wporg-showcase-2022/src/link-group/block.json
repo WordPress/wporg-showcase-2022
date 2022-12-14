@@ -1,0 +1,22 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "wporg/link-group",
+	"version": "0.1.0",
+	"title": "Link Group",
+	"category": "design",
+	"icon": "",
+	"description": "Groups children components in anchor tag.",
+	"textdomain": "wporg",
+	"supports": {
+		"align": true,
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"html": false
+	},
+	"usesContext": [ "postId" ],
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
