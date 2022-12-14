@@ -1,12 +1,12 @@
 <?php
 /**
- * Block Name: Site Post Template Wrap
- * Description: Wraps post template contents in anchor tag.
+ * Block Name: Link Group
+ * Description: Groups children component in anchor tag.
  *
  * @package wporg
  */
 
-namespace WordPressdotorg\Theme\Showcase_2022\Site_Post_Template_Wrap;
+namespace WordPressdotorg\Theme\Showcase_2022\Link_Group;
 
 add_action( 'init', __NAMESPACE__ . '\init' );
 
@@ -44,7 +44,7 @@ function render( $attributes, $content, $block ) {
  */
 function init() {
 	register_block_type(
-		dirname( dirname( __DIR__ ) ) . '/build/site-post-template-wrap',
+		dirname( dirname( __DIR__ ) ) . '/build/link-group',
 		array(
 			'render_callback' => __NAMESPACE__ . '\render',
 		)
