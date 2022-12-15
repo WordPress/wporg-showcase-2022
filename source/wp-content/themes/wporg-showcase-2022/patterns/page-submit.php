@@ -76,13 +76,13 @@ _e( 'While only a relatively small number of submissions are eventually added to
 
 <!-- wp:jetpack/field-url {"label":"<?php esc_attr_e( 'Site URL', 'wporg' ); ?>","required":true} /-->
 
-<!-- wp:jetpack/field-text {"label":"<?php esc_attr_e( 'Country', 'wporg' ); ?>","required":true} /-->
+<!-- wp:jetpack/field-text {"label":"<?php esc_attr_e( 'Author', 'wporg' ); ?>","required":true} /-->
 
 <!-- wp:jetpack/field-text {"label":"<?php esc_attr_e( 'Theme', 'wporg' ); ?>","required":true} /-->
 
 <!-- wp:jetpack/field-date {"label":"<?php esc_attr_e( 'Launched On', 'wporg' ); ?>","required":true} /-->
 
-<!-- wp:jetpack/field-text {"label":"<?php esc_attr_e( 'Author', 'wporg' ); ?>","required":true} /-->
+<!-- wp:jetpack/field-text {"label":"<?php esc_attr_e( 'Country', 'wporg' ); ?>","required":true} /-->
 
 <!-- wp:jetpack/field-textarea {"label":"<?php esc_attr_e( 'Describe the site and, if applicable, the person or organization it represents.', 'wporg' ); ?>","required":true} /-->
 
