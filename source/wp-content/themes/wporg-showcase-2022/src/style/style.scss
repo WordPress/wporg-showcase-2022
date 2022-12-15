@@ -159,3 +159,8 @@
 		}
 	}
 }
+
+// We don't want to show the submit site link on that page
+.page-template-page-submit .wp-block-navigation a[href*="submit-a-wordpress-site"] {
+	display: none;
+}
