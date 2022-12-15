@@ -108,6 +108,15 @@
 
 .wp-block-jetpack-contact-form label {
 	font-weight: 400 !important;
+
+	span {
+		font-size: 100% !important;
+		color: var(--wp--preset--color--charcoal-4);
+	}
+}
+
+.wp-block-jetpack-contact-form input {
+	max-width: 400px;
 }
 
 .wp-block-jetpack-contact-form input[type="email"],
@@ -117,6 +126,7 @@
 .wp-block-jetpack-contact-form textarea {
 	padding: 4px 8px !important;
 	border: 1px solid var(--wp--preset--color--charcoal-4) !important;
+	border-radius: 2px;
 }
 
 // 760 = (--wp--style--global--content-size, 680px) + (2 * --wp--preset--spacing--60, which at ~700 is 40px).
