@@ -66,7 +66,14 @@
 		}
 	}
 
+	.jp-related-posts-i2__post-img-link a {
+		display: block;
+		margin-bottom: var(--wp--preset--spacing--10);
+		background: var(--wp--preset--color--light-grey-1);
+	}
+
 	.jp-related-posts-i2__post-img-link img {
+		display: block;
 		width: 100%;
 		border: 1px solid var(--wp--preset--color--light-grey-1);
 		border-radius: 2px;
