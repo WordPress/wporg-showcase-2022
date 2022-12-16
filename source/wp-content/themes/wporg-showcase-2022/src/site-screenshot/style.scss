@@ -5,3 +5,18 @@
 		aspect-ratio: 16 / 9;
 	}
 }
+
+// If we have a parent block with a border radius, we want to clip the contents.
+.wp-block-group[style*="border-radius"]:has(.wp-block-wporg-site-screenshot) {
+	overflow: hidden;
+}
+
+// Fallback for FireFox
+// This isn't ideal since there's a slight space between the border and the image
+// It is very hard to notice however
+@supports not selector(:has(a, b)) {
+	.wp-block-wporg-site-screenshot,
+	.wp-block-wporg-site-screenshot * {
+		border-radius: inherit;
+	}
+}
