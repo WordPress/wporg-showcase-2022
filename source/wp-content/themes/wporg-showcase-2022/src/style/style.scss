@@ -160,6 +160,10 @@
 }
 
 @media (min-width: 782px) {
+	.wporg-hero-details {
+		margin-bottom: -4px !important; // Aligns the bottom with the image.
+	}
+
 	.wporg-hero-details > * {
 		text-align: left;
 	}
