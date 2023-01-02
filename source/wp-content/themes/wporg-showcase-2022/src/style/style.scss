@@ -47,6 +47,16 @@
 }
 
 /*
+ * core/post-title.
+ */
+
+@media (max-width: 600px) {
+	.wp-block-post .wp-block-post-title {
+		font-size: 16px !important;
+	}
+}
+
+/*
  * Related Posts Styles
  */
 
