@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wporg/site-screenshot",
+  "version": "0.1.0",
+  "title": "Site Screenshot",
+  "category": "design",
+  "icon": "",
+  "description": "Display a screenshot of the site.",
+  "textdomain": "wporg",
+  "attributes": {
+    "isLink": {
+      "type": "boolean",
+      "default": false
+    },
+    "useHiRes": {
+      "type": "boolean",
+      "default": false
+    },
+    "lazyLoad": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "align": true,
+    "html": false,
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": true,
+      "blockGap": false
+    }
+  },
+  "usesContext": [
+    "postId"
+  ],
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}
