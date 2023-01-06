@@ -259,7 +259,7 @@ function set_noindex( $noindex ) {
  * @return array Updated breadcrumbs.
  */
 function set_site_breadcrumbs( $breadcrumbs ) {
-	$breadcrumbs[0]['title'] = __( 'Showcase', 'wporg' );
+	$breadcrumbs[0]['img'] = file_get_contents( dirname( __FILE__ ) . '/images/home.svg' );
 	return $breadcrumbs;
 }
 
