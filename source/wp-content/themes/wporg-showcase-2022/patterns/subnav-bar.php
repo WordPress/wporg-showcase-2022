@@ -12,6 +12,8 @@
 <div class="wp-block-group alignfull"><!-- wp:wporg/site-breadcrumbs {"textColor":"charcoal-1","fontSize":"small"} /-->
 
 
-<!-- wp:navigation {"ref":7299,"textColor":"blueberry-1","backgroundColor":"white","className":"is-style-dropdown-on-mobile","style":{"spacing":{"blockGap":"24px"}},"fontSize":"small"} /--></div>
+<!-- wp:navigation {"textColor":"blueberry-1","backgroundColor":"white","className":"is-style-dropdown-on-mobile","style":{"spacing":{"blockGap":"24px"}},"fontSize":"small"} -->
+<!-- wp:navigation-link {"label":"Submit a site","url":"https://wordpress.org/showcase/submit-a-wordpress-site/","kind":"custom","isTopLevelLink":true} /-->
+<!-- /wp:navigation --></div>
 <!-- /wp:group --></div>
 <!-- /wp:group -->
