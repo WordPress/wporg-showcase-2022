@@ -192,3 +192,13 @@
 		}
 	}
 }
+
+.wp-block-wporg-site-breadcrumbs {
+	min-height: 23px;
+}
+
+@media (max-width: 599px) {
+	.wp-block-wporg-site-breadcrumbs span:not(:first-child) {
+		display: none;
+	}
+}
