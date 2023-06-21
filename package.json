@@ -8,7 +8,6 @@
 	"devDependencies": {
 		"@wordpress/env": "8.1.1",
 		"@wordpress/scripts": "26.6.0",
-		"backstopjs": "^6.2.2",
 		"lighthouse-ci": "^1.13.1"
 	},
 	"scripts": {
@@ -16,8 +15,6 @@
 		"setup:wp": "wp-env run cli \"bash env/setup.sh\"",
 		"update:tools": "composer update && TEXTDOMAIN=wporg composer exec update-configs",
 		"wp-env": "wp-env",
-		"backstop:reference": "npm exec backstop reference",
-		"backstop:test": "npm exec backstop test",
 		"lighthouse": "lighthouse-ci http://localhost:8888/ --accessibility=100 --best-practices=100 --seo=100",
 		"lighthouse:desktop": "lighthouse http://localhost:8888/ --view --preset=desktop --output-path=lighthouse.html",
 		"lighthouse:mobile": "lighthouse http://localhost:8888/ --view --screenEmulation.mobile --output-path=lighthouse.html"
