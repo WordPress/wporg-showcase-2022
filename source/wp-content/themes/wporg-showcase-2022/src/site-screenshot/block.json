@@ -24,11 +24,30 @@
 	},
 	"supports": {
 		"align": true,
-		"html": false,
+		"color": {
+			"text": false,
+			"background": true,
+			"link": false
+		},
 		"spacing": {
 			"margin": [ "top", "bottom" ],
 			"padding": true,
-			"blockGap": false
+			"__experimentalDefaultControls": {
+				"margin": true,
+				"padding": true
+			}
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
 		}
 	},
 	"usesContext": [ "postId" ],
