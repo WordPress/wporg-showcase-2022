@@ -146,25 +146,6 @@
 	border-radius: 2px;
 }
 
-// 760 = (--wp--style--global--content-size, 680px) + (2 * --wp--preset--spacing--60, which at ~700 is 40px).
-@media (max-width: 760px) {
-	// Add space to the left & right of blocks as long as they're not pulled out
-	// of the content by left, right, wide, or full alignment.
-	body .is-layout-constrained > *:not(.alignleft):not(.alignright):not(.alignfull) {
-		margin-left: var(--wp--preset--spacing--60) !important;
-		margin-right: var(--wp--preset--spacing--60) !important;
-	}
-}
-
-// It doesn't have to be super accurate,
-// but it has to be larger than --wp--style--global--wide-size + ( padding * 2 );
-@media (max-width: 1306px) {
-	body .is-layout-constrained > .alignwide {
-		margin-left: var(--wp--preset--spacing--60) !important;
-		margin-right: var(--wp--preset--spacing--60) !important;
-	}
-}
-
 .wporg-hero-details > * {
 	text-align: right;
 }
