@@ -258,7 +258,7 @@ function set_noindex( $noindex ) {
  * @return array Updated breadcrumbs.
  */
 function set_site_breadcrumbs( $breadcrumbs ) {
-	$breadcrumbs[0]['title'] = __( 'Showcase', 'wporg' );
+	$breadcrumbs[0]['title'] = __( 'Home', 'wporg' );
 	return $breadcrumbs;
 }
 
