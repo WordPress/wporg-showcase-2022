@@ -11,7 +11,7 @@
 <div class="wp-block-group alignfull"><!-- wp:columns -->
 <div class="wp-block-columns"><!-- wp:column {"width":"1160px"} -->
 <div class="wp-block-column" style="flex-basis:1160px"><!-- wp:heading {"style":{"typography":{"fontStyle":"normal","fontWeight":"300","letterSpacing":"-2px"}},"className":"is-style-with-arrow","fontSize":"heading-cta","fontFamily":"inter"} -->
-<h2 class="is-style-with-arrow has-inter-font-family has-heading-cta-font-size" style="font-style:normal;font-weight:300;letter-spacing:-2px"><a href="https://wordpress.org/showcase/submit-a-wordpress-site/"><?php esc_attr_e( 'Submit a site', 'wporg' ); ?></a></h2>
+<h2 class="is-style-with-arrow has-inter-font-family has-heading-cta-font-size" style="font-style:normal;font-weight:300;letter-spacing:-2px"><a href="<?php echo esc_url( home_url( '/submit-a-wordpress-site/' ) ); ?>"><?php esc_attr_e( 'Submit a site', 'wporg' ); ?></a></h2>
 <!-- /wp:heading --></div>
 <!-- /wp:column -->
 
