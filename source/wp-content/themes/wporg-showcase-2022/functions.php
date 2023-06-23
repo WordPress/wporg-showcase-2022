@@ -12,12 +12,12 @@ require_once __DIR__ . '/inc/shortcodes.php';
 // Filters and Actions
 add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_search_query' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
-add_action( 'wp', __NAMESPACE__ . '\jetpackme_remove_rp', 20 );
+add_action( 'wp', __NAMESPACE__ . '\jetpack_remove_rp', 20 );
 add_action( 'wp_head', __NAMESPACE__ . '\add_social_meta_tags' );
 add_action( 'template_redirect', __NAMESPACE__ . '\redirect_urls' );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
-add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpackchange_image_size' );
-add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpackme_related_posts_headline' );
+add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpack_change_image_size' );
+add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpack_related_posts_headline' );
 add_filter( 'document_title_parts', __NAMESPACE__ . '\document_title' );
 add_filter( 'document_title_separator', __NAMESPACE__ . '\document_title_separator' );
 add_filter( 'excerpt_length', __NAMESPACE__ . '\modify_excerpt_length', 999 );
@@ -81,7 +81,7 @@ function site_screenshot_src( $post, $width = 1440, $height = 810 ) {
 		$screenshot = add_query_arg( 'vpw', $width, $screenshot );
 		$screenshot = add_query_arg( 'vph', $height, $screenshot );
 	} elseif ( function_exists( 'jetpack_photon_url' ) ) {
-		// Use JetPack cache for non mShot images
+		// Use Jetpack cache for non mShot images
 		$screenshot = jetpack_photon_url( $screenshot );
 	}
 
@@ -92,7 +92,7 @@ function site_screenshot_src( $post, $width = 1440, $height = 810 ) {
 }
 
 /**
- * Provide mShot images to JetPack related posts.
+ * Provide mShot images to Jetpack related posts.
  */
 function jetpack_fallback_image( $media, $post_id, $args ) {
 	if ( $media ) {
@@ -114,9 +114,9 @@ function jetpack_fallback_image( $media, $post_id, $args ) {
 }
 
 /**
- * Change JetPack Related Posts image size.
+ * Change Jetpack Related Posts image size.
  */
-function jetpackchange_image_size( $thumbnail_size ) {
+function jetpack_change_image_size( $thumbnail_size ) {
 	$thumbnail_size['width'] = '100%';
 	$thumbnail_size['height'] = 'auto';
 	return $thumbnail_size;
@@ -128,7 +128,7 @@ function jetpackchange_image_size( $thumbnail_size ) {
  * @param string $headline
  * @return string
  */
-function jetpackme_related_posts_headline( $headline ) {
+function jetpack_related_posts_headline( $headline ) {
 	$headline = sprintf(
 		'<h3>%s</h3>',
 		esc_html( __( 'Related sites', 'wporg' ) )
@@ -142,7 +142,7 @@ function jetpackme_related_posts_headline( $headline ) {
  *
  * @return void
  */
-function jetpackme_remove_rp() {
+function jetpack_remove_rp() {
 	if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
 		$jprp = \Jetpack_RelatedPosts::init();
 		$callback = array( $jprp, 'filter_add_target_to_dom' );
