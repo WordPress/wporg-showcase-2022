@@ -14,78 +14,38 @@
 <!--    existing user on the site or to create a new user. -->
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
-<!-- generator="WordPress/6.1-alpha-54137" created="2022-09-13 07:39" -->
+<!-- generator="WordPress/6.3-alpha-55986" created="2023-06-23 16:50" -->
 <rss xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/" version="2.0">
 
 <channel>
 	<title>The WordPress Showcase</title>
-	<link>https://wordpress.org/showcase</link>
+	<link>https://wordpress.org/showcase-v2</link>
 	<description>The Best WordPress Sites in the World</description>
-	<pubDate>Tue, 13 Sep 2022 07:39:33 +0000</pubDate>
+	<pubDate>Fri, 23 Jun 2023 16:50:44 +0000</pubDate>
 	<language>en-US</language>
 	<wp:wxr_version>1.2</wp:wxr_version>
 	<wp:base_site_url>https://wordpress.org/</wp:base_site_url>
-	<wp:base_blog_url>https://wordpress.org/showcase</wp:base_blog_url>
+	<wp:base_blog_url>https://wordpress.org/showcase-v2</wp:base_blog_url>
 
-		<wp:author><wp:author_id>1</wp:author_id><wp:author_login>__REDACTED__</wp:author_login><wp:author_email>__REDACTED__</wp:author_email><wp:author_display_name>__REDACTED__</wp:author_display_name><wp:author_first_name>__REDACTED__</wp:author_first_name><wp:author_last_name>__REDACTED__</wp:author_last_name></wp:author>
-	<wp:author><wp:author_id>523</wp:author_id><wp:author_login>__REDACTED__</wp:author_login><wp:author_email>__REDACTED__</wp:author_email><wp:author_display_name>__REDACTED__</wp:author_display_name><wp:author_first_name>__REDACTED__</wp:author_first_name><wp:author_last_name>__REDACTED__</wp:author_last_name></wp:author>
-	<wp:author><wp:author_id>873787</wp:author_id><wp:author_login>__REDACTED__</wp:author_login><wp:author_email>__REDACTED__</wp:author_email><wp:author_display_name>__REDACTED__</wp:author_display_name><wp:author_first_name>__REDACTED__</wp:author_first_name><wp:author_last_name>__REDACTED__</wp:author_last_name></wp:author>
-	<wp:author><wp:author_id>14179500</wp:author_id><wp:author_login>__REDACTED__</wp:author_login><wp:author_email>__REDACTED__</wp:author_email><wp:author_display_name>__REDACTED__</wp:author_display_name><wp:author_first_name>__REDACTED__</wp:author_first_name><wp:author_last_name>__REDACTED__</wp:author_last_name></wp:author>
+		<wp:author><wp:author_id>17657928</wp:author_id><wp:author_login>__REDACTED__</wp:author_login><wp:author_email>__REDACTED__</wp:author_email><wp:author_display_name>__REDACTED__</wp:author_display_name><wp:author_first_name>__REDACTED__</wp:author_first_name><wp:author_last_name>__REDACTED__</wp:author_last_name></wp:author>
+	<wp:author><wp:author_id>8213290</wp:author_id><wp:author_login>__REDACTED__</wp:author_login><wp:author_email>__REDACTED__</wp:author_email><wp:author_display_name>__REDACTED__</wp:author_display_name><wp:author_first_name>__REDACTED__</wp:author_first_name><wp:author_last_name>__REDACTED__</wp:author_last_name></wp:author>
 
-
-	<generator>https://wordpress.org/?v=6.1-alpha-54137</generator>
+				
+	<generator>https://wordpress.org/?v=6.3-alpha-55986</generator>
 
 <image>
 	<url>https://s.w.org/favicon.ico?2</url>
-	<title>tellyworth.dev.ord: WordPress.org</title>
-	<link>https://wordpress.org/showcase</link>
+	<title>WordPress.org</title>
+	<link>https://wordpress.org/showcase-v2</link>
 	<width>32</width>
 	<height>32</height>
-</image>
-
+</image> 
+<site xmlns="com-wordpress:feed-additions:1">211760019</site>
 		<item>
-		<title><![CDATA[Tag Cloud]]></title>
-		<link>https://wordpress.org/showcase/tag-cloud/</link>
-		<pubDate>Wed, 15 Oct 2008 19:06:20 +0000</pubDate>
-		<dc:creator><![CDATA[matt]]></dc:creator>
-		<guid isPermaLink="false">http://nickbook.local/?page_id=44</guid>
-		<description/>
-		<content:encoded><![CDATA[]]></content:encoded>
-		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>44</wp:post_id>
-		<wp:post_date><![CDATA[2008-10-15 13:06:20]]></wp:post_date>
-		<wp:post_date_gmt><![CDATA[2008-10-15 19:06:20]]></wp:post_date_gmt>
-		<wp:post_modified><![CDATA[2008-10-15 13:06:20]]></wp:post_modified>
-		<wp:post_modified_gmt><![CDATA[2008-10-15 19:06:20]]></wp:post_modified_gmt>
-		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
-		<wp:ping_status><![CDATA[open]]></wp:ping_status>
-		<wp:post_name><![CDATA[tag-cloud]]></wp:post_name>
-		<wp:status><![CDATA[publish]]></wp:status>
-		<wp:post_parent>0</wp:post_parent>
-		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type><![CDATA[page]]></wp:post_type>
-		<wp:post_password><![CDATA[]]></wp:post_password>
-		<wp:is_sticky>0</wp:is_sticky>
-														<wp:postmeta>
-		<wp:meta_key><![CDATA[_edit_last]]></wp:meta_key>
-		<wp:meta_value><![CDATA[35530]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
-		<wp:meta_value><![CDATA[page-tags.php]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
-		<wp:meta_key><![CDATA[_last_editor_used_jetpack]]></wp:meta_key>
-		<wp:meta_value><![CDATA[block-editor]]></wp:meta_value>
-		</wp:postmeta>
-
-
-					</item>
-					<item>
 		<title><![CDATA[Submit a WordPress Site]]></title>
-		<link>https://wordpress.org/showcase/submit-a-wordpress-site/</link>
+		<link>https://wordpress.org/showcase-v2/submit-a-wordpress-site/</link>
 		<pubDate>Thu, 16 Oct 2008 14:35:58 +0000</pubDate>
-		<dc:creator><![CDATA[matt]]></dc:creator>
+		<dc:creator><![CDATA[dufresnesteven]]></dc:creator>
 		<guid isPermaLink="false">http://nickbook.local/?page_id=91</guid>
 		<description/>
 		<content:encoded><![CDATA[Thank you for your interest in the WordPress Showcase. The Showcase aims to show the world what can be done with WordPress and help demonstrate that WordPress has tremendous capabilities as a publishing platform. Submitting a site for review is quick and easy to do.
@@ -97,7 +57,7 @@ Blogs and web sites powered by WordPress that make it into the Showcase are typi
 	<li>Being written by someone famous or especially notable in his or her particular field.</li>
 	<li>Representing a notable organization, government entity, or corporation as an official blog or web site.</li>
 </ul>
-While only a relatively small number of submissions are eventually added to the WordPress Showcase, a number of exceptional sites and blogs are added weekly. Only sites that are added to the Showcase will be notified via email. If your site is added to the Showcase, feel free to put one of these <a href="http://wordpress.org/showcase/submit-a-wordpress-site/graphics/">graphics</a> anywhere on the site that was added.
+While only a relatively small number of submissions are eventually added to the WordPress Showcase, a number of exceptional sites and blogs are added weekly. Only sites that are added to the Showcase will be notified via email. If your site is added to the Showcase, feel free to put one of these <a href="http://wordpress.org/showcase-v2/submit-a-wordpress-site/graphics/">graphics</a> anywhere on the site that was added.
 
 You do not need to be the site's owner to submit the site to the WordPress Showcase. However, if you do not own the site, please note that in your submission. Multiple submissions are welcome and will be considered independently of each other. It is not necessary to suggest tags or a potential description when submitting your site, but doing so can be helpful.
 <h4>Submission Form</h4>
@@ -106,8 +66,8 @@ You do not need to be the site's owner to submit the site to the WordPress Showc
 		<wp:post_id>91</wp:post_id>
 		<wp:post_date><![CDATA[2008-10-16 08:35:58]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2008-10-16 14:35:58]]></wp:post_date_gmt>
-		<wp:post_modified><![CDATA[2013-09-16 02:36:34]]></wp:post_modified>
-		<wp:post_modified_gmt><![CDATA[2013-09-16 02:36:34]]></wp:post_modified_gmt>
+		<wp:post_modified><![CDATA[2008-10-16 08:35:58]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2008-10-16 14:35:58]]></wp:post_modified_gmt>
 		<wp:comment_status><![CDATA[open]]></wp:comment_status>
 		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
 		<wp:post_name><![CDATA[submit-a-wordpress-site]]></wp:post_name>
@@ -118,10 +78,6 @@ You do not need to be the site's owner to submit the site to the WordPress Showc
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 														<wp:postmeta>
-		<wp:meta_key><![CDATA[_edit_last]]></wp:meta_key>
-		<wp:meta_value><![CDATA[106198]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
 		<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
 		<wp:meta_value><![CDATA[page-submit.php]]></wp:meta_value>
 		</wp:postmeta>
@@ -141,13 +97,223 @@ You do not need to be the site's owner to submit the site to the WordPress Showc
 		<wp:meta_key><![CDATA[_last_editor_used_jetpack]]></wp:meta_key>
 		<wp:meta_value><![CDATA[block-editor]]></wp:meta_value>
 		</wp:postmeta>
-					</item>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_4623dd49366c0f8cc1db835458fe642f98cdddfc]]></wp:meta_key>
+		<wp:meta_value><![CDATA[
+	<div class="wp-block-jetpack-contact-form">[contact-field label="Your Name" required="1" type="name"/]
+
+[contact-field label="Your E-mail" required="1" type="email"/]
+
+[contact-field label="Site URL" required="1" type="url"/]
+
+[contact-field label="Country" required="1" type="text"/]
+
+[contact-field label="Theme" required="1" type="text"/]
+
+[contact-field label="Launched On" required="1" type="date"/]
+
+[contact-field label="Author" required="1" type="text"/]
+
+[contact-field label="Describe the site and&#044; if applicable&#044; the person or organization it represents." required="1" type="textarea"/]
+
+[contact-field label="What justifies this site being added to the WordPress Showcase? what makes it unique or interesting?" required="1" type="textarea"/]
+
+[contact-field label="Check this box if you own the site and agree to be contacted by email" required="1" type="checkbox"/]
+
+<div class="wp-block-jetpack-button wp-block-button" style=""><button class="wp-block-button__link" style="" data-id-attr="placeholder" type="submit">Submit site</button></div></div>
+]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_atts_4623dd49366c0f8cc1db835458fe642f98cdddfc]]></wp:meta_key>
+		<wp:meta_value><![CDATA[a:13:{s:2:"to";s:22:"steve.dufresne@a8c.com";s:7:"subject";s:36:"A new registration from your website";s:12:"show_subject";s:2:"no";s:6:"widget";i:0;s:14:"block_template";N;s:19:"block_template_part";N;s:2:"id";i:91;s:18:"submit_button_text";s:6:"Submit";s:14:"customThankyou";s:8:"redirect";s:21:"customThankyouHeading";s:12:"Message Sent";s:21:"customThankyouMessage";s:30:"Thank you for your submission!";s:22:"customThankyouRedirect";s:65:"https://wordpress.org/showcase-v2/submit-a-wordpress-site/success";s:10:"jetpackCRM";b:1;}]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_8c06143b68137b6ec333d64671567c2a3f852484]]></wp:meta_key>
+		<wp:meta_value><![CDATA[
+<div class="wp-block-jetpack-contact-form">[contact-field label="Your Name" required="1" type="name"/]
+
+[contact-field label="Your E-mail" required="1" type="email"/]
+
+[contact-field label="Site URL" required="1" type="url"/]
+
+[contact-field label="Country" required="1" type="text"/]
+
+[contact-field label="Theme" required="1" type="text"/]
+
+[contact-field label="Launched On" required="1" type="date"/]
+
+[contact-field label="Author" required="1" type="text"/]
+
+[contact-field label="Describe the site and&#044; if applicable&#044; the person or organization it represents." required="1" type="textarea"/]
+
+[contact-field label="What justifies this site being added to the WordPress Showcase? what makes it unique or interesting?" required="1" type="textarea"/]
+
+[contact-field label="Check this box if you own the site and agree to be contacted by email" required="1" type="checkbox"/]
+
+<div class="wp-block-jetpack-button wp-block-button" style=""><button class="wp-block-button__link" style="" data-id-attr="placeholder" type="submit">Submit site</button></div></div>
+]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_atts_8c06143b68137b6ec333d64671567c2a3f852484]]></wp:meta_key>
+		<wp:meta_value><![CDATA[a:13:{s:2:"to";s:46:"showcase.shouldbeblockedbyfilter@wordpress.org";s:7:"subject";s:30:"A new showcase site suggested.";s:12:"show_subject";s:2:"no";s:6:"widget";i:0;s:14:"block_template";N;s:19:"block_template_part";N;s:2:"id";i:91;s:18:"submit_button_text";s:6:"Submit";s:14:"customThankyou";s:8:"redirect";s:21:"customThankyouHeading";s:12:"Message Sent";s:21:"customThankyouMessage";s:30:"Thank you for your submission!";s:22:"customThankyouRedirect";s:65:"https://wordpress.org/showcase-v2/submit-a-wordpress-site/success";s:10:"jetpackCRM";b:1;}]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_03adbbe53622aaf77b609b59adad1765bc721eb9]]></wp:meta_key>
+		<wp:meta_value><![CDATA[
+<div class="wp-block-jetpack-contact-form">[contact-field label="Your Name" required="1" type="name"/]
+
+[contact-field label="Your E-mail" required="1" type="email"/]
+
+[contact-field label="Site URL" required="1" type="url"/]
+
+[contact-field label="Country" required="1" type="text"/]
+
+[contact-field label="Theme" required="1" type="text"/]
+
+[contact-field label="Launched On" required="1" type="date"/]
+
+[contact-field label="Author" required="1" type="text"/]
+
+[contact-field label="Describe the site and&#044; if applicable&#044; the person or organization it represents." required="1" type="textarea"/]
+
+[contact-field label="What justifies this site being added to the WordPress Showcase? what makes it unique or interesting?" required="1" type="textarea"/]
+
+[contact-field label="Check this box if you own the site and agree to be contacted by email" required="1" type="checkbox"/]
+
+<div class="wp-block-jetpack-button wp-block-button" style=""><button class="wp-block-button__link" style="" data-id-attr="placeholder" type="submit">Submit site</button></div></div>
+]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_atts_03adbbe53622aaf77b609b59adad1765bc721eb9]]></wp:meta_key>
+		<wp:meta_value><![CDATA[a:13:{s:2:"to";s:46:"showcase.shouldbeblockedbyfilter@wordpress.org";s:7:"subject";s:30:"A new showcase site suggested.";s:12:"show_subject";s:2:"no";s:6:"widget";i:0;s:14:"block_template";N;s:19:"block_template_part";N;s:2:"id";i:91;s:18:"submit_button_text";s:6:"Submit";s:14:"customThankyou";s:0:"";s:21:"customThankyouHeading";s:12:"Message Sent";s:21:"customThankyouMessage";s:30:"Thank you for your submission!";s:22:"customThankyouRedirect";s:0:"";s:10:"jetpackCRM";b:1;}]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_56e22c0ef9972490c43ea6b42c1914843567965c]]></wp:meta_key>
+		<wp:meta_value><![CDATA[
+<div class="wp-block-jetpack-contact-form">[contact-field label="Your Name" required="1" type="name"/]
+
+[contact-field label="Your E-mail" required="1" type="email"/]
+
+[contact-field label="Site URL" required="1" type="url"/]
+
+[contact-field label="Country" required="1" type="text"/]
+
+[contact-field label="Theme" required="1" type="text"/]
+
+[contact-field label="Launched On" required="1" type="date"/]
+
+[contact-field label="Author" required="1" type="text"/]
+
+[contact-field label="Describe the site and&#044; if applicable&#044; the person or organization it represents." required="1" type="textarea"/]
+
+[contact-field label="What justifies this site being added to the WordPress Showcase? what makes it unique or interesting?" required="1" type="textarea"/]
+
+[contact-field label="Check this box if you own the site and agree to be contacted by email" type="checkbox"/]
+
+<div class="wp-block-jetpack-button wp-block-button" style=""><button class="wp-block-button__link" style="" data-id-attr="placeholder" type="submit">Submit site</button></div></div>
+]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_atts_56e22c0ef9972490c43ea6b42c1914843567965c]]></wp:meta_key>
+		<wp:meta_value><![CDATA[a:13:{s:2:"to";s:46:"showcase.shouldbeblockedbyfilter@wordpress.org";s:7:"subject";s:30:"A new showcase site suggested.";s:12:"show_subject";s:2:"no";s:6:"widget";i:0;s:14:"block_template";N;s:19:"block_template_part";N;s:2:"id";i:91;s:18:"submit_button_text";s:6:"Submit";s:14:"customThankyou";s:8:"redirect";s:21:"customThankyouHeading";s:26:"Your message has been sent";s:21:"customThankyouMessage";s:30:"Thank you for your submission!";s:22:"customThankyouRedirect";s:64:"https://wordpress.org/showcase-v2/submit-a-wordpress-site/thanks";s:10:"jetpackCRM";b:1;}]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_3d0d084f55f5476d3cd690660e5d5c64bb3b4943]]></wp:meta_key>
+		<wp:meta_value><![CDATA[
+<div class="wp-block-jetpack-contact-form">[contact-field label="Your Name" required="1" type="name"/]
+
+[contact-field label="Your E-mail" required="1" type="email"/]
+
+[contact-field label="Site URL" required="1" type="url"/]
+
+[contact-field label="Country" required="1" type="text"/]
+
+[contact-field label="Theme" required="1" type="text"/]
+
+[contact-field label="Launched On" required="1" type="date"/]
+
+[contact-field label="Author" required="1" type="text"/]
+
+[contact-field label="Describe the site and&#044; if applicable&#044; the person or organization it represents." required="1" type="textarea"/]
+
+[contact-field label="What justifies this site being added to the WordPress Showcase? what makes it unique or interesting?" required="1" type="textarea"/]
+
+[contact-field label="Check this box if you own the site and agree to be contacted by email" type="checkbox"/]
+
+<div class="wp-block-jetpack-button wp-block-button" style=""><button class="wp-block-button__link" style="" data-id-attr="placeholder" type="submit">Submit site</button></div></div>
+]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_atts_3d0d084f55f5476d3cd690660e5d5c64bb3b4943]]></wp:meta_key>
+		<wp:meta_value><![CDATA[a:13:{s:2:"to";s:46:"showcase.shouldbeblockedbyfilter@wordpress.org";s:7:"subject";s:30:"A new showcase site suggested.";s:12:"show_subject";s:2:"no";s:6:"widget";i:0;s:14:"block_template";N;s:19:"block_template_part";N;s:2:"id";i:91;s:18:"submit_button_text";s:6:"Submit";s:14:"customThankyou";s:0:"";s:21:"customThankyouHeading";s:26:"Your message has been sent";s:21:"customThankyouMessage";s:30:"Thank you for your submission!";s:22:"customThankyouRedirect";s:0:"";s:10:"jetpackCRM";b:1;}]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_5b338dcde16c9263c016d61c562b2719cc3f9f0c]]></wp:meta_key>
+		<wp:meta_value><![CDATA[
+<div class="wp-block-jetpack-contact-form">[contact-field label="Your Name" required="1" type="name"/]
+
+[contact-field label="Your E-mail" required="1" type="email"/]
+
+[contact-field label="Site URL" required="1" type="url"/]
+
+[contact-field label="Author" required="1" type="text"/]
+
+[contact-field label="Theme" required="1" type="text"/]
+
+[contact-field label="Launched On" required="1" type="date"/]
+
+[contact-field label="Country" required="1" type="text"/]
+
+[contact-field label="Describe the site and&#044; if applicable&#044; the person or organization it represents." required="1" type="textarea"/]
+
+[contact-field label="What justifies this site being added to the WordPress Showcase? what makes it unique or interesting?" required="1" type="textarea"/]
+
+[contact-field label="Check this box if you own the site and agree to be contacted by email" type="checkbox"/]
+
+<div class="wp-block-jetpack-button wp-block-button" style=""><button class="wp-block-button__link" style="" data-id-attr="placeholder" type="submit">Submit site</button></div></div>
+]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_atts_5b338dcde16c9263c016d61c562b2719cc3f9f0c]]></wp:meta_key>
+		<wp:meta_value><![CDATA[a:13:{s:2:"to";s:46:"showcase.shouldbeblockedbyfilter@wordpress.org";s:7:"subject";s:30:"A new showcase site suggested.";s:12:"show_subject";s:2:"no";s:6:"widget";i:0;s:14:"block_template";N;s:19:"block_template_part";N;s:2:"id";i:91;s:18:"submit_button_text";s:6:"Submit";s:14:"customThankyou";s:8:"redirect";s:21:"customThankyouHeading";s:26:"Your message has been sent";s:21:"customThankyouMessage";s:30:"Thank you for your submission!";s:22:"customThankyouRedirect";s:64:"https://wordpress.org/showcase-v2/submit-a-wordpress-site/thanks";s:10:"jetpackCRM";b:1;}]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_9705ca9483d8787dbf22a97d6cbf72b7e3442e7c]]></wp:meta_key>
+		<wp:meta_value><![CDATA[
+<div class="wp-block-jetpack-contact-form">[contact-field label="Your Name" required="1" type="name"/]
+
+[contact-field label="Your E-mail" required="1" type="email"/]
+
+[contact-field label="Site URL" required="1" type="url"/]
+
+[contact-field label="Author" required="1" type="text"/]
+
+[contact-field label="Theme" required="1" type="text"/]
+
+[contact-field label="Launched On" required="1" type="date"/]
+
+[contact-field label="Country" required="1" type="text"/]
+
+[contact-field label="Describe the site and&#044; if applicable&#044; the person or organization it represents." required="1" type="textarea"/]
+
+[contact-field label="What justifies this site being added to the WordPress Showcase? what makes it unique or interesting?" required="1" type="textarea"/]
+
+[contact-field label="Check this box if you own the site and agree to be contacted by email" type="checkbox"/]
+
+<div class="wp-block-jetpack-button wp-block-button" style=""><button class="wp-block-button__link" style="" data-id-attr="placeholder" type="submit">Submit site</button></div></div>
+]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_g_feedback_shortcode_atts_9705ca9483d8787dbf22a97d6cbf72b7e3442e7c]]></wp:meta_key>
+		<wp:meta_value><![CDATA[a:13:{s:2:"to";s:46:"showcase.shouldbeblockedbyfilter@wordpress.org";s:7:"subject";s:30:"A new showcase site suggested.";s:12:"show_subject";s:2:"no";s:6:"widget";i:0;s:14:"block_template";N;s:19:"block_template_part";N;s:2:"id";i:91;s:18:"submit_button_text";s:6:"Submit";s:14:"customThankyou";s:0:"";s:21:"customThankyouHeading";s:26:"Your message has been sent";s:21:"customThankyouMessage";s:30:"Thank you for your submission!";s:22:"customThankyouRedirect";s:0:"";s:10:"jetpackCRM";b:1;}]]></wp:meta_value>
+		</wp:postmeta>
+							</item>
 					<item>
 		<title><![CDATA[Archives]]></title>
-		<link>https://wordpress.org/showcase/archives/</link>
+		<link>https://wordpress.org/showcase-v2/archives/</link>
 		<pubDate>Wed, 11 Feb 2009 23:00:19 +0000</pubDate>
-		<dc:creator><![CDATA[mtdewvirus]]></dc:creator>
-		<guid isPermaLink="false">http://wordpress.org/showcase/?page_id=1695</guid>
+		<dc:creator><![CDATA[dufresnesteven]]></dc:creator>
+		<guid isPermaLink="false">http://wordpress.org/showcase-v2/?page_id=1695</guid>
 		<description/>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
@@ -166,28 +332,28 @@ You do not need to be the site's owner to submit the site to the WordPress Showc
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 														<wp:postmeta>
-		<wp:meta_key><![CDATA[_edit_last]]></wp:meta_key>
-		<wp:meta_value><![CDATA[523]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
 		<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
 		<wp:meta_value><![CDATA[default]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_last_editor_used_jetpack]]></wp:meta_key>
+		<wp:meta_value><![CDATA[block-editor]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
 					<item>
 		<title><![CDATA[Home]]></title>
-		<link>https://wordpress.org/showcase/</link>
+		<link>https://wordpress.org/showcase-v2/</link>
 		<pubDate>Wed, 18 Feb 2009 16:54:41 +0000</pubDate>
-		<dc:creator><![CDATA[mtdewvirus]]></dc:creator>
-		<guid isPermaLink="false">http://wordpress.org/showcase/?page_id=1708</guid>
+		<dc:creator><![CDATA[dufresnesteven]]></dc:creator>
+		<guid isPermaLink="false">http://wordpress.org/showcase-v2/?page_id=1708</guid>
 		<description/>
 		<content:encoded><![CDATA[]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
 		<wp:post_id>1708</wp:post_id>
 		<wp:post_date><![CDATA[2009-02-18 16:54:41]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2009-02-18 16:54:41]]></wp:post_date_gmt>
-		<wp:post_modified><![CDATA[2016-05-25 01:05:36]]></wp:post_modified>
-		<wp:post_modified_gmt><![CDATA[2016-05-25 01:05:36]]></wp:post_modified_gmt>
+		<wp:post_modified><![CDATA[2009-02-18 16:54:41]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2009-02-18 16:54:41]]></wp:post_modified_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
 		<wp:post_name><![CDATA[home]]></wp:post_name>
@@ -198,10 +364,6 @@ You do not need to be the site's owner to submit the site to the WordPress Showc
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 														<wp:postmeta>
-		<wp:meta_key><![CDATA[_edit_last]]></wp:meta_key>
-		<wp:meta_value><![CDATA[12560283]]></wp:meta_value>
-		</wp:postmeta>
-							<wp:postmeta>
 		<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
 		<wp:meta_value><![CDATA[page-home.php]]></wp:meta_value>
 		</wp:postmeta>
@@ -217,30 +379,90 @@ You do not need to be the site's owner to submit the site to the WordPress Showc
 		<wp:meta_key><![CDATA[ratings_users]]></wp:meta_key>
 		<wp:meta_value><![CDATA[0]]></wp:meta_value>
 		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_last_editor_used_jetpack]]></wp:meta_key>
+		<wp:meta_value><![CDATA[block-editor]]></wp:meta_value>
+		</wp:postmeta>
 							</item>
 					<item>
 		<title><![CDATA[Showcase Graphics]]></title>
-		<link>https://wordpress.org/showcase/submit-a-wordpress-site/graphics/</link>
+		<link>https://wordpress.org/showcase-v2/?page_id=1775</link>
 		<pubDate>Mon, 09 Mar 2009 00:57:22 +0000</pubDate>
-		<dc:creator><![CDATA[serviceuntitled]]></dc:creator>
-		<guid isPermaLink="false">http://wordpress.org/showcase/?page_id=1775</guid>
+		<dc:creator><![CDATA[dufresnesteven]]></dc:creator>
+		<guid isPermaLink="false">http://wordpress.org/showcase-v2/?page_id=1775</guid>
 		<description/>
-		<content:encoded><![CDATA[If your site is featured in the WordPress.org Showcase, feel free to use either of these images on your website.
+		<content:encoded><![CDATA[<!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:paragraph {"align":"center","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|40"}}},"className":"is-style-serif","fontSize":"heading-3"} -->
+<p class="has-text-align-center is-style-serif has-heading-3-font-size" style="padding-bottom:var(--wp--preset--spacing--40)">If your site is featured in the WordPress.org Showcase, you can proudly display these badges on your website.</p>
+<!-- /wp:paragraph -->
 
-<img src="http://wpdotorg.files.wordpress.com/2009/03/showcase-dark.png" alt="WordPress.org Showcase Dark" class="noborder" />
-URL: <a href="http://wpdotorg.files.wordpress.com/2009/03/showcase-dark.png">http://wpdotorg.files.wordpress.com/2009/03/showcase-dark.png</a>
+<!-- wp:columns {"verticalAlignment":"center"} -->
+<div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"align":"center","id":8296,"width":337,"height":86,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://wordpress.org/showcase-v2/files/2022/11/featured-black-on-white.png" alt="" class="wp-image-8296" width="337" height="86" /></figure>
+<!-- /wp:image -->
 
-<img src="http://wpdotorg.files.wordpress.com/2009/03/showcase-light.png" alt="WordPress.org Showcase Light" class="noborder" />
-URL: <a href="http://wpdotorg.files.wordpress.com/2009/03/showcase-light.png">http://wpdotorg.files.wordpress.com/2009/03/showcase-light.png</a>]]></content:encoded>
+<!-- wp:image {"align":"center","id":8298,"width":337,"height":86,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://wordpress.org/showcase-v2/files/2022/11/featured-blueberry-on-white.png" alt="" class="wp-image-8298" width="337" height="86" /></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:image {"align":"center","id":8297,"width":337,"height":86,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://wordpress.org/showcase-v2/files/2022/11/feature-white-on-black.png" alt="" class="wp-image-8297" width="337" height="86" /></figure>
+<!-- /wp:image -->
+
+<!-- wp:image {"align":"center","id":8299,"width":337,"height":86,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-full is-resized"><img src="https://wordpress.org/showcase-v2/files/2022/11/featured-white-on-blueberry.png" alt="" class="wp-image-8299" width="337" height="86" /></figure>
+<!-- /wp:image --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
 		<wp:post_id>1775</wp:post_id>
 		<wp:post_date><![CDATA[2009-03-09 00:57:22]]></wp:post_date>
 		<wp:post_date_gmt><![CDATA[2009-03-09 00:57:22]]></wp:post_date_gmt>
-		<wp:post_modified><![CDATA[2009-03-09 00:57:22]]></wp:post_modified>
-		<wp:post_modified_gmt><![CDATA[2009-03-09 00:57:22]]></wp:post_modified_gmt>
+		<wp:post_modified><![CDATA[2022-12-13 05:05:00]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2022-12-13 05:05:00]]></wp:post_modified_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 		<wp:ping_status><![CDATA[open]]></wp:ping_status>
 		<wp:post_name><![CDATA[graphics]]></wp:post_name>
+		<wp:status><![CDATA[draft]]></wp:status>
+		<wp:post_parent>91</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type><![CDATA[page]]></wp:post_type>
+		<wp:post_password><![CDATA[]]></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+														<wp:postmeta>
+		<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
+		<wp:meta_value><![CDATA[default]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_last_editor_used_jetpack]]></wp:meta_key>
+		<wp:meta_value><![CDATA[block-editor]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_edit_last]]></wp:meta_key>
+		<wp:meta_value><![CDATA[17657928]]></wp:meta_value>
+		</wp:postmeta>
+							</item>
+					<item>
+		<title><![CDATA[Thanks]]></title>
+		<link>https://wordpress.org/showcase-v2/submit-a-wordpress-site/thanks/</link>
+		<pubDate>Tue, 22 Nov 2022 03:44:07 +0000</pubDate>
+		<dc:creator><![CDATA[dufresnesteven]]></dc:creator>
+		<guid isPermaLink="false">https://wordpress.org/showcase-v2/?page_id=8349</guid>
+		<description/>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>8349</wp:post_id>
+		<wp:post_date><![CDATA[2022-11-22 03:44:07]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2022-11-22 03:44:07]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2022-12-21 01:08:08]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2022-12-21 01:08:08]]></wp:post_modified_gmt>
+		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
+		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
+		<wp:post_name><![CDATA[thanks]]></wp:post_name>
 		<wp:status><![CDATA[publish]]></wp:status>
 		<wp:post_parent>91</wp:post_parent>
 		<wp:menu_order>0</wp:menu_order>
@@ -248,99 +470,58 @@ URL: <a href="http://wpdotorg.files.wordpress.com/2009/03/showcase-light.png">ht
 		<wp:post_password><![CDATA[]]></wp:post_password>
 		<wp:is_sticky>0</wp:is_sticky>
 														<wp:postmeta>
-		<wp:meta_key><![CDATA[_edit_last]]></wp:meta_key>
-		<wp:meta_value><![CDATA[873787]]></wp:meta_value>
+		<wp:meta_key><![CDATA[_last_editor_used_jetpack]]></wp:meta_key>
+		<wp:meta_value><![CDATA[block-editor]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
 		<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
-		<wp:meta_value><![CDATA[default]]></wp:meta_value>
-		</wp:postmeta>
-							</item>
-					<item>
-		<title><![CDATA[WordCamp Links and Information]]></title>
-		<link>https://wordpress.org/showcase/wordcamp/</link>
-		<pubDate>Sat, 27 Jun 2009 19:52:54 +0000</pubDate>
-		<dc:creator><![CDATA[serviceuntitled]]></dc:creator>
-		<guid isPermaLink="false">http://wordpress.org/showcase/?page_id=2044</guid>
-		<description/>
-		<content:encoded><![CDATA[<h4>Sites Featured in Douglas Hanna's Presentation</h4>
-<ul>
-	<li><a href="http://wordpress.org/showcase/rw-mosman-and-neutral-bay-real-estate/">R&amp;W Mosman Real Estate</a></li>
-	<li><a href="http://wordpress.org/showcase/icondock/">Icon Dock</a></li>
-	<li><a href="http://wordpress.org/showcase/harvard-gazette-online/">Harvard Gazette</a></li>
-	<li><a href="http://wordpress.org/showcase/texas-tech-today/">Texas Tech Today</a></li>
-	<li><a href="http://wordpress.org/showcase/nikon-festival/">Nikon Festival</a></li>
-	<li><a href="http://wordpress.org/showcase/foodgawker/">Food Gawker</a></li>
-	<li><a href="http://wordpress.org/showcase/fresh-apps/">Fresh Apps</a></li>
-	<li><a href="http://wordpress.org/showcase/xplane/">XPLANE</a></li>
-	<li><a href="http://wordpress.org/showcase/lucas-hirata/">Lucas Hirata</a></li>
-	<li><a href="http://wordpress.org/showcase/livemocks/">LiveMocks</a></li>
-</ul>
-<h4>Getting Your Site In the Showcase</h4>
-The WordPress Showcase Submission Criteria and submission form can be found by clicking on "Submit a Site" on the left or <a href="http://wordpress.org/showcase/submit-a-wordpress-site/">clicking here</a>.
-<h4>How to Contact Doug / Learn More</h4>
-<ul>
-	<li><strong>WordPress Showcase:</strong> <a href="http://wordpress.org/showcase">http://wordpress.org/showcase</a></li>
-	<li><strong>Doug's Customer Service Blog:</strong> <a href="http://www.serviceuntitled.com">Service Untitled</a></li>
-	<li><strong>Doug's Twitter:</strong> <a href="http://twitter.com/douglashanna">@douglashanna</a></li>
-	<li><strong>Email:</strong> <em>firstnam</em><em>e</em> {at} automattic {dot} com (make replacements as necessary)</li>
-</ul>]]></content:encoded>
-		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>2044</wp:post_id>
-		<wp:post_date><![CDATA[2009-06-27 19:52:54]]></wp:post_date>
-		<wp:post_date_gmt><![CDATA[2009-06-27 19:52:54]]></wp:post_date_gmt>
-		<wp:post_modified><![CDATA[2009-06-27 19:52:54]]></wp:post_modified>
-		<wp:post_modified_gmt><![CDATA[2009-06-27 19:52:54]]></wp:post_modified_gmt>
-		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
-		<wp:ping_status><![CDATA[open]]></wp:ping_status>
-		<wp:post_name><![CDATA[wordcamp]]></wp:post_name>
-		<wp:status><![CDATA[publish]]></wp:status>
-		<wp:post_parent>0</wp:post_parent>
-		<wp:menu_order>0</wp:menu_order>
-		<wp:post_type><![CDATA[page]]></wp:post_type>
-		<wp:post_password><![CDATA[]]></wp:post_password>
-		<wp:is_sticky>0</wp:is_sticky>
-														<wp:postmeta>
-		<wp:meta_key><![CDATA[_edit_last]]></wp:meta_key>
-		<wp:meta_value><![CDATA[3364213]]></wp:meta_value>
+		<wp:meta_value><![CDATA[page-submit-confirmation]]></wp:meta_value>
 		</wp:postmeta>
 							<wp:postmeta>
-		<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
-		<wp:meta_value><![CDATA[default]]></wp:meta_value>
+		<wp:meta_key><![CDATA[_edit_last]]></wp:meta_key>
+		<wp:meta_value><![CDATA[17657928]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
 					<item>
-		<title><![CDATA[Handbook]]></title>
-		<link>https://wordpress.org/showcase/handbook/</link>
-		<pubDate>Thu, 10 Sep 2020 19:14:29 +0000</pubDate>
-		<dc:creator><![CDATA[casiepa]]></dc:creator>
-		<guid isPermaLink="false">https://wordpress.org/showcase/?page_id=7123</guid>
+		<title><![CDATA[Screenshot auditor]]></title>
+		<link>https://wordpress.org/showcase-v2/mshot-generator/</link>
+		<pubDate>Thu, 08 Dec 2022 02:55:10 +0000</pubDate>
+		<dc:creator><![CDATA[adamwood]]></dc:creator>
+		<guid isPermaLink="false">https://wordpress.org/showcase-v2/?page_id=8957</guid>
 		<description/>
-		<content:encoded><![CDATA[<!-- wp:heading -->
-<h2>Submitting or contributing</h2>
-<!-- /wp:heading -->
+		<content:encoded><![CDATA[<!-- wp:query {"queryId":7,"query":{"perPage":"100","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"full"} -->
+<div class="wp-block-query alignfull"><!-- wp:post-template {"align":"full"} -->
+<!-- wp:post-title {"fontSize":"large"} /-->
 
-<!-- wp:list -->
-<ul><li>Submit a showcase</li><li><a href="https://wordpress.org/showcase/handbook/contribute-as-programmer-designer-to-the-site/" data-type="URL" data-id="https://wordpress.org/showcase/handbook/contribute-as-programmer-designer-to-the-site/">Contribute as programmer/designer to the site</a></li></ul>
-<!-- /wp:list -->
+<!-- wp:columns -->
+<div class="wp-block-columns"><!-- wp:column {"width":"33.33%"} -->
+<div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:wporg/site-screenshot {"isLink":true} /--></div>
+<!-- /wp:column -->
 
-<!-- wp:heading -->
-<h2>Approving</h2>
-<!-- /wp:heading -->
+<!-- wp:column {"width":"66.66%"} -->
+<div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:wporg/site-screenshot {"isLink":true,"useHiRes":true} /--></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns -->
+<!-- /wp:post-template -->
 
-<!-- wp:list -->
-<ul><li>Review submissions</li><li><a href="https://wordpress.org/showcase/review-existing-showcases/" data-type="URL" data-id="https://wordpress.org/showcase/review-existing-showcases/">Review existing showcases</a> (is WP? Still alive?)</li><li>Administration (Tags cleaning,...)</li></ul>
-<!-- /wp:list -->]]></content:encoded>
+<!-- wp:query-pagination {"align":"full"} -->
+<!-- wp:query-pagination-previous /-->
+
+<!-- wp:query-pagination-numbers /-->
+
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination --></div>
+<!-- /wp:query -->]]></content:encoded>
 		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
-		<wp:post_id>7123</wp:post_id>
-		<wp:post_date><![CDATA[2020-09-10 19:14:29]]></wp:post_date>
-		<wp:post_date_gmt><![CDATA[2020-09-10 19:14:29]]></wp:post_date_gmt>
-		<wp:post_modified><![CDATA[2020-09-10 19:59:46]]></wp:post_modified>
-		<wp:post_modified_gmt><![CDATA[2020-09-10 19:59:46]]></wp:post_modified_gmt>
+		<wp:post_id>8957</wp:post_id>
+		<wp:post_date><![CDATA[2022-12-08 02:55:10]]></wp:post_date>
+		<wp:post_date_gmt><![CDATA[2022-12-08 02:55:10]]></wp:post_date_gmt>
+		<wp:post_modified><![CDATA[2022-12-12 20:19:41]]></wp:post_modified>
+		<wp:post_modified_gmt><![CDATA[2022-12-12 20:19:41]]></wp:post_modified_gmt>
 		<wp:comment_status><![CDATA[closed]]></wp:comment_status>
 		<wp:ping_status><![CDATA[closed]]></wp:ping_status>
-		<wp:post_name><![CDATA[handbook]]></wp:post_name>
-		<wp:status><![CDATA[publish]]></wp:status>
+		<wp:post_name><![CDATA[mshot-generator]]></wp:post_name>
+		<wp:status><![CDATA[private]]></wp:status>
 		<wp:post_parent>0</wp:post_parent>
 		<wp:menu_order>0</wp:menu_order>
 		<wp:post_type><![CDATA[page]]></wp:post_type>
@@ -349,6 +530,14 @@ The WordPress Showcase Submission Criteria and submission form can be found by c
 														<wp:postmeta>
 		<wp:meta_key><![CDATA[_last_editor_used_jetpack]]></wp:meta_key>
 		<wp:meta_value><![CDATA[block-editor]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_wp_page_template]]></wp:meta_key>
+		<wp:meta_value><![CDATA[page-screenshot-auditor]]></wp:meta_value>
+		</wp:postmeta>
+							<wp:postmeta>
+		<wp:meta_key><![CDATA[_edit_last]]></wp:meta_key>
+		<wp:meta_value><![CDATA[8213290]]></wp:meta_value>
 		</wp:postmeta>
 							</item>
 				</channel>
