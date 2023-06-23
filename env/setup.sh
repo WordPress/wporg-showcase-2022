@@ -23,3 +23,4 @@ wp menu item add-post subnav-menu 91 --title="Submit a site"
 wp option update show_on_front 'page'
 wp option update page_on_front 1708
 wp option update page_for_posts 1695
+wp option update posts_per_page 12
