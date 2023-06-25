@@ -17,9 +17,10 @@
 			"type": "boolean",
 			"default": false
 		},
-		"size": {
+		"type": {
 			"type": "string",
-			"default": "screenshot-desktop"
+			"default": "desktop",
+			"enum": [ "desktop", "mobile" ]
 		}
 	},
 	"supports": {

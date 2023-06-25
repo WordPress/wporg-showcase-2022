@@ -8,7 +8,7 @@
 
 namespace WordPressdotorg\Theme\Showcase_2022\Site_Screenshot;
 
-use function WordPressdotorg\Theme\Showcase_2022\site_screenshot_src;
+use function WordPressdotorg\Theme\Showcase_2022\get_site_domain;
 
 add_action( 'init', __NAMESPACE__ . '\init' );
 
@@ -45,14 +45,19 @@ function render( $attributes, $content, $block ) {
 	$post_ID = $block->context['postId'];
 	$post = get_post( $post_ID );
 
-	$screenshot = site_screenshot_src( $post );
+	$screenshot = get_site_screenshot_src( $post, $attributes['type'] );
 
 	$loading = 'eager';
 	if ( isset( $attributes['lazyLoad'] ) && true === $attributes['lazyLoad'] ) {
 		$loading = 'lazy';
 	}
 
-	$img_content = "<img src='" . esc_url( $screenshot ) . "' alt='" . the_title_attribute( array( 'echo' => false ) ) . "' loading='" . esc_attr( $loading ) . "' />";
+	$img_content = sprintf(
+		'<img src="%1$s" alt="%2$s" loading="%3$s" />',
+		esc_url( $screenshot ),
+		the_title_attribute( array( 'echo' => false ) ),
+		esc_attr( $loading )
+	);
 
 	if ( isset( $attributes['isLink'] ) && true == $attributes['isLink'] ) {
 		$img_content = '<a href="' . get_permalink( $post ) . '">' . $img_content . '</a>';
@@ -64,4 +69,52 @@ function render( $attributes, $content, $block ) {
 		$wrapper_attributes,
 		$img_content
 	);
+}
+
+/**
+ * Returns url of site screenshot image.
+ *
+ * @param WP_Post $post
+ * @param string  $type
+ * @return string
+ */
+function get_site_screenshot_src( $post, $type = 'desktop' ) {
+	$screenshot_url = false;
+	$media_id = get_post_meta( $post->ID, 'screenshot-' . $type, true );
+	$cache_key = '20221208'; // To break out of cached image.
+
+	$size = 'screenshot-' . $type;
+	$all_sizes = wp_get_registered_image_subsizes();
+	if ( ! isset( $all_sizes[ $size ] ) ) {
+		return null;
+	}
+
+	if ( $media_id ) {
+		list( $screenshot_url ) = wp_get_attachment_image_src( $media_id, $size );
+	}
+
+	if ( ! $screenshot_url ) {
+		$requested_url = 'https://' . get_site_domain( $post ) . '?v=' . $cache_key;
+		$viewport_width = $all_sizes[ $size ]['width'];
+		$viewport_height = $all_sizes[ $size ]['height'];
+		$ratio = $viewport_height / $viewport_width;
+
+		$screenshot_url = add_query_arg(
+			array(
+				'scale' => 2,
+				'w' => 'mobile' === $type ? 480 : 1440,
+				'h' => 'mobile' === $type ? 480 * $ratio : 1440 * $ratio,
+				'vpw' => $viewport_width,
+				'vph' => $viewport_height,
+			),
+			'https://wordpress.com/mshots/v1/' . urlencode( $requested_url ),
+		);
+	} elseif ( function_exists( 'jetpack_photon_url' ) ) {
+		// Use Jetpack cache for non mShot images
+		$screenshot_url = jetpack_photon_url( $screenshot_url );
+	}
+
+	$screenshot_url = apply_filters( 'wporg_showcase_screenshot_src', $screenshot_url, $post );
+
+	return is_ssl() ? set_url_scheme( $screenshot_url, 'https' ) : $screenshot_url;
 }

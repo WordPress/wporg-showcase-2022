@@ -29,7 +29,7 @@
 	</p>
 	<!-- /wp:paragraph -->
 
-	<!-- wp:query {"queryId":1,"query":{"perPage":"100","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"full"} -->
+	<!-- wp:query {"queryId":1,"query":{"perPage":"3","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"full"} -->
 	<div class="wp-block-query alignfull"><!-- wp:post-template {"align":"full"} -->
 	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|40"}}},"layout":{"type":"constrained"}} -->
 	<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--40)"><!-- wp:group {"align":"full","style":{"spacing":{"padding":{"bottom":"var:preset|spacing|10","top":"var:preset|spacing|20"}},"border":{"top":{"color":"var:preset|color|light-grey-1","style":"solid"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
@@ -39,20 +39,20 @@
 	<!-- /wp:group -->
 
 	<!-- wp:columns {"align":"full"} -->
-	<div class="wp-block-columns alignfull"><!-- wp:column {"width":"33.33%"} -->
-	<div class="wp-block-column" style="flex-basis:33.33%"><!-- wp:heading {"level":3,"fontSize":"small"} -->
-	<h3 class="has-small-font-size">Thumbnail</h3>
+	<div class="wp-block-columns alignfull"><!-- wp:column {"width":"75%"} -->
+	<div class="wp-block-column" style="flex-basis:75%"><!-- wp:heading {"level":3,"fontSize":"small"} -->
+	<h3 class="has-small-font-size"><?php esc_attr_e( 'Desktop', 'wporg' ); ?></h3>
 	<!-- /wp:heading -->
 
-	<!-- wp:wporg/site-screenshot {"isLink":true} /--></div>
+	<!-- wp:wporg/site-screenshot {"isLink":true,"type":"desktop"} /--></div>
 	<!-- /wp:column -->
 
-	<!-- wp:column {"width":"66.66%"} -->
-	<div class="wp-block-column" style="flex-basis:66.66%"><!-- wp:heading {"level":3,"fontSize":"small"} -->
-	<h3 class="has-small-font-size">Large</h3>
+	<!-- wp:column {"width":"25%"} -->
+	<div class="wp-block-column" style="flex-basis:25%"><!-- wp:heading {"level":3,"fontSize":"small"} -->
+	<h3 class="has-small-font-size"><?php esc_attr_e( 'Mobile', 'wporg' ); ?></h3>
 	<!-- /wp:heading -->
 
-	<!-- wp:wporg/site-screenshot {"isLink":true,"useHiRes":true} /--></div>
+	<!-- wp:wporg/site-screenshot {"isLink":true,"type":"mobile"} /--></div>
 	<!-- /wp:column --></div>
 	<!-- /wp:columns --></div>
 	<!-- /wp:group -->
