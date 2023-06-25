@@ -11,6 +11,7 @@ import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
  * Internal dependencies
  */
 import metadata from './block.json';
+import './components/plugin';
 import './style.scss';
 
 function Edit( { attributes: { isLink, useHiRes, lazyLoad }, setAttributes } ) {
