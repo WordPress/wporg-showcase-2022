@@ -47,10 +47,6 @@ function render( $attributes, $content, $block ) {
 
 	$screenshot = site_screenshot_src( $post );
 
-	if ( isset( $attributes['useHiRes'] ) && true === $attributes['useHiRes'] ) {
-		$screenshot = add_query_arg( 'scale', 2, $screenshot );
-	}
-
 	$loading = 'eager';
 	if ( isset( $attributes['lazyLoad'] ) && true === $attributes['lazyLoad'] ) {
 		$loading = 'lazy';
