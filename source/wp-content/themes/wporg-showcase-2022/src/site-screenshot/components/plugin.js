@@ -26,10 +26,10 @@ const ScreenshotPanel = () => {
 
 	return (
 		<PluginDocumentSettingPanel name="wporg-screenshots" title={ __( 'Screenshots', 'wporg' ) }>
-			<ScreenshotUpload metaKey="screenshot-desktop" label="Desktop" />
+			<ScreenshotUpload metaKey="screenshot-desktop" label={ __( 'Desktop', 'wporg' ) } />
 			<p>{ __( 'Capture a desktop image at 1440 wide by 761 tall.', 'wporg' ) }</p>
 			<hr />
-			<ScreenshotUpload metaKey="screenshot-mobile" label="Mobile" />
+			<ScreenshotUpload metaKey="screenshot-mobile" label={ __( 'Mobile', 'wporg' ) } />
 			<p>{ __( 'Capture a mobile image at 480 wide by 847 tall.', 'wporg' ) }</p>
 		</PluginDocumentSettingPanel>
 	);
