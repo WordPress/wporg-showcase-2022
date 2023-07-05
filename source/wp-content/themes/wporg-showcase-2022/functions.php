@@ -57,6 +57,7 @@ function setup_theme() {
 	add_image_size( 'screenshot-desktop', 1400, 740, array( 'center', 'top' ) );
 	add_image_size( 'screenshot-mobile', 340, 600, array( 'center', 'top' ) );
 
+	// Add these sizes to the size dropdown in core image blocks.
 	add_filter(
 		'image_size_names_choose',
 		function( $sizes ) {
