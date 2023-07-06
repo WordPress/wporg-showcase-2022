@@ -43,7 +43,7 @@ const MetaPanel = () => {
 			/>
 			<TextControl
 				label={ __( 'Author', 'wporg' ) }
-				help={ __( 'Author or agency name.', 'wporg' ) }
+				help={ __( 'Author or agency name, if known.', 'wporg' ) }
 				onChange={ onChange( 'author' ) }
 				value={ meta.author }
 			/>
