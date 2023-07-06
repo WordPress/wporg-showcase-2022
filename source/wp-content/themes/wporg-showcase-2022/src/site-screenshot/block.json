@@ -13,13 +13,14 @@
 			"type": "boolean",
 			"default": false
 		},
-		"useHiRes": {
-			"type": "boolean",
-			"default": false
-		},
 		"lazyLoad": {
 			"type": "boolean",
 			"default": false
+		},
+		"type": {
+			"type": "string",
+			"default": "desktop",
+			"enum": [ "desktop", "mobile" ]
 		}
 	},
 	"supports": {
@@ -52,5 +53,6 @@
 	},
 	"usesContext": [ "postId" ],
 	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css"
 }

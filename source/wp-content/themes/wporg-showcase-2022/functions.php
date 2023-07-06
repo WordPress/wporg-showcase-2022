@@ -2,6 +2,8 @@
 
 namespace WordPressdotorg\Theme\Showcase_2022;
 
+use function WordPressdotorg\Theme\Showcase_2022\Site_Screenshot\get_site_screenshot_src;
+
 // Block files
 require_once __DIR__ . '/src/link-group/index.php';
 require_once __DIR__ . '/src/site-edit-link/index.php';
@@ -10,10 +12,11 @@ require_once __DIR__ . '/src/site-screenshot/index.php';
 require_once __DIR__ . '/inc/shortcodes.php';
 
 // Filters and Actions
-add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_search_query' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
+add_action( 'init', __NAMESPACE__ . '\setup_theme' );
 add_action( 'wp', __NAMESPACE__ . '\jetpack_remove_rp', 20 );
 add_action( 'wp_head', __NAMESPACE__ . '\add_social_meta_tags' );
+add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_search_query' );
 add_action( 'template_redirect', __NAMESPACE__ . '\redirect_urls' );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpack_change_image_size' );
@@ -43,7 +46,50 @@ function enqueue_assets() {
 		filemtime( __DIR__ . '/build/style/style-index.css' )
 	);
 	wp_style_add_data( 'wporg-showcase-2022-style', 'rtl', 'replace' );
+}
 
+/**
+ * Register theme support.
+ */
+function setup_theme() {
+	// Add the two image sizes (700 x 370, 170 x 300) at double for high-dpi screens.
+	// These images should be captured at 480 x 847 (mobile) and 1440 x 761 (desktop).
+	add_image_size( 'screenshot-desktop', 1400, 740, array( 'center', 'top' ) );
+	add_image_size( 'screenshot-mobile', 340, 600, array( 'center', 'top' ) );
+
+	// Add these sizes to the size dropdown in core image blocks.
+	add_filter(
+		'image_size_names_choose',
+		function( $sizes ) {
+			return array_merge(
+				$sizes,
+				array(
+					'screenshot-desktop' => __( 'Screenshot (Large)', 'wporg' ),
+					'screenshot-mobile' => __( 'Screenshot (Small)', 'wporg' ),
+				)
+			);
+		}
+	);
+
+	register_post_meta(
+		'post',
+		'screenshot-desktop',
+		array(
+			'show_in_rest' => true,
+			'single' => true,
+			'type' => 'integer',
+		)
+	);
+
+	register_post_meta(
+		'post',
+		'screenshot-mobile',
+		array(
+			'show_in_rest' => true,
+			'single' => true,
+			'type' => 'integer',
+		)
+	);
 }
 
 /**
@@ -67,31 +113,6 @@ function get_site_domain( $post, $rem_trail_slash = false ) {
 }
 
 /**
- * Returns url of site screenshot image.
- *
- * @param WP_Post $post
- * @return string
- */
-function site_screenshot_src( $post, $width = 1440, $height = 810 ) {
-	$screenshot = get_post_meta( $post->ID, 'screenshot', true );
-	$cache_key = '20221208'; // To break out of cached image.
-
-	if ( empty( $screenshot ) ) {
-		$screenshot = 'https://wordpress.com/mshots/v1/http%3A%2F%2F' . urlencode( get_site_domain( $post ) . '?v=' . $cache_key );
-		$screenshot = add_query_arg( 'vpw', $width, $screenshot );
-		$screenshot = add_query_arg( 'vph', $height, $screenshot );
-	} elseif ( function_exists( 'jetpack_photon_url' ) ) {
-		// Use Jetpack cache for non mShot images
-		$screenshot = jetpack_photon_url( $screenshot );
-	}
-
-	$screenshot = apply_filters( 'wporg_showcase_screenshot_src', $screenshot, $post );
-
-	// force screenshot URLs to be https
-	return str_replace( 'http://', 'https://', $screenshot );
-}
-
-/**
  * Provide mShot images to Jetpack related posts.
  */
 function jetpack_fallback_image( $media, $post_id, $args ) {
@@ -100,7 +121,7 @@ function jetpack_fallback_image( $media, $post_id, $args ) {
 	} else {
 		$post = get_post( $post_id );
 		$permalink = get_permalink( $post_id );
-		$url = site_screenshot_src( $post );
+		$url = get_site_screenshot_src( $post );
 
 		return array(
 			array(
@@ -339,7 +360,7 @@ function add_social_meta_tags() {
 	} elseif ( is_single() ) {
 		$og_fields['og:description'] = strip_tags( get_the_excerpt() );
 		$og_fields['og:url']         = esc_url( get_permalink() );
-		$og_fields['og:image']       = esc_url( site_screenshot_src( get_post() ) );
+		$og_fields['og:image']       = esc_url( get_site_screenshot_src( get_post() ) );
 	}
 
 	printf( '<meta name="twitter:card" content="summary_large_image">' . "\n" );
