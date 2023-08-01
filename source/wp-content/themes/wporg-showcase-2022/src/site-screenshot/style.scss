@@ -1,9 +1,17 @@
 .wp-block-wporg-site-screenshot {
 	overflow: hidden;
-	--local--focus--border-color: var(--wp--custom--link--color--text);
+	border-width: 10px;
+	border-style: solid;
+	border-color: rgba(30, 30, 30, 0.1) !important;
+	border-radius: 20px; // 10px inner radius plus the 10px border size.
 
-	&:focus-within {
-		outline: 1.5px solid var(--local--focus--border-color);
+	&:where(.is-linked-image):hover,
+	&:where(.is-linked-image):focus-within {
+		border-color: rgba(30, 30, 30, 0.25) !important;
+	}
+
+	&:where(.is-linked-image):focus-within {
+		outline: 1.5px solid var(--wp--custom--link--color--text);
 		outline-offset: -1.5px;
 	}
 

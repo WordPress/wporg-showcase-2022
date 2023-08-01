@@ -59,11 +59,13 @@ function render( $attributes, $content, $block ) {
 		esc_attr( $loading )
 	);
 
+	$classname = '';
 	if ( isset( $attributes['isLink'] ) && true == $attributes['isLink'] ) {
 		$img_content = '<a href="' . get_permalink( $post ) . '">' . $img_content . '</a>';
+		$classname = 'is-linked-image';
 	}
 
-	$wrapper_attributes = get_block_wrapper_attributes();
+	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $classname ) );
 	return sprintf(
 		'<div %s>%s</div>',
 		$wrapper_attributes,

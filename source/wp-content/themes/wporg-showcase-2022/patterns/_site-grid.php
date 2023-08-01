@@ -13,7 +13,7 @@
 	<!-- wp:pattern {"slug":"wporg-showcase-2022/filters"} /-->
 
 	<!-- wp:post-template {"align":"full","layout":{"type":"grid","columnCount":3}} -->
-		<!-- wp:wporg/site-screenshot {"isLink":true,"lazyLoad":true,"backgroundColor":"light-grey-1","style":{"border":{"width":"6px","style":"solid","color":"#f6f6f6","radius":"1em"}}} /-->
+		<!-- wp:wporg/site-screenshot {"isLink":true,"lazyLoad":true} /-->
 
 		<!-- wp:post-title {"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"large","fontFamily":"inter"} /-->
 	<!-- /wp:post-template -->
