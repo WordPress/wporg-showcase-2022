@@ -11,13 +11,16 @@
 		"lighthouse-ci": "^1.13.1"
 	},
 	"scripts": {
-		"setup:tools": "yarn && composer install && TEXTDOMAIN=wporg composer exec update-configs",
+		"setup:tools": "TEXTDOMAIN=wporg composer exec update-configs",
 		"setup:wp": "wp-env run cli \"bash env/setup.sh\"",
 		"update:tools": "composer update && TEXTDOMAIN=wporg composer exec update-configs",
 		"wp-env": "wp-env",
 		"lighthouse": "lighthouse-ci http://localhost:8888/ --accessibility=100 --best-practices=100 --seo=100",
 		"lighthouse:desktop": "lighthouse http://localhost:8888/ --view --preset=desktop --output-path=lighthouse.html",
-		"lighthouse:mobile": "lighthouse http://localhost:8888/ --view --screenEmulation.mobile --output-path=lighthouse.html"
+		"lighthouse:mobile": "lighthouse http://localhost:8888/ --view --screenEmulation.mobile --output-path=lighthouse.html",
+		"lint:php": "composer run lint source/wp-content/themes/wporg-showcase-2022",
+		"start:theme": "yarn workspace wporg-showcase-2022-theme start",
+		"build:theme": "yarn workspace wporg-showcase-2022-theme build"
 	},
 	"workspaces": [
 		"source/wp-content/themes/wporg-showcase-2022"

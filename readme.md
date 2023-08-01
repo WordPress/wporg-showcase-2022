@@ -18,6 +18,8 @@ This is as-yet incomplete, a starting point.
 1. Set up repo dependencies.
 
     ```bash
+    yarn
+    composer install
     yarn setup:tools
     ```
 
