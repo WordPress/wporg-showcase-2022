@@ -1,5 +1,4 @@
 <?php
-// phpcs:disable WordPress.Files.FileName -- Allow underscore for pattern partial.
 /**
  * Title: Filters
  * Slug: wporg-showcase-2022/filters

@@ -1,5 +1,4 @@
 <?php
-// phpcs:disable WordPress.Files.FileName -- Allow underscore for pattern partial.
 /**
  * Title: Site Grid (Featured)
  * Slug: wporg-showcase-2022/site-grid-featured

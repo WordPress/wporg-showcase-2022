@@ -1,5 +1,4 @@
 <?php
-// phpcs:disable WordPress.Files.FileName -- Allow underscore for pattern partial.
 /**
  * Title: Local Nav (front page)
  * Slug: wporg-showcase-2022/nav-front
