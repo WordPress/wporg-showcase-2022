@@ -6,4 +6,9 @@
 @import "jetpack";
 @import "page-screenshot-audits";
 
+.wp-block-spacer.has-dots-background {
+	background-image: url(../../images/dots.svg);
+	background-position: top center;
+	background-repeat: repeat-x;
+	background-size: auto;
 }
