@@ -60,10 +60,10 @@ function render( $attributes, $content, $block ) {
 		esc_attr( $loading )
 	);
 
-	$classname = '';
+	$classname = 'is-size-' . esc_attr( $attributes['type'] );
 	if ( isset( $attributes['isLink'] ) && true == $attributes['isLink'] ) {
 		$img_content = '<a href="' . get_permalink( $post ) . '">' . $img_content . '</a>';
-		$classname = 'is-linked-image';
+		$classname .= ' is-linked-image';
 	}
 
 	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $classname ) );
@@ -98,17 +98,15 @@ function get_site_screenshot_src( $post, $type = 'desktop' ) {
 
 	if ( ! $screenshot_url ) {
 		$requested_url = 'https://' . get_site_domain( $post ) . '?v=' . $cache_key;
-		$viewport_width = $all_sizes[ $size ]['width'];
-		$viewport_height = $all_sizes[ $size ]['height'];
-		$ratio = $viewport_height / $viewport_width;
+		$image_width = $all_sizes[ $size ]['width'];
+		$image_height = $all_sizes[ $size ]['height'];
 
 		$screenshot_url = add_query_arg(
 			array(
 				'scale' => 2,
-				'w' => 'mobile' === $type ? 480 : 1440,
-				'h' => 'mobile' === $type ? 480 * $ratio : 1440 * $ratio,
-				'vpw' => $viewport_width,
-				'vph' => $viewport_height,
+				'w' => $image_width,
+				'vpw' => 'mobile' === $type ? 375 : 1920,
+				'vph' => 'mobile' === $type ? 667 : 1080,
 			),
 			'https://wordpress.com/mshots/v1/' . urlencode( $requested_url ),
 		);
