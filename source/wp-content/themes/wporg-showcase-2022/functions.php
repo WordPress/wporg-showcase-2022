@@ -93,6 +93,16 @@ function setup_theme() {
 
 	register_post_meta(
 		'post',
+		'feature-color',
+		array(
+			'show_in_rest' => true,
+			'single' => true,
+			'type' => 'string',
+		)
+	);
+
+	register_post_meta(
+		'post',
 		'domain',
 		array(
 			'show_in_rest' => true,
