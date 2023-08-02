@@ -56,6 +56,9 @@ function setup_theme() {
 	add_image_size( 'screenshot-desktop', 2044, 1150, array( 'center', 'top' ) );
 	add_image_size( 'screenshot-mobile', 750, 1334, array( 'center', 'top' ) );
 
+	// Add tonesque support so that Jetpack loads the class.
+	add_theme_support( 'tonesque' );
+
 	// Add these sizes to the size dropdown in core image blocks.
 	add_filter(
 		'image_size_names_choose',

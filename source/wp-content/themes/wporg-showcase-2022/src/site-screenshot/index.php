@@ -9,6 +9,7 @@
 namespace WordPressdotorg\Theme\Showcase_2022\Site_Screenshot;
 
 use function WordPressdotorg\Theme\Showcase_2022\get_site_domain;
+use Tonesque;
 
 add_action( 'init', __NAMESPACE__ . '\init' );
 add_filter( 'render_block_core/group', __NAMESPACE__ . '\inject_background_color', 10, 3 );
@@ -135,8 +136,8 @@ function inject_background_color( $block_content, $block, $instance ) {
 		return $block_content;
 	}
 	global $post;
-	$color = get_post_meta( $post->ID, 'feature-color', true );
-	if ( ! $color || '#' === $color ) {
+	$color = get_site_feature_color( $post->ID );
+	if ( ! $color ) {
 		return $block_content;
 	}
 
@@ -151,4 +152,35 @@ function inject_background_color( $block_content, $block, $instance ) {
 	$html->set_attribute( 'style', $style );
 
 	return $html->get_updated_html();
+}
+
+/**
+ * Get the feature color.
+ *
+ * @param int $post_id The post to use.
+ *
+ * @return string|bool A color hex code, or false if nothing found.
+ */
+function get_site_feature_color( $post_id ) {
+	// Check for a user-set color first.
+	$color = get_post_meta( $post_id, 'feature-color', true );
+	if ( $color && '#' !== $color ) {
+		return $color;
+	}
+
+	// No user color, if we have a local image try using that to generate an average.
+	$media_id = get_post_meta( $post_id, 'screenshot-desktop', true );
+	if ( ! $media_id ) {
+		return false;
+	}
+
+	list( $screenshot_url ) = wp_get_attachment_image_src( $media_id, 'screenshot-desktop' );
+	if ( ! $screenshot_url ) {
+		return false;
+	}
+
+	$image = new Tonesque( $screenshot_url );
+	$color = '#' . $image->color();
+
+	return $color;
 }
