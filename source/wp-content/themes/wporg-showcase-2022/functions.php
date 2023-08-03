@@ -145,6 +145,34 @@ function setup_theme() {
 			}
 		}
 	);
+
+	$args = array(
+		'labels' => array(
+			'name' => _x( 'Flavors', 'Taxonomy General Name', 'wporg' ),
+			'singular_name' => _x( 'Flavor', 'Taxonomy Singular Name', 'wporg' ),
+			'search_items' => __( 'Search Flavors', 'wporg' ),
+			'all_items' => __( 'All Flavors', 'wporg' ),
+			'parent_item' => __( 'Parent Flavor', 'wporg' ),
+			'parent_item_colon' => __( 'Parent Flavor:', 'wporg' ),
+			'edit_item' => __( 'Edit Flavor', 'wporg' ),
+			'view_item' => __( 'View Flavor', 'wporg' ),
+			'update_item' => __( 'Update Flavor', 'wporg' ),
+			'add_new_item' => __( 'Add New Flavor', 'wporg' ),
+			'new_item_name' => __( 'New Flavor', 'wporg' ),
+			'not_found' => __( 'No flavors found.', 'wporg' ),
+			'no_terms' => __( 'No flavors', 'wporg' ),
+			'filter_by_item' => __( 'Filter by flavor', 'wporg' ),
+			'items_list' => __( 'Flavors list', 'wporg' ),
+			'items_list_navigation' => __( 'Flavors list navigation', 'wporg' ),
+			'item_link' => __( 'Flavor Link', 'wporg' ),
+			'item_link_description' => __( 'A link to a flavor.', 'wporg' ),
+		),
+		'hierarchical' => true,
+		'public' => true,
+		'show_admin_column' => true,
+		'show_in_rest' => true,
+	);
+	register_taxonomy( 'flavor', array( 'post' ), $args );
 }
 
 /**
