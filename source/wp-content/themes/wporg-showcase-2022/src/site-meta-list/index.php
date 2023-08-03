@@ -11,6 +11,22 @@ namespace WordPressdotorg\Theme\Showcase_2022\Site_Meta_List;
 add_action( 'init', __NAMESPACE__ . '\init' );
 
 /**
+ * Registers the block using the metadata loaded from the `block.json` file.
+ * Behind the scenes, it registers also all assets so they can be enqueued
+ * through the block editor in the corresponding context.
+ *
+ * @see https://developer.wordpress.org/reference/functions/register_block_type/
+ */
+function init() {
+	register_block_type(
+		dirname( dirname( __DIR__ ) ) . '/build/site-meta-list',
+		array(
+			'render_callback' => __NAMESPACE__ . '\render',
+		)
+	);
+}
+
+/**
  * Render the block content.
  *
  * @param array    $attributes Block attributes.
@@ -29,114 +45,74 @@ function render( $attributes, $content, $block ) {
 	$meta_fields = array(
 		array(
 			'label' => __( 'Author', 'wporg' ),
+			'type' => 'meta',
 			'key' => 'author',
 		),
 		array(
 			'label' => __( 'Country', 'wporg' ),
+			'type' => 'meta',
 			'key' => 'country',
 		),
 		array(
-			'label' => __( 'Theme', 'wporg' ),
-			'key' => 'theme',
+			'label' => __( 'Category', 'wporg' ),
+			'type' => 'taxonomy',
+			'key' => 'category',
 		),
 		array(
-			'label' => __( 'Launched on', 'wporg' ),
-			'key' => 'date_launched',
+			'label' => __( 'Flavor', 'wporg' ),
+			'type' => 'taxonomy',
+			'key' => 'flavor',
+		),
+		array(
+			'label' => __( 'Published', 'wporg' ),
+			'type' => 'other',
+			'key' => 'published',
+		),
+		array(
+			'label' => __( 'Site tags', 'wporg' ),
+			'type' => 'taxonomy',
+			'key' => 'post_tag',
 		),
 	);
 
 	foreach ( $meta_fields as $field ) {
-		$value = get_custom_field( $field['key'], $block->context['postId'] );
+		$value = get_value( $field['type'], $field['key'], $block->context['postId'] );
 
 		if ( ! empty( $value ) ) {
-			$list_items[] = '<dt>' . $field['label'] . '</dt><dd>' . esc_html( $value ) . '</dd>';
+			$list_items[] = '<li><strong>' . $field['label'] . '</strong> <span>' . wp_kses_post( $value ) . '</span></li>';
 		}
 	}
-
-	$terms = get_associated_terms( $block->context['postId'] );
-
-	if ( ! empty( $terms ) ) {
-		$list_items[] = '<dt>' . __( 'Archived In', 'wporg' ) . "</dt><dd>$terms</dd>";
-	}
-
-	// Separate items into 2 different containers
-	$half = ceil( count( $list_items ) / 2 );
-	$left = array_slice( $list_items, 0, $half );
-	$right = array_slice( $list_items, $half );
 
 	$wrapper_attributes = get_block_wrapper_attributes();
 	return sprintf(
-		'<div %s><dl><div>%s</div><div>%s</div></dl></div>',
+		'<div %s><ul>%s</ul></div>',
 		$wrapper_attributes,
-		join( '', $left ),
-		join( '', $right )
+		join( '', $list_items )
 	);
 }
 
 /**
- * Retrieves a custom site field
+ * Retrieves a value from a given post.
  *
- * @param string $key Name of meta field.
+ * @param string $type Type of data source, one of meta, taxonomy, other.
+ * @param string $key Name of meta field or taxonomy.
+ * @param string $post_id ID of the post to look up.
+ *
  * @return string
  */
-function get_custom_field( $key, $post_id ) {
-	$values = get_post_custom_values( $key, $post_id );
+function get_value( $type, $key, $post_id ) {
+	if ( 'taxonomy' === $type ) {
+		$value = get_the_term_list( $post_id, $key, '', ', ' );
+	} else if ( 'meta' === $type ) {
+		$value = get_post_meta( $post_id, $key, true );
+	} else if ( 'published' === $key ) {
+		// Publish date is a special case.
+		$value = get_the_date( 'F Y', $post_id );
+	}
 
-	if ( empty( $values ) ) {
+	if ( is_wp_error( $value ) ) {
 		return '';
 	}
 
-	return $values[0];
-}
-
-/**
- * Get's tags and categories associated with site.
- *
- * @param integer $post_id
- * @return string
- */
-function get_associated_terms( $post_id ) {
-	$terms = array();
-	$tags = get_the_terms( $post_id, 'post_tag' );
-	$categories = get_the_terms( $post_id, 'category' );
-
-	if ( $tags ) {
-		$terms = array_merge( $terms, $tags );
-	}
-
-	if ( $categories ) {
-		$terms = array_merge( $terms, $categories );
-	}
-
-	if ( empty( $terms ) ) {
-		return '';
-	}
-
-	$links  = array();
-
-	foreach ( $terms as $value ) {
-		$link = get_term_link( $value->term_id, $value->taxonomy );
-		if ( is_wp_error( $link ) ) {
-			return $link;
-		}
-		$links[] = "<a href='" . esc_url( $link ) . "'>" . $value->name . '</a>';
-	}
-
-	return join( ', ', $links );
-}
-
-/**
- * Registers the block using the metadata loaded from the `block.json` file.
- * Behind the scenes, it registers also all assets so they can be enqueued
- * through the block editor in the corresponding context.
- *
- * @see https://developer.wordpress.org/reference/functions/register_block_type/
- */
-function init() {
-	register_block_type(
-		dirname( dirname( __DIR__ ) ) . '/build/site-meta-list',
-		array(
-			'render_callback' => __NAMESPACE__ . '\render',
-		)
-	);
+	return $value;
 }
