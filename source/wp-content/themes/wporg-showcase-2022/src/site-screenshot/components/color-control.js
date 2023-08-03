@@ -6,7 +6,8 @@ import { BaseControl, Button, ColorIndicator, PanelRow, TextControl, ToggleContr
 import { Icon, warning } from '@wordpress/icons';
 import { store as editorStore } from '@wordpress/editor';
 import { useDispatch, useSelect } from '@wordpress/data';
-import { useState } from '@wordpress/element';
+import { useEffect, useState } from '@wordpress/element';
+import { usePrevious } from '@wordpress/compose';
 
 const DEFAULT_COLOR = '#f6f6f6';
 
@@ -22,6 +23,23 @@ function ColorControl( { label, description } ) {
 	const hexValue = value.replace( '#', '' );
 	const isValid = /^[0-9a-f]+$/.test( hexValue ) && [ 3, 4, 6, 8 ].includes( hexValue.length );
 	const hasImage = !! meta[ 'screenshot-desktop' ];
+	const prevHasImage = usePrevious( hasImage );
+
+	useEffect( () => {
+		// No previous state, initial values OK.
+		if ( prevHasImage === undefined ) {
+			return;
+		}
+		if ( ! prevHasImage && hasImage ) {
+			// If an image was added, but we have a custom color, keep the toggle off.
+			if ( hexValue !== DEFAULT_COLOR.replace( '#', '' ) ) {
+				setUseImageColor( false );
+			} else {
+				// The color is the default, but clear it so the frontend works.
+				onUpdate( '' );
+			}
+		}
+	}, [ hasImage, hexValue ] ); // eslint-disable-line react-hooks/exhaustive-deps
 
 	return (
 		<div className="wporg-site-color">
