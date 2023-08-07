@@ -76,3 +76,13 @@
 	flex-grow: 1;
 	justify-content: center;
 }
+
+.wporg-site-color {
+	.components-panel__row {
+		gap: 8px;
+	}
+
+	.component-color-indicator {
+		min-width: 20px;
+	}
+}

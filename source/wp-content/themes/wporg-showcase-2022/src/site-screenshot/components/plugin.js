@@ -10,6 +10,7 @@ import { useSelect } from '@wordpress/data';
 /**
  * Internal dependencies
  */
+import ColorControl from './color-control';
 import ScreenshotUpload from './upload-button';
 import '../editor.scss';
 
@@ -27,10 +28,15 @@ const ScreenshotPanel = () => {
 	return (
 		<PluginDocumentSettingPanel name="wporg-screenshots" title={ __( 'Screenshots', 'wporg' ) }>
 			<ScreenshotUpload metaKey="screenshot-desktop" label={ __( 'Desktop', 'wporg' ) } />
-			<p>{ __( 'Capture a desktop image at 1440 wide by 761 tall.', 'wporg' ) }</p>
+			<p>{ __( 'Capture a desktop image at 1920 wide by 1080 tall, use at least 2x dpi.', 'wporg' ) }</p>
 			<hr />
 			<ScreenshotUpload metaKey="screenshot-mobile" label={ __( 'Mobile', 'wporg' ) } />
-			<p>{ __( 'Capture a mobile image at 480 wide by 847 tall.', 'wporg' ) }</p>
+			<p>{ __( 'Capture a mobile image at 375 wide by 667 tall, use at least 2x dpi.', 'wporg' ) }</p>
+			<hr />
+			<ColorControl
+				label={ __( 'Color', 'wporg' ) }
+				description={ __( 'Feature color to use as header background.', 'wporg' ) }
+			/>
 		</PluginDocumentSettingPanel>
 	);
 };

@@ -15,6 +15,16 @@
 		outline-offset: -1.5px;
 	}
 
+	.has-feature-color-background & {
+		border-radius: 20px 20px 0 0;
+		border-bottom-width: 0;
+		flex: 1;
+
+		&:first-child {
+			flex: 4;
+		}
+	}
+
 	a {
 		display: block;
 

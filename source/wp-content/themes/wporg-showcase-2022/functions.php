@@ -52,10 +52,12 @@ function enqueue_assets() {
  * Register theme support.
  */
 function setup_theme() {
-	// Add the two image sizes (700 x 370, 170 x 300) at double for high-dpi screens.
-	// These images should be captured at 480 x 847 (mobile) and 1440 x 761 (desktop).
-	add_image_size( 'screenshot-desktop', 1400, 740, array( 'center', 'top' ) );
-	add_image_size( 'screenshot-mobile', 340, 600, array( 'center', 'top' ) );
+	// Add the two image sizes at double for high-dpi screens.
+	add_image_size( 'screenshot-desktop', 2044, 1150, array( 'center', 'top' ) );
+	add_image_size( 'screenshot-mobile', 750, 1334, array( 'center', 'top' ) );
+
+	// Add tonesque support so that Jetpack loads the class.
+	add_theme_support( 'tonesque' );
 
 	// Add these sizes to the size dropdown in core image blocks.
 	add_filter(
@@ -88,6 +90,16 @@ function setup_theme() {
 			'show_in_rest' => true,
 			'single' => true,
 			'type' => 'integer',
+		)
+	);
+
+	register_post_meta(
+		'post',
+		'feature-color',
+		array(
+			'show_in_rest' => true,
+			'single' => true,
+			'type' => 'string',
 		)
 	);
 
