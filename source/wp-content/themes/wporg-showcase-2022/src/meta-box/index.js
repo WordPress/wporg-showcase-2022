@@ -6,21 +6,16 @@ import { PluginDocumentSettingPanel } from '@wordpress/edit-post';
 import { registerPlugin } from '@wordpress/plugins';
 import { store as editorStore } from '@wordpress/editor';
 import { TextControl } from '@wordpress/components';
-import { useDispatch, useSelect } from '@wordpress/data';
+import { useEntityProp } from '@wordpress/core-data';
+import { useSelect } from '@wordpress/data';
 
 const SITE_POST_TYPE = 'post';
 
 const MetaPanel = () => {
-	const { meta, postType } = useSelect( ( select ) => {
-		const { getEditedPostAttribute } = select( editorStore );
-		return {
-			postType: getEditedPostAttribute( 'type' ),
-			meta: getEditedPostAttribute( 'meta' ),
-		};
-	}, [] );
-	const { editPost } = useDispatch( editorStore );
+	const postType = useSelect( ( select ) => select( editorStore ).getEditedPostAttribute( 'type' ), [] );
+	const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
 	const onChange = ( metaKey ) => ( value ) => {
-		editPost( { meta: { ...meta, [ metaKey ]: value } } );
+		setMeta( { ...meta, [ metaKey ]: value } );
 	};
 
 	if ( postType !== SITE_POST_TYPE ) {
