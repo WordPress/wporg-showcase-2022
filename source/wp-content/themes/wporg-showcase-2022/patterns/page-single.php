@@ -9,10 +9,10 @@
 
 <!-- wp:group {"align":"full","style":{"spacing":{"padding":{"right":"var:preset|spacing|edge-space","left":"var:preset|spacing|edge-space"}}},"layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull" style="padding-right:var(--wp--preset--spacing--edge-space);padding-left:var(--wp--preset--spacing--edge-space)">
-	<!-- wp:columns {"align":"wide"} -->
+	<!-- wp:columns {"align":"wide","style":{"spacing":{"blockGap":{"left":"var:preset|spacing|80"}}}} -->
 	<div class="wp-block-columns alignwide">
-		<!-- wp:column {"width":"66.66%"} -->
-		<div class="wp-block-column" style="flex-basis:66.66%">
+		<!-- wp:column {"width":"70%","layout":{"type":"constrained","justifyContent":"left"}} -->
+		<div class="wp-block-column" style="flex-basis:70%">
 			<!-- wp:post-title {"level":1,"style":{"spacing":{"margin":{"bottom":"0"}}},"fontSize":"heading-2"} /-->
 
 			<!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"},"padding":{"bottom":"var:preset|spacing|10"}}},"className":"external-link"} -->
@@ -23,17 +23,21 @@
 		</div>
 		<!-- /wp:column -->
 
-		<!-- wp:column {"width":"33.33%"} -->
-		<div class="wp-block-column" style="flex-basis:33.33%">
-			<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|20","right":"var:preset|spacing|20","bottom":"var:preset|spacing|20","left":"var:preset|spacing|20"}},"border":{"radius":"2px"}},"backgroundColor":"blueberry-4"} -->
-			<div class="wp-block-group has-blueberry-4-background-color has-background" style="border-radius:2px;padding-top:var(--wp--preset--spacing--20);padding-right:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20);padding-left:var(--wp--preset--spacing--20)">
-				<!-- wp:heading {"style":{"typography":{"fontStyle":"normal","fontWeight":"600"}},"fontSize":"normal","fontFamily":"inter"} -->
-				<h2 class="has-inter-font-family has-normal-font-size" style="font-style:normal;font-weight:600"><?php esc_attr_e( 'More about this site', 'wporg' ); ?></h2>
+		<!-- wp:column {"width":"30%"} -->
+		<div class="wp-block-column" style="flex-basis:30%">
+			<!-- wp:group {"style":{"border":{"radius":"2px","style":"solid","width":"1px"}},"borderColor":"light-grey-1"} -->
+			<div class="wp-block-group has-border-color has-light-grey-1-border-color" style="border-style:solid;border-width:1px;border-radius:2px">
+				<!-- wp:heading {"className":"screen-reader-text"} -->
+				<h2 class="wp-block-heading screen-reader-text"><?php esc_attr_e( 'More about this site', 'wporg' ); ?></h2>
 				<!-- /wp:heading -->
 
 				<!-- wp:wporg/site-meta-list /-->
 			</div>
 			<!-- /wp:group -->
+
+			<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
+			<p style="margin-top:var(--wp--preset--spacing--30)"><a href="<?php echo esc_url( home_url( '/tags/' ) ); ?>"><?php _e( 'View all tags', 'wporg' ); ?></a></p>
+			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:column -->
 	</div>
