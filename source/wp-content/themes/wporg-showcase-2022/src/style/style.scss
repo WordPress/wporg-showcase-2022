@@ -6,6 +6,24 @@
 @import "jetpack";
 @import "page-screenshot-audits";
 
+/* Style the site grid. */
+.wp-block-query .is-layout-grid {
+	.wp-block-post-title {
+		flex-shrink: 0;
+	}
+
+	.wp-block-post-terms {
+		max-width: 60%;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+
+		.wp-block-post-terms__separator {
+			white-space: inherit;
+		}
+	}
+}
+
 @media (max-width: 1440px) {
 	.wp-block-post-template.is-layout-grid.columns-3 {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
