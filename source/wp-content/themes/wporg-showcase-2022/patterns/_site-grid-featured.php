@@ -12,6 +12,10 @@
 <div class="wp-block-query alignwide">
 	<!-- wp:pattern {"slug":"wporg-showcase-2022/filters"} /-->
 
+	<!-- wp:heading {"level":2,"className":"screen-reader-text"} -->
+	<h2 class="wp-block-heading screen-reader-text"><?php esc_attr_e( 'Featured sites', 'wporg' ); ?></h2>
+	<!-- /wp:heading -->
+
 	<!-- wp:post-template {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"grid","columnCount":3}} -->
 		<!-- wp:wporg/site-screenshot {"isLink":true,"lazyLoad":true} /-->
 
