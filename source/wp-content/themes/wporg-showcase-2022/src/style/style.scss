@@ -6,6 +6,13 @@
 @import "jetpack";
 @import "page-screenshot-audits";
 
+/* Add a visible focus style that matches the theme. */
+a:where(:not(.wp-element-button)):focus-visible {
+	outline: 1.5px solid currentColor;
+	outline-offset: 0.5px;
+	border-radius: 2px;
+}
+
 /* Style the site grid. */
 .wp-block-query .is-layout-grid {
 	.wp-block-post-title {
@@ -14,6 +21,7 @@
 
 	.wp-block-post-terms {
 		max-width: 60%;
+		padding-inline-start: 2px;
 		overflow: hidden;
 		white-space: nowrap;
 		text-overflow: ellipsis;
