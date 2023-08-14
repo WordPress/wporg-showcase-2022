@@ -8,7 +8,15 @@
 	"icon": "",
 	"description": "Display a site meta data as a list.",
 	"textdomain": "wporg",
-	"attributes": {},
+	"attributes": {
+		"showLabel": {
+			"default": true,
+			"type": "boolean"
+		},
+		"meta": {
+			"type": "array"
+		}
+	},
 	"supports": {
 		"align": true,
 		"html": false,

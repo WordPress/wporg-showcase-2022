@@ -37,4 +37,11 @@
 			color: inherit;
 		}
 	}
+
+	&.has-hidden-label {
+		li span {
+			margin-inline-start: unset;
+			text-align: left;
+		}
+	}
 }

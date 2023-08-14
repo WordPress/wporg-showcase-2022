@@ -74,16 +74,33 @@ function render( $attributes, $content, $block ) {
 			'key' => 'post_tag',
 		),
 	);
+	$show_label = $attributes['showLabel'] ?? false;
+
+	if ( isset( $attributes['meta'] ) ) {
+		$meta_fields = array_filter(
+			$meta_fields,
+			function( $field ) use ( $attributes ) {
+				return in_array( $field['key'], $attributes['meta'] );
+			}
+		);
+	}
 
 	foreach ( $meta_fields as $field ) {
 		$value = get_value( $field['type'], $field['key'], $block->context['postId'] );
 
 		if ( ! empty( $value ) ) {
-			$list_items[] = '<li><strong>' . $field['label'] . '</strong> <span>' . wp_kses_post( $value ) . '</span></li>';
+			$list_items[] = sprintf(
+				'<li class="is-meta-%1$s"><strong%2$s>%3$s</strong> <span>%4$s</span></li>',
+				$field['key'],
+				$show_label ? '' : ' class="screen-reader-text"',
+				$field['label'],
+				wp_kses_post( $value )
+			);
 		}
 	}
 
-	$wrapper_attributes = get_block_wrapper_attributes();
+	$class = $show_label ? '' : 'has-hidden-label';
+	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $class ) );
 	return sprintf(
 		'<div %s><ul>%s</ul></div>',
 		$wrapper_attributes,
