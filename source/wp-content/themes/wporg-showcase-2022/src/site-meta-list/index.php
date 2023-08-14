@@ -49,6 +49,11 @@ function render( $attributes, $content, $block ) {
 			'key' => 'author',
 		),
 		array(
+			'label' => __( 'URL', 'wporg' ),
+			'type' => 'other',
+			'key' => 'domain',
+		),
+		array(
 			'label' => __( 'Country', 'wporg' ),
 			'type' => 'meta',
 			'key' => 'country',
@@ -125,6 +130,9 @@ function get_value( $type, $key, $post_id ) {
 	} else if ( 'published' === $key ) {
 		// Publish date is a special case.
 		$value = get_the_date( 'F Y', $post_id );
+	} else if ( 'domain' === $key ) {
+		// Domain is meta, but has special format.
+		$value = do_shortcode( '<a class="external-link" href="[domain]" target="_blank" rel="noopener noreferrer">[pretty_domain]</a>' );
 	}
 
 	if ( is_wp_error( $value ) ) {
