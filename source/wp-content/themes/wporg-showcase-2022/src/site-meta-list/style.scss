@@ -5,13 +5,16 @@
 		margin: 0;
 		padding: 0;
 		list-style-type: none;
+		// Needed to pass border color down to `li`.
+		border-color: inherit;
 	}
 
 	li {
 		display: flex;
 		gap: var(--wp--preset--spacing--10);
 		padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
-		border-bottom: 1px solid var(--wp--preset--color--light-grey-1);
+		border-bottom: 1px solid;
+		border-color: inherit;
 
 		&:last-of-type {
 			border-bottom: none;
@@ -26,6 +29,12 @@
 			margin-inline-start: auto;
 			text-align: right;
 			color: var(--wp--preset--color--charcoal-3);
+		}
+	}
+
+	&.has-text-color {
+		li span {
+			color: inherit;
 		}
 	}
 }

@@ -3,6 +3,7 @@
  */
 import { registerBlockType } from '@wordpress/blocks';
 import ServerSideRender from '@wordpress/server-side-render';
+import { useBlockProps } from '@wordpress/block-editor';
 
 /**
  * Internal dependencies
@@ -11,7 +12,11 @@ import metadata from './block.json';
 import './style.scss';
 
 function Edit( { attributes, name } ) {
-	return <ServerSideRender block={ name } attributes={ attributes } />;
+	return (
+		<div { ...useBlockProps() }>
+			<ServerSideRender block={ name } attributes={ attributes } skipBlockSupportAttributes />
+		</div>
+	);
 }
 
 registerBlockType( metadata.name, {

@@ -25,13 +25,13 @@
 
 		<!-- wp:column {"width":"30%"} -->
 		<div class="wp-block-column" style="flex-basis:30%">
-			<!-- wp:group {"style":{"border":{"radius":"2px","style":"solid","width":"1px"}},"borderColor":"light-grey-1"} -->
-			<div class="wp-block-group has-border-color has-light-grey-1-border-color" style="border-style:solid;border-width:1px;border-radius:2px">
+			<!-- wp:group -->
+			<div class="wp-block-group">
 				<!-- wp:heading {"className":"screen-reader-text"} -->
 				<h2 class="wp-block-heading screen-reader-text"><?php esc_attr_e( 'More about this site', 'wporg' ); ?></h2>
 				<!-- /wp:heading -->
 
-				<!-- wp:wporg/site-meta-list /-->
+				<!-- wp:wporg/site-meta-list {"style":{"border":{"radius":"2px","style":"solid","width":"1px"}},"borderColor":"light-grey-1"} /-->
 			</div>
 			<!-- /wp:group -->
 
