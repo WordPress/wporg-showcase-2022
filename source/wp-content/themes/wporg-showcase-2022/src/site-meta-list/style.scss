@@ -39,6 +39,10 @@
 	}
 
 	&.has-hidden-label {
+		li {
+			padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+		}
+
 		li span {
 			margin-inline-start: unset;
 			text-align: left;
