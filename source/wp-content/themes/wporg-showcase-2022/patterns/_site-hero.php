@@ -22,11 +22,11 @@
 					<!-- /wp:spacer -->
 
 					<!-- wp:heading {"fontSize":"heading-2"} -->
-					<h1 class="wp-block-heading has-heading-2-font-size"><?php esc_attr_e( 'Showcase', 'wporg' ); ?></h1>
+					<h1 class="wp-block-heading has-heading-2-font-size"><?php esc_html_e( 'Showcase', 'wporg' ); ?></h1>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}}} -->
-					<p style="margin-top:var(--wp--preset--spacing--10)"><?php esc_attr_e( 'Star-studded sites built with WordPress', 'wporg' ); ?></p>
+					<p style="margin-top:var(--wp--preset--spacing--10)"><?php esc_html_e( 'Star-studded sites built with WordPress', 'wporg' ); ?></p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:wporg/site-meta-list {"meta":["author","domain","category"],"showLabel":false,"style":{"elements":{"link":{"color":{"text":"var:preset|color|blueberry-2"}}},"border":{"radius":"2px","style":"solid","width":"1px"},"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"borderColor":"charcoal-3","textColor":"light-grey-2"} /-->
