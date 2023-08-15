@@ -15,6 +15,9 @@ a:where(:not(.wp-element-button)):focus-visible {
 
 /* Site Hero section */
 .is-section-site-hero {
+	.wp-block-cover__image-background {
+		background-size: clamp(50px, 4vw, 100px);
+	}
 
 	/* Switch down to one column when image gets squished. */
 	@media (max-width: 1179px) {
