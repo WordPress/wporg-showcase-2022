@@ -29,7 +29,7 @@
 					<p style="margin-top:var(--wp--preset--spacing--10)"><?php esc_html_e( 'Star-studded sites built with WordPress', 'wporg' ); ?></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:wporg/site-meta-list {"meta":["author","domain","category"],"showLabel":false,"style":{"elements":{"link":{"color":{"text":"var:preset|color|blueberry-2"}}},"border":{"radius":"2px","style":"solid","width":"1px"},"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"borderColor":"charcoal-3","textColor":"light-grey-2"} /-->
+					<!-- wp:wporg/site-meta-list {"meta":["post_title","domain","category"],"showLabel":false,"style":{"elements":{"link":{"color":{"text":"var:preset|color|blueberry-2"}}},"border":{"radius":"2px","style":"solid","width":"1px"},"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"borderColor":"charcoal-3","textColor":"light-grey-2"} /-->
 				</div>
 				<!-- /wp:group -->
 			</div>
