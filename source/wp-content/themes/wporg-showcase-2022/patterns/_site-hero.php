@@ -15,7 +15,7 @@
 		<div class="wp-block-columns">
 			<!-- wp:column {"width":"24%"} -->
 			<div class="wp-block-column" style="flex-basis:24%">
-				<!-- wp:group {"layout":{"type":"constrained"}} -->
+				<!-- wp:group {"layout":{"type":"default"}} -->
 				<div class="wp-block-group">
 					<!-- wp:spacer {"height":"var:preset|spacing|50"} -->
 					<div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>

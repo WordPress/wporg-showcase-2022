@@ -27,6 +27,8 @@ a:where(:not(.wp-element-button)):focus-visible {
 		}
 
 		.wp-block-cover {
+			padding-left: var(--wp--custom--wporg-site-screenshot--border--width) !important;
+			padding-right: var(--wp--custom--wporg-site-screenshot--border--width) !important;
 			min-height: 0 !important;
 		}
 	}
