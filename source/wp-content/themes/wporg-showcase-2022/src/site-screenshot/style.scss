@@ -1,14 +1,13 @@
 .wp-block-wporg-site-screenshot {
-	--wp--custom--wporg-site-screenshot--border-color: rgba(30, 30, 30, 0.1);
 	overflow: hidden;
 	border-width: 10px;
 	border-style: solid;
-	border-color: var(--wp--custom--wporg-site-screenshot--border-color);
+	border-color: var(--wp--custom--wporg-site-screenshot--border--color);
 	border-radius: 20px; // 10px inner radius plus the 10px border size.
 
 	&:where(.is-linked-image):hover,
 	&:where(.is-linked-image):focus-within {
-		--wp--custom--wporg-site-screenshot--border-color: rgba(30, 30, 30, 0.25);
+		--wp--custom--wporg-site-screenshot--border--color: rgba(30, 30, 30, 0.25);
 	}
 
 	&:where(.is-linked-image):focus-within {
@@ -21,7 +20,10 @@
 		border: none;
 		border-bottom-right-radius: 0;
 		border-bottom-left-radius: 0;
-		box-shadow: 0 0 0 clamp(4px, 2vw, 20px) var(--wp--custom--wporg-site-screenshot--border-color);
+		box-shadow:
+			0 0 0
+			var(--wp--custom--wporg-site-screenshot--border--width)
+			var(--wp--custom--wporg-site-screenshot--border--color);
 	}
 
 	.has-feature-color-background & {
@@ -33,7 +35,7 @@
 	}
 
 	.is-section-site-hero & {
-		--wp--custom--wporg-site-screenshot--border-color: var(--wp--preset--color--charcoal-2);
+		--wp--custom--wporg-site-screenshot--border--color: var(--wp--preset--color--charcoal-2);
 		max-width: none;
 	}
 
