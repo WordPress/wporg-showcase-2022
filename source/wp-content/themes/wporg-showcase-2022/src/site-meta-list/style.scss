@@ -32,6 +32,16 @@
 		}
 	}
 
+	a {
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+			text-decoration-thickness: 1px;
+		}
+	}
+
 	&.has-text-color {
 		li span {
 			color: inherit;
