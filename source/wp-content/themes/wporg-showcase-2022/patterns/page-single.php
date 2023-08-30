@@ -15,7 +15,7 @@
 		<div class="wp-block-column" style="flex-basis:70%">
 			<!-- wp:post-title {"level":1,"style":{"spacing":{"margin":{"bottom":"0"}}},"fontSize":"heading-2"} /-->
 
-			<!-- wp:wporg/site-link /-->
+			<!-- wp:wporg/site-link {"style":{"spacing":{"margin":{"top":"4px"}}}} /-->
 
 			<!-- wp:post-content /-->
 		</div>
