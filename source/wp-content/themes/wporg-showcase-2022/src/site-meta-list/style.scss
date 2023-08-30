@@ -42,6 +42,10 @@
 		}
 	}
 
+	li.is-meta-domain a {
+		color: var(--wp--preset--color--charcoal-5);
+	}
+
 	&.has-text-color {
 		li span {
 			color: inherit;
