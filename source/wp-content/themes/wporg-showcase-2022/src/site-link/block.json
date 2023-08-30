@@ -25,12 +25,10 @@
 			"fontSize": true,
 			"lineHeight": true,
 			"__experimentalFontFamily": true,
-			"__experimentalTextDecoration": true,
 			"__experimentalFontStyle": true,
 			"__experimentalFontWeight": true,
 			"__experimentalLetterSpacing": true,
-			"__experimentalTextTransform": true,
-			"__experimentalWritingMode": true
+			"__experimentalTextTransform": true
 		}
 	},
 	"usesContext": [ "postId" ],
