@@ -15,9 +15,7 @@
 		<div class="wp-block-column" style="flex-basis:70%">
 			<!-- wp:post-title {"level":1,"style":{"spacing":{"margin":{"bottom":"0"}}},"fontSize":"heading-2"} /-->
 
-			<!-- wp:paragraph {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|20"},"padding":{"bottom":"var:preset|spacing|10"}}},"className":"external-link"} -->
-			<p class="external-link" style="margin-bottom:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--10)"><a href="[domain]" target="_blank" rel="noopener noreferrer">[pretty_domain]</a></p>
-			<!-- /wp:paragraph -->
+			<!-- wp:wporg/site-link /-->
 
 			<!-- wp:post-content /-->
 		</div>
