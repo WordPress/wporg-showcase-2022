@@ -44,6 +44,11 @@ function render( $attributes, $content, $block ) {
 
 	$meta_fields = array(
 		array(
+			'label' => __( 'Site title', 'wporg' ),
+			'type' => 'other',
+			'key' => 'post_title',
+		),
+		array(
 			'label' => __( 'Author', 'wporg' ),
 			'type' => 'meta',
 			'key' => 'author',
@@ -127,12 +132,16 @@ function get_value( $type, $key, $post_id ) {
 		$value = get_the_term_list( $post_id, $key, '', ', ' );
 	} else if ( 'meta' === $type ) {
 		$value = get_post_meta( $post_id, $key, true );
-	} else if ( 'published' === $key ) {
-		// Publish date is a special case.
-		$value = get_the_date( 'F Y', $post_id );
-	} else if ( 'domain' === $key ) {
-		// Domain is meta, but has special format.
-		$value = do_shortcode( '<a class="external-link" href="[domain]" target="_blank" rel="noopener noreferrer">[pretty_domain]</a>' );
+	} else {
+		// "other" are special cases.
+		if ( 'published' === $key ) {
+			$value = get_the_date( 'F Y', $post_id );
+		} else if ( 'domain' === $key ) {
+			// Domain uses shortcodes to output pretty format.
+			$value = do_shortcode( '<a class="external-link" href="[domain]" target="_blank" rel="noopener noreferrer">[pretty_domain]</a>' );
+		} else if ( 'post_title' === $key ) {
+			$value = get_the_title( $post_id );
+		}
 	}
 
 	if ( is_wp_error( $value ) ) {

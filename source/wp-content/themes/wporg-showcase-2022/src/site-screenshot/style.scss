@@ -2,12 +2,12 @@
 	overflow: hidden;
 	border-width: 10px;
 	border-style: solid;
-	border-color: rgba(30, 30, 30, 0.1) !important;
+	border-color: var(--wp--custom--wporg-site-screenshot--border--color);
 	border-radius: 20px; // 10px inner radius plus the 10px border size.
 
 	&:where(.is-linked-image):hover,
 	&:where(.is-linked-image):focus-within {
-		border-color: rgba(30, 30, 30, 0.25) !important;
+		--wp--custom--wporg-site-screenshot--border--color: rgba(30, 30, 30, 0.25);
 	}
 
 	&:where(.is-linked-image):focus-within {
@@ -15,14 +15,28 @@
 		outline-offset: -1.5px;
 	}
 
+	.has-feature-color-background &,
+	.is-section-site-hero & {
+		border: none;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+		box-shadow:
+			0 0 0
+			var(--wp--custom--wporg-site-screenshot--border--width)
+			var(--wp--custom--wporg-site-screenshot--border--color);
+	}
+
 	.has-feature-color-background & {
-		border-radius: 20px 20px 0 0;
-		border-bottom-width: 0;
 		flex: 1;
 
 		&:first-child {
 			flex: 4;
 		}
+	}
+
+	.is-section-site-hero & {
+		--wp--custom--wporg-site-screenshot--border--color: var(--wp--preset--color--charcoal-2);
+		max-width: none;
 	}
 
 	a {
@@ -38,4 +52,9 @@
 		width: 100%;
 		vertical-align: middle;
 	}
+}
+
+// Clip off the bottom box shadow.
+.has-feature-color-background {
+	overflow: hidden;
 }

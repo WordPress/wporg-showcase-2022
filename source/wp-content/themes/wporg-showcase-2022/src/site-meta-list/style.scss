@@ -32,6 +32,20 @@
 		}
 	}
 
+	a {
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+			text-decoration-thickness: 1px;
+		}
+	}
+
+	li.is-meta-domain a {
+		color: var(--wp--preset--color--charcoal-5);
+	}
+
 	&.has-text-color {
 		li span {
 			color: inherit;
@@ -39,6 +53,10 @@
 	}
 
 	&.has-hidden-label {
+		li {
+			padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+		}
+
 		li span {
 			margin-inline-start: unset;
 			text-align: left;

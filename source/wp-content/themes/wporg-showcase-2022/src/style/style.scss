@@ -13,6 +13,27 @@ a:where(:not(.wp-element-button)):focus-visible {
 	border-radius: 2px;
 }
 
+/* Site Hero section */
+.is-section-site-hero {
+	.wp-block-cover__image-background {
+		background-size: clamp(50px, 4vw, 100px);
+	}
+
+	/* Switch down to one column when image gets squished. */
+	@media (max-width: 1179px) {
+		.wp-block-columns {
+			flex-direction: column;
+			gap: 0;
+		}
+
+		.wp-block-cover {
+			padding-left: var(--wp--custom--wporg-site-screenshot--border--width) !important;
+			padding-right: var(--wp--custom--wporg-site-screenshot--border--width) !important;
+			min-height: 0 !important;
+		}
+	}
+}
+
 /* Style the site grid. */
 .wp-block-query .is-layout-grid {
 	.wp-block-post-title {
