@@ -10,7 +10,23 @@
 ?>
 <!-- wp:query {"queryId":0,"query":{"perPage":12,"category":"featured","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"wide","layout":{"type":"constrained","wideSize":"1760px"}} -->
 <div class="wp-block-query alignwide">
-	<!-- wp:pattern {"slug":"wporg-showcase-2022/filters"} /-->
+	<!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+		<div class="wp-block-group">
+			<!-- wp:search {"showLabel":false,"placeholder":"<?php esc_html_e( 'Search sites…', 'wporg' ); ?>","width":100,"widthUnit":"%","buttonText":"<?php esc_html_e( 'Search', 'wporg' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true,"className":"is-style-secondary-search-control"} /-->
+
+			<!-- wp:wporg/query-total /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:wporg/query-filters /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:spacer {"height":"var:preset|spacing|50","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
+	<div style="margin-top:0;margin-bottom:0;height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
 
 	<!-- wp:heading {"level":2,"className":"screen-reader-text"} -->
 	<h2 class="wp-block-heading screen-reader-text"><?php esc_attr_e( 'Featured sites', 'wporg' ); ?></h2>

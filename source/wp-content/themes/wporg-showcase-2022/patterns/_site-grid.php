@@ -10,7 +10,27 @@
 ?>
 <!-- wp:query {"align":"wide","queryId":0,"query":{"inherit":true},"layout":{"type":"constrained","wideSize":"1760px"}} -->
 <div class="wp-block-query alignwide">
-	<!-- wp:pattern {"slug":"wporg-showcase-2022/filters"} /-->
+	<!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:search {"showLabel":false,"placeholder":"<?php esc_html_e( 'Search sites…', 'wporg' ); ?>","width":100,"widthUnit":"%","buttonText":"<?php esc_html_e( 'Search', 'wporg' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true,"className":"is-style-secondary-search-control"} /-->
+
+		<!-- wp:wporg/query-filters /-->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+	<div class="wp-block-group alignwide">
+		<!-- wp:wporg/query-total /-->
+
+		<!-- wp:paragraph -->
+		<p>Sort?</p>
+		<!-- /wp:paragraph -->
+	</div>
+	<!-- /wp:group -->
+
+	<!-- wp:spacer {"height":"var:preset|spacing|50","style":{"spacing":{"margin":{"top":"0","bottom":"0"}}}} -->
+	<div style="margin-top:0;margin-bottom:0;height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
 
 	<!-- wp:query-title {"type":"archive","className":"screen-reader-text"} /-->
 

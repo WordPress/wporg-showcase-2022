@@ -466,3 +466,13 @@ function add_social_meta_tags() {
 		);
 	}
 }
+
+add_filter(
+	'wporg_query_total_label',
+	function( $label, $found_posts ) {
+		/* translators: %s: the result count. */
+		return _n( '%s site', '%s sites', $found_posts, 'wporg' );
+	},
+	10,
+	2
+);
