@@ -8,6 +8,35 @@
 					"color": "rgba(30, 30, 30, 0.1)",
 					"width": "clamp(4px, 2vw, 20px)"
 				}
+			},
+			"wporg-query-filters": {
+				"button": {
+					"color": {
+						"background": "var(--wp--preset--color--white)",
+						"text": "var(--wp--preset--color--charcoal-1)",
+						"count": "var(--wp--preset--color--blueberry-1)"
+					},
+					"hover": {
+						"color": {
+							"background": "var(--wp--preset--color--light-grey-2)",
+							"text": "var(--wp--preset--color--charcoal-1)",
+							"count": "var(--wp--preset--color--blueberry-1)"
+						}
+					},
+					"active": {
+						"color": {
+							"background": "var(--wp--preset--color--charcoal-1)",
+							"text": "var(--wp--preset--color--white)",
+							"count": "var(--wp--preset--color--blueberry-2)"
+						}
+					},
+					"focus": {
+						"color": {
+							"outline": "var(--wp--preset--color--blueberry-1)",
+							"inset": "var(--wp--preset--color--white)"
+						}
+					}
+				}
 			}
 		}
 	},
