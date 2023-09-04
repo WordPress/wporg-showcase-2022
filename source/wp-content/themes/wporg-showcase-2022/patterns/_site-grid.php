@@ -14,7 +14,13 @@
 	<div class="wp-block-group alignwide">
 		<!-- wp:search {"showLabel":false,"placeholder":"<?php esc_html_e( 'Search sites…', 'wporg' ); ?>","width":100,"widthUnit":"%","buttonText":"<?php esc_html_e( 'Search', 'wporg' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true} /-->
 
-		<!-- wp:wporg/query-filters /-->
+		<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+		<div class="wp-block-group">
+			<!-- wp:wporg/query-filter {"key":"post_tag"} /-->
+			<!-- wp:wporg/query-filter {"key":"flavor"} /-->
+			<!-- wp:wporg/query-filter {"key":"category"} /-->
+		</div>
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 

@@ -11,6 +11,7 @@ require_once __DIR__ . '/src/site-link/index.php';
 require_once __DIR__ . '/src/site-meta-list/index.php';
 require_once __DIR__ . '/src/site-screenshot/index.php';
 require_once __DIR__ . '/inc/shortcodes.php';
+require_once __DIR__ . '/inc/block-config.php';
 
 // Filters and Actions
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
@@ -466,13 +467,3 @@ function add_social_meta_tags() {
 		);
 	}
 }
-
-add_filter(
-	'wporg_query_total_label',
-	function( $label, $found_posts ) {
-		/* translators: %s: the result count. */
-		return _n( '%s site', '%s sites', $found_posts, 'wporg' );
-	},
-	10,
-	2
-);

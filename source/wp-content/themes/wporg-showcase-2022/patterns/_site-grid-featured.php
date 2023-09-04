@@ -20,7 +20,13 @@
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:wporg/query-filters /-->
+		<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+		<div class="wp-block-group">
+			<!-- wp:wporg/query-filter {"key":"post_tag"} /-->
+			<!-- wp:wporg/query-filter {"key":"flavor"} /-->
+			<!-- wp:wporg/query-filter {"key":"category"} /-->
+		</div>
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 
