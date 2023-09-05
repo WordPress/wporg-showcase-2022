@@ -124,7 +124,11 @@ function get_category_options( $options ) {
 }
 
 /**
- * Add in the other existing filters.
+ * Add in the other existing filters as hidden inputs in the filter form.
+ *
+ * Enables combining filters by building up the correct URL on submit,
+ * for example sites using a tag, a category, and matching a search term:
+ *   ?tag[]=cuisine&cat[]=3&s=wordpress`
  *
  * @param string $key The key for the current filter.
  */
@@ -144,6 +148,8 @@ function inject_other_filters( $key ) {
 			printf( '<input type="hidden" name="%s[]" value="%s" />', esc_attr( $query_var ), esc_attr( $value ) );
 		}
 	}
+
+	// Special case for `category_name` to support `/category/…` route.
 	if ( isset( $wp_query->query['category_name'] ) && 'cat' !== $key ) {
 		$term = get_term_by( 'slug', $wp_query->query['category_name'], 'category' );
 		if ( $term ) {
