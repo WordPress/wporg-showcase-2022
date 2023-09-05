@@ -9,6 +9,7 @@ add_filter( 'wporg_query_total_label', __NAMESPACE__ . '\update_query_total_labe
 add_filter( 'wporg_query_filter_options_post_tag', __NAMESPACE__ . '\get_post_tag_options' );
 add_filter( 'wporg_query_filter_options_flavor', __NAMESPACE__ . '\get_flavor_options' );
 add_filter( 'wporg_query_filter_options_category', __NAMESPACE__ . '\get_category_options' );
+add_action( 'wporg_query_filter_in_form', __NAMESPACE__ . '\inject_other_filters' );
 
 /**
  * Update the query total label to reflect "sites" found.
@@ -129,4 +130,33 @@ function get_category_options( $options ) {
 		'options' => array_combine( wp_list_pluck( $categories, 'term_id' ), wp_list_pluck( $categories, 'name' ) ),
 		'selected' => $selected,
 	);
+}
+
+/**
+ * Add in the other existing filters.
+ *
+ * @param string $key The key for the current filter.
+ */
+function inject_other_filters( $key ) {
+	global $wp_query;
+
+	$query_vars = [ 'tag', 'cat', 'flavor' ];
+	foreach ( $query_vars as $query_var ) {
+		if ( ! isset( $wp_query->query[ $query_var ] ) ) {
+			continue;
+		}
+		if ( $key === $query_var ) {
+			continue;
+		}
+		$values = (array) $wp_query->query[ $query_var ];
+		foreach ( $values as $value ) {
+			printf( '<input type="hidden" name="%s[]" value="%s" />', esc_attr( $query_var ), esc_attr( $value ) );
+		}
+	}
+	if ( isset( $wp_query->query['category_name'] ) && 'cat' !== $key ) {
+		$term = get_term_by( 'slug', $wp_query->query['category_name'], 'category' );
+		if ( $term ) {
+			printf( '<input type="hidden" name="cat[]" value="%s" />', esc_attr( $term->term_id ) );
+		}
+	}
 }
