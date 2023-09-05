@@ -102,7 +102,17 @@ function get_category_options( $options ) {
 			'orderby' => 'name',
 		)
 	);
+
 	$selected = isset( $wp_query->query['cat'] ) ? (array) $wp_query->query['cat'] : array();
+
+	// Also handle `category_name`, which is used for the `/category/…` route.
+	if ( isset( $wp_query->query['category_name'] ) ) {
+		$term = get_term_by( 'slug', $wp_query->query['category_name'], 'category' );
+		if ( $term ) {
+			$selected[] = $term->term_id;
+		}
+	}
+
 	$count = count( $selected );
 	$label = __( 'Categories', 'wporg' );
 	if ( $count ) {
