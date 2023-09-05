@@ -20,7 +20,7 @@
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+		<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 		<div class="wp-block-group">
 			<!-- wp:wporg/query-filter {"key":"post_tag"} /-->
 			<!-- wp:wporg/query-filter {"key":"flavor"} /-->
