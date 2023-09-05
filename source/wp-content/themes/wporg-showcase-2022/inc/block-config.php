@@ -6,9 +6,9 @@
 namespace WordPressdotorg\Theme\Showcase_2022\Block_Config;
 
 add_filter( 'wporg_query_total_label', __NAMESPACE__ . '\update_query_total_label', 10, 2 );
-add_filter( 'wporg_query_filter_post_tag', __NAMESPACE__ . '\get_post_tag_options' );
-add_filter( 'wporg_query_filter_flavor', __NAMESPACE__ . '\get_flavor_options' );
-add_filter( 'wporg_query_filter_category', __NAMESPACE__ . '\get_category_options' );
+add_filter( 'wporg_query_filter_options_post_tag', __NAMESPACE__ . '\get_post_tag_options' );
+add_filter( 'wporg_query_filter_options_flavor', __NAMESPACE__ . '\get_flavor_options' );
+add_filter( 'wporg_query_filter_options_category', __NAMESPACE__ . '\get_category_options' );
 
 /**
  * Update the query total label to reflect "sites" found.
@@ -49,6 +49,7 @@ function get_post_tag_options( $options ) {
 	return array(
 		'label' => $label,
 		'key' => 'tag',
+		'action' => home_url( '/archives/' ),
 		'options' => array_combine( wp_list_pluck( $tags, 'slug' ), wp_list_pluck( $tags, 'name' ) ),
 		'selected' => $selected,
 	);
@@ -81,6 +82,7 @@ function get_flavor_options( $options ) {
 	return array(
 		'label' => $label,
 		'key' => 'flavor',
+		'action' => home_url( '/archives/' ),
 		'options' => array_combine( wp_list_pluck( $flavors, 'slug' ), wp_list_pluck( $flavors, 'name' ) ),
 		'selected' => $selected,
 	);
@@ -113,6 +115,7 @@ function get_category_options( $options ) {
 	return array(
 		'label' => $label,
 		'key' => 'cat',
+		'action' => home_url( '/archives/' ),
 		'options' => array_combine( wp_list_pluck( $categories, 'term_id' ), wp_list_pluck( $categories, 'name' ) ),
 		'selected' => $selected,
 	);
