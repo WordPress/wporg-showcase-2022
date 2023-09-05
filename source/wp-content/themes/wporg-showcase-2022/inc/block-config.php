@@ -39,14 +39,11 @@ function get_post_tag_options( $options ) {
 	);
 	$selected = isset( $wp_query->query['tag'] ) ? (array) $wp_query->query['tag'] : array();
 	$count = count( $selected );
-	$label = __( 'Popular tags', 'wporg' );
-	if ( $count ) {
-		$label = sprintf(
-			/* translators: The dropdown label for filtering, %s is the selected term count. */
-			_n( 'Popular tags <span>%s</span>', 'Popular tags <span>%s</span>', $count, 'wporg' ),
-			$count
-		);
-	}
+	$label = sprintf(
+		/* translators: The dropdown label for filtering, %s is the selected term count. */
+		_n( 'Popular tags <span>%s</span>', 'Popular tags <span>%s</span>', $count, 'wporg' ),
+		$count
+	);
 	return array(
 		'label' => $label,
 		'key' => 'tag',
@@ -72,14 +69,11 @@ function get_flavor_options( $options ) {
 	);
 	$selected = isset( $wp_query->query['flavor'] ) ? (array) $wp_query->query['flavor'] : array();
 	$count = count( $selected );
-	$label = __( 'Flavors', 'wporg' );
-	if ( $count ) {
-		$label = sprintf(
-			/* translators: The dropdown label for filtering, %s is the selected term count. */
-			_n( 'Flavors <span>%s</span>', 'Flavors <span>%s</span>', $count, 'wporg' ),
-			$count
-		);
-	}
+	$label = sprintf(
+		/* translators: The dropdown label for filtering, %s is the selected term count. */
+		_n( 'Flavors <span>%s</span>', 'Flavors <span>%s</span>', $count, 'wporg' ),
+		$count
+	);
 	return array(
 		'label' => $label,
 		'key' => 'flavor',
@@ -115,14 +109,11 @@ function get_category_options( $options ) {
 	}
 
 	$count = count( $selected );
-	$label = __( 'Categories', 'wporg' );
-	if ( $count ) {
-		$label = sprintf(
-			/* translators: The dropdown label for filtering, %s is the selected term count. */
-			_n( 'Categories <span>%s</span>', 'Categories <span>%s</span>', $count, 'wporg' ),
-			$count
-		);
-	}
+	$label = sprintf(
+		/* translators: The dropdown label for filtering, %s is the selected term count. */
+		_n( 'Categories <span>%s</span>', 'Categories <span>%s</span>', $count, 'wporg' ),
+		$count
+	);
 	return array(
 		'label' => $label,
 		'key' => 'cat',
