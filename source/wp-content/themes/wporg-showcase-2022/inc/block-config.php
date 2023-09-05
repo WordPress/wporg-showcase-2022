@@ -156,4 +156,9 @@ function inject_other_filters( $key ) {
 			printf( '<input type="hidden" name="cat[]" value="%s" />', esc_attr( $term->term_id ) );
 		}
 	}
+
+	// Pass through search query.
+	if ( isset( $wp_query->query['s'] ) ) {
+		printf( '<input type="hidden" name="s" value="%s" />', esc_attr( $wp_query->query['s'] ) );
+	}
 }
