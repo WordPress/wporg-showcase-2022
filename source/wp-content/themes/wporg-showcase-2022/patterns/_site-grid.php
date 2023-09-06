@@ -28,9 +28,7 @@
 	<div class="wp-block-group alignwide">
 		<!-- wp:wporg/query-total /-->
 
-		<!-- wp:paragraph -->
-		<p>Sort?</p>
-		<!-- /wp:paragraph -->
+		<!-- wp:wporg/query-filter {"key":"sort","multiple":false} /-->
 	</div>
 	<!-- /wp:group -->
 

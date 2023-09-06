@@ -9,7 +9,9 @@ add_filter( 'wporg_query_total_label', __NAMESPACE__ . '\update_query_total_labe
 add_filter( 'wporg_query_filter_options_post_tag', __NAMESPACE__ . '\get_post_tag_options' );
 add_filter( 'wporg_query_filter_options_flavor', __NAMESPACE__ . '\get_flavor_options' );
 add_filter( 'wporg_query_filter_options_category', __NAMESPACE__ . '\get_category_options' );
+add_filter( 'wporg_query_filter_options_sort', __NAMESPACE__ . '\get_sort_options' );
 add_action( 'wporg_query_filter_in_form', __NAMESPACE__ . '\inject_other_filters' );
+add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_query' );
 
 /**
  * Update the query total label to reflect "sites" found.
@@ -124,6 +126,27 @@ function get_category_options( $options ) {
 }
 
 /**
+ * Provide a list of sort options.
+ *
+ * @param array $options The options for this filter.
+ * @return array New list of category options.
+ */
+function get_sort_options( $options ) {
+	global $wp_query;
+
+	return array(
+		'label' => __( 'Sort', 'wporg' ),
+		'key' => 'orderby',
+		'action' => home_url( '/archives/' ),
+		'options' => array(
+			'date' => __( 'Newest', 'wporg' ),
+			'title' => __( 'Title', 'wporg' ),
+		),
+		'selected' => [ $wp_query->get( 'orderby' ) ],
+	);
+}
+
+/**
  * Add in the other existing filters as hidden inputs in the filter form.
  *
  * Enables combining filters by building up the correct URL on submit,
@@ -135,7 +158,7 @@ function get_category_options( $options ) {
 function inject_other_filters( $key ) {
 	global $wp_query;
 
-	$query_vars = [ 'tag', 'cat', 'flavor' ];
+	$query_vars = [ 'tag', 'cat', 'flavor', 'sort' ];
 	foreach ( $query_vars as $query_var ) {
 		if ( ! isset( $wp_query->query[ $query_var ] ) ) {
 			continue;
@@ -160,5 +183,22 @@ function inject_other_filters( $key ) {
 	// Pass through search query.
 	if ( isset( $wp_query->query['s'] ) ) {
 		printf( '<input type="hidden" name="s" value="%s" />', esc_attr( $wp_query->query['s'] ) );
+	}
+}
+
+/**
+ * Update the query to sort sites by title A-Z.
+ *
+ * The default `order` is desc, so when `orderby=title`, it sorts Z-A.
+ *
+ * @param WP_Query $query The WP_Query instance (passed by reference).
+ */
+function modify_query( $query ) {
+	if ( ! $query->is_main_query() ) {
+		return;
+	}
+
+	if ( $query->get( 'orderby' ) === 'title' ) {
+		$query->set( 'order', 'asc' );
 	}
 }
