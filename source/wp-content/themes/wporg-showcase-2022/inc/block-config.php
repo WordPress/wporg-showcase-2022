@@ -136,9 +136,19 @@ function get_category_options( $options ) {
  */
 function get_sort_options( $options ) {
 	global $wp_query;
+	$sort = $wp_query->get( 'orderby' );
+	$label = __( 'Sort', 'wporg' );
+	switch ( $sort ) {
+		case 'date':
+			$label = __( 'Sort: Newest', 'wporg' );
+			break;
+		case 'title':
+			$label = __( 'Sort: Title', 'wporg' );
+			break;
+	}
 
 	return array(
-		'label' => __( 'Sort', 'wporg' ),
+		'label' => $label,
 		'title' => __( 'Sort', 'wporg' ),
 		'key' => 'orderby',
 		'action' => home_url( '/archives/' ),
@@ -146,7 +156,7 @@ function get_sort_options( $options ) {
 			'date' => __( 'Newest', 'wporg' ),
 			'title' => __( 'Title', 'wporg' ),
 		),
-		'selected' => [ $wp_query->get( 'orderby' ) ],
+		'selected' => [ $sort ],
 	);
 }
 
