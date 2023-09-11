@@ -48,6 +48,7 @@ function get_post_tag_options( $options ) {
 	);
 	return array(
 		'label' => $label,
+		'title' => __( 'Popular tags', 'wporg' ),
 		'key' => 'tag',
 		'action' => home_url( '/archives/' ),
 		'options' => array_combine( wp_list_pluck( $tags, 'slug' ), wp_list_pluck( $tags, 'name' ) ),
@@ -78,6 +79,7 @@ function get_flavor_options( $options ) {
 	);
 	return array(
 		'label' => $label,
+		'title' => __( 'Flavors', 'wporg' ),
 		'key' => 'flavor',
 		'action' => home_url( '/archives/' ),
 		'options' => array_combine( wp_list_pluck( $flavors, 'slug' ), wp_list_pluck( $flavors, 'name' ) ),
@@ -118,6 +120,7 @@ function get_category_options( $options ) {
 	);
 	return array(
 		'label' => $label,
+		'title' => __( 'Categories', 'wporg' ),
 		'key' => 'cat',
 		'action' => home_url( '/archives/' ),
 		'options' => array_combine( wp_list_pluck( $categories, 'term_id' ), wp_list_pluck( $categories, 'name' ) ),
@@ -136,6 +139,7 @@ function get_sort_options( $options ) {
 
 	return array(
 		'label' => __( 'Sort', 'wporg' ),
+		'title' => __( 'Sort', 'wporg' ),
 		'key' => 'orderby',
 		'action' => home_url( '/archives/' ),
 		'options' => array(
