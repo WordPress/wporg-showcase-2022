@@ -12,6 +12,7 @@ add_filter( 'wporg_query_filter_options_category', __NAMESPACE__ . '\get_categor
 add_filter( 'wporg_query_filter_options_sort', __NAMESPACE__ . '\get_sort_options' );
 add_action( 'wporg_query_filter_in_form', __NAMESPACE__ . '\inject_other_filters' );
 add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_query' );
+add_filter( 'wporg_block_navigation_menus', __NAMESPACE__ . '\add_site_navigation_menus' );
 
 /**
  * Update the query total label to reflect "sites" found.
@@ -215,4 +216,22 @@ function modify_query( $query ) {
 	if ( $query->get( 'orderby' ) === 'title' ) {
 		$query->set( 'order', 'asc' );
 	}
+}
+
+/**
+ * Provide a list of local navigation menus.
+ */
+function add_site_navigation_menus( $menus ) {
+	return array(
+		'showcase' => array(
+			array(
+				'label' => __( 'All sites', 'wporg' ),
+				'url' => '/archives/',
+			),
+			array(
+				'label' => __( 'Submit a site', 'wporg' ),
+				'url' => '/submit-a-wordpress-site/',
+			),
+		),
+	);
 }

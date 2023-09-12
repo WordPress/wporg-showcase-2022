@@ -13,5 +13,5 @@
 <div style="height:0" aria-hidden="true" class="wp-block-spacer"></div>
 <!-- /wp:spacer -->
 
-<!-- wp:navigation {"ref":7206,"textColor":"white","hasIcon":false,"layout":{"type":"flex","orientation":"horizontal"},"fontSize":"small"} /-->
+<!-- wp:navigation {"menuSlug":"showcase","textColor":"white","hasIcon":false,"layout":{"type":"flex","orientation":"horizontal"},"fontSize":"small"} /-->
 <!-- /wp:wporg/local-navigation-bar -->
