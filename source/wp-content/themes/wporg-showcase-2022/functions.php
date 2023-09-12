@@ -11,6 +11,7 @@ require_once __DIR__ . '/src/site-link/index.php';
 require_once __DIR__ . '/src/site-meta-list/index.php';
 require_once __DIR__ . '/src/site-screenshot/index.php';
 require_once __DIR__ . '/inc/shortcodes.php';
+require_once __DIR__ . '/inc/block-config.php';
 
 // Filters and Actions
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
