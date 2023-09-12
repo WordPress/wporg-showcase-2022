@@ -6,10 +6,10 @@
  */
 
 ?>
-<!-- wp:columns {"style":{"spacing":{"blockGap":"0px","padding":{"top":"0","bottom":"0"}},"border":{"bottom":{"color":"var:preset|color|charcoal-3","style":"solid","width":"1px"}},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"backgroundColor":"charcoal-2","textColor":"white"} -->
-<div class="wp-block-columns has-white-color has-charcoal-2-background-color has-text-color has-background has-link-color" style="border-bottom-color:var(--wp--preset--color--charcoal-3);border-bottom-style:solid;border-bottom-width:1px;padding-top:0;padding-bottom:0">
-	<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|60","bottom":"var:preset|spacing|50","left":"var:preset|spacing|60"}},"border":{"right":{"color":"var:preset|color|charcoal-3","width":"1px"},"top":{},"bottom":{},"left":{}}}} -->
-	<div class="wp-block-column" style="border-right-color:var(--wp--preset--color--charcoal-3);border-right-width:1px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--60)">
+<!-- wp:columns {"style":{"spacing":{"blockGap":"0px","padding":{"right":"0","left":"0","top":"0","bottom":"0"}},"border":{"bottom":{"color":"var:preset|color|white-opacity-15","style":"solid","width":"1px"}},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"backgroundColor":"charcoal-2","textColor":"white","className":"is-page-footer"} -->
+<div class="wp-block-columns has-white-color has-charcoal-2-background-color has-text-color has-background has-link-color is-page-footer" style="border-bottom-color:var(--wp--preset--color--white-opacity-15);border-bottom-style:solid;border-bottom-width:1px;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0">
+	<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|edge-space","bottom":"var:preset|spacing|50","left":"var:preset|spacing|edge-space"}},"border":{"right":{"color":"var:preset|color|white-opacity-15","width":"1px"},"top":{},"bottom":{},"left":{}}}} -->
+	<div class="wp-block-column" style="border-right-color:var(--wp--preset--color--white-opacity-15);border-right-width:1px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--edge-space);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--edge-space)">
 		<!-- wp:heading {"fontSize":"heading-4"} -->
 		<h2 class="wp-block-heading has-heading-4-font-size"><?php _e( 'Feeling inspired?', 'wporg' ); ?></h2>
 		<!-- /wp:heading -->
@@ -28,14 +28,14 @@
 	</div>
 	<!-- /wp:column -->
 
-	<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|60","bottom":"var:preset|spacing|50","left":"var:preset|spacing|60"}}}} -->
-	<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--60)">
+	<!-- wp:column {"style":{"spacing":{"padding":{"top":"var:preset|spacing|50","right":"var:preset|spacing|edge-space","bottom":"var:preset|spacing|50","left":"var:preset|spacing|edge-space"}}}} -->
+	<div class="wp-block-column" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--edge-space);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--edge-space)">
 		<!-- wp:heading {"fontSize":"heading-4"} -->
-		<h2 class="wp-block-heading has-heading-4-font-size"><?php _e( 'Submit a site', 'wporg' ); ?></h2>
+		<h2 class="wp-block-heading has-heading-4-font-size"><?php _e( 'Want to be featured?', 'wporg' ); ?></h2>
 		<!-- /wp:heading -->
 
 		<!-- wp:paragraph -->
-		<p><?php _e( 'Submit your site to the WordPress Showcase to be featured among the most beautiful and best designed WordPress websites in the world.', 'wporg' ); ?></p>
+		<p><?php _e( 'Join other beautifully designed sites in the WordPress Showcase by filling out this form.', 'wporg' ); ?></p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:buttons -->

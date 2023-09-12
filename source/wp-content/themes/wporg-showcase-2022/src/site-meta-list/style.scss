@@ -30,6 +30,16 @@
 			text-align: right;
 			color: var(--wp--preset--color--charcoal-3);
 		}
+
+		@media (max-width: 380px) {
+			flex-direction: column;
+			gap: 0;
+
+			span {
+				margin-inline-start: unset;
+				text-align: initial;
+			}
+		}
 	}
 
 	a {
@@ -55,11 +65,15 @@
 	&.has-hidden-label {
 		li {
 			padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
-		}
 
-		li span {
-			margin-inline-start: unset;
-			text-align: left;
+			span {
+				margin-inline-start: unset;
+				text-align: left;
+			}
+
+			@media (max-width: 600px) {
+				padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+			}
 		}
 	}
 }

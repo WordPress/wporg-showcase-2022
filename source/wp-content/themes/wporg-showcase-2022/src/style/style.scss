@@ -27,8 +27,8 @@ a:where(:not(.wp-element-button)):focus-visible {
 		}
 
 		.wp-block-cover {
-			padding-left: var(--wp--custom--wporg-site-screenshot--border--width) !important;
-			padding-right: var(--wp--custom--wporg-site-screenshot--border--width) !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
 			min-height: 0 !important;
 		}
 	}
@@ -61,10 +61,19 @@ a:where(:not(.wp-element-button)):focus-visible {
 
 @media (max-width: 800px) {
 	.wp-block-post-template.is-layout-grid.columns-3 {
-		grid-template-columns: repeat(1, minmax(0, 1fr));
+		grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
 	}
 }
 
+/* Page footer */
+@media (max-width: 781px) {
+	.wp-block-columns.is-page-footer > .wp-block-column:first-child {
+		border-right: none;
+		border-bottom: 1px solid var(--wp--preset--color--white-opacity-15);
+	}
+}
+
+/* Add block style. */
 .wp-block-spacer.has-dots-background {
 	background-image: url(../../images/dots.svg);
 	background-position: top center;

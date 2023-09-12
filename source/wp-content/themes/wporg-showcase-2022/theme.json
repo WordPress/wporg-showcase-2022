@@ -6,7 +6,8 @@
 			"wporg-site-screenshot": {
 				"border": {
 					"color": "rgba(30, 30, 30, 0.1)",
-					"width": "clamp(4px, 2vw, 20px)"
+					"width": "10px",
+					"radius": "20px"
 				}
 			}
 		}

@@ -1,9 +1,9 @@
 .wp-block-wporg-site-screenshot {
 	overflow: hidden;
-	border-width: 10px;
+	border-width: var(--wp--custom--wporg-site-screenshot--border--width);
 	border-style: solid;
 	border-color: var(--wp--custom--wporg-site-screenshot--border--color);
-	border-radius: 20px; // 10px inner radius plus the 10px border size.
+	border-radius: var(--wp--custom--wporg-site-screenshot--border--radius);
 
 	&:where(.is-linked-image):hover,
 	&:where(.is-linked-image):focus-within {
@@ -17,13 +17,14 @@
 
 	.has-feature-color-background &,
 	.is-section-site-hero & {
-		border: none;
-		border-bottom-right-radius: 0;
-		border-bottom-left-radius: 0;
-		box-shadow:
-			0 0 0
-			var(--wp--custom--wporg-site-screenshot--border--width)
-			var(--wp--custom--wporg-site-screenshot--border--color);
+		--wp--custom--wporg-site-screenshot--border--width: clamp(4px, calc(1.33vw - 1.33px), 20px);
+		--wp--custom--wporg-site-screenshot--border--radius: calc(clamp(4px, calc(1.33vw - 1.33px), 20px) * 2);
+		border-bottom-width: 0;
+		border-radius:
+			var(--wp--custom--wporg-site-screenshot--border--radius)
+			var(--wp--custom--wporg-site-screenshot--border--radius)
+			0
+			0;
 	}
 
 	.has-feature-color-background & {
@@ -52,9 +53,4 @@
 		width: 100%;
 		vertical-align: middle;
 	}
-}
-
-// Clip off the bottom box shadow.
-.has-feature-color-background {
-	overflow: hidden;
 }
