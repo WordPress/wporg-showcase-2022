@@ -243,6 +243,7 @@ function modify_query_loop_block_query_vars( $query, $block ) {
 	if ( isset( $block->context['query']['include'] ) ) {
 		$query['ignore_sticky_posts'] = 1;
 		$query['post__in'] = $block->context['query']['include'];
+		$query['orderby'] = 'post__in';
 	}
 
 	return $query;
@@ -482,10 +483,11 @@ function jetpack_related_posts_display( $markup, $post_id, $related_posts, $bloc
 }
 
 /**
- * Add fallback posts when no related sites are found.
+ * Add fallback posts when less than 3 related sites are found.
  *
- * The fallback is 3 featured sites, rather than trying to conditionally find
- * other posts by tag/category/etc. This will ensure there are always results.
+ * The fallback is up to 3 recent featured sites, rather than trying to
+ * conditionally find other posts by tag/category/etc. This ensures there
+ * are always results.
  *
  * @param array $results Array of related posts matched by Elasticsearch.
  * @param int   $post_id Post ID of the post for which we are retrieving Related Posts.
@@ -495,16 +497,16 @@ function jetpack_related_posts_results( $results, $post_id ) {
 	if ( ! class_exists( 'Jetpack_RelatedPosts' ) ) {
 		return $results;
 	}
-	if ( ! $results ) {
+	$count = count( $results );
+	if ( $count < 3 ) {
 		$args = array(
-			'numberposts' => 3,
+			'numberposts' => 3 - $count, // Only grab enough to fill 3 slots.
 			'exclude' => [ $post_id ],
 			'category' => 'featured',
 		);
 		$posts = get_posts( $args );
 		if ( $posts ) {
 			$jprp = \Jetpack_RelatedPosts::init();
-			$results = [];
 			foreach ( $posts as $i => $featured_post ) {
 				$results[] = $jprp->get_related_post_data_for_post( $featured_post->ID, $i, $post_id );
 			}
