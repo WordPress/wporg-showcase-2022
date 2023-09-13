@@ -28,6 +28,7 @@ add_filter( 'wporg_noindex_request', __NAMESPACE__ . '\set_noindex' );
 add_action( 'wp', __NAMESPACE__ . '\jetpack_remove_rp', 20 );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 add_filter( 'jetpack_related_posts_display_markup', __NAMESPACE__ . '\jetpack_related_posts_display', 10, 4 );
+add_filter( 'jetpack_relatedposts_returned_results', __NAMESPACE__ . '\jetpack_related_posts_results', 10, 2 );
 
 // Don't send an email on contact for submission
 add_filter( 'grunion_should_send_email', '__return_false' );
@@ -478,4 +479,36 @@ function jetpack_related_posts_display( $markup, $post_id, $related_posts, $bloc
 	<?php
 	$markup = do_blocks( ob_get_clean() );
 	return $markup;
+}
+
+/**
+ * Add fallback posts when no related sites are found.
+ *
+ * The fallback is 3 featured sites, rather than trying to conditionally find
+ * other posts by tag/category/etc. This will ensure there are always results.
+ *
+ * @param array $results Array of related posts matched by Elasticsearch.
+ * @param int   $post_id Post ID of the post for which we are retrieving Related Posts.
+ */
+function jetpack_related_posts_results( $results, $post_id ) {
+	// The class should exist if this filter is called, but check just in case.
+	if ( ! class_exists( 'Jetpack_RelatedPosts' ) ) {
+		return $results;
+	}
+	if ( ! $results ) {
+		$args = array(
+			'numberposts' => 3,
+			'exclude' => [ $post_id ],
+			'category' => 'featured',
+		);
+		$posts = get_posts( $args );
+		if ( $posts ) {
+			$jprp = \Jetpack_RelatedPosts::init();
+			$results = [];
+			foreach ( $posts as $i => $featured_post ) {
+				$results[] = $jprp->get_related_post_data_for_post( $featured_post->ID, $i, $post_id );
+			}
+		}
+	}
+	return $results;
 }
