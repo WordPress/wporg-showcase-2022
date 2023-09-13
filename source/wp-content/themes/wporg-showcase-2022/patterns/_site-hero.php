@@ -21,8 +21,8 @@
 					<div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
 					<!-- /wp:spacer -->
 
-					<!-- wp:heading {"fontSize":"heading-2"} -->
-					<h1 class="wp-block-heading has-heading-2-font-size"><?php esc_html_e( 'Showcase', 'wporg' ); ?></h1>
+					<!-- wp:heading {"fontSize":"heading-2",style":{"spacing":{"margin":{"top":"0"}}}} -->
+					<h1 class="wp-block-heading has-heading-2-font-size" style="margin-top:0"><?php esc_html_e( 'Showcase', 'wporg' ); ?></h1>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}}} -->

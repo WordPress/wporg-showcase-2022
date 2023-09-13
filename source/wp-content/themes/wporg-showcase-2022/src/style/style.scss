@@ -19,6 +19,15 @@ a:where(:not(.wp-element-button)):focus-visible {
 		background-size: clamp(50px, 4vw, 100px);
 	}
 
+	.wp-block-column + .wp-block-column {
+		align-self: stretch;
+		display: flex;
+	}
+
+	.wp-block-cover {
+		align-self: stretch;
+	}
+
 	/* Switch down to one column when image gets squished. */
 	@media (max-width: 1179px) {
 		.wp-block-columns {
@@ -31,6 +40,24 @@ a:where(:not(.wp-element-button)):focus-visible {
 			padding-right: 0 !important;
 			min-height: 0 !important;
 		}
+	}
+
+	/* Hide the site title on small screens, title appears in local nav. */
+	@media (max-width: 599px) {
+		h1 {
+			display: none;
+
+			+ p {
+				margin-top: 0 !important;
+			}
+		}
+	}
+}
+
+/* Hide the site title on small screens, title appears in local nav. */
+@media (min-width: 600px) {
+	body.home .wp-block-site-title a {
+		display: none;
 	}
 }
 
