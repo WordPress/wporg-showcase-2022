@@ -14,6 +14,20 @@
 	},
 	"styles": {
 		"blocks": {
+			"core/post-terms": {
+				"elements": {
+					"link": {
+						"typography": {
+							"textDecoration": "none"
+						},
+						":hover": {
+							"typography": {
+								"textDecoration": "underline"
+							}
+						}
+					}
+				}
+			},
 			"core/quote": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--heading-6)"
