@@ -85,7 +85,7 @@ function render( $attributes, $content, $block ) {
 function get_site_screenshot_src( $post, $type = 'desktop' ) {
 	$screenshot_url = false;
 	$media_id = get_post_meta( $post->ID, 'screenshot-' . $type, true );
-	$cache_key = '20221208'; // To break out of cached image.
+	$cache_key = '20230913'; // To break out of cached image.
 
 	$size = 'screenshot-' . $type;
 	$all_sizes = wp_get_registered_image_subsizes();

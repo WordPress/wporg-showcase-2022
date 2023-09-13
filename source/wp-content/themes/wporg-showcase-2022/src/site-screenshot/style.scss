@@ -53,4 +53,8 @@
 		width: 100%;
 		vertical-align: middle;
 	}
+
+	&.is-size-desktop img {
+		aspect-ratio: 535 / 300;
+	}
 }
