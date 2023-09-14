@@ -16,19 +16,19 @@ require_once __DIR__ . '/inc/block-config.php';
 // Filters and Actions
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
 add_action( 'init', __NAMESPACE__ . '\setup_theme' );
-add_action( 'wp', __NAMESPACE__ . '\jetpack_remove_rp', 20 );
 add_action( 'wp_head', __NAMESPACE__ . '\add_social_meta_tags' );
 add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_search_query' );
 add_action( 'template_redirect', __NAMESPACE__ . '\redirect_urls' );
-add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
-add_filter( 'jetpack_relatedposts_filter_thumbnail_size', __NAMESPACE__ . '\jetpack_change_image_size' );
-add_filter( 'jetpack_relatedposts_filter_headline', __NAMESPACE__ . '\jetpack_related_posts_headline' );
 add_filter( 'document_title_parts', __NAMESPACE__ . '\document_title' );
 add_filter( 'document_title_separator', __NAMESPACE__ . '\document_title_separator' );
 add_filter( 'excerpt_length', __NAMESPACE__ . '\modify_excerpt_length', 999 );
 add_filter( 'excerpt_more', __NAMESPACE__ . '\modify_excerpt_more' );
 add_filter( 'query_loop_block_query_vars', __NAMESPACE__ . '\modify_query_loop_block_query_vars', 10, 2 );
 add_filter( 'wporg_noindex_request', __NAMESPACE__ . '\set_noindex' );
+add_action( 'wp', __NAMESPACE__ . '\jetpack_remove_rp', 20 );
+add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
+add_filter( 'jetpack_related_posts_display_markup', __NAMESPACE__ . '\jetpack_related_posts_display', 10, 4 );
+add_filter( 'jetpack_relatedposts_returned_results', __NAMESPACE__ . '\jetpack_related_posts_results', 10, 2 );
 
 // Don't send an email on contact for submission
 add_filter( 'grunion_should_send_email', '__return_false' );
@@ -209,66 +209,6 @@ function get_site_domain( $post, $rem_trail_slash = false ) {
 }
 
 /**
- * Provide mShot images to Jetpack related posts.
- */
-function jetpack_fallback_image( $media, $post_id, $args ) {
-	if ( $media ) {
-		return $media;
-	} else {
-		$post = get_post( $post_id );
-		$permalink = get_permalink( $post_id );
-		$url = get_site_screenshot_src( $post );
-
-		return array(
-			array(
-				'type'  => 'image',
-				'from'  => 'custom_fallback',
-				'src'   => esc_url( $url ),
-				'href'  => $permalink,
-			),
-		);
-	}
-}
-
-/**
- * Change Jetpack Related Posts image size.
- */
-function jetpack_change_image_size( $thumbnail_size ) {
-	$thumbnail_size['width'] = '100%';
-	$thumbnail_size['height'] = 'auto';
-	return $thumbnail_size;
-}
-
-/**
- * Update the Related Posts title.
- *
- * @param string $headline
- * @return string
- */
-function jetpack_related_posts_headline( $headline ) {
-	$headline = sprintf(
-		'<h3>%s</h3>',
-		esc_html( __( 'Related sites', 'wporg' ) )
-	);
-
-	return $headline;
-}
-
-/**
- * Remove the auto-adding of Related Posts. We'll use the shortcode.
- *
- * @return void
- */
-function jetpack_remove_rp() {
-	if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
-		$jprp = \Jetpack_RelatedPosts::init();
-		$callback = array( $jprp, 'filter_add_target_to_dom' );
-
-		remove_filter( 'the_content', $callback, 40 );
-	}
-}
-
-/**
  * Update the excerpt length.
  *
  * @return string
@@ -283,7 +223,7 @@ function modify_excerpt_length() {
  * @return string
  */
 function modify_excerpt_more() {
-	return '...';
+	return '…';
 }
 
 /**
@@ -298,6 +238,12 @@ function modify_query_loop_block_query_vars( $query, $block ) {
 		$sticky = get_option( 'sticky_posts' );
 		$query['ignore_sticky_posts'] = 1;
 		$query['post__in'] = $sticky;
+	}
+
+	if ( isset( $block->context['query']['include'] ) ) {
+		$query['ignore_sticky_posts'] = 1;
+		$query['post__in'] = $block->context['query']['include'];
+		$query['orderby'] = 'post__in';
 	}
 
 	return $query;
@@ -466,4 +412,105 @@ function add_social_meta_tags() {
 			esc_attr( $og_fields['og:description'] )
 		);
 	}
+}
+
+/**
+ * Provide mShot images to Jetpack related posts.
+ */
+function jetpack_fallback_image( $media, $post_id, $args ) {
+	if ( $media ) {
+		return $media;
+	} else {
+		$post = get_post( $post_id );
+		$permalink = get_permalink( $post_id );
+		$url = get_site_screenshot_src( $post );
+
+		return array(
+			array(
+				'type'  => 'image',
+				'from'  => 'custom_fallback',
+				'src'   => esc_url( $url ),
+				'href'  => $permalink,
+			),
+		);
+	}
+}
+
+/**
+ * Remove the auto-adding of related posts. We'll use the block.
+ *
+ * @return void
+ */
+function jetpack_remove_rp() {
+	if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+		$jprp = \Jetpack_RelatedPosts::init();
+		$callback = array( $jprp, 'filter_add_target_to_dom' );
+
+		remove_filter( 'the_content', $callback, 40 );
+	}
+}
+
+/**
+ * Update the output of related posts
+ *
+ * @param string    $markup           HTML output of related posts.
+ * @param int|false $post_id          Post ID of the post for which we are retrieving related posts.
+ * @param array     $related_posts    Array of related posts.
+ * @param array     $block_attributes Array of block attributes.
+ */
+function jetpack_related_posts_display( $markup, $post_id, $related_posts, $block_attributes ) {
+	$ids = wp_list_pluck( $related_posts, 'id' );
+	ob_start();
+	?>
+<!-- wp:query {"queryId":2,"query":{"perPage":3,"include":<?php echo esc_attr( wp_json_encode( $ids ) ); ?>,"inherit":false},"align":"wide","layout":{"type":"constrained","wideSize":"1760px"}} -->
+<div class="wp-block-query alignwide">
+	<!-- wp:post-template {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","columnCount":3},"className":"wporg-related-posts"} -->
+		<!-- wp:wporg/site-screenshot {"isLink":true,"lazyLoad":true} /-->
+
+		<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+		<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--10)">
+			<!-- wp:post-title {"isLink":true,"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"400","lineHeight":"inherit"}},"fontSize":"normal","fontFamily":"inter"} /-->
+
+			<!-- wp:post-terms {"term":"post_tag"} /-->
+		</div>
+		<!-- /wp:group -->
+	<!-- /wp:post-template -->
+</div>
+<!-- /wp:query -->
+	<?php
+	$markup = do_blocks( ob_get_clean() );
+	return $markup;
+}
+
+/**
+ * Add fallback posts when less than 3 related sites are found.
+ *
+ * The fallback is up to 3 recent featured sites, rather than trying to
+ * conditionally find other posts by tag/category/etc. This ensures there
+ * are always results.
+ *
+ * @param array $results Array of related posts matched by Elasticsearch.
+ * @param int   $post_id Post ID of the post for which we are retrieving Related Posts.
+ */
+function jetpack_related_posts_results( $results, $post_id ) {
+	// The class should exist if this filter is called, but check just in case.
+	if ( ! class_exists( 'Jetpack_RelatedPosts' ) ) {
+		return $results;
+	}
+	$count = count( $results );
+	if ( $count < 3 ) {
+		$args = array(
+			'numberposts' => 3 - $count, // Only grab enough to fill 3 slots.
+			'exclude' => [ $post_id ],
+			'category' => 'featured',
+		);
+		$posts = get_posts( $args );
+		if ( $posts ) {
+			$jprp = \Jetpack_RelatedPosts::init();
+			foreach ( $posts as $i => $featured_post ) {
+				$results[] = $jprp->get_related_post_data_for_post( $featured_post->ID, $i, $post_id );
+			}
+		}
+	}
+	return $results;
 }
