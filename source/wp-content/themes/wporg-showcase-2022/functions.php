@@ -279,7 +279,7 @@ function redirect_urls() {
 
 	if ( str_contains( strtolower( $pagename ), 'submit-a-wordpress-site' ) ) {
 		if ( ! is_user_logged_in() ) {
-			$template_slug = 'page-submit-auth';
+			$template_slug = 'page-log-in';
 
 			// This is returned by locate_block_template if not block template is found
 			$fallback = locate_template( dirname( __FILE__ ) . "/templates/$template_slug.html" );
