@@ -100,10 +100,37 @@ a:where(:not(.wp-element-button)):focus-visible {
 	}
 }
 
-/* Add block style. */
-.wp-block-spacer.has-dots-background {
-	background-image: url(../../images/dots.svg);
-	background-position: top center;
-	background-repeat: repeat-x;
-	background-size: auto;
+/* Update the background & text color on /thanks page. */
+body.page-template-page-submit-confirmation .wp-site-blocks {
+	background: var(--wp--preset--color--charcoal-1);
+	color: var(--wp--preset--color--white);
+
+	/* Hide the site title on small screens, title appears in local nav. */
+	@media (max-width: 599px) {
+		.wp-block-spacer.has-dark-dots-background {
+			margin-bottom: -30px !important;
+		}
+	}
+}
+
+/* Add background to spacers. These are custom classes, not attached as block styles. */
+.wp-block-spacer {
+	&.has-dots-background,
+	&.has-dark-dots-background {
+		background-position: top center;
+		background-repeat: repeat-x;
+		background-size: auto;
+	}
+
+	&.has-dots-background {
+		background-image: url(../../images/dots-banner.svg);
+	}
+
+	&.has-red-dots-background {
+		background-image: url(../../images/dots-red-banner.svg);
+	}
+
+	&.has-dark-dots-background {
+		background-image: url(../../images/dots-dark-banner.svg);
+	}
 }
