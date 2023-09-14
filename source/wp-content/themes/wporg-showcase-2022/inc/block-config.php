@@ -225,12 +225,12 @@ function add_site_navigation_menus( $menus ) {
 	return array(
 		'showcase' => array(
 			array(
-				'label' => __( 'All sites', 'wporg' ),
-				'url' => '/archives/',
-			),
-			array(
 				'label' => __( 'Submit a site', 'wporg' ),
 				'url' => '/submit-a-wordpress-site/',
+			),
+			array(
+				'label' => __( 'View all sites', 'wporg' ),
+				'url' => '/archives/',
 			),
 		),
 	);
