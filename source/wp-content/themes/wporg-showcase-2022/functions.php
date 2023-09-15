@@ -29,6 +29,7 @@ add_action( 'wp', __NAMESPACE__ . '\jetpack_remove_rp', 20 );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 add_filter( 'jetpack_related_posts_display_markup', __NAMESPACE__ . '\jetpack_related_posts_display', 10, 4 );
 add_filter( 'jetpack_relatedposts_returned_results', __NAMESPACE__ . '\jetpack_related_posts_results', 10, 2 );
+add_filter( 'grunion_contact_form_redirect_url', __NAMESPACE__ . '\jetpack_redirect_submission_form' );
 
 // Don't send an email on contact for submission.
 add_filter( 'grunion_should_send_email', '__return_false' );
@@ -515,4 +516,19 @@ function jetpack_related_posts_results( $results, $post_id ) {
 		}
 	}
 	return $results;
+}
+
+/**
+ * If the destination starts with a slash, assume it should be site-relative
+ * and wrap it in `home_url`.
+ *
+ * @param string $redirect Post submission URL.
+ *
+ * @return string Possibly updated URL.
+ */
+function jetpack_redirect_submission_form( $redirect ) {
+	if ( str_starts_with( $redirect, '/' ) ) {
+		return home_url( $redirect );
+	}
+	return $redirect;
 }
