@@ -30,8 +30,10 @@ add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_imag
 add_filter( 'jetpack_related_posts_display_markup', __NAMESPACE__ . '\jetpack_related_posts_display', 10, 4 );
 add_filter( 'jetpack_relatedposts_returned_results', __NAMESPACE__ . '\jetpack_related_posts_results', 10, 2 );
 
-// Don't send an email on contact for submission
+// Don't send an email on contact for submission.
 add_filter( 'grunion_should_send_email', '__return_false' );
+// Enable auto-fill using user information.
+add_filter( 'jetpack_auto_fill_logged_in_user', '__return_true' );
 
 /**
  * Enqueue scripts and styles.
