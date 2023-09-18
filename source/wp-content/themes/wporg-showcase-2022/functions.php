@@ -29,9 +29,12 @@ add_action( 'wp', __NAMESPACE__ . '\jetpack_remove_rp', 20 );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 add_filter( 'jetpack_related_posts_display_markup', __NAMESPACE__ . '\jetpack_related_posts_display', 10, 4 );
 add_filter( 'jetpack_relatedposts_returned_results', __NAMESPACE__ . '\jetpack_related_posts_results', 10, 2 );
+add_filter( 'grunion_contact_form_redirect_url', __NAMESPACE__ . '\jetpack_redirect_submission_form' );
 
-// Don't send an email on contact for submission
+// Don't send an email on contact for submission.
 add_filter( 'grunion_should_send_email', '__return_false' );
+// Enable auto-fill using user information.
+add_filter( 'jetpack_auto_fill_logged_in_user', '__return_true' );
 
 /**
  * Enqueue scripts and styles.
@@ -279,7 +282,7 @@ function redirect_urls() {
 
 	if ( str_contains( strtolower( $pagename ), 'submit-a-wordpress-site' ) ) {
 		if ( ! is_user_logged_in() ) {
-			$template_slug = 'page-submit-auth';
+			$template_slug = 'page-log-in';
 
 			// This is returned by locate_block_template if not block template is found
 			$fallback = locate_template( dirname( __FILE__ ) . "/templates/$template_slug.html" );
@@ -513,4 +516,19 @@ function jetpack_related_posts_results( $results, $post_id ) {
 		}
 	}
 	return $results;
+}
+
+/**
+ * If the destination starts with a slash, assume it should be site-relative
+ * and wrap it in `home_url`.
+ *
+ * @param string $redirect Post submission URL.
+ *
+ * @return string Possibly updated URL.
+ */
+function jetpack_redirect_submission_form( $redirect ) {
+	if ( str_starts_with( $redirect, '/' ) ) {
+		return home_url( $redirect );
+	}
+	return $redirect;
 }

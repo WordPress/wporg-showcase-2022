@@ -34,5 +34,12 @@
 				}
 			}
 		}
-	}
+	},
+	"customTemplates": [
+		{
+			"name": "page-submit",
+			"title": "Submission Page",
+			"postTypes": [ "page" ]
+		}
+	]
 }
