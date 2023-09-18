@@ -23,8 +23,8 @@
 		<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","flexWrap":"nowrap"},"className":"wporg-query-filters"} -->
 		<div class="wp-block-group wporg-query-filters">
 			<!-- wp:wporg/query-filter {"key":"post_tag"} /-->
-			<!-- wp:wporg/query-filter {"key":"flavor"} /-->
 			<!-- wp:wporg/query-filter {"key":"category"} /-->
+			<!-- wp:wporg/query-filter {"key":"flavor"} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>
