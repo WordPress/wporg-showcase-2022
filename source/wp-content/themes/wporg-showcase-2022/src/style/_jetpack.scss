@@ -21,7 +21,21 @@
 .wp-block-jetpack-contact-form input[type="text"],
 .wp-block-jetpack-contact-form input[type="url"],
 .wp-block-jetpack-contact-form textarea {
-	padding: calc(var(--wp--custom--form--padding) / 2) var(--wp--custom--form--padding) !important;
+	padding-inline: var(--wp--custom--form--padding--inline) !important;
+	padding-block: var(--wp--custom--form--padding--block) !important;
 	border: 1px solid var(--wp--preset--color--charcoal-5) !important;
 	border-radius: var(--wp--custom--form--border--radius);
+
+	&:focus {
+		outline: 1.5px solid var(--wp--preset--color--blueberry-1);
+		outline-offset: -1.5px;
+	}
+}
+
+.wp-block-jetpack-contact-form input[type="checkbox"],
+.wp-block-jetpack-contact-form input[type="radio"] {
+	&:focus {
+		outline: 1.5px solid var(--wp--preset--color--blueberry-1);
+		outline-offset: -1.5px;
+	}
 }
