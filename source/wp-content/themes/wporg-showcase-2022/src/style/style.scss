@@ -65,6 +65,7 @@ a:where(:not(.wp-element-button)):focus-visible {
 .wp-block-query .is-layout-grid {
 	.wp-block-post-title {
 		flex-shrink: 0;
+		max-width: 100%;
 	}
 
 	.wp-block-post-terms {
@@ -90,6 +91,15 @@ a:where(:not(.wp-element-button)):focus-visible {
 	.wp-block-post-template.is-layout-grid.columns-3 {
 		grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
 	}
+}
+
+.wp-block-search {
+	max-width: 100%;
+}
+
+.wporg-query-filters {
+	overflow-y: scroll;
+	max-width: 100%;
 }
 
 /* Page footer */

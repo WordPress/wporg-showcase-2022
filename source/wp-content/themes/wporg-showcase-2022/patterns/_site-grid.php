@@ -14,8 +14,8 @@
 	<div class="wp-block-group alignwide">
 		<!-- wp:search {"showLabel":false,"placeholder":"<?php esc_html_e( 'Search sites…', 'wporg' ); ?>","width":100,"widthUnit":"%","buttonText":"<?php esc_html_e( 'Search', 'wporg' ); ?>","buttonPosition":"button-inside","buttonUseIcon":true} /-->
 
-		<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-		<div class="wp-block-group">
+		<!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","flexWrap":"nowrap"},"className":"wporg-query-filters"} -->
+		<div class="wp-block-group wporg-query-filters">
 			<!-- wp:wporg/query-filter {"key":"post_tag"} /-->
 			<!-- wp:wporg/query-filter {"key":"flavor"} /-->
 			<!-- wp:wporg/query-filter {"key":"category"} /-->
