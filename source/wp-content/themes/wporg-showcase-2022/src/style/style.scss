@@ -103,9 +103,12 @@ a:where(:not(.wp-element-button)):focus-visible {
 	max-width: 100%;
 }
 
-.wporg-query-filters {
-	overflow-y: scroll;
-	max-width: 100%;
+/* Scroll the filter bar smaller screens. */
+@media (max-width: 889px) {
+	.wporg-query-filters {
+		overflow-y: scroll;
+		max-width: 100%;
+	}
 }
 
 /* Page footer */
