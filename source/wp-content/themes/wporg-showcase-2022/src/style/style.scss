@@ -15,17 +15,23 @@ a:where(:not(.wp-element-button)):focus-visible {
 
 /* Site Hero section */
 .is-section-site-hero {
-	.wp-block-cover__image-background {
-		background-size: clamp(50px, 4vw, 100px);
-	}
-
 	.wp-block-column + .wp-block-column {
 		align-self: stretch;
 		display: flex;
 	}
 
 	.wp-block-cover {
-		align-self: stretch;
+		align-self: flex-end;
+		min-height: 0 !important;
+	}
+
+	@media (min-width: 1180px) {
+		.wp-block-cover__image-background {
+			object-fit: fill;
+			object-position: center bottom !important;
+			top: auto;
+			height: auto;
+		}
 	}
 
 	/* Switch down to one column when image gets squished. */
