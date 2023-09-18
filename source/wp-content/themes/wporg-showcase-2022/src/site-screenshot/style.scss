@@ -57,4 +57,8 @@
 	&.is-size-desktop img {
 		aspect-ratio: 535 / 300;
 	}
+
+	&.is-size-mobile img {
+		aspect-ratio: 375 / 600;
+	}
 }
