@@ -51,11 +51,11 @@
 	<!-- /wp:post-template -->
 
 	<!-- wp:query-pagination {"layout":{"type":"flex","justifyContent":"center"}} -->
-		<!-- wp:query-pagination-previous /-->
+		<!-- wp:query-pagination-previous {"label":"<?php esc_attr_e( 'Previous', 'wporg' ); ?>"} /-->
 
 		<!-- wp:query-pagination-numbers /-->
 
-		<!-- wp:query-pagination-next /-->
+		<!-- wp:query-pagination-next {"label":"<?php esc_attr_e( 'Next', 'wporg' ); ?>"} /-->
 	<!-- /wp:query-pagination -->
 
 	<!-- wp:query-no-results -->
