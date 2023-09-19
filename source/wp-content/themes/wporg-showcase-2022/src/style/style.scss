@@ -120,6 +120,26 @@ a:where(:not(.wp-element-button)):focus-visible {
 	max-width: 100%;
 }
 
+/* Shrink the arrow to prevent early text wrapping. */
+.is-style-with-arrow a[href]:first-of-type::after {
+	min-width: 1.5em !important;
+}
+
+/* Adjust the translation when `edge-space` switches down to 20px. */
+@media (max-width: 889px) {
+	.is-style-with-arrow a[href]:first-of-type:hover::before,
+	.is-style-with-arrow a[href]:first-of-type:focus::before,
+	.is-style-with-arrow a[href]:first-of-type:focus-within::before {
+		transform: translateX(10px) rotate(45deg) !important;
+	}
+
+	.is-style-with-arrow a[href]:first-of-type:hover::after,
+	.is-style-with-arrow a[href]:first-of-type:focus::after,
+	.is-style-with-arrow a[href]:first-of-type:focus-within::after {
+		transform: translateX(10px) !important;
+	}
+}
+
 /* Scroll the filter bar smaller screens. */
 @media (max-width: 889px) {
 	.wporg-query-filters {
