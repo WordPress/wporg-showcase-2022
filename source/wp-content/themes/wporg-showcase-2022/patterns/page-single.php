@@ -33,8 +33,8 @@
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}}} -->
-			<p style="margin-top:var(--wp--preset--spacing--30)"><a href="<?php echo esc_url( home_url( '/tags/' ) ); ?>"><?php _e( 'View all tags', 'wporg' ); ?></a></p>
+			<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}},"className":"has-link-no-underline"} -->
+			<p class="has-link-no-underline" style="margin-top:var(--wp--preset--spacing--30)"><a href="<?php echo esc_url( home_url( '/tags/' ) ); ?>"><?php _e( 'View all tags', 'wporg' ); ?></a></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:column -->
