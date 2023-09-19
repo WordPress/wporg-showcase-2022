@@ -378,7 +378,7 @@ function document_title_separator( $title ) {
  * Add meta tags for richer social media integrations.
  */
 function add_social_meta_tags() {
-	$default_image = get_stylesheet_directory_uri() . '/images/social-image.jpg';
+	$default_image = get_stylesheet_directory_uri() . '/images/social-image.png';
 	$site_title    = function_exists( '\WordPressdotorg\site_brand' ) ? \WordPressdotorg\site_brand() : 'WordPress.org';
 	$og_fields = [
 		'og:title'       => wp_get_document_title(),
