@@ -4,6 +4,7 @@
 	border-style: solid;
 	border-color: var(--wp--custom--wporg-site-screenshot--border--color);
 	border-radius: var(--wp--custom--wporg-site-screenshot--border--radius);
+	transition: border-color 0.2s ease-in-out;
 
 	&:where(.is-linked-image):hover,
 	&:where(.is-linked-image):focus-within {
