@@ -15,6 +15,10 @@ a:where(:not(.wp-element-button)):focus-visible {
 
 /* Site Hero section */
 .is-section-site-hero {
+	// This value has been calculated to center the dots as the background scales up/down.
+	// It does not need a minimum, because the media query kicks in.
+	--wporg-site-hero--offset: clamp(0px, calc(7.6vw + -38px), 108px);
+
 	.wp-block-column + .wp-block-column {
 		align-self: stretch;
 		display: flex;
@@ -23,28 +27,57 @@ a:where(:not(.wp-element-button)):focus-visible {
 	.wp-block-cover {
 		align-self: flex-end;
 		min-height: 0 !important;
+		padding: 0 !important;
+		width: 100% !important;
 	}
 
 	@media (min-width: 1180px) {
+		.wp-block-cover {
+			aspect-ratio: 1010/530;
+			overflow: hidden;
+		}
+
 		.wp-block-cover__image-background {
-			object-fit: fill;
-			object-position: center bottom !important;
-			top: auto;
-			height: auto;
+			height: auto !important;
+		}
+
+		.wp-block-cover__inner-container {
+			position: absolute !important;
+			top: var(--wporg-site-hero--offset);
+			right: var(--wporg-site-hero--offset);
+			left: var(--wporg-site-hero--offset);
 		}
 	}
 
 	/* Switch down to one column when image gets squished. */
 	@media (max-width: 1179px) {
+		--wporg-site-hero--offset: #{88px * 0.6};
+
 		.wp-block-columns {
 			flex-direction: column;
 			gap: 0;
+		}
+
+		.wp-block-wporg-site-meta-list {
+			margin-bottom: 0 !important;
 		}
 
 		.wp-block-cover {
 			padding-left: 0 !important;
 			padding-right: 0 !important;
 			min-height: 0 !important;
+		}
+
+		.wp-block-cover__image-background {
+			display: none;
+		}
+
+		.wp-block-cover__inner-container {
+			padding-top: var(--wporg-site-hero--offset);
+			background-image: url(../../images/dots-hero.svg);
+			background-size: #{1157px * 0.6};
+			background-position: top center;
+			background-repeat: repeat-x;
 		}
 	}
 

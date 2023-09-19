@@ -13,8 +13,8 @@
 	<!-- wp:post-template -->
 		<!-- wp:columns {"style":{"spacing":{"blockGap":{"top":"var:preset|spacing|30","left":"var:preset|spacing|50"}}}} -->
 		<div class="wp-block-columns">
-			<!-- wp:column {"width":"24%"} -->
-			<div class="wp-block-column" style="flex-basis:24%">
+			<!-- wp:column {"width":"280px"} -->
+			<div class="wp-block-column" style="flex-basis:280px">
 				<!-- wp:group {"layout":{"type":"default"}} -->
 				<div class="wp-block-group">
 					<!-- wp:spacer {"height":"var:preset|spacing|50"} -->
@@ -25,11 +25,11 @@
 					<h1 class="wp-block-heading has-heading-2-font-size" style="margin-top:0"><?php esc_html_e( 'Showcase', 'wporg' ); ?></h1>
 					<!-- /wp:heading -->
 
-					<!-- wp:paragraph {style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}}} -->
-					<p style="margin-top:var(--wp--preset--spacing--10)"><?php esc_html_e( 'Star-studded sites built with WordPress', 'wporg' ); ?></p>
+					<!-- wp:paragraph {"fontSize":"small",style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}}} -->
+					<p class="has-small-font-size" style="margin-top:var(--wp--preset--spacing--10)"><?php esc_html_e( 'Star-studded sites built with WordPress', 'wporg' ); ?></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:wporg/site-meta-list {"meta":["post_title","domain","category"],"showLabel":false,"style":{"elements":{"link":{"color":{"text":"var:preset|color|blueberry-2"}}},"border":{"radius":"2px","style":"solid","width":"1px"},"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"borderColor":"charcoal-3","textColor":"light-grey-2"} /-->
+					<!-- wp:wporg/site-meta-list {"meta":["post_title","domain","category"],"showLabel":false,"fontSize":"small","style":{"elements":{"link":{"color":{"text":"var:preset|color|blueberry-2"}}},"border":{"radius":"2px","style":"solid","width":"1px"},"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"borderColor":"charcoal-3","textColor":"light-grey-2"} /-->
 				</div>
 				<!-- /wp:group -->
 			</div>
@@ -37,10 +37,10 @@
 
 			<!-- wp:column {"verticalAlignment":"bottom"} -->
 			<div class="wp-block-column is-vertically-aligned-bottom">
-				<!-- wp:cover {"url":"<?php echo esc_url( get_theme_file_uri( 'images/dots-hero.svg' ) ); ?>","dimRatio":0,"focalPoint":{"x":0,"y":0},"minHeight":440,"contentPosition":"bottom center","style":{"spacing":{"padding":{"top":"70px","right":"70px","bottom":"0","left":"70px"}}},"layout":{"type":"constrained"}} -->
-				<div class="wp-block-cover has-custom-content-position is-position-bottom-center" style="padding-top:70px;padding-right:70px;padding-bottom:0;padding-left:70px;min-height:440px">
+				<!-- wp:cover {"url":"<?php echo esc_url( get_theme_file_uri( 'images/dots-hero.svg' ) ); ?>","dimRatio":0,"focalPoint":{"x":0,"y":0},"minHeight":440,"contentPosition":"bottom center","layout":{"type":"constrained"}} -->
+				<div class="wp-block-cover has-custom-content-position is-position-bottom-center" style="min-height:440px">
 					<span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span>
-					<img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( get_theme_file_uri( 'images/dots-hero.svg' ) ); ?>" style="object-position:0% 0%" data-object-fit="contain" data-object-position="0% 0%"/>
+					<img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( get_theme_file_uri( 'images/dots-hero.svg' ) . '?v=' . time() ); ?>" style="object-position:0% 0%" data-object-fit="contain" data-object-position="0% 0%"/>
 					<div class="wp-block-cover__inner-container">
 						<!-- wp:wporg/site-screenshot {"isLink":true} /-->
 					</div>

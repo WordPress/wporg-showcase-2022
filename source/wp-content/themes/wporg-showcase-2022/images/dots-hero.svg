@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1157" height="649" fill="none" viewBox="0 -10 1157 649">
+<svg xmlns="http://www.w3.org/2000/svg" width="1157" height="732" fill="none" viewBox="0 -10 1157 732">
   <style>circle { fill: #40464D; }</style>
   <circle cx="39" cy="34" r="4"/>
   <circle cx="122" cy="34" r="4"/>
@@ -28,4 +28,6 @@
   <circle cx="1118" cy="532" r="4"/>
   <circle cx="39" cy="615" r="4"/>
   <circle cx="1118" cy="615" r="4"/>
+  <circle cx="39" cy="698" r="4"/>
+  <circle cx="1118" cy="698" r="4"/>
 </svg>
