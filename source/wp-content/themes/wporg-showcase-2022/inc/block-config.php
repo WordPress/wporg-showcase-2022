@@ -22,6 +22,15 @@ add_filter( 'wporg_block_navigation_menus', __NAMESPACE__ . '\add_site_navigatio
  * @return string Updated string with total placeholder.
  */
 function update_query_total_label( $label, $found_posts ) {
+	if ( is_front_page() ) {
+		// Override the current query count, instead display the total number of posts.
+		// Note: This may be different than the result count on /archive/, because that
+		// includes private posts when the viewer can see them.
+		$counts = wp_count_posts( 'post' );
+
+		/* translators: %s: the result count. */
+		return sprintf( _n( '%s site', '%s sites', $counts->publish, 'wporg' ), $counts->publish );
+	}
 	/* translators: %s: the result count. */
 	return _n( '%s site', '%s sites', $found_posts, 'wporg' );
 }
