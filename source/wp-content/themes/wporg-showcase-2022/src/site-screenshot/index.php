@@ -149,6 +149,7 @@ function inject_background_color( $block_content, $block, $instance ) {
 	// Remove existing background if there is one.
 	$style = preg_replace( '/background-color:[^;]+;/', '', $style );
 	$style .= ';background-color:' . esc_attr( $color );
+	$style .= ';--wporg-site-screenshot--background-color:' . esc_attr( $color );
 	$html->set_attribute( 'style', $style );
 
 	return $html->get_updated_html();

@@ -30,6 +30,8 @@
 
 	.has-feature-color-background & {
 		flex: 1;
+		// This value is set if the current page has a custom feature color. Otherwise, use the fallback.
+		background-color: var(--wporg-site-screenshot--background-color, #f6f6f6);
 
 		&:first-child {
 			flex: 4;
@@ -61,5 +63,18 @@
 
 	&.is-size-mobile img {
 		aspect-ratio: 375 / 600;
+	}
+}
+
+.wp-block-group.has-feature-color-background > .wp-block-group {
+	// Scale 20px at 800 wide to 80px at 1200 wide.
+	gap: clamp(20px, calc(15vw + -100px), 80px);
+
+	@media (max-width: 781px) {
+		gap: 0;
+
+		.is-size-mobile {
+			margin-left: -20%;
+		}
 	}
 }
