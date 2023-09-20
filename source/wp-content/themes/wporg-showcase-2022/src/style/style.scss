@@ -31,6 +31,21 @@ a:where(:not(.wp-element-button)):focus-visible {
 		width: 100% !important;
 	}
 
+	// Handle the middle size between single-column view & correctly scaled desktop.
+	// 1280px is where the screenshot column shrinks smaller than the meta column.
+	// 1180px is the single column breakpoint.
+	@media (max-width: 1280px) and (min-width: 1180px) {
+		// Scale the spacing so that the site meta is always shorter than the framed
+		// screenshot. This ensures the header stays aligned with the frame dots.
+		.wp-block-wporg-site-meta-list {
+			margin-block: clamp(30px, calc(20vw + -206px), 50px) !important;
+
+			&.has-hidden-label li {
+				padding-block: clamp(14px, calc(6vw + -56.8px), 20px);
+			}
+		}
+	}
+
 	@media (min-width: 1180px) {
 		.wp-block-cover {
 			aspect-ratio: 1010/530;

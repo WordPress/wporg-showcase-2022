@@ -17,8 +17,8 @@
 			<div class="wp-block-column" style="flex-basis:280px">
 				<!-- wp:group {"layout":{"type":"default"}} -->
 				<div class="wp-block-group">
-					<!-- wp:spacer {"height":"var:preset|spacing|50"} -->
-					<div style="height:var(--wp--preset--spacing--50)" aria-hidden="true" class="wp-block-spacer"></div>
+					<!-- wp:spacer {"height":"clamp(10px, calc(5vw + -55px), 40px)"} -->
+					<div style="height:clamp(10px, calc(5vw + -55px), 40px)" aria-hidden="true" class="wp-block-spacer"></div>
 					<!-- /wp:spacer -->
 
 					<!-- wp:heading {"fontSize":"heading-2",style":{"spacing":{"margin":{"top":"0"}}}} -->

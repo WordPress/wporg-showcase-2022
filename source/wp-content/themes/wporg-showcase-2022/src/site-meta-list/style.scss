@@ -64,15 +64,11 @@
 
 	&.has-hidden-label {
 		li {
-			padding: var(--wp--preset--spacing--20) var(--wp--preset--spacing--30);
+			padding: clamp(10px, calc(1.7vw), 20px) clamp(20px, calc(1.7vw + 10px), 30px);
 
 			span {
 				margin-inline-start: unset;
 				text-align: left;
-			}
-
-			@media (max-width: 600px) {
-				padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
 			}
 		}
 	}
