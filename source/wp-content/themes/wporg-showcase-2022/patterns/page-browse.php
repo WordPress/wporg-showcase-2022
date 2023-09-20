@@ -46,7 +46,7 @@
 		<p><?php _e( 'Wonderful WordPress websites by tag.', 'wporg' ); ?></p>
 		<!-- /wp:paragraph -->
 		
-		<!-- wp:tag-cloud /-->
+		<!-- wp:wporg/tags-archive /-->
 	</div>
 	<!-- /wp:group -->
 </div>
