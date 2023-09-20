@@ -10,6 +10,7 @@ require_once __DIR__ . '/src/site-edit-link/index.php';
 require_once __DIR__ . '/src/site-link/index.php';
 require_once __DIR__ . '/src/site-meta-list/index.php';
 require_once __DIR__ . '/src/site-screenshot/index.php';
+require_once __DIR__ . '/src/tags-archive/index.php';
 require_once __DIR__ . '/src/term-grid/index.php';
 require_once __DIR__ . '/inc/shortcodes.php';
 require_once __DIR__ . '/inc/block-config.php';
