@@ -22,57 +22,7 @@ add_filter( 'render_block_core/group', __NAMESPACE__ . '\inject_background_color
  * @see https://developer.wordpress.org/reference/functions/register_block_type/
  */
 function init() {
-	register_block_type(
-		dirname( dirname( __DIR__ ) ) . '/build/site-screenshot',
-		array(
-			'render_callback' => __NAMESPACE__ . '\render',
-		)
-	);
-}
-
-/**
- * Render the block content.
- *
- * @param array    $attributes Block attributes.
- * @param string   $content    Block default content.
- * @param WP_Block $block      Block instance.
- *
- * @return string Returns the block markup.
- */
-function render( $attributes, $content, $block ) {
-	if ( ! isset( $block->context['postId'] ) ) {
-		return '';
-	}
-
-	$post_ID = $block->context['postId'];
-	$post = get_post( $post_ID );
-
-	$screenshot = get_site_screenshot_src( $post, $attributes['type'] );
-
-	$loading = 'eager';
-	if ( isset( $attributes['lazyLoad'] ) && true === $attributes['lazyLoad'] ) {
-		$loading = 'lazy';
-	}
-
-	$img_content = sprintf(
-		'<img src="%1$s" alt="%2$s" loading="%3$s" />',
-		esc_url( $screenshot ),
-		the_title_attribute( array( 'echo' => false ) ),
-		esc_attr( $loading )
-	);
-
-	$classname = 'is-size-' . esc_attr( $attributes['type'] );
-	if ( isset( $attributes['isLink'] ) && true == $attributes['isLink'] ) {
-		$img_content = '<a href="' . get_permalink( $post ) . '">' . $img_content . '</a>';
-		$classname .= ' is-linked-image';
-	}
-
-	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $classname ) );
-	return sprintf(
-		'<div %s>%s</div>',
-		$wrapper_attributes,
-		$img_content
-	);
+	register_block_type( dirname( dirname( __DIR__ ) ) . '/build/site-screenshot' );
 }
 
 /**
@@ -109,7 +59,7 @@ function get_site_screenshot_src( $post, $type = 'desktop' ) {
 				'vpw' => 'mobile' === $type ? 375 : 1920,
 				'vph' => 'mobile' === $type ? 667 : 1080,
 			),
-			'https://wordpress.com/mshots/v1/' . urlencode( $requested_url ),
+			'https://s0.wp.com/mshots/v1/' . urlencode( $requested_url ),
 		);
 	} elseif ( function_exists( 'jetpack_photon_url' ) ) {
 		// Use Jetpack cache for non mShot images
