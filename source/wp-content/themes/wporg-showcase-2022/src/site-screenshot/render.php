@@ -13,7 +13,8 @@ $current_post = get_post( $block->context['postId'] );
 $has_link = isset( $attributes['isLink'] ) && true == $attributes['isLink'];
 $is_lazyload = isset( $attributes['lazyLoad'] ) && true === $attributes['lazyLoad'];
 
-$screenshot = get_site_screenshot_src( $current_post, $attributes['type'] );
+$img_size = ( 'desktop' === $attributes['type'] ) ? 'screenshot-desktop' : 'screenshot-mobile';
+$screenshot = get_site_screenshot_src( $current_post, $attributes['type'], $img_size );
 $is_mshots = str_contains( $screenshot, 'mshots' );
 
 $classname = 'is-size-' . esc_attr( $attributes['type'] );

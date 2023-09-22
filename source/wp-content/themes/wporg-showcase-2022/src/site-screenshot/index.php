@@ -30,14 +30,14 @@ function init() {
  *
  * @param WP_Post $post
  * @param string  $type
+ * @param string  $size
  * @return string
  */
-function get_site_screenshot_src( $post, $type = 'desktop' ) {
+function get_site_screenshot_src( $post, $type = 'desktop', $size = 'screenshot-desktop' ) {
 	$screenshot_url = false;
 	$media_id = get_post_meta( $post->ID, 'screenshot-' . $type, true );
 	$cache_key = '20230913'; // To break out of cached image.
 
-	$size = 'screenshot-' . $type;
 	$all_sizes = wp_get_registered_image_subsizes();
 	if ( ! isset( $all_sizes[ $size ] ) ) {
 		return null;
