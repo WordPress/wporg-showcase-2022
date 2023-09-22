@@ -96,11 +96,10 @@
 			height: var(--wporg-site-screenshot--loader--size);
 			width: var(--wporg-site-screenshot--loader--size);
 			border: calc(var(--wporg-site-screenshot--loader--size) * 0.1) solid;
-			border-left-width: 0;
 			border-color:
 				var(--wp--custom--wporg-site-screenshot--border--color)
 				var(--wp--custom--wporg-site-screenshot--border--color)
-				transparent;
+				var(--wp--custom--link--color--text);
 			border-radius: 50%;
 			animation: rotate-360 1.4s linear infinite;
 		}
