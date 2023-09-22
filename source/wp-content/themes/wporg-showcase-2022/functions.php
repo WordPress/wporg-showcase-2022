@@ -62,6 +62,17 @@ function setup_theme() {
 	add_image_size( 'screenshot-desktop', 2044, 1150, array( 'center', 'top' ) );
 	add_image_size( 'screenshot-mobile', 750, 1334, array( 'center', 'top' ) );
 
+	// More desktop sizes to support responsive images in the grid.
+	// In production these will be generated using Photon CDN, but we can set
+	// them up as real sizes for local support too.
+	// Images in the grid are display from 340-740px wide. This set of sizes
+	// should cover 1x and 2x resolution.
+	$desktop_ratio = 1150 / 2044;
+	add_image_size( 'screenshot-desktop-1400', 1400, 1400 * $desktop_ratio, array( 'center', 'top' ) );
+	add_image_size( 'screenshot-desktop-1100', 1100, 1100 * $desktop_ratio, array( 'center', 'top' ) );
+	add_image_size( 'screenshot-desktop-800', 800, 800 * $desktop_ratio, array( 'center', 'top' ) );
+	add_image_size( 'screenshot-desktop-500', 500, 500 * $desktop_ratio, array( 'center', 'top' ) );
+
 	// Add tonesque support so that Jetpack loads the class.
 	add_theme_support( 'tonesque' );
 
