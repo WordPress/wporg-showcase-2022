@@ -22,6 +22,36 @@ if ( $has_link ) {
 	$classname .= ' is-linked-image';
 }
 
+// If the block needs responsive images, set up more image URLs & sizes attribute.
+if ( ! $is_mshots && $attributes['useResponsive'] ) {
+	// The default image is full-size, so it can be used for the largest image.
+	$screenshot_large = $screenshot;
+	$screenshot_small = get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-small' );
+	// This size is optimized for the static grid display (533x300).
+	$screenshot = get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-grid' );
+
+	$screenshot_srcset = get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-500' ) . ' 500w, ';
+	$screenshot_srcset .= get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-800' ) . ' 800w, ';
+	$screenshot_srcset .= get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-1100' ) . ' 1100w, ';
+	$screenshot_srcset .= get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-1400' ) . ' 1400w';
+
+	// Set up the sizes attribute. The value here should reflect the width of
+	// the column, i.e., the displayed with of the image.
+	// On very large screens, columns are a fixed size.
+	$sizes = '(min-width: 1920px) 533px,';
+	// Handle dynamic column sizes. This math is not really reflective of the
+	// layout, but it works well. Real math would be tricky due to the scaling
+	// column gap value (--wp--preset--spacing--40).
+	// See https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html/#aa-being-more-chill-about-sizes
+	$sizes .= '(min-width: 1601px) calc(25vw + 30px),';
+	// Now two columns, again the math is a little handwaved due to scaling
+	// variables.
+	$sizes .= '(min-width: 801px) calc(50vw - 125px),';
+	// One column—this one's actually accurate! At one column, we only need to
+	// account for site padding & border width.
+	$sizes .= 'calc(100vw - 60px)';
+}
+
 // Initial state to pass to Interactivity API.
 // This handles the image data (used to load image from mshots) and current
 // state information (like errors).
@@ -57,6 +87,10 @@ $encoded_state = wp_json_encode( [ 'wporg' => [ 'showcase' => [ 'screenshot' => 
 	<?php else : ?>
 		<img
 			src="<?php echo esc_url( $screenshot ); ?>"
+			<?php if ( ! $is_mshots && $attributes['useResponsive'] ) : ?>
+				srcset="<?php echo esc_attr( $screenshot_srcset ); ?>"
+				sizes="<?php echo esc_attr( $sizes ); ?>"
+			<?php endif; ?>
 			alt="<?php echo the_title_attribute( array( 'echo' => false ) ); ?>"
 			loading="<?php echo $is_lazyload ? 'lazy' : 'eager'; ?>"
 		/>

@@ -21,6 +21,10 @@
 			"type": "string",
 			"default": "desktop",
 			"enum": [ "desktop", "mobile" ]
+		},
+		"useResponsive": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"supports": {
