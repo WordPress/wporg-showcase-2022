@@ -31,8 +31,8 @@ sort( $alphabet );
 >
 <?php foreach ( $alphabet as $letter ) : ?>
 	<div class="wporg-tags-archive__row">
-		<h2><?php echo esc_html( $letter ); ?></h2>
-		<ul>
+		<h3 class="wporg-tags-archive__letter"><?php echo esc_html( $letter ); ?></h3>
+		<ul class="wporg-tags-archive__list">
 		<?php foreach ( $by_alphabet[ $letter ] as $_term ) : ?>
 			<li>
 				<a href="<?php echo esc_url( get_term_link( $_term ) ); ?>">
