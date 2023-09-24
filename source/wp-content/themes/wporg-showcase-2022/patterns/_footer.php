@@ -20,8 +20,8 @@
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
-			<!-- wp:button {"className":"is-style-outline-on-dark"} -->
-			<div class="wp-block-button is-style-outline-on-dark"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( __( 'https://wordpress.org/download/', 'wporg' ) ); ?>"><?php _e( 'Get WordPress', 'wporg' ); ?></a></div>
+			<!-- wp:button -->
+			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( __( 'https://wordpress.org/download/', 'wporg' ) ); ?>"><?php _e( 'Get WordPress', 'wporg' ); ?></a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
@@ -40,8 +40,8 @@
 
 		<!-- wp:buttons -->
 		<div class="wp-block-buttons">
-			<!-- wp:button -->
-			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/submit-a-wordpress-site/' ) ); ?>"><?php _e( 'Submit a site', 'wporg' ); ?></a></div>
+			<!-- wp:button {"className":"is-style-outline-on-dark"} -->
+			<div class="wp-block-button is-style-outline-on-dark"><a class="wp-block-button__link wp-element-button" href="<?php echo esc_url( home_url( '/submit-a-wordpress-site/' ) ); ?>"><?php _e( 'Submit a site', 'wporg' ); ?></a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
