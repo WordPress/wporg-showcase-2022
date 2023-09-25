@@ -22,14 +22,11 @@ if ( $has_link ) {
 	$classname .= ' is-linked-image';
 }
 
-// If the block needs responsive images, set up more image URLs & sizes attribute.
-if ( ! $is_mshots && $attributes['useResponsive'] ) {
-	// The default image is full-size, so it can be used for the largest image.
-	$screenshot_large = $screenshot;
-	$screenshot_small = get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-small' );
-	// This size is optimized for the static grid display (533x300).
-	$screenshot = get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-grid' );
+$has_responsive_images = ! $is_mshots && 'desktop' === $attributes['type'] && ( 'grid' === $attributes['location'] || 'row' === $attributes['location'] );
 
+// If the block needs responsive images, set up more image URLs & sizes attribute.
+if ( $has_responsive_images ) {
+	$screenshot = get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-1100' );
 	$screenshot_srcset = get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-500' ) . ' 500w, ';
 	$screenshot_srcset .= get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-800' ) . ' 800w, ';
 	$screenshot_srcset .= get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-1100' ) . ' 1100w, ';
@@ -43,10 +40,13 @@ if ( ! $is_mshots && $attributes['useResponsive'] ) {
 	// layout, but it works well. Real math would be tricky due to the scaling
 	// column gap value (--wp--preset--spacing--40).
 	// See https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html/#aa-being-more-chill-about-sizes
-	$sizes .= '(min-width: 1601px) calc(25vw + 30px),';
-	// Now two columns, again the math is a little handwaved due to scaling
-	// variables.
-	$sizes .= '(min-width: 801px) calc(50vw - 125px),';
+	if ( 'grid' === $attributes['location'] ) {
+		$sizes .= '(min-width: 1601px) calc(25vw + 30px),';
+		$sizes .= '(min-width: 801px) calc(50vw - 125px),';
+	} else {
+		// In "row", this stays 3-column until flipping to one-column.
+		$sizes .= '(min-width: 801px) calc(25vw + 30px),';
+	}
 	// One column—this one's actually accurate! At one column, we only need to
 	// account for site padding & border width.
 	$sizes .= 'calc(100vw - 60px)';
@@ -87,7 +87,7 @@ $encoded_state = wp_json_encode( [ 'wporg' => [ 'showcase' => [ 'screenshot' => 
 	<?php else : ?>
 		<img
 			src="<?php echo esc_url( $screenshot ); ?>"
-			<?php if ( ! $is_mshots && $attributes['useResponsive'] ) : ?>
+			<?php if ( $has_responsive_images ) : ?>
 				srcset="<?php echo esc_attr( $screenshot_srcset ); ?>"
 				sizes="<?php echo esc_attr( $sizes ); ?>"
 			<?php endif; ?>

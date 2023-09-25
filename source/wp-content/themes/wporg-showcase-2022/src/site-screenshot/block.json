@@ -22,9 +22,10 @@
 			"default": "desktop",
 			"enum": [ "desktop", "mobile" ]
 		},
-		"useResponsive": {
-			"type": "boolean",
-			"default": false
+		"location": {
+			"type": "string",
+			"default": "grid",
+			"enum": [ "grid", "hero", "header", "row" ]
 		}
 	},
 	"supports": {
