@@ -37,11 +37,7 @@
 		<!-- wp:spacer {"height":"60px","className":"has-dots-background"} -->
 		<div style="height:60px" aria-hidden="true" class="wp-block-spacer has-dots-background"></div>
 		<!-- /wp:spacer -->
-	</div>
-	<!-- /wp:group -->
 
-	<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"layout":{"type":"default"}} -->
-	<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--50)">
 		<!-- wp:heading {"level":2,"style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"fontSize":"normal","fontFamily":"inter"} -->
 		<h2 class="wp-block-heading has-inter-font-family has-normal-font-size" style="font-style:normal;font-weight:400"><?php _e( 'Wonderful WordPress websites by tag', 'wporg' ); ?></h2>
 		<!-- /wp:heading -->
