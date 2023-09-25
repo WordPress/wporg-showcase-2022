@@ -47,6 +47,8 @@
 	}
 
 	.is-section-site-hero & {
+		--wp--custom--wporg-site-screenshot--border--width: clamp(10px, calc(1.33vw - 1.33px), 20px);
+		--wp--custom--wporg-site-screenshot--border--radius: calc(clamp(10px, calc(1.33vw - 1.33px), 20px) * 2);
 		--wp--custom--wporg-site-screenshot--border--color: var(--wp--preset--color--charcoal-2);
 		max-width: none;
 	}
