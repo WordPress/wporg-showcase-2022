@@ -36,14 +36,6 @@
 		&:first-child {
 			flex: 4;
 		}
-
-		&.is-size-desktop .wporg-site-screenshot__loader {
-			--wporg-site-screenshot--loader--size: 100px;
-		}
-
-		&.is-size-mobile .wporg-site-screenshot__loader {
-			--wporg-site-screenshot--loader--size: 40px;
-		}
 	}
 
 	.is-section-site-hero & {
@@ -85,7 +77,6 @@
 	}
 
 	.wporg-site-screenshot__loader {
-		--wporg-site-screenshot--loader--size: 40px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -95,9 +86,9 @@
 			content: "";
 			display: inline-block;
 			box-sizing: border-box;
-			height: var(--wporg-site-screenshot--loader--size);
-			width: var(--wporg-site-screenshot--loader--size);
-			border: calc(var(--wporg-site-screenshot--loader--size) * 0.1) solid;
+			height: 16px;
+			width: 16px;
+			border: 1.5px solid;
 			border-color:
 				var(--wp--custom--wporg-site-screenshot--border--color)
 				var(--wp--custom--wporg-site-screenshot--border--color)
