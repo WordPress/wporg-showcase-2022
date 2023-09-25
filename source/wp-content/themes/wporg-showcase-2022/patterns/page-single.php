@@ -29,12 +29,12 @@
 				<h2 class="wp-block-heading screen-reader-text"><?php esc_attr_e( 'More about this site', 'wporg' ); ?></h2>
 				<!-- /wp:heading -->
 
-				<!-- wp:wporg/site-meta-list {"meta":["author","country","category","flavor","published","post_tag"],"style":{"border":{"radius":"2px","style":"solid","width":"1px"}},"borderColor":"light-grey-1"} /-->
+				<!-- wp:wporg/site-meta-list {"meta":["author","country","category","flavor","published","post_tag"],"fontSize":"small","style":{"border":{"radius":"2px","style":"solid","width":"1px"}},"borderColor":"light-grey-1"} /-->
 			</div>
 			<!-- /wp:group -->
 
-			<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|30"}}},"className":"has-link-no-underline"} -->
-			<p class="has-link-no-underline" style="margin-top:var(--wp--preset--spacing--30)"><a href="<?php echo esc_url( home_url( '/browse/' ) ); ?>"><?php _e( 'View all tags', 'wporg' ); ?></a></p>
+			<!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20"}}},"className":"has-link-no-underline"} -->
+			<p class="has-link-no-underline" style="margin-top:var(--wp--preset--spacing--20)"><a href="<?php echo esc_url( home_url( '/browse/' ) ); ?>"><?php _e( 'View all tags', 'wporg' ); ?></a></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:column -->
