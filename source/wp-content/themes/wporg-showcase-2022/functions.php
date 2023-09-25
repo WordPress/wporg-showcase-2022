@@ -481,7 +481,7 @@ function jetpack_related_posts_display( $markup, $post_id, $related_posts, $bloc
 <!-- wp:query {"queryId":2,"query":{"perPage":3,"include":<?php echo esc_attr( wp_json_encode( $ids ) ); ?>,"inherit":false},"align":"wide","layout":{"type":"constrained","wideSize":"1760px"}} -->
 <div class="wp-block-query alignwide">
 	<!-- wp:post-template {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","columnCount":3},"className":"wporg-related-posts"} -->
-		<!-- wp:wporg/site-screenshot {"isLink":true,"lazyLoad":true} /-->
+		<!-- wp:wporg/site-screenshot {"isLink":true,"lazyLoad":true,"location":"row"} /-->
 
 		<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 		<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--10)">

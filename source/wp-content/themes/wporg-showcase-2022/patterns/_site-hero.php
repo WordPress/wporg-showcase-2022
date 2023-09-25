@@ -42,7 +42,7 @@
 					<span aria-hidden="true" class="wp-block-cover__background has-background-dim-0 has-background-dim"></span>
 					<img class="wp-block-cover__image-background" alt="" src="<?php echo esc_url( get_theme_file_uri( 'images/dots-hero.svg' ) . '?v=' . time() ); ?>" style="object-position:0% 0%" data-object-fit="contain" data-object-position="0% 0%"/>
 					<div class="wp-block-cover__inner-container">
-						<!-- wp:wporg/site-screenshot {"isLink":true} /-->
+						<!-- wp:wporg/site-screenshot {"isLink":true,"location":"hero"} /-->
 					</div>
 				</div>
 				<!-- /wp:cover -->
