@@ -164,6 +164,10 @@ a:where(:not(.wp-element-button)):focus-visible {
 	}
 }
 
+.wp-block-query-pagination.wp-block-query-pagination {
+	margin: 0 !important;
+}
+
 .wp-block-search {
 	max-width: 100%;
 }
