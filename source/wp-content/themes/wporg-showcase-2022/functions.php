@@ -394,6 +394,10 @@ function document_title( $parts ) {
 		} elseif ( is_category() ) {
 			// translators: %s: The name of the tag
 			$parts['title'] = sprintf( __( 'Sites categorized as "%s"', 'wporg' ), strtolower( $parts['title'] ) );
+		} else {
+			$term_names = wp_list_pluck( get_applied_filter_list(), 'name' );
+			// translators: %s list of terms used for filtering.
+			$parts['title'] = sprintf( __( 'Sites filtered by: %s', 'wporg' ), implode( ', ', $term_names ) );
 		}
 
 		// If results are paged and the max number of pages is known.
