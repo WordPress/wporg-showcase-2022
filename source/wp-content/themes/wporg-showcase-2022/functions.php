@@ -225,6 +225,41 @@ function get_site_domain( $post, $rem_trail_slash = false ) {
 }
 
 /**
+ * Get a list of the currently-applied filters.
+ *
+ * @param boolean $include_search Whether the result should include the search term.
+ *
+ * @return array
+ */
+function get_applied_filter_list( $include_search = true ) {
+	global $wp_query;
+	$terms = [];
+	$taxes = [
+		'tag' => 'post_tag',
+		'cat' => 'category',
+		'category_name' => 'category',
+		'flavor' => 'flavor',
+	];
+	foreach ( $taxes as $query_var => $taxonomy ) {
+		if ( ! isset( $wp_query->query[ $query_var ] ) ) {
+			continue;
+		}
+		$values = (array) $wp_query->query[ $query_var ];
+		foreach ( $values as $value ) {
+			$key = ( 'cat' === $query_var ) ? 'id' : 'slug';
+			$term = get_term_by( $key, $value, $taxonomy );
+			if ( $term ) {
+				$terms[] = $term;
+			}
+		}
+	}
+	if ( $include_search && isset( $wp_query->query['s'] ) ) {
+		$terms[] = array( 'name' => $wp_query->query['s'] );
+	}
+	return $terms;
+}
+
+/**
  * Update the excerpt length.
  *
  * @return string
