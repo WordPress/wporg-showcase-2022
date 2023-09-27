@@ -31,6 +31,10 @@ a:where(:not(.wp-element-button)):focus-visible {
 		width: 100% !important;
 	}
 
+	.wp-block-cover__inner-container {
+		width: auto;
+	}
+
 	// Handle the middle size between single-column view & correctly scaled desktop.
 	// 1280px is where the screenshot column shrinks smaller than the meta column.
 	// 1180px is the single column breakpoint.
