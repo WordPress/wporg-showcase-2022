@@ -62,6 +62,17 @@ function setup_theme() {
 	add_image_size( 'screenshot-desktop', 2044, 1150, array( 'center', 'top' ) );
 	add_image_size( 'screenshot-mobile', 750, 1334, array( 'center', 'top' ) );
 
+	// More desktop sizes to support responsive images in the grid.
+	// In production these will be generated using Photon CDN, but we can set
+	// them up as real sizes for local support too.
+	// Images in the grid are display from 340-740px wide. This set of sizes
+	// should cover 1x and 2x resolution.
+	$desktop_ratio = 1150 / 2044;
+	add_image_size( 'screenshot-desktop-1400', 1400, 1400 * $desktop_ratio, array( 'center', 'top' ) );
+	add_image_size( 'screenshot-desktop-1100', 1100, 1100 * $desktop_ratio, array( 'center', 'top' ) );
+	add_image_size( 'screenshot-desktop-800', 800, 800 * $desktop_ratio, array( 'center', 'top' ) );
+	add_image_size( 'screenshot-desktop-500', 500, 500 * $desktop_ratio, array( 'center', 'top' ) );
+
 	// Add tonesque support so that Jetpack loads the class.
 	add_theme_support( 'tonesque' );
 
@@ -470,7 +481,7 @@ function jetpack_related_posts_display( $markup, $post_id, $related_posts, $bloc
 <!-- wp:query {"queryId":2,"query":{"perPage":3,"include":<?php echo esc_attr( wp_json_encode( $ids ) ); ?>,"inherit":false},"align":"wide","layout":{"type":"constrained","wideSize":"1760px"}} -->
 <div class="wp-block-query alignwide">
 	<!-- wp:post-template {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","columnCount":3},"className":"wporg-related-posts"} -->
-		<!-- wp:wporg/site-screenshot {"isLink":true,"lazyLoad":true} /-->
+		<!-- wp:wporg/site-screenshot {"isLink":true,"lazyLoad":true,"location":"row"} /-->
 
 		<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 		<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--10)">

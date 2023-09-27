@@ -38,7 +38,7 @@
 	<!-- wp:query-title {"type":"archive","className":"screen-reader-text"} /-->
 
 	<!-- wp:post-template {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","columnCount":3}} -->
-		<!-- wp:wporg/site-screenshot {"isLink":true,"lazyLoad":true} /-->
+		<!-- wp:wporg/site-screenshot {"isLink":true,"lazyLoad":true,"location":"grid"} /-->
 
 		<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 		<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--10)">

@@ -41,7 +41,7 @@
 <h3 class="has-small-font-size"><?php esc_attr_e( 'Desktop', 'wporg' ); ?></h3>
 <!-- /wp:heading -->
 
-<!-- wp:wporg/site-screenshot {"isLink":true,"type":"desktop"} /--></div>
+<!-- wp:wporg/site-screenshot {"isLink":true,"type":"desktop","location":"header"} /--></div>
 <!-- /wp:column -->
 
 <!-- wp:column {"width":"25%"} -->
@@ -49,7 +49,7 @@
 <h3 class="has-small-font-size"><?php esc_attr_e( 'Mobile', 'wporg' ); ?></h3>
 <!-- /wp:heading -->
 
-<!-- wp:wporg/site-screenshot {"isLink":true,"type":"mobile"} /--></div>
+<!-- wp:wporg/site-screenshot {"isLink":true,"type":"mobile","location":"header"} /--></div>
 <!-- /wp:column --></div>
 <!-- /wp:columns --></div>
 <!-- /wp:group -->

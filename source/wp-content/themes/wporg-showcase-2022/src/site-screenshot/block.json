@@ -21,6 +21,11 @@
 			"type": "string",
 			"default": "desktop",
 			"enum": [ "desktop", "mobile" ]
+		},
+		"location": {
+			"type": "string",
+			"default": "grid",
+			"enum": [ "grid", "hero", "header", "row" ]
 		}
 	},
 	"supports": {
