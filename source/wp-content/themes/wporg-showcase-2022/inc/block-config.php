@@ -5,6 +5,9 @@
 
 namespace WordPressdotorg\Theme\Showcase_2022\Block_Config;
 
+use function WordPressdotorg\Theme\Showcase_2022\get_applied_filter_list;
+use WP_Block_Supports;
+
 add_filter( 'wporg_query_total_label', __NAMESPACE__ . '\update_query_total_label', 10, 2 );
 add_filter( 'wporg_query_filter_options_post_tag', __NAMESPACE__ . '\get_post_tag_options' );
 add_filter( 'wporg_query_filter_options_flavor', __NAMESPACE__ . '\get_flavor_options' );
@@ -13,6 +16,7 @@ add_filter( 'wporg_query_filter_options_sort', __NAMESPACE__ . '\get_sort_option
 add_action( 'wporg_query_filter_in_form', __NAMESPACE__ . '\inject_other_filters' );
 add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_query' );
 add_filter( 'wporg_block_navigation_menus', __NAMESPACE__ . '\add_site_navigation_menus' );
+add_filter( 'render_block_core/query-title', __NAMESPACE__ . '\update_archive_title', 10, 3 );
 
 /**
  * Update the query total label to reflect "sites" found.
@@ -243,4 +247,49 @@ function add_site_navigation_menus( $menus ) {
 			),
 		),
 	);
+}
+
+/**
+ * Update the archive title for all filter views.
+ *
+ * @param string   $block_content The block content.
+ * @param array    $block         The full block, including name and attributes.
+ * @param WP_Block $instance      The block instance.
+ */
+function update_archive_title( $block_content, $block, $instance ) {
+	global $wp_query;
+	$attributes = $block['attrs'];
+
+	if ( isset( $attributes['type'] ) && 'filter' === $attributes['type'] ) {
+		// Skip output if there are no results. The `query-no-results` has an h1.
+		if ( ! $wp_query->found_posts ) {
+			return '';
+		}
+
+		$term_names = get_applied_filter_list();
+		if ( ! empty( $term_names ) ) {
+			$term_names = wp_list_pluck( $term_names, 'name' );
+			// translators: %s list of terms used for filtering.
+			$title = sprintf( __( 'Filter by: %s', 'wporg' ), implode( ', ', $term_names ) );
+		} else {
+			$title = __( 'All sites', 'wporg' );
+		}
+
+		$tag_name           = isset( $attributes['level'] ) ? 'h' . (int) $attributes['level'] : 'h1';
+		$align_class_name   = empty( $attributes['textAlign'] ) ? '' : "has-text-align-{$attributes['textAlign']}";
+
+		// Required to prevent `block_to_render` from being null in `get_block_wrapper_attributes`.
+		$parent = WP_Block_Supports::$block_to_render;
+		WP_Block_Supports::$block_to_render = $block;
+		$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $align_class_name ) );
+		WP_Block_Supports::$block_to_render = $parent;
+
+		return sprintf(
+			'<%1$s %2$s>%3$s</%1$s>',
+			$tag_name,
+			$wrapper_attributes,
+			$title
+		);
+	}
+	return $block_content;
 }
