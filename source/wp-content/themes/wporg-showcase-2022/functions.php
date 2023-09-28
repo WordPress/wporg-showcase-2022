@@ -27,6 +27,7 @@ add_filter( 'excerpt_length', __NAMESPACE__ . '\modify_excerpt_length', 999 );
 add_filter( 'excerpt_more', __NAMESPACE__ . '\modify_excerpt_more' );
 add_filter( 'query_loop_block_query_vars', __NAMESPACE__ . '\modify_query_loop_block_query_vars', 10, 2 );
 add_filter( 'wporg_noindex_request', __NAMESPACE__ . '\set_noindex' );
+add_action( 'template_redirect', __NAMESPACE__ . '\redirect_term_archives' );
 add_action( 'wp', __NAMESPACE__ . '\jetpack_remove_rp', 20 );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 add_filter( 'jetpack_related_posts_display_markup', __NAMESPACE__ . '\jetpack_related_posts_display', 10, 4 );
@@ -583,4 +584,29 @@ function jetpack_redirect_submission_form( $redirect ) {
 		return home_url( $redirect );
 	}
 	return $redirect;
+}
+
+/**
+ * Redirect category and tag archives to their canonical URLs.
+ *
+ * This prevents double URLs for every category/tag, e.g.,
+ * `/archives/?tag[]=cuisine` and `/tag/cuisine/`.
+ */
+function redirect_term_archives() {
+	global $wp_query;
+	$terms = get_applied_filter_list( false );
+	// True on the `/tag/…` URLs, and false on `/archive/?tag…` URLs.
+	$is_term_archive = is_tag() || is_category() || is_tax();
+
+	// If there is only one term applied, and we're not already on a term
+	// archive, redirect to the main term archive URL.
+	if ( count( $terms ) === 1 && ! $is_term_archive ) {
+		$url = get_term_link( $terms[0] );
+		// Pass through search query.
+		if ( isset( $wp_query->query['s'] ) ) {
+			$url = add_query_arg( 's', $wp_query->query['s'], $url );
+		}
+		wp_safe_redirect( $url );
+		exit;
+	}
 }
