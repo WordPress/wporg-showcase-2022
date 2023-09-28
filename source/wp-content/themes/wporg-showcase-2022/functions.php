@@ -28,6 +28,7 @@ add_filter( 'excerpt_more', __NAMESPACE__ . '\modify_excerpt_more' );
 add_filter( 'query_loop_block_query_vars', __NAMESPACE__ . '\modify_query_loop_block_query_vars', 10, 2 );
 add_filter( 'wporg_noindex_request', __NAMESPACE__ . '\set_noindex' );
 add_action( 'template_redirect', __NAMESPACE__ . '\redirect_term_archives' );
+add_filter( 'get_the_terms', __NAMESPACE__ . '\remove_featured_category_frontend', 10, 3 );
 add_action( 'wp', __NAMESPACE__ . '\jetpack_remove_rp', 20 );
 add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_image', 10, 3 );
 add_filter( 'jetpack_related_posts_display_markup', __NAMESPACE__ . '\jetpack_related_posts_display', 10, 4 );
@@ -609,4 +610,14 @@ function redirect_term_archives() {
 		wp_safe_redirect( $url );
 		exit;
 	}
+}
+
+/**
+ * Remove the "featured" category from frontend display.
+ */
+function remove_featured_category_frontend( $terms, $post_id, $taxonomy ) {
+	if ( 'category' === $taxonomy && ! is_admin() ) {
+		return wp_list_filter( $terms, [ 'slug' => 'featured' ], 'NOT' );
+	}
+	return $terms;
 }

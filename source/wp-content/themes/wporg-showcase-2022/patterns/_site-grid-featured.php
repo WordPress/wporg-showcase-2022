@@ -45,7 +45,7 @@
 		<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--10)">
 			<!-- wp:post-title {"isLink":true,"level":3,"style":{"typography":{"fontStyle":"normal","fontWeight":"400","lineHeight":"inherit"}},"fontSize":"normal","fontFamily":"inter"} /-->
 
-			<!-- wp:post-terms {"term":"post_tag"} /-->
+			<!-- wp:post-terms {"term":"category"} /-->
 		</div>
 		<!-- /wp:group -->
 	<!-- /wp:post-template -->
