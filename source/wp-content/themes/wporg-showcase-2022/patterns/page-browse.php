@@ -34,11 +34,15 @@
 		</div>
 		<!-- /wp:group -->
 
-		<!-- wp:heading {"level":2,"style":{"typography":{"fontStyle":"large","fontWeight":"400"}},"fontSize":"normal","fontFamily":"inter"} -->
-		<h2 class="wp-block-heading has-inter-font-family has-large-font-size" style="font-style:normal;font-weight:400"><?php _e( 'Tags', 'wporg' ); ?></h2>
-		<!-- /wp:heading -->
+		<!-- wp:group {"layout":{"type":"default"}} -->
+		<div class="wp-block-group">
+			<!-- wp:heading {"level":2,"style":{"typography":{"fontStyle":"large","fontWeight":"400"}},"fontSize":"normal","fontFamily":"inter"} -->
+			<h2 class="wp-block-heading has-inter-font-family has-large-font-size" style="font-style:normal;font-weight:400"><?php _e( 'Tags', 'wporg' ); ?></h2>
+			<!-- /wp:heading -->
 
-		<!-- wp:wporg/tags-archive /-->
+			<!-- wp:wporg/tags-archive /-->
+		</div>
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 </div>
