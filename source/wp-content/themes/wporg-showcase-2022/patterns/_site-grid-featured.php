@@ -4,11 +4,11 @@
  * Slug: wporg-showcase-2022/site-grid-featured
  * Inserter: no
  *
- * This grid layout shows a specific query, the 12 most recent featured sites.
+ * This grid layout shows a specific query, the 18 most recent featured sites.
  */
 
 ?>
-<!-- wp:query {"queryId":0,"query":{"perPage":12,"category":"featured","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"wide","layout":{"type":"constrained","wideSize":"1760px"}} -->
+<!-- wp:query {"queryId":0,"query":{"perPage":18,"category":"featured","pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false},"align":"wide","layout":{"type":"constrained","wideSize":"1760px"}} -->
 <div class="wp-block-query alignwide">
 	<!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between"},"style":{"spacing":{"blockGap":"var:preset|spacing|20"}}} -->
 	<div class="wp-block-group alignwide">
