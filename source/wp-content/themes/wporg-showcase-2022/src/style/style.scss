@@ -92,11 +92,9 @@ a:where(:not(.wp-element-button)):focus-visible {
 		}
 
 		.wp-block-cover__inner-container {
-			padding-top: var(--wporg-site-hero--offset);
-			background-image: url(../../images/dots-hero.svg);
-			background-size: #{1157px * 0.6};
-			background-position: top center;
-			background-repeat: repeat-x;
+			// Range from 20-30px, uses same scale as the site meta.
+			padding-top: clamp(20px, 1.7vw + 10px, 30px);
+			background: none;
 		}
 	}
 
