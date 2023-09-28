@@ -47,11 +47,20 @@ function update_query_total_label( $label, $found_posts ) {
  */
 function get_post_tag_options( $options ) {
 	global $wp_query;
+	// Get top 20 tags ordered by count, then sort them alphabetically.
 	$tags = get_terms(
 		array(
 			'taxonomy' => 'post_tag',
-			'orderby' => 'name',
+			'orderby' => 'count',
+			'order' => 'DESC',
+			'number' => 20,
 		)
+	);
+	usort(
+		$tags,
+		function ( $a, $b ) {
+			return strcmp( strtolower( $a->name ), strtolower( $b->name ) );
+		}
 	);
 	$selected = isset( $wp_query->query['tag'] ) ? (array) $wp_query->query['tag'] : array();
 	$count = count( $selected );
