@@ -109,12 +109,17 @@ function get_flavor_options( $options ) {
  */
 function get_category_options( $options ) {
 	global $wp_query;
-	$categories = get_terms(
-		array(
-			'taxonomy' => 'category',
-			'orderby' => 'name',
-		)
+
+	$args = array(
+		'taxonomy' => 'category',
+		'orderby' => 'name',
 	);
+	$featured = get_term_by( 'slug', 'featured', 'category' );
+	if ( $featured ) {
+		$args['exclude'] = $featured->term_id;
+	}
+
+	$categories = get_terms( $args );
 
 	$selected = isset( $wp_query->query['cat'] ) ? (array) $wp_query->query['cat'] : array();
 
