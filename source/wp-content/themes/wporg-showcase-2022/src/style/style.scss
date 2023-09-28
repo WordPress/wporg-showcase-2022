@@ -100,12 +100,9 @@ a:where(:not(.wp-element-button)):focus-visible {
 
 	/* Hide the site title on small screens, title appears in local nav. */
 	@media (max-width: 599px) {
-		h1 {
+		h1,
+		h1 + p {
 			display: none;
-
-			+ p {
-				margin-top: 0 !important;
-			}
 		}
 	}
 }
