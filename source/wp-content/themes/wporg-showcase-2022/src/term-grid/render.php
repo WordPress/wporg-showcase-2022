@@ -23,7 +23,7 @@ $terms = get_categories( $args );
 			<a href="<?php echo esc_url( get_term_link( $_term ) ); ?>">
 				<?php echo esc_html( $_term->name ); ?>
 				<?php if ( ! empty( $attributes['showPostCounts'] ) ) : ?>
-					<span>[<?php echo esc_html( $_term->category_count ); ?>]</span>
+					<span>(<?php echo esc_html( $_term->category_count ); ?>)</span>
 				<?php endif; ?>
 			</a>
 		</li>
