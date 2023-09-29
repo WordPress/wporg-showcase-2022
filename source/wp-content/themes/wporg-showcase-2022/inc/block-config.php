@@ -17,6 +17,7 @@ add_action( 'wporg_query_filter_in_form', __NAMESPACE__ . '\inject_other_filters
 add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_query' );
 add_filter( 'wporg_block_navigation_menus', __NAMESPACE__ . '\add_site_navigation_menus' );
 add_filter( 'render_block_core/query-title', __NAMESPACE__ . '\update_archive_title', 10, 3 );
+add_filter( 'wporg_block_site_breadcrumbs', __NAMESPACE__ . '\update_site_breadcrumbs' );
 
 /**
  * Update the query total label to reflect "sites" found.
@@ -328,4 +329,72 @@ function update_archive_title( $block_content, $block, $instance ) {
 		);
 	}
 	return $block_content;
+}
+
+/**
+ * Update the breadcrumbs to the current page.
+ */
+function update_site_breadcrumbs( $breadcrumbs ) {
+	// Build up the breadcrumbs from scratch.
+	$breadcrumbs = array(
+		array(
+			'url' => home_url(),
+			'title' => __( 'Home', 'wporg' ),
+		),
+	);
+
+	if ( is_page() ) {
+		$breadcrumbs[] = array(
+			'url' => false,
+			'title' => get_the_title(),
+		);
+		return $breadcrumbs;
+	}
+
+	if ( is_single() ) {
+		$breadcrumbs[] = array(
+			'url' => false,
+			'title' => get_the_title(),
+		);
+		return $breadcrumbs;
+	}
+
+	$term_names = get_applied_filter_list( false );
+
+	 // This matches the "posts page", the All Sites page.
+	if ( is_home() && empty( $term_names ) ) {
+		$breadcrumbs[] = array(
+			'url' => false,
+			'title' => __( 'All sites', 'wporg' ),
+		);
+		return $breadcrumbs;
+	}
+
+	if ( is_search() ) {
+		$breadcrumbs[] = array(
+			'url' => home_url( '/archives/' ),
+			'title' => __( 'All sites', 'wporg' ),
+		);
+		$breadcrumbs[] = array(
+			'url' => false,
+			'title' => __( 'Search results', 'wporg' ),
+		);
+		return $breadcrumbs;
+	}
+
+	if ( ! empty( $term_names ) ) {
+		$breadcrumbs[] = array(
+			'url' => home_url( '/archives/' ),
+			'title' => __( 'All sites', 'wporg' ),
+		);
+
+		$term_names = wp_list_pluck( $term_names, 'name' );
+		$breadcrumbs[] = array(
+			'url' => false,
+			// translators: %s list of terms used for filtering.
+			'title' => implode( ', ', $term_names ),
+		);
+	}
+
+	return $breadcrumbs;
 }
