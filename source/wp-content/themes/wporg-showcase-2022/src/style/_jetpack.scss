@@ -26,6 +26,7 @@
 	padding-block: var(--wp--custom--form--padding--block) !important;
 	border: 1px solid var(--wp--preset--color--charcoal-5) !important;
 	border-radius: var(--wp--custom--form--border--radius);
+	line-height: 1.5;
 
 	&:focus {
 		outline: 1.5px solid var(--wp--preset--color--blueberry-1);
@@ -38,5 +39,49 @@
 	&:focus {
 		outline: 1.5px solid var(--wp--preset--color--blueberry-1);
 		outline-offset: -1.5px;
+	}
+}
+
+.wp-block-jetpack-contact-form .contact-form-dropdown__button {
+	padding-block: var(--wp--custom--form--padding--block) !important;
+	padding-inline: var(--wp--custom--form--padding--inline) !important;
+	max-width: 400px;
+	border: 1px solid var(--wp--preset--color--charcoal-5) !important;
+	border-radius: var(--wp--custom--form--border--radius) !important;
+	color: var(--wp--preset--color--charcoal-1) !important;
+	line-height: 1.5 !important;
+
+	// Update HTML chevron to match design.
+	.ui-selectmenu-icon,
+	&.ui-selectmenu-button-open .ui-selectmenu-icon {
+		width: 10px;
+		height: 10px;
+		transform: scaleY(0.85);
+
+		&::after {
+			border-width: 1.5px;
+		}
+	}
+
+	&:focus {
+		outline: 1.5px solid var(--wp--preset--color--blueberry-1);
+		outline-offset: -1.5px;
+	}
+}
+
+.wp-block-jetpack-contact-form .contact-form-dropdown__menu ul.ui-menu {
+	margin-block-start: var(--wp--preset--spacing--10);
+	padding: var(--wp--preset--spacing--10);
+	max-height: 350px;
+	border: 1px solid var(--wp--preset--color--charcoal-5) !important;
+	border-radius: var(--wp--custom--form--border--radius) !important;
+	box-shadow: none !important;
+
+	.ui-menu-item-wrapper {
+		padding: var(--wp--preset--spacing--10) calc(var(--wp--preset--spacing--10) * 1.5);
+	}
+
+	.ui-menu-item-wrapper.ui-state-active {
+		background-color: var(--wp--preset--color--charcoal-3);
 	}
 }
