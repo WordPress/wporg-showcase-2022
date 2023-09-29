@@ -331,7 +331,7 @@ function redirect_urls() {
 	global $pagename;
 
 	if ( str_contains( strtolower( $pagename ), 'submit-a-wordpress-site' ) ) {
-		if ( true || ! is_user_logged_in() ) {
+		if ( ! is_user_logged_in() ) {
 			$template_slug = 'page-log-in';
 
 			// This is returned by locate_block_template if not block template is found
