@@ -15,6 +15,9 @@
 	"styles": {
 		"blocks": {
 			"core/post-terms": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--normal)"
+				},
 				"elements": {
 					"link": {
 						"typography": {
