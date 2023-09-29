@@ -219,7 +219,7 @@ body.page-template-page-submit {
 	/* Adjust margin used to pull the header over the dots background when the font size changes. */
 	@media (max-width: 599px) {
 		.wp-block-spacer.has-dark-dots-background,
-		.wp-block-spacer.has-red-dots-background {
+		.wp-block-spacer.has-blue-dots-background {
 			margin-bottom: -30px !important;
 		}
 	}
@@ -229,7 +229,7 @@ body.page-template-page-submit {
 .wp-block-spacer {
 	&.has-dots-background,
 	&.has-dark-dots-background,
-	&.has-red-dots-background {
+	&.has-blue-dots-background {
 		background-position: top center;
 		background-repeat: repeat-x;
 		background-size: auto;
@@ -239,8 +239,8 @@ body.page-template-page-submit {
 		background-image: url(../../images/dots-banner.svg);
 	}
 
-	&.has-red-dots-background {
-		background-image: url(../../images/dots-red-banner.svg);
+	&.has-blue-dots-background {
+		background-image: url(../../images/dots-blue-banner.svg);
 	}
 
 	&.has-dark-dots-background {
