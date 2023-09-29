@@ -24,14 +24,18 @@ add_shortcode(
 add_shortcode(
 	'pretty_domain',
 	function() {
-
-		$values = get_post_custom_values( 'domain', get_the_ID() );
-
-		if ( empty( $values ) ) {
+		$domain = get_post_meta( get_the_ID(), 'domain', true );
+		if ( ! $domain ) {
 			return '';
 		}
 
-		// This won't work for subdomains but we'll want to show subdomains if they exists.
-		return str_replace( 'www.', '', parse_url( $values[0], PHP_URL_HOST ) );
+		$pretty_domain = str_replace( 'www.', '', parse_url( $domain, PHP_URL_HOST ) );
+		// If the entered URL has a path, that should be included.
+		$path = parse_url( $domain, PHP_URL_PATH );
+		if ( '/' !== $path ) {
+			$pretty_domain .= $path;
+		}
+		return $pretty_domain;
+
 	}
 );

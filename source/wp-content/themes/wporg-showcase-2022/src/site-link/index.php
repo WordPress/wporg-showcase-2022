@@ -31,6 +31,11 @@ function render( $attributes, $content, $block ) {
 	}
 
 	$pretty_domain = str_replace( 'www.', '', parse_url( $domain, PHP_URL_HOST ) );
+	// If the entered URL has a path, that should be included.
+	$path = parse_url( $domain, PHP_URL_PATH );
+	if ( '/' !== $path ) {
+		$pretty_domain .= $path;
+	}
 
 	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => 'external-link' ) );
 	return sprintf(
