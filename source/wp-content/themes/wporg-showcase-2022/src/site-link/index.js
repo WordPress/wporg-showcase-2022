@@ -9,7 +9,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  * Internal dependencies
  */
 import metadata from './block.json';
-import './style.scss';
 
 function Edit( { attributes, name } ) {
 	return (
