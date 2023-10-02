@@ -371,10 +371,11 @@ function update_site_breadcrumbs( $breadcrumbs ) {
 		return $breadcrumbs;
 	}
 
-	$term_names = get_applied_filter_list( false );
-
-	 // This matches the "posts page", the All Sites page.
+	// `is_home` matches the "posts page", the All Sites page.
+	// `is_archive` matches any core archive (category, date, etc).
 	if ( is_home() || is_archive() ) {
+		// Get the current applied filters (except search, handled above).
+		$term_names = get_applied_filter_list( false );
 		if ( empty( $term_names ) ) {
 			$breadcrumbs[] = array(
 				'url' => false,
@@ -382,6 +383,7 @@ function update_site_breadcrumbs( $breadcrumbs ) {
 			);
 			return $breadcrumbs;
 		}
+
 		$breadcrumbs[] = array(
 			'url' => home_url( '/archives/' ),
 			'title' => __( 'All sites', 'wporg' ),
