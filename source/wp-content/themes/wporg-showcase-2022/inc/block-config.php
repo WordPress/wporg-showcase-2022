@@ -164,14 +164,17 @@ function get_category_options( $options ) {
  */
 function get_sort_options( $options ) {
 	global $wp_query;
-	$sort = $wp_query->get( 'orderby' );
+	$orderby = strtolower( $wp_query->get( 'orderby' ) );
+	$order = strtolower( $wp_query->get( 'order' ) );
+	$sort = $orderby . '_' . $order;
+
 	$label = __( 'Sort', 'wporg' );
 	switch ( $sort ) {
-		case 'date':
+		case 'date_desc':
 			$label = __( 'Sort: Newest', 'wporg' );
 			break;
-		case 'title':
-			$label = __( 'Sort: Title', 'wporg' );
+		case 'date_asc':
+			$label = __( 'Sort: Oldest', 'wporg' );
 			break;
 	}
 
@@ -181,8 +184,8 @@ function get_sort_options( $options ) {
 		'key' => 'orderby',
 		'action' => home_url( '/archives/' ),
 		'options' => array(
-			'date' => __( 'Newest', 'wporg' ),
-			'title' => __( 'Title', 'wporg' ),
+			'date_desc' => __( 'Newest', 'wporg' ),
+			'date_asc' => __( 'Oldest', 'wporg' ),
 		),
 		'selected' => [ $sort ],
 	);
@@ -200,7 +203,7 @@ function get_sort_options( $options ) {
 function inject_other_filters( $key ) {
 	global $wp_query;
 
-	$query_vars = [ 'tag', 'cat', 'flavor', 'sort' ];
+	$query_vars = [ 'tag', 'cat', 'flavor' ];
 	foreach ( $query_vars as $query_var ) {
 		if ( ! isset( $wp_query->query[ $query_var ] ) ) {
 			continue;
@@ -222,6 +225,21 @@ function inject_other_filters( $key ) {
 		}
 	}
 
+	// Handle sorting.
+	$query_vars = [ 'order', 'orderby' ];
+	foreach ( $query_vars as $query_var ) {
+		if ( ! isset( $wp_query->query[ $query_var ] ) ) {
+			continue;
+		}
+		if ( $key === $query_var ) {
+			continue;
+		}
+		$values = (array) $wp_query->query[ $query_var ];
+		foreach ( $values as $value ) {
+			printf( '<input type="hidden" name="%s" value="%s" />', esc_attr( $query_var ), esc_attr( $value ) );
+		}
+	}
+
 	// Pass through search query.
 	if ( isset( $wp_query->query['s'] ) ) {
 		printf( '<input type="hidden" name="s" value="%s" />', esc_attr( $wp_query->query['s'] ) );
@@ -229,9 +247,11 @@ function inject_other_filters( $key ) {
 }
 
 /**
- * Update the query to sort sites by title A-Z.
+ * Update the query to parse out order from a combined `orderby` value.
  *
- * The default `order` is desc, so when `orderby=title`, it sorts Z-A.
+ * By default, order and orderby are two separate parameters, but the filter
+ * can only provide one. So it's combined, ex `date_asc`, and this function
+ * splits it into the two that WP_Query expects.
  *
  * @param WP_Query $query The WP_Query instance (passed by reference).
  */
@@ -240,8 +260,10 @@ function modify_query( $query ) {
 		return;
 	}
 
-	if ( $query->get( 'orderby' ) === 'title' ) {
-		$query->set( 'order', 'asc' );
+	if ( str_starts_with( $query->get( 'orderby' ), 'date_' ) ) {
+		list( $orderby, $order ) = explode( '_', $query->get( 'orderby' ) );
+		$query->set( 'orderby', $orderby );
+		$query->set( 'order', $order );
 	}
 }
 

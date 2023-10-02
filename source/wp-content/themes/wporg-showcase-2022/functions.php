@@ -605,9 +605,12 @@ function redirect_term_archives() {
 	// archive, redirect to the main term archive URL.
 	if ( count( $terms ) === 1 && ! $is_term_archive ) {
 		$url = get_term_link( $terms[0] );
-		// Pass through search query.
-		if ( isset( $wp_query->query['s'] ) ) {
-			$url = add_query_arg( 's', $wp_query->query['s'], $url );
+		// Pass through search query, sorting values.
+		$query_vars = [ 's', 'order', 'orderby' ];
+		foreach ( $query_vars as $query_var ) {
+			if ( isset( $wp_query->query[ $query_var ] ) ) {
+				$url = add_query_arg( $query_var, $wp_query->query[ $query_var ], $url );
+			}
 		}
 		wp_safe_redirect( $url );
 		exit;
