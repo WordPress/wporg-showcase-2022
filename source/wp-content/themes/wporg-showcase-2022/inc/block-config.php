@@ -343,30 +343,19 @@ function update_site_breadcrumbs( $breadcrumbs ) {
 		),
 	);
 
-	if ( is_page() ) {
-		$breadcrumbs[] = array(
-			'url' => false,
-			'title' => get_the_title(),
-		);
-		return $breadcrumbs;
-	}
-
-	if ( is_single() ) {
-		$breadcrumbs[] = array(
-			'url' => false,
-			'title' => get_the_title(),
-		);
-		return $breadcrumbs;
-	}
-
-	$term_names = get_applied_filter_list( false );
-
-	 // This matches the "posts page", the All Sites page.
-	if ( is_home() && empty( $term_names ) ) {
-		$breadcrumbs[] = array(
-			'url' => false,
-			'title' => __( 'All sites', 'wporg' ),
-		);
+	if ( is_page() || is_single() ) {
+		if ( is_page( 'thanks' ) ) {
+			// For thanks, we want to use the parent page title.
+			$breadcrumbs[] = array(
+				'url' => false,
+				'title' => get_the_title( get_post_parent() ),
+			);
+		} else {
+			$breadcrumbs[] = array(
+				'url' => false,
+				'title' => get_the_title(),
+			);
+		}
 		return $breadcrumbs;
 	}
 
@@ -382,7 +371,17 @@ function update_site_breadcrumbs( $breadcrumbs ) {
 		return $breadcrumbs;
 	}
 
-	if ( ! empty( $term_names ) ) {
+	$term_names = get_applied_filter_list( false );
+
+	 // This matches the "posts page", the All Sites page.
+	if ( is_home() || is_archive() ) {
+		if ( empty( $term_names ) ) {
+			$breadcrumbs[] = array(
+				'url' => false,
+				'title' => __( 'All sites', 'wporg' ),
+			);
+			return $breadcrumbs;
+		}
 		$breadcrumbs[] = array(
 			'url' => home_url( '/archives/' ),
 			'title' => __( 'All sites', 'wporg' ),
