@@ -17,7 +17,7 @@
 
 			<!-- wp:wporg/site-link {"style":{"spacing":{"margin":{"top":"4px"}}}} /-->
 
-			<!-- wp:post-content /-->
+			<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
 		</div>
 		<!-- /wp:column -->
 
