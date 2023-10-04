@@ -70,6 +70,7 @@ function setup_theme() {
 	// Images in the grid are display from 340-740px wide. This set of sizes
 	// should cover 1x and 2x resolution.
 	$desktop_ratio = 1150 / 2044;
+	add_image_size( 'screenshot-desktop-1700', 1700, 1700 * $desktop_ratio, array( 'center', 'top' ) );
 	add_image_size( 'screenshot-desktop-1400', 1400, 1400 * $desktop_ratio, array( 'center', 'top' ) );
 	add_image_size( 'screenshot-desktop-1100', 1100, 1100 * $desktop_ratio, array( 'center', 'top' ) );
 	add_image_size( 'screenshot-desktop-800', 800, 800 * $desktop_ratio, array( 'center', 'top' ) );

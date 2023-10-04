@@ -22,7 +22,7 @@ if ( $has_link ) {
 	$classname .= ' is-linked-image';
 }
 
-$has_responsive_images = ! $is_mshots && 'desktop' === $attributes['type'] && ( 'grid' === $attributes['location'] || 'row' === $attributes['location'] );
+$has_responsive_images = ! $is_mshots && 'desktop' === $attributes['type'];
 
 // If the block needs responsive images, set up more image URLs & sizes attribute.
 if ( $has_responsive_images ) {
@@ -30,26 +30,45 @@ if ( $has_responsive_images ) {
 	$screenshot_srcset = get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-500' ) . ' 500w, ';
 	$screenshot_srcset .= get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-800' ) . ' 800w, ';
 	$screenshot_srcset .= get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-1100' ) . ' 1100w, ';
-	$screenshot_srcset .= get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-1400' ) . ' 1400w';
+	$screenshot_srcset .= get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-1400' ) . ' 1400w, ';
+	$screenshot_srcset .= get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-1700' ) . ' 1700w, ';
+	$screenshot_srcset .= get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop' ) . ' 2000w, ';
+	$screenshot_srcset = trim( $screenshot_srcset, ', ' );
 
 	// Set up the sizes attribute. The value here should reflect the width of
 	// the column, i.e., the displayed with of the image.
-	// On very large screens, columns are a fixed size.
-	$sizes = '(min-width: 1920px) 533px,';
-	// Handle dynamic column sizes. This math is not really reflective of the
-	// layout, but it works well. Real math would be tricky due to the scaling
-	// column gap value (--wp--preset--spacing--40).
-	// See https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html/#aa-being-more-chill-about-sizes
 	if ( 'grid' === $attributes['location'] ) {
+		// On very large screens, columns are a fixed size.
+		$sizes = '(min-width: 1920px) 533px,';
+		// Handle dynamic column sizes. This math is not really reflective of the
+		// layout, but it works well. Real math would be tricky due to the scaling
+		// column gap value (--wp--preset--spacing--40).
+		// See https://css-tricks.com/a-guide-to-the-responsive-images-syntax-in-html/#aa-being-more-chill-about-sizes
 		$sizes .= '(min-width: 1601px) calc(25vw + 30px),';
 		$sizes .= '(min-width: 801px) calc(50vw - 125px),';
-	} else {
+		// One column—this one's actually accurate! At one column, we only need to
+		// account for site padding & border width.
+		$sizes .= 'calc(100vw - 60px)';
+	} else if ( 'grid' === $attributes['location'] ) {
 		// In "row", this stays 3-column until flipping to one-column.
+		$sizes = '(min-width: 1920px) 533px,';
 		$sizes .= '(min-width: 801px) calc(25vw + 30px),';
+		$sizes .= 'calc(100vw - 60px)';
+	} else if ( 'header' === $attributes['location'] ) {
+		$screenshot = get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop' );
+		// Sizes from https://ausi.github.io/respimagelint/.
+		$sizes = '(min-width: 1680px) 1024px,';
+		$sizes .= '(min-width: 900px) calc(65vw - 55px),';
+		$sizes .= '(min-width: 800px) calc(63.75vw + 53px),';
+		$sizes .= 'calc(92.71vw - 35px)';
+	} else if ( 'hero' === $attributes['location'] ) {
+		$screenshot = get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop' );
+		// Sizes from https://ausi.github.io/respimagelint/.
+		$sizes = '(min-width: 1920px) 1164px, ';
+		$sizes .= '(min-width: 1180px) calc(90vw - 540px), ';
+		$sizes .= '(min-width: 890px) calc(100vw - 180px), ';
+		$sizes .= 'calc(100vw - 60px)';
 	}
-	// One column—this one's actually accurate! At one column, we only need to
-	// account for site padding & border width.
-	$sizes .= 'calc(100vw - 60px)';
 }
 
 // Initial state to pass to Interactivity API.
