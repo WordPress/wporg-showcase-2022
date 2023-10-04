@@ -49,7 +49,7 @@ if ( $has_responsive_images ) {
 		// One column—this one's actually accurate! At one column, we only need to
 		// account for site padding & border width.
 		$sizes .= 'calc(100vw - 60px)';
-	} else if ( 'grid' === $attributes['location'] ) {
+	} else if ( 'row' === $attributes['location'] ) {
 		// In "row", this stays 3-column until flipping to one-column.
 		$sizes = '(min-width: 1920px) 533px,';
 		$sizes .= '(min-width: 801px) calc(25vw + 30px),';
