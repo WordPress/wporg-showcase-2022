@@ -207,6 +207,11 @@ a:where(:not(.wp-element-button)):focus-visible {
 	}
 }
 
+/* Breadcrumbs: Inherit the current color, to support using on dark background with white text. */
+.wp-block-wporg-site-breadcrumbs .is-current-page {
+	color: inherit;
+}
+
 /* Update the background & text color on /thanks page. */
 body.page-template-page-submit-confirmation .wp-site-blocks {
 	background: var(--wp--preset--color--charcoal-1);
