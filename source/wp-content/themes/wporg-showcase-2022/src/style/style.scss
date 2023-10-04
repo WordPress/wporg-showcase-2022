@@ -109,7 +109,7 @@ a:where(:not(.wp-element-button)):focus-visible {
 
 /* Hide the site title on small screens, title appears in local nav. */
 @media (min-width: 600px) {
-	body.home .wp-block-site-title a {
+	body.home .wp-block-site-title {
 		display: none;
 	}
 }
