@@ -70,12 +70,19 @@ function get_post_tag_options( $options ) {
 		_n( 'Popular tags <span>%s</span>', 'Popular tags <span>%s</span>', $count, 'wporg' ),
 		$count
 	);
+	$option_labels = array_map(
+		function( $name, $count ) {
+			return $name . " ($count)";
+		},
+		wp_list_pluck( $tags, 'name' ),
+		wp_list_pluck( $tags, 'count' )
+	);
 	return array(
 		'label' => $label,
 		'title' => __( 'Popular tags', 'wporg' ),
 		'key' => 'tag',
 		'action' => home_url( '/archives/' ),
-		'options' => array_combine( wp_list_pluck( $tags, 'slug' ), wp_list_pluck( $tags, 'name' ) ),
+		'options' => array_combine( wp_list_pluck( $tags, 'slug' ), $option_labels ),
 		'selected' => $selected,
 	);
 }
@@ -101,12 +108,20 @@ function get_flavor_options( $options ) {
 		_n( 'Flavors <span>%s</span>', 'Flavors <span>%s</span>', $count, 'wporg' ),
 		$count
 	);
+	$option_labels = array_map(
+		function( $name, $count ) {
+			return $name . " ($count)";
+		},
+		wp_list_pluck( $flavors, 'name' ),
+		wp_list_pluck( $flavors, 'count' )
+	);
+
 	return array(
 		'label' => $label,
 		'title' => __( 'Flavors', 'wporg' ),
 		'key' => 'flavor',
 		'action' => home_url( '/archives/' ),
-		'options' => array_combine( wp_list_pluck( $flavors, 'slug' ), wp_list_pluck( $flavors, 'name' ) ),
+		'options' => array_combine( wp_list_pluck( $flavors, 'slug' ), $option_labels ),
 		'selected' => $selected,
 	);
 }
@@ -147,12 +162,19 @@ function get_category_options( $options ) {
 		_n( 'Categories <span>%s</span>', 'Categories <span>%s</span>', $count, 'wporg' ),
 		$count
 	);
+	$option_labels = array_map(
+		function( $name, $count ) {
+			return $name . " ($count)";
+		},
+		wp_list_pluck( $categories, 'name' ),
+		wp_list_pluck( $categories, 'count' )
+	);
 	return array(
 		'label' => $label,
 		'title' => __( 'Categories', 'wporg' ),
 		'key' => 'cat',
 		'action' => home_url( '/archives/' ),
-		'options' => array_combine( wp_list_pluck( $categories, 'term_id' ), wp_list_pluck( $categories, 'name' ) ),
+		'options' => array_combine( wp_list_pluck( $categories, 'term_id' ), $option_labels ),
 		'selected' => $selected,
 	);
 }
