@@ -219,18 +219,6 @@ body.page-template-page-submit-confirmation .wp-site-blocks {
 	color: var(--wp--preset--color--white);
 }
 
-body.page-template-page-submit-confirmation,
-body.page-template-page-submit {
-
-	/* Adjust margin used to pull the header over the dots background when the font size changes. */
-	@media (max-width: 599px) {
-		.wp-block-spacer.has-dark-dots-background,
-		.wp-block-spacer.has-blue-dots-background {
-			margin-bottom: -30px !important;
-		}
-	}
-}
-
 /* Add background to spacers. These are custom classes, not attached as block styles. */
 .wp-block-spacer {
 	&.has-dots-background,
