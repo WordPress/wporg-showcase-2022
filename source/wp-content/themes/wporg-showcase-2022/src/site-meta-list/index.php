@@ -96,29 +96,15 @@ function render( $attributes, $content, $block ) {
 	}
 
 	foreach ( $meta_fields as $field ) {
-		list('type' => $type, 'key' => $key, 'label' => $label) = $field;
-		$value = get_value( $type, $key, $block->context['postId'] );
-		$aria_label = $label . ': ' . wp_strip_all_tags( $value );
-
-		// Hide these from values from screen readers as they do not contain links.
-		$aria_hide_value = in_array( $key, array( 'country', 'published' ) )
-			? ' aria-hidden="true"'
-			: '';
-
-		$html_label = $show_label
-			? sprintf( '<strong aria-hidden="true">%1$s</strong>', $label )
-			: '';
+		$value = get_value( $field['type'], $field['key'], $block->context['postId'] );
 
 		if ( ! empty( $value ) ) {
 			$list_items[] = sprintf(
-				'<li class="is-meta-%1$s" aria-label="%2$s">
-					%3$s<span%4$s>%5$s</span>
-				</li>',
-				$key,
-				$aria_label,
-				wp_kses_post( $html_label ),
-				$aria_hide_value,
-				wp_kses_post( $value ),
+				'<li class="is-meta-%1$s"><strong%2$s>%3$s</strong> <span>%4$s</span></li>',
+				$field['key'],
+				$show_label ? '' : ' class="screen-reader-text"',
+				$field['label'],
+				wp_kses_post( $value )
 			);
 		}
 	}
