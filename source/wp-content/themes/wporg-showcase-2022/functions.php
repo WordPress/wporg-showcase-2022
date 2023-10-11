@@ -17,6 +17,7 @@ require_once __DIR__ . '/inc/block-config.php';
 
 // Filters and Actions
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\maybe_dequeue_assets' );
 add_action( 'init', __NAMESPACE__ . '\setup_theme' );
 add_action( 'wp_head', __NAMESPACE__ . '\add_social_meta_tags' );
 add_action( 'pre_get_posts', __NAMESPACE__ . '\modify_search_query' );
@@ -39,6 +40,8 @@ add_filter( 'grunion_contact_form_redirect_url', __NAMESPACE__ . '\jetpack_redir
 add_filter( 'grunion_should_send_email', '__return_false' );
 // Enable auto-fill using user information.
 add_filter( 'jetpack_auto_fill_logged_in_user', '__return_true' );
+// Remove Jetpack CSS on frontend
+add_filter( 'jetpack_implode_frontend_css', '__return_false', 99 );
 
 /**
  * Enqueue scripts and styles.
@@ -54,6 +57,15 @@ function enqueue_assets() {
 		filemtime( __DIR__ . '/build/style/style-index.css' )
 	);
 	wp_style_add_data( 'wporg-showcase-2022-style', 'rtl', 'replace' );
+}
+
+/**
+ * Dequeue or deregister some scripts and styles on frontend for performance.
+ */
+function maybe_dequeue_assets() {
+	if ( ! is_user_logged_in() ) {
+		wp_deregister_style( 'dashicons' );
+	}
 }
 
 /**
