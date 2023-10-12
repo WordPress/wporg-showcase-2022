@@ -195,7 +195,7 @@ a:where(:not(.wp-element-button)):focus-visible {
 /* Scroll the filter bar smaller screens. */
 @media (max-width: 889px) {
 	.wporg-query-filters {
-		overflow-y: scroll;
+		overflow-x: scroll;
 		max-width: 100%;
 	}
 }
