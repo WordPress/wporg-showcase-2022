@@ -10,8 +10,6 @@
 	}
 
 	li {
-		display: flex;
-		gap: var(--wp--preset--spacing--10);
 		padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
 		border-bottom: 1px solid;
 		border-color: inherit;
@@ -20,24 +18,29 @@
 			border-bottom: none;
 		}
 
-		strong {
-			flex-shrink: 0;
-			font-weight: 400;
-		}
+		span[aria-hidden="true"] {
+			display: flex;
+			gap: var(--wp--preset--spacing--10);
 
-		span {
-			margin-inline-start: auto;
-			text-align: right;
-			color: var(--wp--preset--color--charcoal-3);
-		}
-
-		@media (max-width: 380px) {
-			flex-direction: column;
-			gap: 0;
+			strong {
+				flex-shrink: 0;
+				font-weight: 400;
+			}
 
 			span {
-				margin-inline-start: unset;
-				text-align: initial;
+				margin-inline-start: auto;
+				text-align: right;
+				color: var(--wp--preset--color--charcoal-3);
+			}
+
+			@media (max-width: 380px) {
+				flex-direction: column;
+				gap: 0;
+
+				span {
+					margin-inline-start: unset;
+					text-align: initial;
+				}
 			}
 		}
 	}
@@ -61,11 +64,6 @@
 	&.has-hidden-label {
 		li {
 			padding: clamp(10px, calc(1.7vw), 20px) clamp(20px, calc(1.7vw + 10px), 30px);
-
-			span {
-				margin-inline-start: unset;
-				text-align: left;
-			}
 		}
 	}
 }
