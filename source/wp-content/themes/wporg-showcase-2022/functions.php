@@ -65,6 +65,7 @@ function enqueue_assets() {
 function maybe_dequeue_assets() {
 	if ( ! is_user_logged_in() ) {
 		wp_deregister_style( 'dashicons' );
+		wp_deregister_style( 'wp-mediaelement' );
 	}
 }
 
