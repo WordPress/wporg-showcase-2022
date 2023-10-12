@@ -99,12 +99,19 @@ function render( $attributes, $content, $block ) {
 		$value = get_value( $field['type'], $field['key'], $block->context['postId'] );
 
 		if ( ! empty( $value ) ) {
+			$value = wp_kses_post( $value );
+
 			$list_items[] = sprintf(
-				'<li class="is-meta-%1$s"><strong%2$s>%3$s</strong> <span>%4$s</span></li>',
+				'<li class="is-meta-%1$s">
+					<span class="screen-reader-text">%2$s: %3$s</span>
+					<span aria-hidden="true">%4$s</span>
+				</li>',
 				$field['key'],
-				$show_label ? '' : ' class="screen-reader-text"',
 				$field['label'],
-				wp_kses_post( $value )
+				$value,
+				$show_label
+					? sprintf( '<strong>%1$s</strong><span>%2$s</span>', $field['label'], $value )
+					: $value,
 			);
 		}
 	}
