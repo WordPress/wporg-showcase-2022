@@ -101,7 +101,7 @@ function render( $attributes, $content, $block ) {
 		if ( ! empty( $value ) ) {
 			$list_items[] = sprintf(
 				'<li class="is-meta-%1$s">
-					<strong%2$s>%3$s<span class="screen-reader-text">:</span></strong> %4$s
+					<strong%2$s>%3$s</strong> %4$s
 				</li>',
 				$field['key'],
 				$show_label ? '' : ' class="screen-reader-text"',
