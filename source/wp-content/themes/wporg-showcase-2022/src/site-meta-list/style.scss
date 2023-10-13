@@ -34,6 +34,16 @@
 			white-space: nowrap;
 		}
 
+		[dir="rtl"] & {
+			padding-left: var(--wp--preset--spacing--20);
+			padding-right: calc(var(--wp--custom--wporg-site-meta-list--label--width) + var(--wp--preset--spacing--10));
+
+			strong {
+				left: unset;
+				right: var(--wp--preset--spacing--20);
+			}
+		}
+
 		@media (max-width: 380px) {
 			text-align: start;
 			padding-left: var(--wp--preset--spacing--20);
@@ -42,6 +52,10 @@
 				position: static;
 				display: block;
 				max-width: unset;
+			}
+
+			[dir="rtl"] & {
+				padding-right: var(--wp--preset--spacing--20);
 			}
 		}
 	}
