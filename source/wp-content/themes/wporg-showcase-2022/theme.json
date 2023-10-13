@@ -9,6 +9,11 @@
 					"width": "10px",
 					"radius": "20px"
 				}
+			},
+			"wporg-site-meta-list": {
+				"label": {
+					"width": "100px"
+				}
 			}
 		}
 	},
