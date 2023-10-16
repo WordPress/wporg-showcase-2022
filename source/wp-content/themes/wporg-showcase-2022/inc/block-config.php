@@ -70,13 +70,12 @@ function get_post_tag_options( $options ) {
 		_n( 'Popular tags <span>%s</span>', 'Popular tags <span>%s</span>', $count, 'wporg' ),
 		$count
 	);
-	$option_labels = get_option_labels( $tags );
 	return array(
 		'label' => $label,
 		'title' => __( 'Popular tags', 'wporg' ),
 		'key' => 'tag',
 		'action' => home_url( '/archives/' ),
-		'options' => array_combine( wp_list_pluck( $tags, 'slug' ), $option_labels ),
+		'options' => array_combine( wp_list_pluck( $tags, 'slug' ), wp_list_pluck( $tags, 'name' ) ),
 		'selected' => $selected,
 	);
 }
@@ -102,13 +101,12 @@ function get_flavor_options( $options ) {
 		_n( 'Flavors <span>%s</span>', 'Flavors <span>%s</span>', $count, 'wporg' ),
 		$count
 	);
-	$option_labels = get_option_labels( $flavors );
 	return array(
 		'label' => $label,
 		'title' => __( 'Flavors', 'wporg' ),
 		'key' => 'flavor',
 		'action' => home_url( '/archives/' ),
-		'options' => array_combine( wp_list_pluck( $flavors, 'slug' ), $option_labels ),
+		'options' => array_combine( wp_list_pluck( $flavors, 'slug' ), wp_list_pluck( $flavors, 'name' ) ),
 		'selected' => $selected,
 	);
 }
@@ -149,14 +147,12 @@ function get_category_options( $options ) {
 		_n( 'Categories <span>%s</span>', 'Categories <span>%s</span>', $count, 'wporg' ),
 		$count
 	);
-	$option_labels = get_option_labels( $categories );
-
 	return array(
 		'label' => $label,
 		'title' => __( 'Categories', 'wporg' ),
 		'key' => 'cat',
 		'action' => home_url( '/archives/' ),
-		'options' => array_combine( wp_list_pluck( $categories, 'term_id' ), $option_labels ),
+		'options' => array_combine( wp_list_pluck( $categories, 'term_id' ), wp_list_pluck( $categories, 'name' ) ),
 		'selected' => $selected,
 	);
 }
@@ -402,23 +398,4 @@ function update_site_breadcrumbs( $breadcrumbs ) {
 	}
 
 	return $breadcrumbs;
-}
-
-/**
- * Get an array of option labels.
- * Each label is a string formatted as 'name (count)'. e.g, Business (30).
- *
- * @param array $taxonomy An arrays with taxonomy terms. e.g., Categories = [ Business, Store, etc. ].
- * @return array An array of formatted option label strings.
- */
-function get_option_labels( $taxonomy ) {
-	$option_labels = array_map(
-		function( $name, $count ) {
-			return $name . " ($count)";
-		},
-		wp_list_pluck( $taxonomy, 'name' ),
-		wp_list_pluck( $taxonomy, 'count' )
-	);
-
-	return $option_labels;
 }
