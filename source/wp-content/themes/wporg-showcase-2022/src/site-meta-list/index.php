@@ -140,7 +140,7 @@ function get_value( $type, $key, $post_id ) {
 			$value = get_the_date( 'F Y', $post_id );
 		} else if ( 'domain' === $key ) {
 			// Domain uses shortcodes to output pretty format.
-			$value = do_shortcode( '<a class="external-link" href="[domain]" target="_blank" rel="noopener noreferrer">[pretty_domain]</a>' );
+			$value = do_shortcode( '<a class="external-link" href="[domain]" target="_blank" rel="noopener">[pretty_domain]</a>' );
 		} else if ( 'post_title' === $key ) {
 			$value = sprintf( '<a href="%s">%s</a>', get_permalink( $post_id ), get_the_title( $post_id ) );
 		}

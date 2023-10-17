@@ -39,7 +39,7 @@ function render( $attributes, $content, $block ) {
 
 	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => 'external-link' ) );
 	return sprintf(
-		'<p %1$s><a href="%2$s" target="_blank" rel="noopener noreferrer">%3$s</a></p>',
+		'<p %1$s><a href="%2$s" target="_blank" rel="noopener">%3$s</a></p>',
 		$wrapper_attributes,
 		esc_url( $domain ),
 		esc_html( $pretty_domain )
