@@ -406,15 +406,18 @@ function document_title( $parts ) {
 			$parts['title'] = sprintf( __( '%s - WordPress Showcase', 'wporg' ), $parts['title'] );
 		} elseif ( is_tag() ) {
 			// translators: %s: The name of the tag
-			$parts['title'] = sprintf( __( 'Sites tagged as "%s"', 'wporg' ), strtolower( $parts['title'] ) );
+			$parts['title'] = sprintf( __( 'Showcase sites tagged as "%s"', 'wporg' ), strtolower( $parts['title'] ) );
 		} elseif ( is_category() ) {
 			// translators: %s: The name of the tag
-			$parts['title'] = sprintf( __( 'Sites categorized as "%s"', 'wporg' ), strtolower( $parts['title'] ) );
+			$parts['title'] = sprintf( __( 'Showcase sites categorized as "%s"', 'wporg' ), strtolower( $parts['title'] ) );
+		} elseif ( is_author() ) {
+			// translators: %s: Author name
+			$parts['title'] = sprintf( __( 'Showcase sites by %s', 'wporg' ), $parts['title'] );
 		} else {
 			$term_names = wp_list_pluck( get_applied_filter_list(), 'name' );
 			if ( $term_names ) {
-				// translators: %s list of terms used for filtering.
-				$parts['title'] = sprintf( __( 'Sites filtered by: %s', 'wporg' ), implode( ', ', $term_names ) );
+				// translators: %s: list of terms used for filtering
+				$parts['title'] = sprintf( __( 'Showcase sites filtered by: %s', 'wporg' ), implode( ', ', $term_names ) );
 			}
 		}
 
