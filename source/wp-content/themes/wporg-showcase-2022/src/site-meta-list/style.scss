@@ -1,12 +1,17 @@
 .wp-block-wporg-site-meta-list {
 	margin-block-start: 0;
 
+	table,
+	tbody,
+	tr {
+		// Needed to pass border color down to `td` and `th`.
+		border-color: inherit;
+	}
+
 	table {
 		margin: 0;
 		padding: 0;
 		width: 100%;
-		// Needed to pass border color down to `td` and `th`.
-		border-color: inherit;
 		border-spacing: 0;
 	}
 
