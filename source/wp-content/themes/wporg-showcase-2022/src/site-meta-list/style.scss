@@ -2,9 +2,8 @@
 	margin-block-start: 0;
 
 	table,
-	tbody,
-	tr {
-		// Needed to pass border color down to `td` and `th`.
+	tbody {
+		// Needed to pass border color down to `tr`.
 		border-color: inherit;
 	}
 
@@ -13,15 +12,13 @@
 		padding: 0;
 		width: 100%;
 		border-spacing: 0;
+		border-collapse: collapse;
 	}
 
 	tr {
 		&:not(:last-of-type) {
-			th,
-			td {
-				border-bottom: 1px solid;
-				border-color: inherit;
-			}
+			border-bottom: 1px solid;
+			border-color: inherit;
 		}
 
 		th:not(.screen-reader-text),
@@ -48,10 +45,6 @@
 
 			th:not(.screen-reader-text) {
 				padding-bottom: 0;
-			}
-
-			&:not(:last-of-type) th {
-				border-bottom: none;
 			}
 
 			td {
