@@ -16,6 +16,8 @@
 	}
 
 	tr {
+		vertical-align: baseline;
+
 		&:not(:last-of-type) {
 			border-bottom: 1px solid;
 			border-color: inherit;
@@ -23,16 +25,23 @@
 
 		th:not(.screen-reader-text),
 		td {
-			padding: var(--wp--preset--spacing--10) var(--wp--preset--spacing--20);
+			padding-top: var(--wp--preset--spacing--10);
+			padding-bottom: var(--wp--preset--spacing--10);
 		}
 
-		th {
+		th:not(.screen-reader-text) {
 			font-weight: 400;
 			text-align: start;
+			min-width: 100px;
+			padding-inline-start: var(--wp--preset--spacing--20);
+			// Keep a letter space between the label and the value.
+			// Required on smaller screens where they're more likely to collide.
+			padding-inline-end: 0.5em;
 		}
 
 		td {
 			text-align: end;
+			padding-inline-end: var(--wp--preset--spacing--20);
 		}
 
 		@media (max-width: 380px) {
@@ -45,11 +54,13 @@
 
 			th:not(.screen-reader-text) {
 				padding-bottom: 0;
+				padding-inline-end: var(--wp--preset--spacing--20);
 			}
 
 			td {
 				text-align: start;
 				padding-top: 0;
+				padding-inline-start: var(--wp--preset--spacing--20);
 			}
 		}
 	}
