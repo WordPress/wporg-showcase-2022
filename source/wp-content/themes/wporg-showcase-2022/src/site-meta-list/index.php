@@ -100,9 +100,10 @@ function render( $attributes, $content, $block ) {
 
 		if ( ! empty( $value ) ) {
 			$list_items[] = sprintf(
-				'<li class="is-meta-%1$s">
-					<strong%2$s>%3$s</strong> %4$s
-				</li>',
+				'<tr class="is-meta-%1$s">
+					<th%2$s>%3$s</th>
+					<td>%4$s</td>
+				</tr>',
 				$field['key'],
 				$show_label ? '' : ' class="screen-reader-text"',
 				$field['label'],
@@ -114,7 +115,7 @@ function render( $attributes, $content, $block ) {
 	$class = $show_label ? '' : 'has-hidden-label';
 	$wrapper_attributes = get_block_wrapper_attributes( array( 'class' => $class ) );
 	return sprintf(
-		'<div %s><ul>%s</ul></div>',
+		'<div %s><table>%s</table></div>',
 		$wrapper_attributes,
 		join( '', $list_items )
 	);
