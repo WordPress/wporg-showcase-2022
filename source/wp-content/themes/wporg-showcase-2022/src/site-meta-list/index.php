@@ -101,7 +101,7 @@ function render( $attributes, $content, $block ) {
 		if ( ! empty( $value ) ) {
 			$list_items[] = sprintf(
 				'<tr class="is-meta-%1$s">
-					<th%2$s>%3$s</th>
+					<th scope="row"%2$s>%3$s</th>
 					<td>%4$s</td>
 				</tr>',
 				$field['key'],
