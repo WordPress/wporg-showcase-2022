@@ -59,7 +59,7 @@
 	"usesContext": [ "postId" ],
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
-	"viewScript": "file:./view.js",
+	"viewModule": "file:./view.js",
 	"style": "file:./style-index.css",
 	"render": "file:../../src/site-screenshot/render.php"
 }
