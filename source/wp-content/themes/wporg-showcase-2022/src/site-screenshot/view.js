@@ -10,7 +10,18 @@ import { getContext, getElement, store } from '@wordpress/interactivity';
 const MAX_ATTEMPTS = 10;
 const RETRY_DELAY = 2000;
 
-const { actions } = store( 'wporg/showcase/screenshot', {
+const { actions, state } = store( 'wporg/showcase/screenshot', {
+	state: {
+		get attempts() {
+			return getContext().attempts;
+		},
+		get shouldRetry() {
+			return getContext().shouldRetry;
+		},
+		get base64Image() {
+			return getContext().base64Image;
+		}
+	},
 	actions: {
 		increaseAttempts() {
 			const context = getContext();
@@ -59,40 +70,31 @@ const { actions } = store( 'wporg/showcase/screenshot', {
 	},
 	effects: {
 		// Run on init, starts the image fetch process.
-		init: async () => {
-			const context = getContext();
-			const { base64Image, isMShots, src } = context;
-			// console.log( { base64Image, isMShots, src } );
+		*init() {
+			const { isMShots, src } = getContext();
 
-			if ( isMShots && ! base64Image ) {
+			if ( isMShots && ! state.base64Image ) {
 				// Initial fetch.
-				await actions.fetchImage( src );
+				yield actions.fetchImage( src );
 
-				// Set up the function to retry every RETRY_DELAY (2 seconds).
-				const intervalId = setInterval(
-					async ( _context ) => {
-						const { attempts, base64Image: _base64Image, shouldRetry } = _context;
-						if ( shouldRetry ) {
-							await actions.fetchImage( src );
-						}
-						if ( attempts >= MAX_ATTEMPTS ) {
-							clearInterval( intervalId );
-							if ( ! _base64Image ) {
-								actions.setHasError( true );
-							}
-						}
-					},
-					RETRY_DELAY,
-					context
-				);
+				while ( state.shouldRetry ) {
+					yield new Promise( ( resolve ) => {
+						setTimeout( () => resolve(), RETRY_DELAY );
+					} );
+					yield actions.fetchImage( src );
+
+					if ( state.attempts >= MAX_ATTEMPTS ) {
+						actions.setHasError( true );
+						actions.setShouldRetry( false );
+					}
+				}
 			}
 		},
 
-		// Run as an effect, when the context changes.
-		update: () => {
+		update() {
 			const context = getContext();
 			const { ref } = getElement();
-			const { alt, base64Image, hasError, isMShots } = context;
+			const { alt, hasError, isMShots } = context;
 
 			if ( ! isMShots ) {
 				return;
@@ -104,9 +106,9 @@ const { actions } = store( 'wporg/showcase/screenshot', {
 				spinner.classList.add( 'wporg-site-screenshot__error' );
 				spinner.innerText = alt;
 				ref.parentElement.classList.remove( 'has-loaded' );
-			} else if ( base64Image ) {
+			} else if ( state.base64Image ) {
 				const img = document.createElement( 'img' );
-				img.src = base64Image;
+				img.src = state.base64Image;
 				img.alt = alt;
 				ref.replaceChildren( img );
 				ref.parentElement.classList.add( 'has-loaded' );

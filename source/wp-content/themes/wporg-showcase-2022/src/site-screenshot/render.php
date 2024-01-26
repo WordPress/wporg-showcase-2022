@@ -78,6 +78,7 @@ $init_state = [
 	'isMShots' => $is_mshots,
 	'isLazyLoad' => $is_lazyload,
 	'attempts' => 0,
+	'shouldRetry' => true,
 	'base64Image' => '',
 	'hasError' => false,
 	'src' => esc_url( $screenshot ),
