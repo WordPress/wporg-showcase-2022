@@ -99,8 +99,8 @@ $encoded_state = wp_json_encode( $init_state );
 	<?php if ( $is_mshots ) : ?>
 		<div
 			class="wporg-site-screenshot__mshot-container"
-			data-wp-init="effects.init"
-			data-wp-watch="effects.update"
+			data-wp-init="callbacks.init"
+			data-wp-watch="callbacks.update"
 		>
 			<div class="wporg-site-screenshot__loader"></div>
 		</div>

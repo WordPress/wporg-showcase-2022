@@ -68,7 +68,7 @@ const { actions, state } = store( 'wporg/showcase/screenshot', {
 			}
 		},
 	},
-	effects: {
+	callbacks: {
 		// Run on init, starts the image fetch process.
 		*init() {
 			const { isMShots, src } = getContext();
