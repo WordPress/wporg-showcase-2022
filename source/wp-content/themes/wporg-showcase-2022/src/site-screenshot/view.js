@@ -20,7 +20,7 @@ const { actions, state } = store( 'wporg/showcase/screenshot', {
 		},
 		get base64Image() {
 			return getContext().base64Image;
-		}
+		},
 	},
 	actions: {
 		increaseAttempts() {
