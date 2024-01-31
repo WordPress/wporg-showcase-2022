@@ -82,6 +82,11 @@
 		justify-content: center;
 		height: 100%;
 
+		img,
+		span {
+			display: none;
+		}
+
 		&::after {
 			content: "";
 			display: inline-block;

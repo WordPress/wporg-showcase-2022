@@ -2,7 +2,7 @@
 /**
  * WordPress dependencies
  */
-import { getContext, getElement, store } from '@wordpress/interactivity';
+import { getContext, store } from '@wordpress/interactivity';
 
 /**
  * Module constants
@@ -20,6 +20,12 @@ const { actions, state } = store( 'wporg/showcase/screenshot', {
 		},
 		get base64Image() {
 			return getContext().base64Image;
+		},
+		get hasError() {
+			return getContext().hasError;
+		},
+		get hasLoaded() {
+			return state.base64Image || state.hasError;
 		},
 	},
 	actions: {
@@ -68,6 +74,7 @@ const { actions, state } = store( 'wporg/showcase/screenshot', {
 			}
 		},
 	},
+
 	callbacks: {
 		// Run on init, starts the image fetch process.
 		*init() {
@@ -88,30 +95,6 @@ const { actions, state } = store( 'wporg/showcase/screenshot', {
 						actions.setShouldRetry( false );
 					}
 				}
-			}
-		},
-
-		update() {
-			const context = getContext();
-			const { ref } = getElement();
-			const { alt, hasError, isMShots } = context;
-
-			if ( ! isMShots ) {
-				return;
-			}
-
-			if ( hasError ) {
-				const spinner = ref.querySelector( 'div' );
-				spinner.classList.remove( 'wporg-site-screenshot__loader' );
-				spinner.classList.add( 'wporg-site-screenshot__error' );
-				spinner.innerText = alt;
-				ref.parentElement.classList.remove( 'has-loaded' );
-			} else if ( state.base64Image ) {
-				const img = document.createElement( 'img' );
-				img.src = state.base64Image;
-				img.alt = alt;
-				ref.replaceChildren( img );
-				ref.parentElement.classList.add( 'has-loaded' );
 			}
 		},
 	},

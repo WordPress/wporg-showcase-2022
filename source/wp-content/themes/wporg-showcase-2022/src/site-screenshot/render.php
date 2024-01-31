@@ -100,9 +100,22 @@ $encoded_state = wp_json_encode( $init_state );
 		<div
 			class="wporg-site-screenshot__mshot-container"
 			data-wp-init="callbacks.init"
-			data-wp-watch="callbacks.update"
+			data-wp-class--has-loaded="state.hasLoaded"
 		>
-			<div class="wporg-site-screenshot__loader"></div>
+			<div
+				data-wp-class--wporg-site-screenshot__loader="!state.hasLoaded"
+				data-wp-class--wporg-site-screenshot__error="state.hasError"
+			>
+				<img
+					data-wp-bind--hidden="!state.base64Image"
+					data-wp-bind--alt="context.alt"
+					data-wp-bind--src="state.base64Image"
+				/>
+				<span
+					data-wp-bind--hidden="state.base64Image"
+					data-wp-text="context.alt"
+				></span>
+			</div>
 		</div>
 	<?php else : ?>
 		<img
