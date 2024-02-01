@@ -2,7 +2,7 @@
 /**
  * WordPress dependencies
  */
-import { store as wpStore } from '@wordpress/interactivity';
+import { getContext, store } from '@wordpress/interactivity';
 
 /**
  * Module constants
@@ -10,134 +10,92 @@ import { store as wpStore } from '@wordpress/interactivity';
 const MAX_ATTEMPTS = 10;
 const RETRY_DELAY = 2000;
 
-/**
- * Helper to update the "attempts" value.
- *
- * @param {Object} store
- */
-function increaseAttempts( store ) {
-	store.context.wporg.showcase.screenshot.attempts++;
-}
+const { actions, state } = store( 'wporg/showcase/screenshot', {
+	state: {
+		get attempts() {
+			return getContext().attempts;
+		},
+		get shouldRetry() {
+			return getContext().shouldRetry;
+		},
+		get base64Image() {
+			return getContext().base64Image;
+		},
+		get hasError() {
+			return getContext().hasError;
+		},
+		get hasLoaded() {
+			return state.base64Image || state.hasError;
+		},
+	},
+	actions: {
+		increaseAttempts() {
+			const context = getContext();
+			context.attempts++;
+		},
 
-/**
- * Helper to update the "shouldRetry" value.
- *
- * @param {boolean} value
- * @param {Object}  store
- */
-function setShouldRetry( value, store ) {
-	store.context.wporg.showcase.screenshot.shouldRetry = value;
-}
+		setShouldRetry( value ) {
+			const context = getContext();
+			context.shouldRetry = value;
+		},
 
-/**
- * Helper to update the "hasError" value.
- *
- * @param {boolean} value
- * @param {Object}  store
- */
-function setHasError( value, store ) {
-	store.context.wporg.showcase.screenshot.hasError = value;
-}
+		setHasError( value ) {
+			const context = getContext();
+			context.hasError = value;
+		},
 
-/**
- * Helper to update the "base64Image" value.
- *
- * @param {string} value
- * @param {Object} store
- */
-function setBase64Image( value, store ) {
-	store.context.wporg.showcase.screenshot.base64Image = value;
-}
+		setBase64Image( value ) {
+			const context = getContext();
+			context.base64Image = value;
+		},
 
-/**
- * Make a request to the mShots URL, update state values.
- *
- * @param {string} fullUrl
- * @param {Object} store
- */
-const fetchImage = async ( fullUrl, store ) => {
-	try {
-		const res = await fetch( fullUrl );
-		increaseAttempts( store );
+		*fetchImage( fullUrl ) {
+			try {
+				const res = yield fetch( fullUrl );
+				actions.increaseAttempts();
 
-		if ( res.redirected ) {
-			setShouldRetry( true, store );
-		} else if ( res.status === 200 && ! res.redirected ) {
-			const blob = await res.blob();
+				if ( res.redirected ) {
+					actions.setShouldRetry( true );
+				} else if ( res.status === 200 && ! res.redirected ) {
+					const blob = yield res.blob();
 
-			const reader = new FileReader();
-			reader.onload = ( event ) => {
-				setBase64Image( event.target.result, store );
-			};
-			reader.readAsDataURL( blob );
+					const value = yield new Promise( ( resolve ) => {
+						const reader = new FileReader();
+						reader.onloadend = () => resolve( reader.result );
+						reader.readAsDataURL( blob );
+					} );
 
-			setShouldRetry( false, store );
-		}
-	} catch ( error ) {
-		setHasError( true, store );
-		setShouldRetry( false, store );
-	}
-};
+					actions.setBase64Image( value );
+					actions.setShouldRetry( false );
+				}
+			} catch ( error ) {
+				actions.setHasError( true );
+				actions.setShouldRetry( false );
+			}
+		},
+	},
 
-wpStore( {
-	effects: {
-		wporg: {
-			showcase: {
-				screenshot: {
-					// Run on init, starts the image fetch process.
-					init: async ( store ) => {
-						const { context } = store;
-						const { base64Image, isMShots, src } = context.wporg.showcase.screenshot;
+	callbacks: {
+		// Run on init, starts the image fetch process.
+		*init() {
+			const { isMShots, src } = getContext();
 
-						if ( isMShots && ! base64Image ) {
-							// Initial fetch.
-							await fetchImage( src, store );
+			if ( isMShots && ! state.base64Image ) {
+				// Initial fetch.
+				yield actions.fetchImage( src );
 
-							// Set up the function to retry every RETRY_DELAY (2 seconds).
-							const intervalId = setInterval(
-								async ( _context ) => {
-									const { attempts, base64Image: _base64Image, shouldRetry } = _context;
-									if ( shouldRetry ) {
-										await fetchImage( src, store );
-									}
-									if ( attempts >= MAX_ATTEMPTS ) {
-										clearInterval( intervalId );
-										if ( ! _base64Image ) {
-											setHasError( true, store );
-										}
-									}
-								},
-								RETRY_DELAY,
-								context.wporg.showcase.screenshot
-							);
-						}
-					},
+				while ( state.shouldRetry ) {
+					yield new Promise( ( resolve ) => {
+						setTimeout( () => resolve(), RETRY_DELAY );
+					} );
+					yield actions.fetchImage( src );
 
-					// Run as an effect, when the context changes.
-					update: ( store ) => {
-						const { context, ref } = store;
-						const { alt, base64Image, hasError, isMShots } = context.wporg.showcase.screenshot;
-
-						if ( ! isMShots ) {
-							return;
-						}
-
-						if ( hasError ) {
-							const spinner = ref.querySelector( 'div' );
-							spinner.classList.remove( 'wporg-site-screenshot__loader' );
-							spinner.classList.add( 'wporg-site-screenshot__error' );
-							spinner.innerText = alt;
-							ref.parentElement.classList.remove( 'has-loaded' );
-						} else if ( base64Image ) {
-							const img = document.createElement( 'img' );
-							img.src = base64Image;
-							img.alt = alt;
-							ref.replaceChildren( img );
-							ref.parentElement.classList.add( 'has-loaded' );
-						}
-					},
-				},
-			},
+					if ( state.attempts >= MAX_ATTEMPTS ) {
+						actions.setHasError( true );
+						actions.setShouldRetry( false );
+					}
+				}
+			}
 		},
 	},
 } );

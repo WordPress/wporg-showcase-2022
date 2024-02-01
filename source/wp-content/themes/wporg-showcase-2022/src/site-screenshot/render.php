@@ -78,17 +78,18 @@ $init_state = [
 	'isMShots' => $is_mshots,
 	'isLazyLoad' => $is_lazyload,
 	'attempts' => 0,
+	'shouldRetry' => true,
 	'base64Image' => '',
 	'hasError' => false,
 	'src' => esc_url( $screenshot ),
 	'alt' => the_title_attribute( array( 'echo' => false ) ),
 ];
-$encoded_state = wp_json_encode( [ 'wporg' => [ 'showcase' => [ 'screenshot' => $init_state ] ] ] );
+$encoded_state = wp_json_encode( $init_state );
 
 ?>
 <div
 	<?php echo get_block_wrapper_attributes( array( 'class' => $classname ) ); // phpcs:ignore ?>
-	data-wp-interactive
+	data-wp-interactive="<?php echo esc_attr( '{"namespace":"wporg/showcase/screenshot"}' ); ?>"
 	data-wp-context="<?php echo esc_attr( $encoded_state ); ?>"
 >
 	<?php if ( $has_link ) : ?>
@@ -98,10 +99,23 @@ $encoded_state = wp_json_encode( [ 'wporg' => [ 'showcase' => [ 'screenshot' => 
 	<?php if ( $is_mshots ) : ?>
 		<div
 			class="wporg-site-screenshot__mshot-container"
-			data-wp-init="effects.wporg.showcase.screenshot.init"
-			data-wp-effect="effects.wporg.showcase.screenshot.update"
+			data-wp-init="callbacks.init"
+			data-wp-class--has-loaded="state.hasLoaded"
 		>
-			<div class="wporg-site-screenshot__loader"></div>
+			<div
+				data-wp-class--wporg-site-screenshot__loader="!state.hasLoaded"
+				data-wp-class--wporg-site-screenshot__error="state.hasError"
+			>
+				<img
+					data-wp-bind--hidden="!state.base64Image"
+					data-wp-bind--alt="context.alt"
+					data-wp-bind--src="state.base64Image"
+				/>
+				<span
+					data-wp-bind--hidden="state.base64Image"
+					data-wp-text="context.alt"
+				></span>
+			</div>
 		</div>
 	<?php else : ?>
 		<img
