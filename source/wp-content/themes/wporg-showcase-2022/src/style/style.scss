@@ -52,7 +52,7 @@ a:where(:not(.wp-element-button)):focus-visible {
 
 	@media (min-width: 1180px) {
 		.wp-block-cover {
-			aspect-ratio: 1010/530;
+			aspect-ratio: 1010/530 !important;
 			overflow: hidden;
 		}
 
