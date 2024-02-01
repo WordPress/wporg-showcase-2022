@@ -1,0 +1,23 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wporg/tags-archive",
+  "version": "0.1.0",
+  "title": "Tags Archive",
+  "category": "design",
+  "icon": "",
+  "description": "Display a list of tags alphabetically.",
+  "textdomain": "wporg",
+  "attributes": {},
+  "supports": {
+    "align": true,
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:../../src/tags-archive/render.php",
+  "style": "file:./style-index.css"
+}

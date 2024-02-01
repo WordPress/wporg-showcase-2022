@@ -1,0 +1,31 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wporg/term-grid",
+  "version": "0.1.0",
+  "title": "Term Grid",
+  "category": "design",
+  "icon": "",
+  "description": "Display the terms from a given taxonomy as a grid of cards.",
+  "textdomain": "wporg",
+  "attributes": {
+    "term": {
+      "default": "category",
+      "type": "string"
+    },
+    "showPostCounts": {
+      "type": "boolean"
+    }
+  },
+  "supports": {
+    "align": true,
+    "html": false,
+    "spacing": {
+      "margin": true,
+      "padding": true
+    }
+  },
+  "editorScript": "file:./index.js",
+  "render": "file:../../src/term-grid/render.php",
+  "style": "file:./style-index.css"
+}
