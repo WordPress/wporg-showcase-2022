@@ -29,7 +29,7 @@
 				<h2 class="wp-block-heading screen-reader-text"><?php esc_attr_e( 'More about this site', 'wporg' ); ?></h2>
 				<!-- /wp:heading -->
 
-				<!-- wp:wporg/site-meta-list {"meta":["author","country","category","flavor","published","post_tag"],"fontSize":"small","style":{"border":{"radius":"2px","style":"solid","width":"1px"}},"borderColor":"light-grey-1"} /-->
+				<!-- wp:wporg/site-meta-list {"meta":["author","country","category","published","post_tag"],"fontSize":"small","style":{"border":{"radius":"2px","style":"solid","width":"1px"}},"borderColor":"light-grey-1"} /-->
 			</div>
 			<!-- /wp:group -->
 
