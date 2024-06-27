@@ -165,17 +165,17 @@ function get_category_options( $options ) {
  */
 function get_sort_options( $options ) {
 	global $wp_query;
-	$orderby = strtolower( $wp_query->get( 'orderby' ) );
-	$order = strtolower( $wp_query->get( 'order' ) );
+	$orderby = strtolower( $wp_query->get( 'orderby', 'date' ) );
+	$order = strtolower( $wp_query->get( 'order', 'desc' ) );
 	$sort = $orderby . '_' . $order;
 
 	$label = __( 'Sort', 'wporg' );
 	switch ( $sort ) {
 		case 'date_desc':
-			$label = __( 'Sort: Newest', 'wporg' );
+			$label = __( 'Newest', 'wporg' );
 			break;
 		case 'date_asc':
-			$label = __( 'Sort: Oldest', 'wporg' );
+			$label = __( 'Oldest', 'wporg' );
 			break;
 	}
 
