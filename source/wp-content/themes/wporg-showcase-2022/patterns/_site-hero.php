@@ -25,6 +25,10 @@
 					<h1 class="wp-block-heading has-heading-2-font-size" style="margin-top:0"><?php esc_html_e( 'Showcase', 'wporg' ); ?></h1>
 					<!-- /wp:heading -->
 
+					<!-- wp:heading {"fontSize":"heading-2",style":{"spacing":{"margin":{"top":"0"}}},"className":"screen-reader-text"} -->
+					<h1 class="wp-block-heading has-heading-2-font-size screen-reader-text" style="margin-top:0"><?php esc_html_e( 'Showcase', 'wporg' ); ?></h1>
+					<!-- /wp:heading -->
+
 					<!-- wp:paragraph {"fontSize":"small",style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}}} -->
 					<p class="has-small-font-size" style="margin-top:var(--wp--preset--spacing--10)"><?php esc_html_e( 'Star-studded sites built with WordPress.', 'wporg' ); ?></p>
 					<!-- /wp:paragraph -->
