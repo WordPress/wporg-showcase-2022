@@ -30,7 +30,7 @@
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"fontSize":"small",style":{"spacing":{"margin":{"top":"var:preset|spacing|10"}}}} -->
-					<p class="has-small-font-size" style="margin-top:var(--wp--preset--spacing--10)"><?php esc_html_e( 'Star-studded sites built with WordPress.', 'wporg' ); ?></p>
+					<p class="has-small-font-size" style="margin-top:var(--wp--preset--spacing--10)"><?php esc_html_e( 'The best websites, built with WordPress.', 'wporg' ); ?></p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:wporg/site-meta-list {"meta":["post_title","domain","category"],"showLabel":false,"fontSize":"small","style":{"elements":{"link":{"color":{"text":"var:preset|color|blueberry-2"}}},"border":{"radius":"2px","style":"solid","width":"1px"},"spacing":{"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"borderColor":"charcoal-3","textColor":"light-grey-2"} /-->
