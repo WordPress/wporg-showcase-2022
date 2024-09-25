@@ -638,8 +638,14 @@ function redirect_term_archives() {
  * Remove the "featured" category from frontend display.
  */
 function remove_featured_category_frontend( $terms, $post_id, $taxonomy ) {
-	if ( 'category' === $taxonomy && ! is_admin() ) {
+	// Return early if admin or REST request.
+	if ( is_admin() || wp_is_rest_endpoint() ) {
+		return $terms;
+	}
+
+	if ( 'category' === $taxonomy ) {
 		return wp_list_filter( $terms, [ 'slug' => 'featured' ], 'NOT' );
 	}
+
 	return $terms;
 }
