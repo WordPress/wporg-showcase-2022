@@ -1,0 +1,78 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "wporg/site-screenshot",
+  "version": "0.1.0",
+  "title": "Site Screenshot",
+  "category": "design",
+  "icon": "",
+  "description": "Display a screenshot of the site.",
+  "textdomain": "wporg",
+  "attributes": {
+    "isLink": {
+      "type": "boolean",
+      "default": false
+    },
+    "lazyLoad": {
+      "type": "boolean",
+      "default": false
+    },
+    "type": {
+      "type": "string",
+      "default": "desktop",
+      "enum": [
+        "desktop",
+        "mobile"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "default": "grid",
+      "enum": [
+        "grid",
+        "hero",
+        "header",
+        "row"
+      ]
+    }
+  },
+  "supports": {
+    "align": true,
+    "color": {
+      "text": false,
+      "background": true,
+      "link": false
+    },
+    "spacing": {
+      "margin": [
+        "top",
+        "bottom"
+      ],
+      "padding": true,
+      "__experimentalDefaultControls": {
+        "margin": true,
+        "padding": true
+      }
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true,
+      "__experimentalDefaultControls": {
+        "color": true,
+        "radius": true,
+        "style": true,
+        "width": true
+      }
+    }
+  },
+  "usesContext": [
+    "postId"
+  ],
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "viewModule": "file:./view.js",
+  "style": "file:./style-index.css",
+  "render": "file:../../src/site-screenshot/render.php"
+}

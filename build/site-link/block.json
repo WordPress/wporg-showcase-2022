@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wporg/site-link",
+  "version": "0.1.0",
+  "title": "Site Link",
+  "category": "design",
+  "icon": "",
+  "description": "Displays a pretty link to the site.",
+  "textdomain": "wporg",
+  "supports": {
+    "align": true,
+    "anchor": true,
+    "color": {
+      "gradients": false,
+      "link": true
+    },
+    "html": false,
+    "spacing": {
+      "blockGap": false,
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true,
+      "__experimentalFontFamily": true,
+      "__experimentalFontStyle": true,
+      "__experimentalFontWeight": true,
+      "__experimentalLetterSpacing": true,
+      "__experimentalTextTransform": true
+    }
+  },
+  "usesContext": [
+    "postId"
+  ],
+  "editorScript": "file:./index.js"
+}
