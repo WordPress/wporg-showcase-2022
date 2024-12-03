@@ -171,10 +171,10 @@ function get_sort_options( $options ) {
 	$label = __( 'Sort', 'wporg' );
 	switch ( $sort ) {
 		case 'date_desc':
-			$label = __( 'Newest', 'wporg' );
+			$label = __( 'Sort: Newest', 'wporg' );
 			break;
 		case 'date_asc':
-			$label = __( 'Oldest', 'wporg' );
+			$label = __( 'Sort: Oldest', 'wporg' );
 			break;
 	}
 
