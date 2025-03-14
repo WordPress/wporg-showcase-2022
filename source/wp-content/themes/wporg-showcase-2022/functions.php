@@ -654,17 +654,18 @@ function remove_featured_category_frontend( $terms, $post_id, $taxonomy ) {
  * Conditionally send email on form submission.
  *
  * @param boolean $send_email Whether to send an email.
- * @param int $post_id The post ID.
+ * @param int     $post_id The post ID.
  * @return boolean
  */
 function conditionally_send_email( $send_email, $post_id ) {
 	// Allow email for new site submission.
-	$feedback_meta = get_post_meta($post_id, '_feedback_akismet_values', true);
-	if ( is_array( $feedback_meta ) &&isset($feedback_meta['REQUEST_URI']) && 
-		'/showcase/submit-a-wordpress-site/' === $feedback_meta['REQUEST_URI']
+	$feedback_meta = get_post_meta( $post_id, '_feedback_akismet_values', true );
+	if ( is_array( $feedback_meta ) &&
+		 isset( $feedback_meta['REQUEST_URI'] ) &&
+		 '/showcase/submit-a-wordpress-site/' === $feedback_meta['REQUEST_URI']
 	) {
 		return true;
 	}
 
-    return false; // For all other forms, do not send email
+	return false; // For all other forms, do not send email
 }
