@@ -36,8 +36,6 @@ add_filter( 'jetpack_related_posts_display_markup', __NAMESPACE__ . '\jetpack_re
 add_filter( 'jetpack_relatedposts_returned_results', __NAMESPACE__ . '\jetpack_related_posts_results', 10, 2 );
 add_filter( 'grunion_contact_form_redirect_url', __NAMESPACE__ . '\jetpack_redirect_submission_form' );
 
-// Don't send an email on contact for submission.
-add_filter( 'grunion_should_send_email', '__return_false' );
 // Enable auto-fill using user information.
 add_filter( 'jetpack_auto_fill_logged_in_user', '__return_true' );
 // Remove Jetpack CSS on frontend
