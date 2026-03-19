@@ -461,7 +461,10 @@ function add_social_meta_tags() {
 	];
 
 	if ( is_tag() || is_category() ) {
-		$og_fields['og:url'] = esc_url( get_term_link( get_queried_object_id() ) );
+		$queried_object_id = get_queried_object_id();
+		if ( $queried_object_id ) {
+			$og_fields['og:url'] = esc_url( get_term_link( $queried_object_id ) );
+		}
 	} elseif ( is_single() ) {
 		$og_fields['og:description'] = strip_tags( get_the_excerpt() );
 		$og_fields['og:url']         = esc_url( get_permalink() );
