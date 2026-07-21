@@ -18,7 +18,7 @@ foreach ( $terms as $_term ) {
 	if ( isset( $by_alphabet[ $initial_char ] ) ) {
 		$by_alphabet[ $initial_char ][] = $_term;
 	} else {
-		$by_alphabet[ $initial_char ] = [ $_term ];
+		$by_alphabet[ $initial_char ] = array( $_term );
 	}
 }
 

@@ -93,7 +93,7 @@ function setup_theme() {
 	// Add these sizes to the size dropdown in core image blocks.
 	add_filter(
 		'image_size_names_choose',
-		function( $sizes ) {
+		function ( $sizes ) {
 			return array_merge(
 				$sizes,
 				array(
@@ -182,7 +182,7 @@ function setup_theme() {
 	$editor_script_handle = register_block_script_handle( $metadata, 'editorScript', 0 );
 	add_action(
 		'enqueue_block_assets',
-		function() use ( $editor_script_handle ) {
+		function () use ( $editor_script_handle ) {
 			if ( is_admin() && wp_should_load_block_editor_scripts_and_styles() ) {
 				wp_enqueue_script( $editor_script_handle );
 			}
@@ -247,13 +247,13 @@ function get_site_domain( $post, $rem_trail_slash = false ) {
  */
 function get_applied_filter_list( $include_search = true ) {
 	global $wp_query;
-	$terms = [];
-	$taxes = [
+	$terms = array();
+	$taxes = array(
 		'tag' => 'post_tag',
 		'cat' => 'category',
 		'category_name' => 'category',
 		'flavor' => 'flavor',
-	];
+	);
 	foreach ( $taxes as $query_var => $taxonomy ) {
 		if ( ! isset( $wp_query->query[ $query_var ] ) ) {
 			continue;
@@ -347,7 +347,7 @@ function redirect_urls() {
 			$template_slug = 'page-log-in';
 
 			// This is returned by locate_block_template if not block template is found
-			$fallback = locate_template( dirname( __FILE__ ) . "/templates/$template_slug.html" );
+			$fallback = locate_template( __DIR__ . "/templates/$template_slug.html" );
 
 			// This internally sets the $template_slug to be the active template.
 			$template = locate_block_template( $fallback, $template_slug, array() );
@@ -451,14 +451,14 @@ function document_title_separator( $title ) {
 function add_social_meta_tags() {
 	$default_image = get_stylesheet_directory_uri() . '/images/social-image.png';
 	$site_title    = function_exists( '\WordPressdotorg\site_brand' ) ? \WordPressdotorg\site_brand() : 'WordPress.org';
-	$og_fields = [
+	$og_fields = array(
 		'og:title'       => wp_get_document_title(),
 		'og:description' => __( 'Discover inspiration in some of the most beautiful, best designed WordPress websites.', 'wporg' ),
 		'og:site_name'   => $site_title,
 		'og:type'        => 'website',
 		'og:url'         => home_url( '/' ),
 		'og:image'       => esc_url( $default_image ),
-	];
+	);
 
 	if ( is_tag() || is_category() ) {
 		$queried_object_id = get_queried_object_id();
@@ -578,7 +578,7 @@ function jetpack_related_posts_results( $results, $post_id ) {
 	if ( $count < 3 ) {
 		$args = array(
 			'numberposts' => 3 - $count, // Only grab enough to fill 3 slots.
-			'exclude' => [ $post_id ],
+			'exclude' => array( $post_id ),
 			'category' => 'featured',
 		);
 		$posts = get_posts( $args );
@@ -624,7 +624,7 @@ function redirect_term_archives() {
 	if ( count( $terms ) === 1 && ! $is_term_archive ) {
 		$url = get_term_link( $terms[0] );
 		// Pass through search query, sorting values.
-		$query_vars = [ 's', 'order', 'orderby' ];
+		$query_vars = array( 's', 'order', 'orderby' );
 		foreach ( $query_vars as $query_var ) {
 			if ( isset( $wp_query->query[ $query_var ] ) ) {
 				$url = add_query_arg( $query_var, $wp_query->query[ $query_var ], $url );
@@ -645,7 +645,7 @@ function remove_featured_category_frontend( $terms, $post_id, $taxonomy ) {
 	}
 
 	if ( 'category' === $taxonomy ) {
-		return wp_list_filter( $terms, [ 'slug' => 'featured' ], 'NOT' );
+		return wp_list_filter( $terms, array( 'slug' => 'featured' ), 'NOT' );
 	}
 
 	return $terms;

@@ -75,7 +75,7 @@ if ( $has_responsive_images ) {
 // Initial state to pass to Interactivity API.
 // This handles the image data (used to load image from mshots) and current
 // state information (like errors).
-$init_state = [
+$init_state = array(
 	'isMShots' => $is_mshots,
 	'isLazyLoad' => $is_lazyload,
 	'attempts' => 0,
@@ -84,7 +84,7 @@ $init_state = [
 	'hasError' => false,
 	'src' => esc_url( $screenshot ),
 	'alt' => the_title_attribute( array( 'echo' => false ) ),
-];
+);
 $encoded_state = wp_json_encode( $init_state );
 
 ?>

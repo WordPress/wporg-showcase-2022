@@ -6,8 +6,24 @@
 		on those directories without flagging known non-issues from generated or forked code.
 	-->
 
+	<!-- Lint only the versioned theme; skip Composer-installed third-party code and tooling scripts so a bare `composer lint` (no path) stays scoped, like `.gitignore`. -->
+	<exclude-pattern>source/wp-content/plugins/*</exclude-pattern>
+	<exclude-pattern>source/wp-content/mu-plugins/*</exclude-pattern>
+	<exclude-pattern>source/wp-content/themes/wporg-showcase/*</exclude-pattern>
+	<exclude-pattern>source/wp-content/themes/wporg-parent-2021/*</exclude-pattern>
+	<exclude-pattern>env/*</exclude-pattern>
+
 	<!-- Import the shared PHPCS settings. -->
-	<rule ref="./phpcs.xml.dist" />
+	<rule ref="./phpcs.xml.dist">
+		<!--
+			Drop PHPCompatibility. It checks the theme for compatibility with older
+			PHP versions, but wordpress.org runs PHP 8.4 — the version we develop,
+			lint, and ship on — so there is nothing older to support. (It also can't
+			run on PHP 8.1+ in its installable form, and the fixed line needs
+			PHP_CodeSniffer 4, which no released WPCS supports yet.)
+		-->
+		<exclude name="PHPCompatibility" />
+	</rule>
 
 	<!-- Allow unescaped content in patterns. -->
 	<rule ref="WordPress.Security.EscapeOutput.UnsafePrintingFunction">
