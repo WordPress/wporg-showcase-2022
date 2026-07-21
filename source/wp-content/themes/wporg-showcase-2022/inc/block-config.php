@@ -324,7 +324,7 @@ function update_archive_title( $block_content, $block, $instance ) {
 			'<%1$s %2$s>%3$s</%1$s>',
 			$tag_name,
 			$wrapper_attributes,
-			$title
+			esc_html( $title )
 		);
 	}
 	return $block_content;

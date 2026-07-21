@@ -104,9 +104,9 @@ function render( $attributes, $content, $block ) {
 					<th scope="row"%2$s>%3$s</th>
 					<td>%4$s</td>
 				</tr>',
-				$field['key'],
+				esc_attr( $field['key'] ),
 				$show_label ? '' : ' class="screen-reader-text"',
-				$field['label'],
+				esc_html( $field['label'] ),
 				wp_kses_post( $value )
 			);
 		}
@@ -143,7 +143,11 @@ function get_value( $type, $key, $post_id ) {
 			// Domain uses shortcodes to output pretty format.
 			$value = do_shortcode( '<a class="external-link" href="[domain]" target="_blank" rel="noopener">[pretty_domain]</a>' );
 		} else if ( 'post_title' === $key ) {
-			$value = sprintf( '<a href="%s">%s</a>', get_permalink( $post_id ), get_the_title( $post_id ) );
+			$value = sprintf(
+				'<a href="%s">%s</a>',
+				esc_url( get_permalink( $post_id ) ),
+				esc_html( get_the_title( $post_id ) )
+			);
 		}
 	}
 

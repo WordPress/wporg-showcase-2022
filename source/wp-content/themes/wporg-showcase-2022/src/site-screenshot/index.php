@@ -116,7 +116,7 @@ function get_site_feature_color( $post_id ) {
 	// Check for a user-set color first.
 	$color = get_post_meta( $post_id, 'feature-color', true );
 	if ( $color && '#' !== $color ) {
-		return $color;
+		return is_hex_color( $color ) ? $color : false;
 	}
 
 	// No user color, if we have a local image try using that to generate an average.
@@ -133,5 +133,19 @@ function get_site_feature_color( $post_id ) {
 	$image = new Tonesque( $screenshot_url );
 	$color = '#' . $image->color();
 
-	return $color;
+	return is_hex_color( $color ) ? $color : false;
+}
+
+/**
+ * Check whether a value is a hex color code.
+ *
+ * Matches the formats accepted by the editor control: a leading `#` followed
+ * by 3, 4, 6, or 8 hexadecimal digits.
+ *
+ * @param string $color The value to check.
+ *
+ * @return bool True if the value is a valid hex color.
+ */
+function is_hex_color( $color ) {
+	return (bool) preg_match( '/^#([a-f0-9]{3,4}|[a-f0-9]{6}|[a-f0-9]{8})$/i', $color );
 }

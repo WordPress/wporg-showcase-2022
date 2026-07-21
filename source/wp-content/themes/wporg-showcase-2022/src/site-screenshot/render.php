@@ -25,6 +25,7 @@ if ( $has_link ) {
 $has_responsive_images = ! $is_mshots && 'desktop' === $attributes['type'];
 
 // If the block needs responsive images, set up more image URLs & sizes attribute.
+$sizes = '';
 if ( $has_responsive_images ) {
 	$screenshot = get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-1100' );
 	$screenshot_srcset = get_site_screenshot_src( $current_post, $attributes['type'], 'screenshot-desktop-500' ) . ' 500w, ';
