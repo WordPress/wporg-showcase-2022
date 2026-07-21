@@ -1,4 +1,10 @@
 <?php
+/**
+ * Shortcodes for displaying showcase site meta.
+ *
+ * @package wporg
+ */
+
 namespace WordPressdotorg\Theme\Showcase_2022;
 
 /**
@@ -6,7 +12,7 @@ namespace WordPressdotorg\Theme\Showcase_2022;
  */
 add_shortcode(
 	'domain',
-	function() {
+	function () {
 
 		$values = get_post_custom_values( 'domain', get_the_ID() );
 
@@ -23,7 +29,7 @@ add_shortcode(
  */
 add_shortcode(
 	'pretty_domain',
-	function() {
+	function () {
 		$domain = get_post_meta( get_the_ID(), 'domain', true );
 		if ( ! $domain ) {
 			return '';
@@ -36,6 +42,5 @@ add_shortcode(
 			$pretty_domain .= $path;
 		}
 		return $pretty_domain;
-
 	}
 );

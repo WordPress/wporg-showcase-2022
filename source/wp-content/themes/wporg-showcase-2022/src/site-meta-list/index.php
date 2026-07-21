@@ -89,7 +89,7 @@ function render( $attributes, $content, $block ) {
 	if ( isset( $attributes['meta'] ) ) {
 		$meta_fields = array_filter(
 			$meta_fields,
-			function( $field ) use ( $attributes ) {
+			function ( $field ) use ( $attributes ) {
 				return in_array( $field['key'], $attributes['meta'] );
 			}
 		);
@@ -133,22 +133,20 @@ function render( $attributes, $content, $block ) {
 function get_value( $type, $key, $post_id ) {
 	if ( 'taxonomy' === $type ) {
 		$value = get_the_term_list( $post_id, $key, '', ', ' );
-	} else if ( 'meta' === $type ) {
+	} elseif ( 'meta' === $type ) {
 		$value = get_post_meta( $post_id, $key, true );
-	} else {
-		// "other" are special cases.
-		if ( 'published' === $key ) {
-			$value = get_the_date( 'F Y', $post_id );
-		} else if ( 'domain' === $key ) {
-			// Domain uses shortcodes to output pretty format.
-			$value = do_shortcode( '<a class="external-link" href="[domain]" target="_blank" rel="noopener">[pretty_domain]</a>' );
-		} else if ( 'post_title' === $key ) {
-			$value = sprintf(
-				'<a href="%s">%s</a>',
-				esc_url( get_permalink( $post_id ) ),
-				esc_html( get_the_title( $post_id ) )
-			);
-		}
+	} elseif ( 'published' === $key ) {
+		// The remaining keys are "other" special cases.
+		$value = get_the_date( 'F Y', $post_id );
+	} elseif ( 'domain' === $key ) {
+		// Domain uses shortcodes to output pretty format.
+		$value = do_shortcode( '<a class="external-link" href="[domain]" target="_blank" rel="noopener">[pretty_domain]</a>' );
+	} elseif ( 'post_title' === $key ) {
+		$value = sprintf(
+			'<a href="%s">%s</a>',
+			esc_url( get_permalink( $post_id ) ),
+			esc_html( get_the_title( $post_id ) )
+		);
 	}
 
 	if ( is_wp_error( $value ) ) {

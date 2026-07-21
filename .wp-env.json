@@ -12,6 +12,7 @@
 		"WP_CORE_LATEST_RELEASE": "6.2.2"
 	},
 	"core": "WordPress/WordPress#master",
+	"phpVersion": "8.4",
 	"plugins": [
 		"./source/wp-content/plugins/jetpack",
 		"./source/wp-content/plugins/gutenberg",

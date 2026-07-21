@@ -62,7 +62,7 @@ function ScreenshotUpload( { metaKey, label, noticeUI, noticeOperations } ) {
 	const onDropFiles = ( filesList ) => {
 		mediaUpload( {
 			allowedTypes: [ 'image' ],
-			filesList: filesList,
+			filesList,
 			onFileChange: ( [ image ] ) => {
 				if ( isBlobURL( image?.url ) ) {
 					setIsLoading( true );
