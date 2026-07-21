@@ -10,7 +10,6 @@ This is as-yet incomplete, a starting point.
 
 * Docker
 * Node/npm
-* Yarn
 * Composer
 
 ### Setup
@@ -18,21 +17,21 @@ This is as-yet incomplete, a starting point.
 1. Set up repo dependencies.
 
     ```bash
-    yarn
+    npm install
     composer install
-    yarn setup:tools
+    npm run setup:tools
     ```
 
 1. Start the local environment.
 
     ```bash
-    yarn wp-env start
+    npx wp-env start
     ```
 
 1. Run the setup script.
 
     ```bash
-    yarn setup:wp
+    npm run setup:wp
     ```
 
 1. (optional) There may be times when you want to make changes to the Parent theme and test them with the Main them. To do that:
@@ -62,54 +61,55 @@ These must be run in the project's root folder, _not_ in theme/plugin subfolders
 * Stop the environment.
 
     ```bash
-    yarn wp-env stop
+    npx wp-env stop
     ```
 
 * Restart the environment.
 
     ```bash
-    yarn wp-env start
+    npx wp-env start
     ```
 
 * Build the theme's JavaScript
 
     ```bash
-    yarn workspace wporg-showcase-2022-theme build
+    npm run build:theme
     ```
 
     or, automatically build on changes:
 
     ```bash
-    yarn workspace wporg-showcase-2022-theme start
+    npm run start:theme
     ```
 
 * Reset WordPress to a clean install, and reconfigure. This will nuke all local WordPress content!
 
     ```bash
-    yarn wp-env clean all
-    yarn setup:wp
+    npx wp-env clean all
+    npm run setup:wp
     ```
 
 * SSH into docker container.
 
     ```bash
-    yarn wp-env run wordpress bash
+    npx wp-env run wordpress bash
     ```
 
 * Run wp-cli commands. Keep the wp-cli command in quotes so that the flags are passed correctly.
 
     ```bash
-    yarn wp-env run cli "post list --post_status=publish"
+    npx wp-env run cli "wp post list --post_status=publish"
     ```
 
 * Update composer dependencies and sync any `repo-tools` changes.
 
     ```bash
-    yarn update:tools
+    npm run update:tools
     ```
 
 * Run a lighthouse test.
 
     ```bash
-    yarn lighthouse
+    npm run lighthouse
     ```
+

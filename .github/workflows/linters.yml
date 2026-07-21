@@ -17,6 +17,7 @@ jobs:
         uses: WordPress/wporg-repo-tools/.github/actions/setup@trunk
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          packageManager: npm
 
       - name: Lint
         uses: WordPress/wporg-repo-tools/.github/actions/lint@trunk

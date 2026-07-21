@@ -13,20 +13,19 @@ Parent theme is `wporg-parent-2021` (`Template:` in `style.css`), pulled in via 
 Run from the repo root, not from the theme folder.
 
 ```bash
-yarn && composer install && yarn setup:tools   # first-time setup (setup:tools generates lint configs)
-yarn wp-env start                              # start env at localhost:8888 (admin/password)
-yarn setup:wp                                  # import content, activate theme, set options
-yarn build:theme                               # build the theme's JS/CSS
-yarn start:theme                               # build + watch
-yarn lint:php                                  # phpcs over the theme
+npm install && composer install && npm run setup:tools   # first-time setup (setup:tools generates lint configs)
+npx wp-env start                               # start env at localhost:8888 (admin/password)
+npm run setup:wp                               # import content, activate theme, set options
+npm run build:theme                            # build the theme's JS/CSS
+npm run start:theme                            # build + watch
+npm run lint:php                               # phpcs over the theme
 composer run format source/wp-content/themes/wporg-showcase-2022   # phpcbf, autofix PHP style
-yarn lighthouse                                # asserts a11y/best-practices/SEO = 100
-yarn wp-env run cli "post list --post_status=publish"   # wp-cli (keep command quoted)
-yarn wp-env clean all && yarn setup:wp         # reset WordPress to a clean install
-yarn update:tools                              # composer update + re-sync repo-tools configs
+npx wp-env run cli "wp post list --post_status=publish"   # wp-cli (keep command quoted)
+npx wp-env clean all && npm run setup:wp       # reset WordPress to a clean install
+npm run update:tools                           # composer update + re-sync repo-tools configs
 ```
 
-JS/CSS linting lives in the theme workspace: `yarn workspace wporg-showcase-2022-theme lint:js` / `lint:css` / `format`.
+JS/CSS linting lives in the theme workspace: `npm run lint:js -w wporg-showcase-2022-theme` / `lint:css` / `format`.
 
 There is **no test suite** in this repo. CI runs linting only (`.github/workflows/linters.yml`, via `wporg-repo-tools`).
 
@@ -38,13 +37,13 @@ Node version is pinned in `.nvmrc` (20).
 
 ## Gotchas
 
-`build/` is gitignored and is not optional at runtime: `functions.php` calls `filemtime()` on `build/style/style-index.css` and every block registers from `build/<name>`. A fresh clone (or anything that clears `build/`) leaves the theme erroring until `yarn build:theme` runs.
+`build/` is gitignored and is not optional at runtime: `functions.php` calls `filemtime()` on `build/style/style-index.css` and every block registers from `build/<name>`. A fresh clone (or anything that clears `build/`) leaves the theme erroring until `npm run build:theme` runs.
 
 Local seed content comes from `env/showcase-posts.xml` and `env/showcase-pages.xml`, imported by `env/setup.sh`. To refresh it from a production export, scrub PII first with `env/scrub-export.php`.
 
 ## Linting configuration
 
-`.eslintrc.js`, `.prettierrc.js`, `.stylelintrc`, and `phpcs.xml.dist` are **generated** by `yarn setup:tools` from `wporg-repo-tools` and are gitignored. The committed `phpcs.xml` imports `phpcs.xml.dist` and only adds project overrides — chiefly relaxing escaping, embedded-PHP, and filename rules inside `patterns/`.
+`.eslintrc.js`, `eslint.config.js`, `.prettierrc.js`, `.stylelintrc`, and `phpcs.xml.dist` are **generated** by `npm run setup:tools` from `wporg-repo-tools` and are gitignored. Note that `setup:tools` skips files that already exist — delete a generated config to pull a fresh copy after updating `wporg-repo-tools`. The committed `phpcs.xml` imports `phpcs.xml.dist` and layers on project overrides: it excludes `PHPCompatibility` (the theme targets PHP 8.4+, matching wordpress.org, so there's no older PHP to check against), and relaxes escaping, embedded-PHP, and filename rules inside `patterns/`.
 
 ## Theme architecture
 
@@ -54,7 +53,7 @@ Each custom block lives in `src/<block-name>/`:
 
 - `block.json` — metadata. `render` points back into source (`file:../../src/<name>/render.php`) even though the built block ships in `build/`.
 - `index.js` — editor registration; `style.scss`/`editor.scss` compiled by `wp-scripts`.
-- `index.php` — namespaced under `WordPressdotorg\Theme\Showcase_2022\<Block>`, hooks `init`, and calls `register_block_type( dirname( dirname( __DIR__ ) ) . '/build/<name>' )` — i.e. registration always reads the **build** directory, so `yarn build:theme` is required after touching block metadata.
+- `index.php` — namespaced under `WordPressdotorg\Theme\Showcase_2022\<Block>`, hooks `init`, and calls `register_block_type( dirname( dirname( __DIR__ ) ) . '/build/<name>' )` — i.e. registration always reads the **build** directory, so `npm run build:theme` is required after touching block metadata.
 
 `functions.php` `require_once`s each `src/*/index.php` explicitly; adding a block means adding a require line there.
 

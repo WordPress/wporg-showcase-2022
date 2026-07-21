@@ -6,14 +6,25 @@
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"dependencies": {
-		"@wordpress/components": "28.2.0",
-		"@wordpress/element": "6.2.0",
-		"@wordpress/i18n": "5.2.0",
-		"@wordpress/icons": "10.2.0"
+		"@wordpress/blob": "4.51.0",
+		"@wordpress/block-editor": "16.0.0",
+		"@wordpress/blocks": "15.24.0",
+		"@wordpress/components": "37.0.0",
+		"@wordpress/compose": "8.4.0",
+		"@wordpress/core-data": "7.51.0",
+		"@wordpress/data": "10.51.0",
+		"@wordpress/edit-post": "8.51.0",
+		"@wordpress/editor": "14.51.0",
+		"@wordpress/element": "8.3.0",
+		"@wordpress/i18n": "6.24.0",
+		"@wordpress/icons": "15.2.0",
+		"@wordpress/interactivity": "6.51.0",
+		"@wordpress/plugins": "7.51.0",
+		"@wordpress/server-side-render": "6.27.0"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "27.9.0",
-		"@wordpress/eslint-plugin": "19.2.0",
+		"@wordpress/scripts": "33.0.0",
+		"@wordpress/eslint-plugin": "25.7.0",
 		"rtlcss-webpack-plugin": "4.0.7"
 	},
 	"eslintConfig": {
