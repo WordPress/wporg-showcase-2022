@@ -241,8 +241,8 @@ function inject_other_filters( $key ) {
 	}
 
 	// Pass through search query.
-	if ( isset( $wp_query->query['s'] ) ) {
-		printf( '<input type="hidden" name="s" value="%s" />', esc_attr( $wp_query->query['s'] ) );
+	if ( isset( $wp_query->query['s'] ) && is_scalar( $wp_query->query['s'] ) ) {
+		printf( '<input type="hidden" name="s" value="%s" />', esc_attr( wp_unslash( $wp_query->query['s'] ) ) );
 	}
 }
 
