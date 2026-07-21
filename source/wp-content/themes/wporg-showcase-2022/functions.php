@@ -267,8 +267,8 @@ function get_applied_filter_list( $include_search = true ) {
 			}
 		}
 	}
-	if ( $include_search && isset( $wp_query->query['s'] ) ) {
-		$terms[] = array( 'name' => $wp_query->query['s'] );
+	if ( $include_search && isset( $wp_query->query['s'] ) && is_scalar( $wp_query->query['s'] ) ) {
+		$terms[] = array( 'name' => wp_unslash( $wp_query->query['s'] ) );
 	}
 	return $terms;
 }

@@ -241,8 +241,8 @@ function inject_other_filters( $key ) {
 	}
 
 	// Pass through search query.
-	if ( isset( $wp_query->query['s'] ) ) {
-		printf( '<input type="hidden" name="s" value="%s" />', esc_attr( $wp_query->query['s'] ) );
+	if ( isset( $wp_query->query['s'] ) && is_scalar( $wp_query->query['s'] ) ) {
+		printf( '<input type="hidden" name="s" value="%s" />', esc_attr( wp_unslash( $wp_query->query['s'] ) ) );
 	}
 }
 
@@ -324,7 +324,7 @@ function update_archive_title( $block_content, $block, $instance ) {
 			'<%1$s %2$s>%3$s</%1$s>',
 			$tag_name,
 			$wrapper_attributes,
-			$title
+			esc_html( $title )
 		);
 	}
 	return $block_content;

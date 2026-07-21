@@ -30,7 +30,7 @@ function render( $attributes, $content, $block ) {
 	return sprintf(
 		'<a %1$s href="%2$s">%3$s</a>',
 		$wrapper_attributes,
-		get_permalink( $post ),
+		esc_url( get_permalink( $post ) ),
 		$content
 	);
 }
