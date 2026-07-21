@@ -34,7 +34,7 @@ Node version is pinned in `.nvmrc` (20).
 
 ## Build & deploy
 
-`.github/workflows/build.yml` runs on every push to `main`: it strips the repo down to just the theme directory, appends the short SHA to the `Version:` header in `style.css`, and force-pushes the result to the `build` branch. Downstream consumers (and other wporg repos' Composer deps) track that branch — never commit to `build` directly.
+`.github/workflows/build.yml` runs on every push to `trunk`: it strips the repo down to just the theme directory, appends the short SHA to the `Version:` header in `style.css`, and force-pushes the result to the `build` branch. Downstream consumers (and other wporg repos' Composer deps) track that branch — never commit to `build` directly.
 
 ## Gotchas
 
