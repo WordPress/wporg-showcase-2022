@@ -8,8 +8,8 @@
 
 namespace WordPressdotorg\Theme\Showcase_2022\Site_Screenshot;
 
-use function WordPressdotorg\Theme\Showcase_2022\get_site_domain;
 use Tonesque;
+use function WordPressdotorg\Theme\Showcase_2022\get_site_domain;
 
 add_action( 'init', __NAMESPACE__ . '\init' );
 add_filter( 'render_block_core/group', __NAMESPACE__ . '\inject_background_color', 10, 3 );
