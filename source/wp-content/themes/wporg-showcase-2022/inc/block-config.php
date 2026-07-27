@@ -5,8 +5,8 @@
 
 namespace WordPressdotorg\Theme\Showcase_2022\Block_Config;
 
-use function WordPressdotorg\Theme\Showcase_2022\get_applied_filter_list;
 use WP_Block_Supports;
+use function WordPressdotorg\Theme\Showcase_2022\get_applied_filter_list;
 
 add_filter( 'wporg_query_total_label', __NAMESPACE__ . '\update_query_total_label', 10, 2 );
 add_filter( 'wporg_query_filter_options_post_tag', __NAMESPACE__ . '\get_post_tag_options' );
@@ -187,7 +187,7 @@ function get_sort_options( $options ) {
 			'date_desc' => __( 'Newest', 'wporg' ),
 			'date_asc' => __( 'Oldest', 'wporg' ),
 		),
-		'selected' => [ $sort ],
+		'selected' => array( $sort ),
 	);
 }
 
@@ -203,7 +203,7 @@ function get_sort_options( $options ) {
 function inject_other_filters( $key ) {
 	global $wp_query;
 
-	$query_vars = [ 'tag', 'cat', 'flavor' ];
+	$query_vars = array( 'tag', 'cat', 'flavor' );
 	foreach ( $query_vars as $query_var ) {
 		if ( ! isset( $wp_query->query[ $query_var ] ) ) {
 			continue;
@@ -226,7 +226,7 @@ function inject_other_filters( $key ) {
 	}
 
 	// Handle sorting.
-	$query_vars = [ 'order', 'orderby' ];
+	$query_vars = array( 'order', 'orderby' );
 	foreach ( $query_vars as $query_var ) {
 		if ( ! isset( $wp_query->query[ $query_var ] ) ) {
 			continue;
