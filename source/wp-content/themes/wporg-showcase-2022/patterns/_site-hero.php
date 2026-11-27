@@ -21,7 +21,7 @@
 					<div style="height:clamp(10px, calc(5vw + -55px), 40px)" aria-hidden="true" class="wp-block-spacer"></div>
 					<!-- /wp:spacer -->
 
-					<!-- wp:heading {"fontSize":"heading-2","style":{"spacing":{"margin":{"top":"0"}}}} -->
+					<!-- wp:heading {"level":1,"fontSize":"heading-2","style":{"spacing":{"margin":{"top":"0"}}}} -->
 					<h1 class="wp-block-heading has-heading-2-font-size" style="margin-top:0"><?php esc_html_e( 'Showcase', 'wporg' ); ?></h1>
 					<!-- /wp:heading -->
 
