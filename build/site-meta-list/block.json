@@ -1,0 +1,48 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "wporg/site-meta-list",
+  "version": "0.1.0",
+  "title": "Site Meta List",
+  "category": "design",
+  "icon": "",
+  "description": "Display a site meta data as a list.",
+  "textdomain": "wporg",
+  "attributes": {
+    "showLabel": {
+      "default": true,
+      "type": "boolean"
+    },
+    "meta": {
+      "type": "array"
+    }
+  },
+  "supports": {
+    "align": true,
+    "html": false,
+    "color": {
+      "text": true,
+      "background": true,
+      "link": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    },
+    "__experimentalBorder": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    }
+  },
+  "usesContext": [
+    "postId"
+  ],
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}
