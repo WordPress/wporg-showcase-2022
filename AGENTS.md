@@ -21,7 +21,7 @@ yarn start:theme                               # build + watch
 yarn lint:php                                  # phpcs over the theme
 composer run format source/wp-content/themes/wporg-showcase-2022   # phpcbf, autofix PHP style
 yarn lighthouse                                # asserts a11y/best-practices/SEO = 100
-yarn wp-env run cli "post list --post_status=publish"   # wp-cli (keep command quoted)
+yarn wp-env run cli wp post list --post_status=publish   # wp-cli (pass the command unquoted)
 yarn wp-env clean all && yarn setup:wp         # reset WordPress to a clean install
 yarn update:tools                              # composer update + re-sync repo-tools configs
 ```

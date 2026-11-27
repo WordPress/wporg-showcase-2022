@@ -96,10 +96,10 @@ These must be run in the project's root folder, _not_ in theme/plugin subfolders
     yarn wp-env run wordpress bash
     ```
 
-* Run wp-cli commands. Keep the wp-cli command in quotes so that the flags are passed correctly.
+* Run wp-cli commands. Pass the command and its flags unquoted; wp-env 8+ treats a quoted string as a single executable name.
 
     ```bash
-    yarn wp-env run cli "post list --post_status=publish"
+    yarn wp-env run cli wp post list --post_status=publish
     ```
 
 * Update composer dependencies and sync any `repo-tools` changes.
