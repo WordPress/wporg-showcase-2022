@@ -109,6 +109,7 @@ a:where(:not(.wp-element-button)):focus-visible {
 			overflow: hidden;
 			padding: 0;
 			position: absolute;
+			white-space: nowrap;
 			width: 1px;
 			word-wrap: normal !important;
 		}
