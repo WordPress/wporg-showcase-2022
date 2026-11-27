@@ -35,6 +35,7 @@ add_filter( 'jetpack_images_get_images', __NAMESPACE__ . '\jetpack_fallback_imag
 add_filter( 'jetpack_related_posts_display_markup', __NAMESPACE__ . '\jetpack_related_posts_display', 10, 4 );
 add_filter( 'jetpack_relatedposts_returned_results', __NAMESPACE__ . '\jetpack_related_posts_results', 10, 2 );
 add_filter( 'grunion_contact_form_redirect_url', __NAMESPACE__ . '\jetpack_redirect_submission_form' );
+add_filter( 'body_class', __NAMESPACE__ . '\remove_404_body_class' );
 
 // Enable auto-fill using user information.
 add_filter( 'jetpack_auto_fill_logged_in_user', '__return_true' );
@@ -649,4 +650,15 @@ function remove_featured_category_frontend( $terms, $post_id, $taxonomy ) {
 	}
 
 	return $terms;
+}
+
+/**
+ * Remove the `error404` body class, so the parent theme's 404 styles don't apply to the Showcase 404 template.
+ *
+ * @param string[] $classes An array of body class names.
+ *
+ * @return string[]
+ */
+function remove_404_body_class( $classes ) {
+	return array_values( array_diff( $classes, array( 'error404' ) ) );
 }
