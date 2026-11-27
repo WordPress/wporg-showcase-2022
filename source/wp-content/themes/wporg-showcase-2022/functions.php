@@ -312,6 +312,11 @@ function modify_query_loop_block_query_vars( $query, $block ) {
 		$query['orderby'] = 'post__in';
 	}
 
+	// The parent theme's `category` slug support misses query blocks nested inside other blocks.
+	if ( ! empty( $block->context['query']['category'] ) ) {
+		$query['category_name'] = $block->context['query']['category'];
+	}
+
 	return $query;
 }
 
