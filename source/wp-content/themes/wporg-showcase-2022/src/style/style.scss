@@ -99,17 +99,21 @@ a:where(:not(.wp-element-button)):focus-visible {
 		}
 	}
 
-	/* Hide the visible site title on small screens. */
+	/* On small screens the title shows in the local nav, so keep the heading for screen readers only. */
 	@media (max-width: 599px) {
-		h1:not(.screen-reader-text),
-		h1 + p {
-			display: none;
+		h1 {
+			border: 0;
+			clip-path: inset(50%);
+			height: 1px;
+			margin: -1px;
+			overflow: hidden;
+			padding: 0;
+			position: absolute;
+			width: 1px;
+			word-wrap: normal !important;
 		}
-	}
 
-	/* Hide the screen-reader site title on large screens. */
-	@media (min-width: 600px) {
-		h1.screen-reader-text {
+		h1 + p {
 			display: none;
 		}
 	}
