@@ -44,6 +44,7 @@ const MetaPanel = () => {
 				value={ meta.domain }
 			/>
 			<ComboboxControl
+				__next40pxDefaultSize
 				label={ __( 'Country', 'wporg' ) }
 				help={ __( 'Location of site.', 'wporg' ) }
 				onChange={ ( value ) => onChange( 'country' )( value || '' ) }
