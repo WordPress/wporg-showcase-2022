@@ -12,7 +12,7 @@
 	},
 	"scripts": {
 		"setup:tools": "TEXTDOMAIN=wporg composer exec update-configs",
-		"setup:wp": "wp-env run cli \"bash env/setup.sh\"",
+		"setup:wp": "wp-env run cli bash env/setup.sh",
 		"update:tools": "composer update && TEXTDOMAIN=wporg composer exec update-configs",
 		"wp-env": "wp-env",
 		"lighthouse": "lighthouse-ci http://localhost:8888/ --accessibility=100 --best-practices=100 --seo=100",
